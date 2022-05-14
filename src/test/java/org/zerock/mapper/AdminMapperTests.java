@@ -23,4 +23,11 @@ public class AdminMapperTests {
         adminMapper.selectAdminList(listDTO);
     }
 
+    @Test
+    public void testAdminList2(){
+        ListDTO listDTO = new ListDTO();
+        adminMapper.selectRequesterList(listDTO);
+    }
+
+
 }

@@ -6,7 +6,9 @@
 <mapper namespace="org.zerock.oscatest.mapper.AdminMapper">
 
 
-    <sql id="search">
+
+    <!--Admin======================================================================================================-->
+    <sql id="adSearch">
         <where>
             <if test="keyword != null">
                 <foreach collection="types" item="item" separator=" OR " open="(" close=")">
@@ -24,12 +26,11 @@
         </where>
     </sql>
 
-
-    <select id="selectAdminList"  resultType="org.zerock.oscatest.domain.Admin">
+    <select id="selectAdminList" resultType="org.zerock.oscatest.domain.Admin">
         select adno, adID,adName, adCall, adEmail, authority, regDate, updateDate
         from tbl_admin
 
-        <include refid="search"></include>
+        <include refid="adSearch"></include>
 
         order by adno asc
         limit #{skip},#{size}
@@ -37,13 +38,70 @@
 
     <select id="getAdminTotal" resultType="int">
         select count(adno) from tbl_admin
-        <include refid="search"></include>
+        <include refid="adSearch"></include>
+    </select>
+    <!--===========================================================================================================-->
+
+    <!--Requester==================================================================================================-->
+    <sql id="reqSearch">
+        <where>
+            <if test="keyword != null">
+                <foreach collection="types" item="item" separator=" OR " open="(" close=")">
+                    <if test='item == "t"'>
+                        reqid like concat('%', #{keyword}, '%')
+                    </if>
+                    <if test='item == "c"'>
+                        reqname like concat('%', #{keyword}, '%')
+                    </if>
+                    <if test='item == "w"'>
+                        reqcall like concat('%', #{keyword}, '%')
+                    </if>
+                </foreach>
+            </if>
+        </where>
+    </sql>
+
+    <select id="selectRequesterList" resultType="org.zerock.oscatest.domain.Requester">
+        select *
+        from tbl_requester
+
+        <include refid="reqSearch"></include>
+
+        order by reqno asc
+        limit #{skip},#{size}
+    </select>
+    <select id="getRequesterTotal" resultType="int">
+        select count(reqno) from tbl_requester
+        <include refid="reqSearch"></include>
+    </select>
+    <!--===========================================================================================================-->
+
+    <!--Contractor=================================================================================================-->
+    <select id="selectContractorList" resultType="org.zerock.oscatest.domain.Contractor">
+        select *
+        from tbl_contractor
+
+
+        order by ctno asc
+        limit #{skip},#{size}
+    </select>
+    <select id="getContractorTotal" resultType="int">
+        select count(ctno) from tbl_contractor
+    </select>
+    <!--===========================================================================================================-->
+
+    <!--Contract===================================================================================================-->
+    <select id="selectContractList" resultType="org.zerock.oscatest.domain.Contract">
+        select *
+        from tbl_contract
+        order by conno asc
+            limit #{skip}, #{size}
     </select>
 
-    <update id="updateAsRemove">
-        update tbl_admin set adID ='DELETED',adName='DELETED', adCall='DELETED', adEmail='DELETED', authority='0' where adno = #{adno}
-    </update>
-
+    <select id="getContractTotal" resultType="int">
+        select count(conno)from tbl_contract
+    </select>
+    <!--===========================================================================================================-->
 
 
 </mapper>

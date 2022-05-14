@@ -22,10 +22,10 @@
         <div class="customListName sidebar-heading border-bottom bg-light">관리목록
         </div>
         <div class="list-group list-group-flush">
-            <a class="contractList list-group-item list-group-item-action list-group-item-light p-3" href="http://localhost:8080/admin/contractList">계약관리</a>
-            <a class="clientList list-group-item list-group-item-action list-group-item-light p-3" href="http://localhost:8080/requesterList">의뢰자관리</a>
-            <a class="workerList list-group-item list-group-item-action list-group-item-light p-3" href="http://localhost:8080/admin/contractorList">시공사관리</a>
-<%--            <a class="settingForm list-group-item list-group-item-action list-group-item-light p-3" href="#!">관리설정</a>--%>
+            <a class="contractList list-group-item list-group-item-action list-group-item-light p-3" href="http://localhost:8080/contract/list">계약관리</a>
+            <a class="clientList list-group-item list-group-item-action list-group-item-light p-3" href="http://localhost:8080/requester/list">의뢰자관리</a>
+            <a class="workerList list-group-item list-group-item-action list-group-item-light p-3" href="http://localhost:8080/contractor/list">시공사관리</a>
+            <a class="settingForm list-group-item list-group-item-action list-group-item-light p-3" href="#!">관리설정</a>
         </div>
     </div>
     <!-- Page content wrapper-->
@@ -40,8 +40,7 @@
                         class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                        <li class="nav-item active"><a class="nav-link" href="http://localhost:8080/admin/adminList">Home</a>
-                        </li>
+                        <li class="nav-item active"><a class="nav-link" href="http://localhost:8080/admin/adminList">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Logout</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Setting</a></li>
                     </ul>
@@ -52,13 +51,12 @@
         <!-- Page content-->
         <div class="container-fluid">
 
-
             <div class="searchDiv">
                 <select class="type">
-                    <option value=""></option>
-                    <option value="t" ${listDTO.type =="t"?"selected":""}>ID</option>
-                    <option value="tc"  ${listDTO.type =="tc"?"selected":""}>ID+Name</option>
-                    <option value="tcw"  ${listDTO.type =="tcw"?"selected":""}>ID+Name+Number</option>
+                    <option value="">---</option>
+                    <option value="t" ${listDTO.type =="t"?"selected":""}>제목</option>
+                    <option value="tc"  ${listDTO.type =="tc"?"selected":""}>제목내용</option>
+                    <option value="tcw"  ${listDTO.type =="tcw"?"selected":""}>제목내용작성자</option>
                 </select>
                 <input type="text" name="keyword" value="${listDTO.keyword}">
                 <button class="searchBtn">Search</button>
@@ -68,42 +66,71 @@
                 <thead>
                 <tr>
                     <th scope="col">No.</th>
-                    <th scope="col">관리자ID</th>
-                    <th scope="col">관리자이름</th>
-                    <th scope="col">관리자번호</th>
-                    <th scope="col">관리자이메일</th>
-                    <th scope="col">권한</th>
-                    <th scope="col">등록시간</th>
-                    <th scope="col">수정시간</th>
-                    <th scope="col">기능여부</th>
+                    <th scope="col">시공사ID</th>
+                    <th scope="col">시공사분류</th>
+                    <th scope="col">시공사명</th>
+                    <th scope="col">사업자번호</th>
+                    <th scope="col">시공사번호</th>
+                    <th scope="col">시공사E-mail</th>
+                    <th scope="col">시공사주소</th>
+                    <th scope="col">시공사파일</th>
                 </tr>
                 </thead>
-
+                <%--                <tr>--%>
+                <%--                    <th scope="row">1</th>--%>
+                <%--                    <td>학원내부 천장공사</td>--%>
+                <%--                    <td>이상없음</td>--%>
+                <%--                    <td>2022/5/10 ~ 2022/7/25</td>--%>
+                <%--                    <td>학원장</td>--%>
+                <%--                    <td>천공장</td>--%>
+                <%--                    <td>입금완료</td>--%>
+                <%--                    <td>불가</td>--%>
+                <%--                    <td>없음</td>--%>
+                <%--                    <td>--%>
+                <%--                        <button class="modBtn btn btn-secondary">수정</button>--%>
+                <%--                        <button class="delBtn btn btn-danger">삭제</button>--%>
+                <%--                    </td>--%>
+                <%--                </tr>--%>
                 <tbody class="tableValue">
-
-                <c:forEach items="${adDtoList}" var="admin">
-
+                <c:forEach items="${ctDtoList}" var="ct">
                     <tr>
-                        <th class="adno">${admin.adno}</th>
-                        <td>${admin.adID}</td>
-                        <td>${admin.adName}</td>
-                        <td>${admin.adCall}</td>
-                        <td>${admin.adEmail}</td>
-                        <td>${admin.authority}</td>
-                        <td>${admin.regDate}</td>
-                        <td>${admin.updateDate}</td>
-                        <c:if test="${admin.adID ne 'DELETED'}">
-                            <td>
-                                <button class="modBtn btn btn-secondary">수정</button>
-                                <button data-adno='${admin.adno}' class="delBtn btn btn-danger">삭제</button>
-                            </td>
-                        </c:if>
+                        <th>${ct.ctno}</th>
+                        <td>${ct.ctID}</td>
+                        <td>${ct.categoryNum}</td>
+                        <td>${ct.ctName}</td>
+                        <td>${ct.businessNum}</td>
+                        <td>${ct.ctCall}</td>
+                        <td>${ct.ctEmail}</td>
+                        <td>${ct.ctAddress}</td>
+                        <td>${ct.ctFileNum}</td>
+                        <td>${ct.ctDelFlag}</td>
+                            <%--                        <td>${ct.regdate}</td>--%>
+                            <%--                        <td>${ct.updatedate}</td>--%>
+                            <%--                        <c:if test="${ct.ctDelFlag ne '1'}">--%>
+                            <%--                        <td><button class="modBtn btn btn-secondary">수정</button>--%>
+                        <td><button data-ctno='${ct.ctno}' class="delBtn btn btn-danger">삭제</button></td>
                     </tr>
-
+                    <%--                    </c:if>--%>
                 </c:forEach>
-
                 </tbody>
             </table>
+
+
+            <%--            <ul class="dtoList">--%>
+            <%--                <c:forEach items="${dtoList}" var="board">--%>
+            <%--                    <li>--%>
+            <%--                        <span> ${board.bno} </span>--%>
+            <%--                            &lt;%&ndash;            전 방법&ndash;%&gt;--%>
+            <%--                            &lt;%&ndash;            <span><a href='/board/read${listDTO.link}&bno=${board.bno}'> ${board.title}</a></span>&ndash;%&gt;--%>
+            <%--                        <span>--%>
+            <%--                    <a href='/board/read/${board.bno}' class="dtoLink">--%>
+            <%--                    <c:out value="${board.title}"></c:out></a>--%>
+            <%--                </span>--%>
+            <%--                        <span> ${board.content} </span>--%>
+            <%--                        <span> ${board.writer} </span>--%>
+            <%--                    </li>--%>
+            <%--                </c:forEach>--%>
+            <%--            </ul>--%>
 
             <div class="customFooter">
                 <%--                ${pageMaker}--%>
@@ -129,7 +156,7 @@
                     </c:if>
                 </ul>
             </div>
-            <form class="actionForm" action="/admin/adminList" method="get">
+            <form class="actionForm" action="/admin/contractorList" method="get">
                 <input type="hidden" name="page" value="${listDTO.page}">
                 <input type="hidden" name="size" value="${listDTO.size}">
                 <input type="hidden" name="type" value="${listDTO.type == null?'':listDTO.type}">
@@ -138,11 +165,9 @@
         </div>
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-
-
-
 
     const linkDiv = document.querySelector(".pagination")
     const actionForm = document.querySelector(".actionForm")
@@ -152,30 +177,28 @@
     const workerList = document.querySelector(".workerList")
 
     const tableValue = document.querySelector(".tableValue")
+    //----------------------------------------------------------------------------------------
 
-
-    // let targetLi;
-
-    // for (let delB of delBtn) {
     tableValue.addEventListener("click", (e) => {
         e.preventDefault() //기본기능 방지
         e.stopPropagation() //전파 방지
         // if(e.target.getAttribute("class").indexOf("modBtn")){
-        if(e.target.getAttribute("class") == 'modBtn btn btn-secondary'){
-            alert("수정버튼")
+        // if(e.target.getAttribute("data-modIdx")){
+        //     arridx = e.target.getAttribute("data-modIdx")
+        //
+        //
+        // }
 
-        }
-
-        if (!e.target.getAttribute("data-adno")) {
+        if (!e.target.getAttribute("data-ctno")) {
             //이벤트가 발생한곳에서 data-adno로 값을 가지고 있는지 확인
 
             return;
 
         }
-        const adno = e.target.getAttribute("data-adno")
+        const ctno = e.target.getAttribute("data-ctno")
         //data-adno로 adno값을 저장해둔것을 가져온다
 
-        removeServer(adno).then(result => {
+        removeServer(ctno).then(result => {
             console.log(result)
         })
         //아래에 비동기 코드
@@ -185,11 +208,12 @@
         targetLi.innerHTML = " "
         //글목록이 아예 사라지지 않기 때문에 버튼이 남게되어
         //삭제후 버튼에 해당하는 부분을 Delete문자열을 넣음
-        self.location = `/admin/adminList${listDTO.link}`
-        alert("No."+adno+"글이 삭제 되었습니다")
+        alert("No."+ctno+"글이 삭제 되었습니다")
         //나중에 모달로 수정해야한다
+        self.location = `/admin/contractorList${listDTO.link}`
+
     }, false)
-    // }
+
 
     contractList.addEventListener("click", (e) => {
         console.log("contract")
@@ -234,7 +258,7 @@
 
         const pageNum = target.getAttribute("href")
         actionForm.querySelector("input[name='page']").value = pageNum
-        actionForm.setAttribute("action", "/admin/adminList")
+        actionForm.setAttribute("action", "/admin/contractorList")
         actionForm.submit()
 
     }, false)
@@ -246,7 +270,7 @@
 
         console.log(type, keyword)
 
-        actionForm.setAttribute("action", "/admin/adminList")
+        actionForm.setAttribute("action", "/admin/contractorList")
         actionForm.querySelector("input[name='page']").value = 1
         actionForm.querySelector("input[name='type']").value = type
         actionForm.querySelector("input[name='keyword']").value = keyword
@@ -258,15 +282,15 @@
 
     const result = '${result}'
 
+    console.log(result)
 
     if (result !== '') {
         alert("처리되었습니다.")
     }
+    //===========================================================================================================
+    async function removeServer(ctno) {
 
-    //===========================================================================================
-    async function removeServer(adno) {
-
-        const res = await axios.delete(`/admin/\${adno}`)
+        const res = await axios.delete(`/contractor/delete/\${ctno}`)
         //delete형식으로 값을 json형식으로 Controller에 넘겨준다
         const result = res.data
         return result.data
