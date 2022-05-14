@@ -4,7 +4,7 @@
 <configuration>
 
     <typeAliases>
-<!--        <typeAlias type="org.zerock.oscatest.domain.Board" alias="Board"/>-->
+<!--        <typeAlias type="org.zerock.teamwebboard.domain.Board" alias="Board"/>-->
     </typeAliases>
 
 </configuration>
