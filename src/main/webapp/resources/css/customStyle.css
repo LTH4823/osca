@@ -1,9 +1,10 @@
 /*Navbar-----------------------------------------*/
 .customNavbar {
+    height: 5.5em;
     background-color: rgba(255, 255, 255, 0.836);
     padding: 0;
     font-family: "Lato", sans-serif;
-    box-shadow: 0.3px 1.2px 1px 1px;
+    /* box-shadow: 0.3px 1.2px 1px 1px; */
 }
 /* .customNavbar .navbarLogo{
   width: 2.5em;
@@ -40,6 +41,7 @@
 }
 
 .customNavbar li {
+    font-size: 1.3em;
     margin: 0.5em;
     font-weight: 600;
 }
@@ -465,4 +467,8 @@
 
 .customPagination {
     margin: 1em;
+}
+
+.customListName {
+    height: 4.6em;
 }
