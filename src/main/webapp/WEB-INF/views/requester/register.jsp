@@ -61,13 +61,13 @@
 
                                 <p class="registerLogo text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">O.S.C.A</p>
 
-                                <form class="registerForm mx-1 mx-md-4">
+                                <form class="registerForm mx-1 mx-md-4 " action="/requester/register" method="post">
 
                                     <div class="d-flex flex-row align-items-center mb-4">
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">아이디</label>
-                                            <input type="text" class="form-control"/>
+                                            <input type="text" class="reqId form-control"/>
 
                                         </div>
                                     </div>
@@ -76,14 +76,14 @@
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">이름</label>
-                                            <input type="text" class="form-control"/>
+                                            <input type="text" class="reqName form-control"/>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">생년월일</label>
-                                            <input type="text" class="form-control"/>
+                                            <input type="text" class="reqBurith form-control"/>
                                         </div>
                                     </div>
 
@@ -105,6 +105,8 @@
                                                 <input type="text" class="registerAdressInput form-control"
                                                        id="custom_extraAddress" placeholder="참고항목">
                                             </div>
+
+                                            <div id="map" style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
                                         </div>
                                     </div>
 
@@ -112,14 +114,14 @@
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">전화번호</label>
-                                            <input type="text" id="form3Example1c" class="form-control"/>
+                                            <input type="text" id="form3Example1c" class="reqCall form-control"/>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example3c">이메일</label>
-                                            <input type="email" id="form3Example3c" class="form-control"/>
+                                            <input type="email" id="form3Example3c" class="reqEmail form-control"/>
                                         </div>
                                     </div>
 
@@ -127,7 +129,7 @@
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example4c">비밀번호</label>
-                                            <input type="password" id="form3Example4c" class="form-control"/>
+                                            <input type="password" id="form3Example4c" class="reqPw form-control"/>
                                         </div>
                                     </div>
 
@@ -135,7 +137,15 @@
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example4cd">비밀번호 확인</label>
-                                            <input type="password" id="form3Example4cd" class="form-control"/>
+                                            <input type="password" id="form3Example4cd" class="reqPwCheck form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="registerFile form-outline flex-fill mb-0">
+                                            <label class="form-label" for="form3Example3c">프로필 이미지를 넣어주세요.</label>
+                                            <input type="file"class="reqLogo form-control" multiple/>
                                         </div>
                                     </div>
 
@@ -159,8 +169,15 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <!-- Core theme JS-->
 <script src="../../../resources/js/scripts.js"></script>
+
+<%--map--%>
+<script src="../../../resources/js/map.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services" defer></script>
+
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/67818242f4.js" crossorigin="anonymous"></script>
 </body>
