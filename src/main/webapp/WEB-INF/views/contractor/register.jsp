@@ -147,7 +147,15 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
 
                                         <div class="registerFile form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example3c">사업자 등록증 및 기타(필수)</label>
+                                            <label class="form-label" for="form3Examplec">사업자 등록증(필수)</label>
+                                            <input type="file" id="form3Examplec" class="form-control" multiple/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="registerFile form-outline flex-fill mb-0">
+                                            <label class="form-label" for="form3Example3c">프로필이미지</label>
                                             <input type="file" id="form3Example3c" class="form-control" multiple/>
                                         </div>
                                     </div>
@@ -177,9 +185,8 @@
 
 <%--map--%>
 <script src="../../../resources/js/map.js"></script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services" defer></script>
-
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c"></script>
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/67818242f4.js" crossorigin="anonymous"></script>
 </body>

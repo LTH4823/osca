@@ -34,11 +34,12 @@ public class RequesterController {
         log.info("Requester Post Test............");
         log.info("requester");
 
+        log.info(requesterDTO);
         requesterService.insert(requesterDTO);
 
         rttr.addFlashAttribute("result","insert");
 
-        return "redirect:/admin/";
+        return "redirect:/requester/register";
 
     }
 

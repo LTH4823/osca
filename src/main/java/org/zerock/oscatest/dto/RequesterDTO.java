@@ -12,7 +12,6 @@ public class RequesterDTO {
     private String reqCall;
     private String reqEmail;
     private String reqImg;
-    private String residentNum;
 
     private LocalDate regDate;
     private LocalDate updateDate;
