@@ -21,18 +21,15 @@ pdfBtn.addEventListener(
         // // doc.line(15, 19, 195, 19); // 선그리기(시작x, 시작y, 종료x, 종료y)
         // // doc.text(15, 40, 'hello'); // 글씨입력(시작x, 시작y, 내용)
 
-        // // doc.addImage(myImg, 'JPEG', 20, 60, 500, 600); //이미지 그리기
-
-        // doc.save('web.pdf');  //결과 출력
-
         const doc = new jsPDF({
             //orientation: "landscape",
             orientation: "portrait",
             //format: "a4"
             format: [400, 200],
         });
-
+        console.log(doc)
         doc.addHTML(document.body, function () {
+
             doc.save("html.pdf");
         });
     },

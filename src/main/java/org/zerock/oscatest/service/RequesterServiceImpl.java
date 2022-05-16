@@ -13,8 +13,8 @@ import org.zerock.oscatest.mapper.RequesterMapper;
 @RequiredArgsConstructor
 public class RequesterServiceImpl implements RequesterService {
 
-    private RequesterMapper requesterMapper;
-    private ModelMapper modelMapper;
+    private final RequesterMapper requesterMapper;
+    private final ModelMapper modelMapper;
 
     @Override
     public void insert(RequesterDTO requesterDTO) {

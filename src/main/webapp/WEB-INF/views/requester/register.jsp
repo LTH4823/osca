@@ -173,13 +173,13 @@
 <script src="../../../resources/js/scripts.js"></script>
 
 <%--map--%>
-<script src="../../../resources/js/map.js"></script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services" defer></script>
 
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services" ></script>
+<script src="../../../resources/js/map.js"></script>
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/67818242f4.js" crossorigin="anonymous"></script>
-
+1
 <script>
 
     document.querySelector(".registerBtn").addEventListener("click", (e)=>{
