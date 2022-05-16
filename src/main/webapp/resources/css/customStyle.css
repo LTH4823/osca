@@ -1,11 +1,18 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
 /*Navbar-----------------------------------------*/
 .customNavbar {
     height: 5.5em;
     background-color: rgba(255, 255, 255, 0.836);
     padding: 0;
     font-family: "Lato", sans-serif;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     /* box-shadow: 0.3px 1.2px 1px 1px; */
 }
+
 /* .customNavbar .navbarLogo{
   width: 2.5em;
   height: 2.5em;
@@ -82,13 +89,14 @@
     margin: 20px 0px;
 }
 
-.customLoginForm {
+.loginForm {
     height: calc(100%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .customLoginBtn {
     width: calc(100% - 20px);
-    background-color: rgb(0, 255, 255);
+    background-color: rgb(0, 157, 255);
     font-family: "Lato", sans-serif;
     font-weight: bold;
     /* border: 0.1em outset; */
@@ -159,7 +167,7 @@
 /* register------------------------------- */
 
 .registerBody {
-    background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 
 .registerLogo {
@@ -213,13 +221,19 @@
 
 
 
-/* contractViwq------------------------------ */
+/* contractView------------------------------ */
 
 /*----------------------------------------------*/
 
+.contractView {
+    /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
+}
+
 .contractViewMainImg {
-    max-width: 900px;
-    max-height: 400px;
+    max-width: 550px;
+    max-height: 770px;
+    padding: 2em;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .contractViewListLine {
@@ -242,21 +256,43 @@
     margin: 0px 16px;
 }
 
-.contractViewContet {
+.contractViewContent {
+    max-width: 550px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-.contractViewContet h3 {
+.contractViewValue {
+    margin: 1em;
+}
+
+.contractViewMapArea {
+    margin: 1em;
+}
+
+.contractViewMap {
+    width: 300px;
+    height: 300px;
+    background-color: #5efce8;
+}
+
+.contractViewCondition {
+}
+
+.contractViewBtns {
+}
+
+.contractViewContent h2 {
     font-weight: bold;
 }
 
-.contractViewContet .contractDate {
+.contractViewContent .contractDate {
 }
 
-.contractViewContet h5 {
+.contractViewContent h5 {
     font-weight: bolder;
 }
 
-.contractViewContet p {
+.contractViewContent p {
     margin: 0em 0em 0em 1em;
 }
 
@@ -383,6 +419,17 @@
 
 /*-----------------------------------------*/
 
+/*workers-------------------------------------------------------*/
+
+.workers {
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+.workersSelect {
+}
+
+/*---------------------------------------------------------------*/
+
 .customFlexRow {
     display: flex;
     align-items: center;
@@ -473,4 +520,3 @@
     height: 4.6em;
     text-align: center;
 }
-
