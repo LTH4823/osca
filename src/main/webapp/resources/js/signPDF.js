@@ -71,10 +71,10 @@ function canvasSet(canvas) {
         image.replace("data:image/png;base64,", "");
         console.log(image);
 
-        // const link = document.createElement("a");
-        // link.href = image;
-        // link.download = "HandSign";
-        // link.click();
+        const link = document.createElement("a");
+        link.href = image;
+        link.download = "HandSign";
+        link.click();
     }
 
     if (canvas) {
@@ -91,40 +91,3 @@ function canvasSet(canvas) {
 
 canvasSet(cludeSignRequester);
 canvasSet(cludeSignContractor);
-
-const canvasPdf = document.querySelector(".canvasPdf");
-const pdfBtn = document.querySelector(".pdfBtn");
-
-const doc = new jsPDF("p", "mm", "a4", "true");
-
-pdfBtn.addEventListener(
-    "click",
-    (e) => {
-        const doc = new jsPDF({
-            //orientation: "landscape",
-            orientation: "portrait",
-            //format: "a4"
-            format: [400, 200],
-        });
-
-        doc.addHTML(document.body, function () {
-            doc.save("html.pdf");
-            console.log();
-        });
-
-        const html_source = document.querySelector("html"); // Get html
-
-        html2canvas(html_source).then(function (canvas) {
-            // Convert to canvas
-
-            let imgData = canvas.toDataURL("image/png"); // Generates image that you can store
-
-            console.log(imgData);
-
-            let pdf = new jsPDF("p", "mm", "a4"); //Create PDF, Note that you use the same image to create the PDF
-            pdf.addImage(imgData, "PNG", 10, 10);
-            pdf.save("test.pdf");
-        });
-    },
-    false
-);

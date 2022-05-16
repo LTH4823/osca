@@ -43,4 +43,10 @@ public class RequesterController {
 
     }
 
+    @GetMapping("/clude")
+    public void clude(){
+        log.info("Requester GET Test............");
+        log.info("requester");
+    }
+
 }

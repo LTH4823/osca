@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cludeContractSignArea {
+    width: calc(100%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.customSign {
+    background-color: rgb(170, 170, 170);
+    border: black 1px solid;
+}
+
+.customPDF {
+    width: 80vw;
+    height: 80vh;
+}
+
+.customBtns {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.customBtn {
+    width: 20vw;
+    height: 10vh;
+    font-size: 50px;
+}
