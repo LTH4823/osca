@@ -6,9 +6,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.zerock.oscatest.domain.Requester;
-import org.zerock.oscatest.dto.ListDTO;
-import org.zerock.oscatest.mapper.RequesterMapper;
 
 @Log4j2
 @ExtendWith(SpringExtension.class)
