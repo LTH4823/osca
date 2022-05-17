@@ -13,15 +13,17 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico"/>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../../css/styles.css" rel="stylesheet"/>
+    <link href="../../resources/css/style.css" rel="stylesheet"/>
     <!-- googlefont -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <!-- reset -->
-    <link href="../../css/reset.css" rel="stylesheet"/>
+    <link href="../../resources/css/reset.css" rel="stylesheet"/>
     <!-- custom -->
-    <link href="../../css/customStyle.css" rel="stylesheet"/>
+    <link href="../../resources/css/CustomStyle.css" rel="stylesheet"/>
+
+
 </head>
 
 <body>
@@ -85,7 +87,7 @@
                                             id="form1Example3" />
                                     </div> -->
                                 <div class="loginAtags customRow">
-                                    <a href="#!">회원가입</a>
+                                    <a href="/company/register">회원가입</a>
                                     <a href="#!">비밀번호 찾기</a>
                                 </div>
                                 <!-- </div> -->
@@ -111,7 +113,7 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script src="../js/scripts.js"></script>
+<script src="../../resources/js/scripts.js"></script>
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/67818242f4.js" crossorigin="anonymous"></script>
 </body>

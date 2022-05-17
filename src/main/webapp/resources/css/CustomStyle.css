@@ -1,0 +1,522 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+/*Navbar-----------------------------------------*/
+.customNavbar {
+    height: 5.5em;
+    background-color: rgba(255, 255, 255, 0.836);
+    padding: 0;
+    font-family: "Lato", sans-serif;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    /* box-shadow: 0.3px 1.2px 1px 1px; */
+}
+
+/* .customNavbar .navbarLogo{
+  width: 2.5em;
+  height: 2.5em;
+} */
+.customNavbar .navbarTitle:hover {
+    color: rgb(0, 217, 255);
+}
+
+.customNavbar .navbarToggleBtn {
+    padding: 1em;
+}
+
+.customNavbar .navbarToggle {
+    padding: 0;
+}
+
+.customNavbar .navbarTitle {
+    font-weight: bolder;
+    color: rgb(0, 157, 255);
+    text-shadow: 1.8px 1.5px rgb(0, 105, 150);
+}
+
+.customNavbar .navbarBody {
+    padding: 0;
+}
+
+.customNavbar .navbarToggleArea .nav-item:hover {
+    background-color: rgba(0, 17, 255, 0.1);
+}
+
+.customNavbar .navbarToggleArea .nav-item a {
+    padding: 0.5em;
+}
+
+.customNavbar li {
+    font-size: 1.3em;
+    margin: 0.5em;
+    font-weight: 600;
+}
+
+.customNavbar li :hover {
+    background-color: rgba(0, 17, 255, 0.1);
+    border-radius: 0.3em;
+    color: rgb(0, 0, 132);
+    font-weight: bolder;
+}
+
+@media (max-width: 991px) {
+    .navbarToggleArea {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+/*-----------------------------------------*/
+
+/* login page----------------------------- */
+
+.loginBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    /* background-image: linear-gradient(135deg, #5efce8 10%, #736efe 100%); */
+    /* background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%); */
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+.loginLogo {
+    font-weight: bolder;
+    color: rgb(0, 157, 255);
+    text-shadow: 6px 6px rgb(80, 151, 238);
+    font-size: 100px;
+    margin: 20px 0px;
+}
+
+.loginForm {
+    height: calc(100%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.customLoginBtn {
+    width: calc(100% - 20px);
+    background-color: rgb(0, 157, 255);
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    /* border: 0.1em outset; */
+    height: 50px;
+    margin: 5px;
+}
+
+.customKakaoBtn {
+    width: calc(100% - 20px);
+    background-color: rgb(254, 229, 0);
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    color: black;
+    height: 50px;
+    margin: 5px;
+}
+
+/* .loginCheck {
+  width: calc(100% - 10%);
+} */
+
+.loginAtags {
+    width: calc(100% - 10%);
+    margin: 1.2em 0em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loginAtags a {
+    margin: 0.3em;
+    text-decoration: none;
+    font-family: "Lato", sans-serif;
+}
+
+@media (max-width: 575px) {
+    .loginImg {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .customNavbar {
+        display: none;
+    }
+    .loginLogo {
+        font-size: 70px;
+    }
+    .loginBody {
+        background-image: none;
+        background-color: rgb(255, 255, 255);
+    }
+
+    section {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .loginLogo {
+        font-size: 30px;
+        text-shadow: 1.8px 1.5px rgb(0, 105, 150);
+    }
+}
+
+/*-----------------------------------------*/
+
+/* register------------------------------- */
+
+.registerBody {
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+.registerLogo {
+    font-weight: bolder;
+    color: rgb(0, 157, 255);
+    text-shadow: 6px 6px rgb(80, 151, 238);
+    font-size: 100px;
+    margin: 20px 0px;
+}
+
+.registerForm {
+    font-family: "Nanum Gothic Coding", monospace;
+}
+
+.registerBtn {
+    margin: 2em;
+    width: calc(100% - 10%);
+}
+
+.registerAdressInput {
+    width: calc(100% - 50%);
+}
+
+.registerAdressFind {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media (max-width: 560px) {
+    .registerLogo {
+        font-size: 50px;
+        text-shadow: 1.8px 1.5px rgb(0, 105, 150);
+    }
+}
+
+/*----------------------------------------------
+
+
+/* mainList-------------------------------------- */
+.mainLogo {
+}
+
+.mainLogo h1 {
+}
+
+.mainLogo p {
+}
+
+/*----------------------------------------------
+
+
+
+/* contractView------------------------------ */
+
+/*----------------------------------------------*/
+
+.contractView {
+    /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
+}
+
+.contractViewMainImg {
+    max-width: 550px;
+    max-height: 770px;
+    padding: 2em;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.contractViewListLine {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0, 1);
+    font-size: 15px;
+    margin: 8px 0px;
+}
+
+.contractViewListLine::before,
+.contractViewListLine::after {
+    content: "";
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 1);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 16px;
+}
+
+.contractViewContent {
+    max-width: 550px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.contractViewValue {
+    margin: 1em;
+}
+
+.contractViewMapArea {
+    margin: 1em;
+}
+
+.contractViewMap {
+    width: 300px;
+    height: 300px;
+    background-color: #5efce8;
+}
+
+.contractViewCondition {
+}
+
+.contractViewBtns {
+}
+
+.contractViewContent h2 {
+    font-weight: bold;
+}
+
+.contractViewContent .contractDate {
+}
+
+.contractViewContent h5 {
+    font-weight: bolder;
+}
+
+.contractViewContent p {
+    margin: 0em 0em 0em 1em;
+}
+
+/* cludeContract --------------------------*/
+
+.cludeContract {
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+.cludeContractTitle {
+    font-size: 55px;
+    margin: 0.4em;
+}
+
+.cludeCardRequester {
+    padding: 0px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.cludeCardContractor {
+    padding: 0px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.cludeCardImg {
+    margin: 0em 1em 0em 0em;
+    max-width: 200px;
+}
+
+.cludeCardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cludeCardPhone {
+    margin: 0em 1em 0em 0em;
+}
+
+.cludeCardPhone img {
+    max-width: 1.5em;
+    margin: 0em 0.2em 0em 0em;
+}
+
+.cludeCardConnect {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0em 0em 0.5em 0em;
+}
+
+.cludeCardEmail img {
+    max-width: 1.5em;
+    margin: 0em 0.2em 0em 0em;
+}
+
+.cludeCardAdress {
+    margin: 0.7em 0em;
+}
+
+.cludeeCardCategory {
+    background-color: #5efce8;
+}
+
+.cludeCardName {
+    font-size: 20px;
+}
+
+.cludeContractSummary {
+    width: calc(100% - 5%);
+    margin: 7em 0em 0em 0em;
+}
+
+.cludeContractSummary .summaryValue {
+    margin: 2em 0em 0em 2em;
+    font-size: 30px;
+}
+
+.cludeContractChat {
+    width: calc(100% - 5%);
+    margin: 7em 0em 0em 0em;
+}
+
+.cludeContractChat .chatValue {
+    width: calc(100% - 40%);
+    height: 70vh;
+    margin: 2em 0em 0em 2em;
+}
+
+.cludeContractChat .chatBtns {
+    margin: 2em 0em 0em 2em;
+}
+
+.cludeContractSummaryTitle {
+    font-size: 40px;
+}
+
+.cludeContractRange .rangeStart {
+}
+
+.cludeContractRange .rangeEnd {
+}
+
+.cludeContractPay input {
+    width: 100px;
+    height: 4em;
+}
+
+.cludeAcceptBtn {
+    width: 20em;
+    height: 5em;
+    font-size: larger;
+    margin: 2em;
+}
+
+.cludeContractSignArea {
+    width: calc(100%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+/*-----------------------------------------*/
+
+/*workers-------------------------------------------------------*/
+
+.workers {
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+.workersSelect {
+}
+
+/*---------------------------------------------------------------*/
+
+.customFlexRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.customFlexRowAround {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.customFlexColumn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.customFlexColumnAround {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.customNoneListStyle {
+    list-style: none;
+}
+
+.customCard {
+    padding: 2em;
+    margin: 1em;
+}
+
+.customImgSmallSize {
+    width: 200px;
+    height: 200px;
+}
+
+.customContractForm {
+    padding: 20px;
+}
+
+.customPDF {
+    width: 80vw;
+    height: 80vh;
+}
+
+.customSign {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    margin: 1.5em;
+}
+
+.customPDFSmall {
+    width: 30vw;
+    height: 30vh;
+}
+
+.chatArea {
+    width: 40vw;
+    height: 70vh;
+    background-color: antiquewhite;
+    border: 0.1em solid;
+    margin: 3em;
+}
+
+.chatLine {
+    width: 40vw;
+    height: 10vh;
+    background-color: rgb(86, 76, 63);
+    border: 0.1em solid;
+}
+
+.customPagination {
+    margin: 1em;
+}
+
+.customListName {
+    height: 4.6em;
+    text-align: center;
+}
