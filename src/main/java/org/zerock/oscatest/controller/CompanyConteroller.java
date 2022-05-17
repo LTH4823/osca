@@ -35,7 +35,7 @@ public class CompanyConteroller {
         companyService.register(compnayDTO);
         rttr.addFlashAttribute("result","register");
         log.info("registered");
-        return "redirect:/company";
+        return "redirect:/";
     }
     // =========================================================================================
 
