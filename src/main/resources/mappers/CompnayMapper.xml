@@ -12,6 +12,9 @@
 
     </insert>
 
+<!--  비밀번호 찾기  -->
+
+
 <!--  회사 정보 출력  -->
     <select id="info" resultType="Company">
         select * from tbl_company where comId=#{comId}
