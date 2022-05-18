@@ -32,7 +32,10 @@
         delete from tbl_company where comId = #{comId};
     </delete>
 
-
+<!-- 계약가능 리스트 -->
+<!--<select id="readContracts" resultType="org.zerock.oscatest.domain.Contract">-->
+<!--    select * from tbl_contract where comId ='' or comId =null;-->
+<!--</select>-->
 
 
 <!--    <select id="companyInfo" resultType="Company">-->

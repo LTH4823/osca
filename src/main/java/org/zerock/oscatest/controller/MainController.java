@@ -23,4 +23,10 @@ public class MainController {
         return "/login";
     }
 
+    @GetMapping("/companyregister")
+    public String companyRegisterGET(){
+        return"/companyregister";
+    }
+    
+
 }
