@@ -1,11 +1,16 @@
 package org.zerock.oscatest.dto;
 
-import lombok.Data;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 
 import java.time.LocalDate;
+import java.util.Collection;
 
-@Data
-public class CompnayDTO {
+@Getter
+@Setter
+@ToString
+public class CompnayDTO extends User {
     private String comId;
     private String comPw;
     private String comName;
@@ -25,4 +30,12 @@ public class CompnayDTO {
     private LocalDate regDate;
     private LocalDate updateDate;
     private int delFlag ;
+
+    public CompnayDTO(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, authorities);
+
+        this.comId = username;
+        this.comPw = password;
+
+    }
 }

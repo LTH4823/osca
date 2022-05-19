@@ -8,9 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.zerock.oscatest.domain.Company;
+import org.zerock.oscatest.dto.CompnayDTO;
 import org.zerock.oscatest.mapper.CompanyMapper;
 
 import java.util.Collections;
+import java.util.Set;
 
 
 @Log4j2
@@ -30,10 +32,16 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         Company company = companyMapper.info(username);
 
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(company.getAuthority());
+        Set<SimpleGrantedAuthority> authority = Collections.singleton(new SimpleGrantedAuthority("ROLE_" + company.getAuthority()));
 
-        User user = new User(company.getComId(),company.getComPw(), Collections.singleton(authority));
+//        User user = new User(company.getComId(),company.getComPw(), authority);
+//
+//        return user;
 
-        return user;
+        CompnayDTO compnayDTO = new CompnayDTO(company.getComId(),company.getComPw(), authority);
+
+
+        return compnayDTO;
     }
 }
+

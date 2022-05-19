@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.zerock.oscatest.domain.Company;
+import org.zerock.oscatest.dto.CompnayDTO;
 import org.zerock.oscatest.mapper.CompanyMapper;
 
 @Log4j2
@@ -33,10 +35,6 @@ public class CompnayMapperTests {
     public void insert(){
         String comId = "com00";
         String comName = "ct";
-
-        for (int i = 0; i < 12; i++) {
-//            companyMapper.insert(comId+i,comName+i);
-        }
 
     }
 

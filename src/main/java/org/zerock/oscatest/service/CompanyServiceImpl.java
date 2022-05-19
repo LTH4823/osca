@@ -4,6 +4,7 @@ package org.zerock.oscatest.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.zerock.oscatest.domain.Company;
 import org.zerock.oscatest.dto.CompnayDTO;
@@ -14,6 +15,7 @@ import org.zerock.oscatest.mapper.CompanyMapper;
 @RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService{
 
+    private final PasswordEncoder passwordEncoder;
     private final CompanyMapper companyMapper;
     private final ModelMapper modelMapper;
 
@@ -33,7 +35,7 @@ public class CompanyServiceImpl implements CompanyService{
     public void register(CompnayDTO compnayDTO) {
         companyMapper.insert(Company.builder()
                 .comId(compnayDTO.getComId())
-                        .comPw(compnayDTO.getComPw())
+                        .comPw(passwordEncoder.encode(compnayDTO.getComPw()))
                 .comName(compnayDTO.getComName())
                         .comPhone(compnayDTO.getComPhone())
                         .comCategory(compnayDTO.getComCategory())
