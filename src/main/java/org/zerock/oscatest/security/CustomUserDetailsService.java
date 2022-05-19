@@ -34,6 +34,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         User user = new User(company.getComId(),company.getComPw(), Collections.singleton(authority));
 
-        return null;
+        return user;
     }
 }
