@@ -37,11 +37,12 @@ public class CompanyServiceImpl implements CompanyService{
                         .comPhone(compnayDTO.getComPhone())
                         .comCategory(compnayDTO.getComCategory())
                         .comEmail(compnayDTO.getComEmail())
+                        .comProfile(compnayDTO.getComProfile())
                         .conNo(compnayDTO.getConNo())
                         .businessNum(compnayDTO.getBusinessNum())
                         .businessCheck(compnayDTO.getBusinessCheck())
                         .comIntro(compnayDTO.getComIntro())
-                        .comLocation(compnayDTO.getComLocation())
+                        .comAddress(compnayDTO.getComAddress())
                 .build());
     }
 

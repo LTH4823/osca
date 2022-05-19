@@ -10,14 +10,14 @@ public class CompnayDTO {
     private String comName;
     private String comPhone;
     private String comEmail;
-    private String comLocation;
+    private String comAddress;
     private String businessNum;
     private String businessCheck;
     private String comIntro;
     private String comCategory;
 
     private Integer conNo;
-    private String conProfile;
+    private String comProfile;
 
     private LocalDate regDate;
     private LocalDate updateDate;

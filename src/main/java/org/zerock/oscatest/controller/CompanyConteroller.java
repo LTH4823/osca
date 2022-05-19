@@ -35,7 +35,7 @@ public class CompanyConteroller {
         companyService.register(compnayDTO);
         rttr.addFlashAttribute("result","register");
         log.info("registered");
-        return "redirect:/";
+        return "redirect: /";
     }
     // =========================================================================================
 
@@ -51,7 +51,6 @@ public class CompanyConteroller {
     //=========================================================================================
 
     // 회원정보 수정=============================================================================
-
     @GetMapping("/modify/{comId}")
     public String modifyGET(@PathVariable("comId")String comId, Model model){
 

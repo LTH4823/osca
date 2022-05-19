@@ -91,6 +91,12 @@
                                             <input type="file" name="businessNum" class="reqBurith form-control"/>
                                         </div>
                                     </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="form3Example1c">간략 회사소개</label>
+                                            <input type="text" name="comProfile" class="reqBurith form-control"/>
+                                        </div>
+                                    </div>
                                     <div class="input-group d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <p class="form-label" for="form3Example3c">주소</p>

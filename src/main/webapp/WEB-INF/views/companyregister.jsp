@@ -61,7 +61,7 @@
 
                                 <p class="registerLogo text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">O.S.C.A</p>
 
-                                <form class="registerForm mx-1 mx-md-4 " action="/company/register" method="post">
+                                <form class="registerForm mx-1 mx-md-4 " action="/companyregister" method="post">
 
                                     <div class="d-flex flex-row align-items-center mb-4">
 
@@ -178,13 +178,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core theme JS-->
-<script src="../../../resources/js/scripts.js"></script>
+<script src="../../resources/js/script.js"></script>
 
 <%--map--%>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" ></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services" ></script>
-<script src="../../../resources/js/address.js"></script>
+<script src="../../resources/js/address.js"></script>
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/67818242f4.js" crossorigin="anonymous"></script>
 1
