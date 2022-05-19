@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 @Log4j2
-public class CustomLoginHandler implements AuthenticationFailureHandler {
+public class CustomLoginFailHandler implements AuthenticationFailureHandler {
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {

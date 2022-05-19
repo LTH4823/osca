@@ -7,6 +7,7 @@ import java.time.LocalDate;
 @Data
 public class CompnayDTO {
     private String comId;
+    private String comPw;
     private String comName;
     private String comPhone;
     private String comEmail;
@@ -18,6 +19,8 @@ public class CompnayDTO {
 
     private Integer conNo;
     private String comProfile;
+
+    private String authority;
 
     private LocalDate regDate;
     private LocalDate updateDate;

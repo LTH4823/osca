@@ -88,7 +88,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">사업자등록번호 등본</label>
-                                            <input type="file" name="businessNum" class="reqBurith form-control"/>
+                                            <input type="file" name="businessCheck" class="reqBurith form-control"/>
                                         </div>
                                     </div>
                                     <div class="input-group d-flex flex-row align-items-center mb-4">
@@ -122,7 +122,12 @@
                                         </div>
                                     </div>
 
-
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="form3Example1c">간략소개</label>
+                                            <textarea name="comIntro" class="reqBurith form-control"></textarea>
+                                        </div>
+                                    </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
 

@@ -7,24 +7,24 @@
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <bean id="loginFailHandler" class="org.zerock.oscatest.security.handler.CustomLoginHandler"></bean>
+    <bean id="loginFailHandler" class="org.zerock.oscatest.security.handler.CustomLoginFailHandler"></bean>
 
     <security:http>
 
-        <security:form-login login-page="/login" authentication-failure-handler-ref="loginFailHandler" />
+        <security:form-login login-page="/customLogin" authentication-failure-handler-ref="loginFailHandler" />
 
-        <security:intercept-url pattern="/company/register" access="hasRole('ROLE_COMPANY')"></security:intercept-url>
-        <security:intercept-url pattern="/company/mypage" access="hasRole('ROLE_COMPANY')"></security:intercept-url>
-        <security:intercept-url pattern="/admin/adminList" access="hasRole('ROLE_ADMIN')"></security:intercept-url>
+<!--        <security:intercept-url pattern="/company/register" access="hasRole('ROLE_COMPANY')"></security:intercept-url>-->
+<!--        <security:intercept-url pattern="/company/mypage" access="hasRole('ROLE_COMPANY')"></security:intercept-url>-->
+<!--        <security:intercept-url pattern="/admin/adminList" access="hasRole('ROLE_ADMIN')"></security:intercept-url>-->
 
         <security:access-denied-handler error-page="/accessError"></security:access-denied-handler>
 
 
-        <security:csrf disabled="false"></security:csrf>
+        <security:csrf disabled="true"></security:csrf>
 
     </security:http>
 
-    <bean id="customDetails" class="org.zerock.oscatest.security.handler.CustomUserDetailsService"></bean>
+    <bean id="customDetails" class="org.zerock.oscatest.security.CustomUserDetailsService"></bean>
 
     <security:authentication-manager>
         <security:authentication-provider user-service-ref="customDetails">

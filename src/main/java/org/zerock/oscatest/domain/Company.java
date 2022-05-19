@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Company {
     private String comId;
+    private String comPw;
     private String comName;
     private String comPhone;
     private String comEmail;
@@ -22,6 +23,8 @@ public class Company {
 
     private Integer conNo;
     private String comProfile;
+
+    private String authority;
 
     private LocalDate regDate;
     private LocalDate updateDate;

@@ -33,6 +33,7 @@ public class CompanyServiceImpl implements CompanyService{
     public void register(CompnayDTO compnayDTO) {
         companyMapper.insert(Company.builder()
                 .comId(compnayDTO.getComId())
+                        .comPw(compnayDTO.getComPw())
                 .comName(compnayDTO.getComName())
                         .comPhone(compnayDTO.getComPhone())
                         .comCategory(compnayDTO.getComCategory())
@@ -43,6 +44,7 @@ public class CompanyServiceImpl implements CompanyService{
                         .businessCheck(compnayDTO.getBusinessCheck())
                         .comIntro(compnayDTO.getComIntro())
                         .comAddress(compnayDTO.getComAddress())
+                        .authority("ROLE_COMPANY")
                 .build());
     }
 

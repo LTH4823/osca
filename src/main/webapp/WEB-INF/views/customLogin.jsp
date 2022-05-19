@@ -67,13 +67,13 @@
                             <p class="loginLogo">O.S.C.A</P>
                             <!-- Email input -->
                             <div class="form-outline w-70 p-3">
-                                <input type="text" class="loginEmail form-control form-control-lg"
+                                <input type="text" name="username" class="loginEmail form-control form-control-lg"
                                        placeholder="아이디 또는 이메일"/>
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline  w-70 p-3">
-                                <input type="password" class="loginPW form-control form-control-lg"
+                                <input type="password" name="password" class="loginPW form-control form-control-lg"
                                        placeholder="비밀번호"/>
 
                             </div>

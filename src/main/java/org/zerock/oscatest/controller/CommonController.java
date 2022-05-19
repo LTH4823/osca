@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Log4j2
 public class CommonController {
 
-    @GetMapping("/accessError")
-    public void accessError(){
-
-    }
-
-    @GetMapping("/login")
-    public void loginGET(){
-
-    }
+//    @GetMapping("/accessError")
+//    public void accessError(){
+//
+//    }
+//
+//    @GetMapping("/customLogin")
+//    public void loginGET(){
+//
+//    }
 
 
 }

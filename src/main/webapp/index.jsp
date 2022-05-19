@@ -14,8 +14,8 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../../resources/css/reset.css" rel="stylesheet">
-    <link href="../../resources/css/style.css" rel="stylesheet" />
+    <link href="resources/css/reset.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet" />
     <link href="../../resources/css/customStyle.css" rel="stylesheet" />
 </head>
 
@@ -40,7 +40,7 @@
                 <li class="nav-item"><a class="nav-link" href="auction">Auction</a></li>
                 <li class="nav-item"><a class="nav-link" href="workers">Workers</a></li>
                 <li class="nav-item"><a class="nav-link" href="myroom">MyRoom</a></li>
-                <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/customLogin">Login</a></li>
             </ul>
         </div>
     </div>

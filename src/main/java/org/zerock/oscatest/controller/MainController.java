@@ -19,24 +19,19 @@ public class MainController {
 
     private final CompanyService companyService;
 
-    @GetMapping("/")
-    public String main(){
-        return "/index";
-    }
-
 //    @GetMapping("/login")
 //    public String login(){
 //        return "/login";
 //    }
 
-    // 회사 회원 가입====================================================================
     @GetMapping("/companyregister")
     public String companyRegisterGET(){
         return"/companyregister";
     }
-
+    
     @PostMapping("/companyregister")
-    public String registerPOST(CompnayDTO compnayDTO, RedirectAttributes rttr){
+    public String companyRegisterPOST(CompnayDTO compnayDTO, RedirectAttributes rttr){
+
         log.info("==============================");
         log.info(compnayDTO);
         companyService.register(compnayDTO);
@@ -44,13 +39,14 @@ public class MainController {
         log.info("registered");
         return "redirect: /";
     }
-    // =================================================================================
 
+    @GetMapping("/accessError")
+    public void accessError(){
 
-    // mypage test
-    @GetMapping("/mypage")
-    public String mypageGET(){
-        return "/mypage";
     }
 
+    @GetMapping("/customLogin")
+    public void loginGET(){
+
+    }
 }

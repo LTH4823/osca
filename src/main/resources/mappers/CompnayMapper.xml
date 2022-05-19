@@ -7,10 +7,9 @@
 
 <!--  회사 등록  -->
     <insert id="insert">
-        insert into tbl_company(comid, comname, comphone, comemail, comAddress
-                               , businessnum, businesscheck, comintro, comcategory, conno, comprofile)
-        values (#{comId},#{comName},#{comPhone},#{comEmail},#{comAddress},#{businessNum},#{businessCheck},
-                #{comIntro},#{comCategory},#{conNo},#{comProfile});
+        insert into tbl_company(comid, compw, comname, comphone, comemail, comAddress, businessnum, businesscheck, comintro, comcategory, conno, comprofile,authority)
+        values (#{comId}, #{comPw}, #{comName},#{comPhone},#{comEmail},#{comAddress},#{businessNum},#{businessCheck},
+                #{comIntro},#{comCategory},#{conNo},#{comProfile},#{authority});
 
     </insert>
 
