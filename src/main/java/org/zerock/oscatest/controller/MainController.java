@@ -24,11 +24,12 @@ public class MainController {
         return "/index";
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "/login";
-    }
+//    @GetMapping("/login")
+//    public String login(){
+//        return "/login";
+//    }
 
+    // 회사 회원 가입====================================================================
     @GetMapping("/companyregister")
     public String companyRegisterGET(){
         return"/companyregister";
@@ -42,6 +43,14 @@ public class MainController {
         rttr.addFlashAttribute("result","register");
         log.info("registered");
         return "redirect: /";
+    }
+    // =================================================================================
+
+
+    // mypage test
+    @GetMapping("/mypage")
+    public String mypageGET(){
+        return "/mypage";
     }
 
 }

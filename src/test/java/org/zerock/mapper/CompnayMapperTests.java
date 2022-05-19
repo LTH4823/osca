@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.zerock.oscatest.mapper.CompanyMapper;
@@ -15,6 +16,18 @@ public class CompnayMapperTests {
 
     @Autowired(required = false)
     private CompanyMapper companyMapper;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    @Test
+    public void testEncoder(){
+        String msg ="1111";
+        String enStr = passwordEncoder.encode(msg);
+
+
+        System.out.println(enStr);
+    }
 
     @Test
     public void insert(){

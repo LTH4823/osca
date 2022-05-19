@@ -63,11 +63,11 @@
                 <div class="card customCard customLoginForm col-md-7 col-lg-5 col-xl-5 offset-xl-1">
 
                     <div class="loginFrom">
-                        <form class="text-center">
+                        <form class="text-center" action="/login" method="post">
                             <p class="loginLogo">O.S.C.A</P>
                             <!-- Email input -->
                             <div class="form-outline w-70 p-3">
-                                <input type="email" class="loginEmail form-control form-control-lg"
+                                <input type="text" class="loginEmail form-control form-control-lg"
                                        placeholder="아이디 또는 이메일"/>
                             </div>
 

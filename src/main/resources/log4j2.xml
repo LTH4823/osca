@@ -14,10 +14,13 @@
             <appender-ref ref="console" />
         </logger>
 
-        <logger name="org.springframework.web" level="INFO" additivity="false">
+        <logger name="org.springframework.web" level="TRACE" additivity="false">
             <appender-ref ref="console" />
         </logger>
 
+        <logger name="org.springframework.security" level="TRACE" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
 
         <logger name="org.zerock" level="INFO" additivity="false">
             <appender-ref ref="console" />
@@ -26,6 +29,7 @@
         <logger name="org.zerock.oscatest.mapper" level="TRACE" additivity="false">
             <appender-ref ref="console" />
         </logger>
+
 
         <root level="INFO" additivity="false">
             <AppenderRef ref="console"/>

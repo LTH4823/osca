@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="utf-8" />
@@ -14,9 +14,9 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/resources/css/reset.css" rel="stylesheet">
-    <link href="/resources/css/style.css" rel="stylesheet" />
-    <link href="/resources/css/customStyle.css" rel="stylesheet" />
+    <link href="../../resources/css/reset.css" rel="stylesheet">
+    <link href="../../resources/css/style.css" rel="stylesheet" />
+    <link href="../../resources/css/customStyle.css" rel="stylesheet" />
 </head>
 
 <body>

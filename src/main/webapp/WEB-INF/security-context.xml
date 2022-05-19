@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="loginFailHandler" class="org.zerock.oscatest.security.handler.CustomLoginHandler"></bean>
+
+    <security:http>
+
+        <security:form-login login-page="/login" authentication-failure-handler-ref="loginFailHandler" />
+
+        <security:intercept-url pattern="/company/register" access="hasRole('ROLE_COMPANY')"></security:intercept-url>
+        <security:intercept-url pattern="/company/mypage" access="hasRole('ROLE_COMPANY')"></security:intercept-url>
+        <security:intercept-url pattern="/admin/adminList" access="hasRole('ROLE_ADMIN')"></security:intercept-url>
+
+        <security:access-denied-handler error-page="/accessError"></security:access-denied-handler>
+
+
+        <security:csrf disabled="false"></security:csrf>
+
+    </security:http>
+
+    <bean id="customDetails" class="org.zerock.oscatest.security.handler.CustomUserDetailsService"></bean>
+
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="customDetails">
+<!--            <security:password-encoder ref="passwordEncoder"></security:password-encoder>-->
+<!--            <security:user-service>-->
+<!--                <security:user name="user00" authorities="ROLE_COMPANY" password="$2a$10$V0rENY.WQbAVV8P/Kb4U7OstZSk.9p06UGe/oms1kbZPS01zdNRu."></security:user>-->
+<!--                <security:user name="admin00" authorities="ROLE_ADMIN" password="$2a$10$V0rENY.WQbAVV8P/Kb4U7OstZSk.9p06UGe/oms1kbZPS01zdNRu."></security:user>-->
+
+<!--            </security:user-service>-->
+
+            <security:password-encoder ref="passwordEncoder"></security:password-encoder>
+
+        </security:authentication-provider>
+
+    </security:authentication-manager>
+
+</beans>
