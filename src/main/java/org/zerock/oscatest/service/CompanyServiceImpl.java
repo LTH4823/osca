@@ -7,7 +7,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.zerock.oscatest.domain.Company;
-import org.zerock.oscatest.dto.CompnayDTO;
+
+import org.zerock.oscatest.dto.CompanyDTO;
+import org.zerock.oscatest.dto.CompanyRegisterDTO;
 import org.zerock.oscatest.mapper.CompanyMapper;
 
 @Log4j2
@@ -21,31 +23,31 @@ public class CompanyServiceImpl implements CompanyService{
 
     // mypage 정보=========================================================================
     @Override
-    public CompnayDTO getInfo(String comId) {
+    public CompanyDTO getInfo(String comId) {
 
         Company company = companyMapper.info(comId);
 
-        CompnayDTO compnayDTO = modelMapper.map(company, CompnayDTO.class);
+        CompanyDTO companyDTO = modelMapper.map(company, CompanyDTO.class);
 
-        return compnayDTO;
+        return companyDTO;
     }
 
     // 회원가입=============================================================================
     @Override
-    public void register(CompnayDTO compnayDTO) {
+    public void register(CompanyRegisterDTO companyDTO) {
         companyMapper.insert(Company.builder()
-                .comId(compnayDTO.getComId())
-                        .comPw(passwordEncoder.encode(compnayDTO.getComPw()))
-                .comName(compnayDTO.getComName())
-                        .comPhone(compnayDTO.getComPhone())
-                        .comCategory(compnayDTO.getComCategory())
-                        .comEmail(compnayDTO.getComEmail())
-                        .comProfile(compnayDTO.getComProfile())
-                        .conNo(compnayDTO.getConNo())
-                        .businessNum(compnayDTO.getBusinessNum())
-                        .businessCheck(compnayDTO.getBusinessCheck())
-                        .comIntro(compnayDTO.getComIntro())
-                        .comAddress(compnayDTO.getComAddress())
+                .comId(companyDTO.getComId())
+                        .password(passwordEncoder.encode(companyDTO.getPassword()))
+                .comName(companyDTO.getComName())
+                        .comPhone(companyDTO.getComPhone())
+                        .comCategory(companyDTO.getComCategory())
+                        .comEmail(companyDTO.getComEmail())
+                        .comProfile(companyDTO.getComProfile())
+                        .conNo(companyDTO.getConNo())
+                        .businessNum(companyDTO.getBusinessNum())
+                        .businessCheck(companyDTO.getBusinessCheck())
+                        .comIntro(companyDTO.getComIntro())
+                        .comAddress(companyDTO.getComAddress())
                         .authority("COMPANY")
                 .build());
     }
@@ -56,12 +58,20 @@ public class CompanyServiceImpl implements CompanyService{
         companyMapper.delete(comId);
     }
 
-    // 회원정보 수정==========================================================================
     @Override
-    public void update(CompnayDTO compnayDTO) {
+    public void update(CompanyRegisterDTO companyDTO) {
         companyMapper.update(Company.builder()
-                .comId(compnayDTO.getComId())
-                .comName(compnayDTO.getComName())
+                .comId(companyDTO.getComId())
+                .comName(companyDTO.getComName())
                 .build());
     }
+
+    // 회원정보 수정==========================================================================
+//    @Override
+//    public void update(companyDTO companyDTO) {
+//        companyMapper.update(Company.builder()
+//                .comId(companyDTO.getComId())
+//                .comName(companyDTO.getComName())
+//                .build());
+//    }
 }

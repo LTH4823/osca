@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.zerock.oscatest.domain.Company;
-import org.zerock.oscatest.dto.CompnayDTO;
+import org.zerock.oscatest.dto.CompanyDTO;
 import org.zerock.oscatest.mapper.CompanyMapper;
 
 import java.util.Collections;
@@ -34,14 +34,14 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         Set<SimpleGrantedAuthority> authority = Collections.singleton(new SimpleGrantedAuthority("ROLE_" + company.getAuthority()));
 
-//        User user = new User(company.getComId(),company.getComPw(), authority);
+//        User user = new User(company.getComId(),company.getPassword(), authority);
 //
 //        return user;
 
-        CompnayDTO compnayDTO = new CompnayDTO(company.getComId(),company.getComPw(), authority);
+        CompanyDTO companyDTO = new CompanyDTO(company.getComId(),company.getPassword(), authority);
 
 
-        return compnayDTO;
+        return companyDTO;
     }
 }
 

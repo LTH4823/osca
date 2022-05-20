@@ -1,18 +1,18 @@
-package org.zerock.oscatest.domain;
+package org.zerock.oscatest.dto;
 
-import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Collection;
 
-@Getter
-@Builder
-@ToString
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Company{
+@Builder
+public class CompanyRegisterDTO {
+
     private String comId;
     private String password;
     private String comName;
@@ -32,5 +32,4 @@ public class Company{
     private LocalDate regDate;
     private LocalDate updateDate;
     private int delFlag ;
-
 }

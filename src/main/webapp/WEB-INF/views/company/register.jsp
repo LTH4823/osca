@@ -142,7 +142,7 @@
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example4c">비밀번호</label>
-                                            <input type="password" name="comPw" id="form3Example4c" class="reqPw form-control"/>
+                                            <input type="password" name="password" id="form3Example4c" class="reqPw form-control"/>
                                         </div>
                                     </div>
 

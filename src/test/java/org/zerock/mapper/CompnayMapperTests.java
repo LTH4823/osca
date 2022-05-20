@@ -8,13 +8,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.zerock.oscatest.domain.Company;
-import org.zerock.oscatest.dto.CompnayDTO;
+import org.zerock.oscatest.dto.companyDTO;
 import org.zerock.oscatest.mapper.CompanyMapper;
 
 @Log4j2
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/root-context.xml")
-public class CompnayMapperTests {
+public class companyMapperTests {
 
     @Autowired(required = false)
     private CompanyMapper companyMapper;

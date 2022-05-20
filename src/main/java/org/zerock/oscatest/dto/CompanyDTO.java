@@ -10,9 +10,11 @@ import java.util.Collection;
 @Getter
 @Setter
 @ToString
-public class CompnayDTO extends User {
+//@Data
+
+public class CompanyDTO extends User{
     private String comId;
-    private String comPw;
+    private String password;
     private String comName;
     private String comPhone;
     private String comEmail;
@@ -31,11 +33,13 @@ public class CompnayDTO extends User {
     private LocalDate updateDate;
     private int delFlag ;
 
-    public CompnayDTO(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+
+
+    public CompanyDTO(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
 
         this.comId = username;
-        this.comPw = password;
+        this.password = password;
 
     }
 }
