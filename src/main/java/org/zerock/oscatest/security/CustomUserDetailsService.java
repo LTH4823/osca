@@ -3,12 +3,11 @@ package org.zerock.oscatest.security;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.zerock.oscatest.domain.Company;
-import org.zerock.oscatest.dto.CompanyDTO;
+import org.zerock.oscatest.dto.CompanyLoginDTO;
 import org.zerock.oscatest.mapper.CompanyMapper;
 
 import java.util.Collections;
@@ -38,7 +37,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 //
 //        return user;
 
-        CompanyDTO companyDTO = new CompanyDTO(company.getComId(),company.getPassword(), authority);
+        CompanyLoginDTO companyDTO = new CompanyLoginDTO(company.getComId(),company.getPassword(), authority);
 
 
         return companyDTO;

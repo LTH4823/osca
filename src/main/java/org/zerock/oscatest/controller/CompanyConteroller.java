@@ -9,13 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.oscatest.domain.Company;
+import org.zerock.oscatest.dto.CompanyLoginDTO;
 import org.zerock.oscatest.dto.CompanyDTO;
-import org.zerock.oscatest.dto.CompanyRegisterDTO;
-import org.zerock.oscatest.mapper.CompanyMapper;
 import org.zerock.oscatest.service.CompanyService;
-
-import java.lang.reflect.Member;
 
 @Log4j2
 @Controller
@@ -30,7 +26,7 @@ public class CompanyConteroller {
     public void registerGET(){}
 
     @PostMapping("/register")
-    public String registerPOST(CompanyRegisterDTO companyDTO, RedirectAttributes rttr){
+    public String registerPOST(CompanyDTO companyDTO, RedirectAttributes rttr){
         log.info("==============================");
         log.info(companyDTO);
         companyService.register(companyDTO);

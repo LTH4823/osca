@@ -1,6 +1,5 @@
 package org.zerock.oscatest.service;
 
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.zerock.oscatest.domain.Company;
 
 import org.zerock.oscatest.dto.CompanyDTO;
-import org.zerock.oscatest.dto.CompanyRegisterDTO;
 import org.zerock.oscatest.mapper.CompanyMapper;
 
 @Log4j2
@@ -34,7 +32,7 @@ public class CompanyServiceImpl implements CompanyService{
 
     // 회원가입=============================================================================
     @Override
-    public void register(CompanyRegisterDTO companyDTO) {
+    public void register(CompanyDTO companyDTO) {
         companyMapper.insert(Company.builder()
                 .comId(companyDTO.getComId())
                         .password(passwordEncoder.encode(companyDTO.getPassword()))
@@ -59,7 +57,7 @@ public class CompanyServiceImpl implements CompanyService{
     }
 
     @Override
-    public void update(CompanyRegisterDTO companyDTO) {
+    public void update(CompanyDTO companyDTO) {
         companyMapper.update(Company.builder()
                 .comId(companyDTO.getComId())
                 .comName(companyDTO.getComName())

@@ -1,18 +1,18 @@
 package org.zerock.oscatest.dto;
 
-import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Collection;
 
-@Getter
-@Setter
-@ToString
-//@Data
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class CompanyDTO {
 
-public class CompanyDTO extends User{
     private String comId;
     private String password;
     private String comName;
@@ -32,14 +32,4 @@ public class CompanyDTO extends User{
     private LocalDate regDate;
     private LocalDate updateDate;
     private int delFlag ;
-
-
-
-    public CompanyDTO(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        super(username, password, authorities);
-
-        this.comId = username;
-        this.password = password;
-
-    }
 }
