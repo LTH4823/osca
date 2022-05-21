@@ -2,6 +2,7 @@ package org.zerock.oscatest.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.zerock.oscatest.service.CompanyService;
 @Controller
 @RequestMapping("/company/")
 @RequiredArgsConstructor
+
 public class CompanyConteroller {
 
     private final CompanyService companyService;
@@ -38,6 +40,7 @@ public class CompanyConteroller {
 
 
     // mypage ==================================================================================
+    @PreAuthorize("hasRole('ROLE_COMPANY')")
     @GetMapping("/{comId}")
     public String myPageGET(@PathVariable("comId")String comId, Model model){
         log.info("===============================");
@@ -59,6 +62,7 @@ public class CompanyConteroller {
 //        return "/company/"+comId;
 //    }
 
+    @PreAuthorize("hasRole('ROLE_COMPANY')")
     @PostMapping("/modify/{comId}")
     public String modifyPOST(@PathVariable("comId")String comId, CompanyDTO companyDTO, RedirectAttributes rttr){
 
@@ -83,6 +87,7 @@ public class CompanyConteroller {
 //        return "redirect:/";
 //    }
 
+    @PreAuthorize("hasRole('ROLE_COMPANY')")
     @PostMapping("/remove/{comId}")
     public String removePOST(@PathVariable("comId") String comId, RedirectAttributes rttr){
 

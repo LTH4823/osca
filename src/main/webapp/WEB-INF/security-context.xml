@@ -19,8 +19,8 @@
 <!--                delete-cookies="remember-me, JSESSIONID"></security:logout>-->
 
 <!--        <security:intercept-url pattern="/company/register" access="hasRole('ROLE_COMPANY')"></security:intercept-url>-->
-        <security:intercept-url pattern="/company/mypage" access="hasRole('ROLE_COMPANY')"></security:intercept-url>
-        <security:intercept-url pattern="/admin/adminList" access="hasRole('ROLE_ADMIN')"></security:intercept-url>
+<!--        <security:intercept-url pattern="/company/mypage" access="hasRole('ROLE_COMPANY')"></security:intercept-url>-->
+<!--        <security:intercept-url pattern="/admin/adminList" access="hasRole('ROLE_ADMIN')"></security:intercept-url>-->
 
         <security:access-denied-handler error-page="/accessError"></security:access-denied-handler>
 
