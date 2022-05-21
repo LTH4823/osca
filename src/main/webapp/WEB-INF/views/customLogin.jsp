@@ -94,7 +94,7 @@
                                 <!-- </div> -->
 
                             </div>
-
+                            <input type="checkbox" name="remember-me">Remember Me
                             <!-- Submit button -->
                             <button type="submit"
                                     class="customLoginBtn btn  btn-lg btn-block col-6 mx-auto">로그인
@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="modal-body customFlexRowAround">
                                         <button type="button" class="btn btn-secondary"><a class="text-light" style="text-decoration: none" href="#" >의뢰자</a></button>
-                                        <button type="button" class="btn btn-primary"><a class="text-light" style="text-decoration: none" href="/companyregister" >사업자</a></button>
+                                        <button type="button" class="btn btn-primary"><a class="text-light" style="text-decoration: none" href="/company/register" >사업자</a></button>
 
                                     </div>
 <%--                                    <div class="modal-footer">--%>

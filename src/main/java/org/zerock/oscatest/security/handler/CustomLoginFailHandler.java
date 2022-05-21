@@ -19,8 +19,6 @@ public class CustomLoginFailHandler implements AuthenticationFailureHandler {
             log.info(stackTraceElement);
                 });
 
-         
-
         response.sendRedirect("/customLogin");
 
     }

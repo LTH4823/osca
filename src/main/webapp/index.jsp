@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -16,7 +18,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="resources/css/reset.css" rel="stylesheet">
     <link href="resources/css/style.css" rel="stylesheet" />
-    <link href="../../resources/css/customStyle.css" rel="stylesheet" />
+    <link href="resources/css/customStyle.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -39,8 +41,24 @@
                 <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="auction">Auction</a></li>
                 <li class="nav-item"><a class="nav-link" href="workers">Workers</a></li>
+
+                <sec:authorize access="isAuthenticated()">
                 <li class="nav-item"><a class="nav-link" href="myroom">MyRoom</a></li>
-                <li class="nav-item"><a class="nav-link" href="/customLogin">Login</a></li>
+                </sec:authorize>
+
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>
+                </sec:authorize>
+
+                <sec:authorize access="isAnonymous()">
+                    <li class="nav-item"><a class="nav-link" href="/customLogin">Login</a></li>
+                </sec:authorize>
+
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item"><a class="nav-link" href="/customLogout">Logout</a></li>
+                </sec:authorize>
+
+
             </ul>
         </div>
     </div>

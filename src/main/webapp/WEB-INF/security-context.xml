@@ -12,15 +12,23 @@
     <security:http>
 
         <security:form-login login-page="/customLogin" authentication-failure-handler-ref="loginFailHandler" />
+<!--        <security:logout-->
+<!--                logout-success-url="/index.jsp"-->
+<!--                success-handler-ref="customLogoutSuccessHandler"-->
+<!--                invalidate-session="true"-->
+<!--                delete-cookies="remember-me, JSESSIONID"></security:logout>-->
 
 <!--        <security:intercept-url pattern="/company/register" access="hasRole('ROLE_COMPANY')"></security:intercept-url>-->
-<!--        <security:intercept-url pattern="/company/mypage" access="hasRole('ROLE_COMPANY')"></security:intercept-url>-->
-<!--        <security:intercept-url pattern="/admin/adminList" access="hasRole('ROLE_ADMIN')"></security:intercept-url>-->
+        <security:intercept-url pattern="/company/mypage" access="hasRole('ROLE_COMPANY')"></security:intercept-url>
+        <security:intercept-url pattern="/admin/adminList" access="hasRole('ROLE_ADMIN')"></security:intercept-url>
 
         <security:access-denied-handler error-page="/accessError"></security:access-denied-handler>
 
 
         <security:csrf disabled="true"></security:csrf>
+
+
+        <security:remember-me key="12345678" data-source-ref="dataSource"></security:remember-me>
 
     </security:http>
 
