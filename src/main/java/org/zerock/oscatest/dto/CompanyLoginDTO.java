@@ -10,8 +10,6 @@ import java.util.Collection;
 @Getter
 @Setter
 @ToString
-//@Data
-
 public class CompanyLoginDTO extends User{
     private String comId;
     private String password;
@@ -32,8 +30,6 @@ public class CompanyLoginDTO extends User{
     private LocalDate regDate;
     private LocalDate updateDate;
     private int delFlag ;
-
-
 
     public CompanyLoginDTO(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);

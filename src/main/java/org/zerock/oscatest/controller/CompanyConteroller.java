@@ -3,6 +3,7 @@ package org.zerock.oscatest.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.oscatest.dto.CompanyLoginDTO;
 import org.zerock.oscatest.dto.CompanyDTO;
 import org.zerock.oscatest.service.CompanyService;
+
+import javax.servlet.http.HttpSession;
 
 @Log4j2
 @Controller
@@ -48,6 +51,24 @@ public class CompanyConteroller {
         model.addAttribute("company", companyService.getInfo(comId));
         return "/company/mypage";
     }
+
+
+//    @PreAuthorize("hasRole('ROLE_COMPANY')")
+//    @GetMapping("/mypage/{comId}")
+////    @AuthenticationPrincipal CompanyDTO companyDTO
+//    public String myPageGET(@PathVariable("comId") String comId, RedirectAttributes rttr){
+//        log.info("===============================");
+////        log.info(companyDTO);
+////        String id = (String) session.getAttribute("username");
+////        log.info(id);
+//        companyService.getInfo(comId);
+//        rttr.addFlashAttribute("MyPage", comId);
+////        model.addAttribute("MyPage", comId);
+//        return "/company/mypage";
+//    }
+
+
+
     //=========================================================================================
 
     // 회원정보 수정=============================================================================
@@ -64,7 +85,7 @@ public class CompanyConteroller {
 
     @PreAuthorize("hasRole('ROLE_COMPANY')")
     @PostMapping("/modify/{comId}")
-    public String modifyPOST(@PathVariable("comId")String comId, CompanyDTO companyDTO, RedirectAttributes rttr){
+    public String modifyPOST( String comId, CompanyDTO companyDTO, RedirectAttributes rttr){
 
         log.info("===========================================");
         log.info(comId);
@@ -87,7 +108,6 @@ public class CompanyConteroller {
 //        return "redirect:/";
 //    }
 
-    @PreAuthorize("hasRole('ROLE_COMPANY')")
     @PostMapping("/remove/{comId}")
     public String removePOST(@PathVariable("comId") String comId, RedirectAttributes rttr){
 

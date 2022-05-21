@@ -6,13 +6,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-
+<!--    <bean id="logInSuccessHandler" class="org.zerock.oscatest.security.handler.CustomLoginSuccessHandler"></bean>-->
     <bean id="loginFailHandler" class="org.zerock.oscatest.security.handler.CustomLoginFailHandler"></bean>
     <bean id="logoutSuccessHandler" class="org.zerock.oscatest.security.handler.CustomLogoutSuccessHandler"></bean>
 
     <security:http>
 
-        <security:form-login login-page="/customLogin" authentication-failure-handler-ref="loginFailHandler" />
+        <security:form-login login-page="/customLogin"
+                             authentication-failure-handler-ref="loginFailHandler" />
 
         <security:logout logout-url="/logout"
                          success-handler-ref="logoutSuccessHandler"

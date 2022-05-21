@@ -34,11 +34,15 @@ public class CustomUserDetailsService implements UserDetailsService {
         Set<SimpleGrantedAuthority> authority = Collections.singleton(new SimpleGrantedAuthority("ROLE_" + company.getAuthority()));
 
 //        User user = new User(company.getComId(),company.getPassword(), authority);
-//
+
 //        return user;
 
         CompanyLoginDTO companyDTO = new CompanyLoginDTO(company.getComId(),company.getPassword(), authority);
-
+        log.info("==========================================================");
+        log.info("==========================================================");
+        log.info(companyDTO);
+        log.info("==========================================================");
+        log.info("==========================================================");
 
         return companyDTO;
     }

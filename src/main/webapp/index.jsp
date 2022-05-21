@@ -23,7 +23,6 @@
 
 <body>
 
-
 <nav class=" navbar customNavbar navbar-expand-lg navbar-light  border-bottom">
     <div class="navbarBody container-fluid">
 
@@ -43,7 +42,7 @@
                 <li class="nav-item"><a class="nav-link" href="workers">Workers</a></li>
 
                 <sec:authorize access="isAuthenticated()">
-                <li class="nav-item"><a class="nav-link" href="myroom">MyRoom</a></li>
+                <li class="nav-item"><a class="nav-link" href="/company/mypage/${companyDTO.comId}">MyPage</a></li>
                 </sec:authorize>
 
                 <sec:authorize access="isAuthenticated()">
@@ -342,6 +341,7 @@
 <%--            </li>--%>
 <%--        </ul>--%>
 <%--    </nav>--%>
+
 </section>
 <!-- Footer-->
 <!-- <footer class="py-5 bg-dark">
