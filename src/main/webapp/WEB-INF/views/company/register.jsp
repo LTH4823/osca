@@ -158,7 +158,7 @@
 
                                         <div class="registerFile form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example3c">프로필 이미지를 넣어주세요.</label>
-                                            <input type="file" name="comProfile" class="reqLogo form-control" multiple/>
+                                            <input type="file" name="comProfile" class="comProfile form-control"/>
                                             <div class="uploadResult"></div>
                                         </div>
                                     </div>
@@ -181,6 +181,7 @@
     </div>
 </section>
 <footer></footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core theme JS-->
@@ -193,8 +194,19 @@
 <script src="../../../resources/js/address.js"></script>
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/67818242f4.js" crossorigin="anonymous"></script>
-1
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script>
+
+    const comProfile = document.querySelector(".comProfile")
+
+    comProfile.addEventListener("change",(e)=>{
+        console.log("change")
+
+
+    },false)
+
 
     document.querySelector(".registerBtn").addEventListener("click", (e)=>{
         e.preventDefault()
@@ -204,6 +216,7 @@
 
         registerForm.submit()
     },false)
+
 
 </script>
 
