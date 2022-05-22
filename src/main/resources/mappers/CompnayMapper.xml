@@ -24,7 +24,9 @@
 
 <!-- 정보 수정  -->
     <update id="update">
-        update tbl_company set comName = #{comName} where comId = #{comId}
+        update tbl_company
+        set comName = #{comName}
+        where comId = #{comId}
     </update>
 
 

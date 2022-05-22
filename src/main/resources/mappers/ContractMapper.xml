@@ -26,6 +26,8 @@
 <!--  계약 가능 리스트  -->
     <select id="contractAuctionList" resultType="Contract">
         select * from tbl_contract where conState = 0 and delFlag =0
+        order by conNo desc
+            limit #{skip},#{size}
     </select>
 
 <!--  계약 생성 (의뢰자)  -->
@@ -33,19 +35,25 @@
         <selectKey resultType="int" keyProperty="conNo" order="AFTER">
             select last_insert_id()
         </selectKey>
-        insert into tbl_contract(conname, concategory, conlocation, conspace, concontent, conrequest, concondition, constartday, conendday, conprice, condocument, conimg, memid, comid, conState)
-        values ('conname', 'concategory', 'conlocation', 'conspace', 'concontent', 'conrequest', 'concondition', 'constartday', 'conendday', 'conprice', 'condocument', 'conimg', 'memid', 'comid',
-        0)
+        insert into tbl_contract(conname, concategory, conlocation, conspace, concontent,
+                                 conrequest, concondition, constartday, conendday, conprice,
+                                 condocument, conimg, memid, comid, conState)
+        values (#{conName},#{conCategory}, #{conLocation},#{conSpace},#{conContent},#{conRequest},#{conCondition},
+          #{conStartDay},#{conEndDay},#{conPrice},#{conDocument},#{conImg},#{memId},#{comId},0)
     </insert>
 
 <!-- 계약 수정   -->
     <update id="update">
-        update tbl_contract set conName ='이런' where conNo = 20
+        update tbl_contract
+        set conName =#{conName}
+        where conNo = #{conNo}
     </update>
 
 <!--  계약 단순 파기  -->
     <update id="updateAsRemove">
-        update tbl_contract set delFlag =1 where conNo = 20
+        update tbl_contract
+        set delFlag =1
+        where conNo = #{conNo}
     </update>
 
 <!--  모든 계약 총 수 (페이징 및 검색 활용) -->
