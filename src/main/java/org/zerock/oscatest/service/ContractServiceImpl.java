@@ -71,6 +71,7 @@ public class ContractServiceImpl implements ContractService {
     @Override
     public void update(ContractDTO contractDTO) {
         contractMapper.update(Contract.builder()
+                .conNo(contractDTO.getConNo())
                 .conName(contractDTO.getConName())
                 .conCategory(contractDTO.getConCategory())
                 .conLocation(contractDTO.getConLocation())
