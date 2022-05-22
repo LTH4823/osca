@@ -33,6 +33,12 @@
         delete from tbl_company where comId = #{comId};
     </delete>
 
+<!--  회사 탈퇴(업데이트)  -->
+    <update id="updateAsRemoved">
+        update tbl_company set delFleg ='1', updateDate = now(), authority = '' where comId = #{comId}
+    </update>
+
+
 <!-- 계약가능 리스트 -->
 <!--<select id="readContracts" resultType="org.zerock.oscatest.domain.Contract">-->
 <!--    select * from tbl_contract where comId ='' or comId =null;-->

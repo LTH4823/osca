@@ -6,6 +6,7 @@
     <typeAliases>
 <!--        <typeAlias type="org.zerock.teamwebboard.domain.Board" alias="Board"/>-->
         <typeAlias type="org.zerock.oscatest.domain.Company" alias="Company"></typeAlias>
+        <typeAlias type="org.zerock.oscatest.domain.Contract" alias="Contract"></typeAlias>
     </typeAliases>
 
 </configuration>

@@ -42,10 +42,6 @@
                     <div class="sb-sidenav-menu-heading">서비스</div>
                     <a class="nav-link" href="index.html">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Intro
-                    </a>
-                    <a class="nav-link" href="index.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Auction
                     </a>
                     <a class="nav-link" href="index.html">
@@ -60,6 +56,10 @@
                     <%--                        Layouts--%>
                     <%--                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--%>
                     <%--                    </a>--%>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        생성한 계약
+                    </a>
                     <a class="nav-link" href="">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
                         계약 진행중

@@ -18,18 +18,7 @@ public class CompanyServiceImpl implements CompanyService{
     private final PasswordEncoder passwordEncoder;
     private final CompanyMapper companyMapper;
     private final ModelMapper modelMapper;
-
-    // mypage 정보=========================================================================
-    @Override
-    public CompanyDTO getInfo(String comId) {
-
-        Company company = companyMapper.info(comId);
-
-        CompanyDTO companyDTO = modelMapper.map(company, CompanyDTO.class);
-
-        return companyDTO;
-    }
-
+    
     // 회원가입=============================================================================
     @Override
     public void register(CompanyDTO companyDTO) {
@@ -50,12 +39,24 @@ public class CompanyServiceImpl implements CompanyService{
                 .build());
     }
 
+    // mypage 정보=========================================================================
+    @Override
+    public CompanyDTO getInfo(String comId) {
+
+        Company company = companyMapper.info(comId);
+
+        CompanyDTO companyDTO = modelMapper.map(company, CompanyDTO.class);
+
+        return companyDTO;
+    }
+
     // 회원탈퇴==============================================================================
     @Override
     public void delete(String comId) {
         companyMapper.delete(comId);
     }
 
+    // 회원정보 수정==========================================================================
     @Override
     public void update(CompanyDTO companyDTO) {
         companyMapper.update(Company.builder()
@@ -64,12 +65,4 @@ public class CompanyServiceImpl implements CompanyService{
                 .build());
     }
 
-    // 회원정보 수정==========================================================================
-//    @Override
-//    public void update(companyDTO companyDTO) {
-//        companyMapper.update(Company.builder()
-//                .comId(companyDTO.getComId())
-//                .comName(companyDTO.getComName())
-//                .build());
-//    }
 }
