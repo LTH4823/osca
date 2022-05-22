@@ -18,11 +18,26 @@ public class ContractMapperTests {
 
     @Test
     public void contractList(){
-        contractMapper.contractList();
+        contractMapper.contractAuctionList();
         log.info("success");
     }
 
 
+    @Test
+    public void insert(){
+        contractMapper.insert();
+        log.info("success");
+    }
 
+
+    @Test void  update(){
+        contractMapper.update();
+        log.info("success");
+    }
+
+    @Test void  updateAsRemove(){
+        contractMapper.updateAsRemove();
+        log.info("success");
+    }
 
 }

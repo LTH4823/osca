@@ -5,8 +5,63 @@
 
 <mapper namespace="org.zerock.oscatest.mapper.ContractMapper">
 
-    <select id="contractList" resultType="Contract">
-        select * from tbl_contract
+    <sql id="search">
+        <where>
+            <if test="keyword != null">
+                <foreach collection="types" item="item" separator=" OR " open="(" close=")">
+                    <if test='item == "t"'>
+                        title like concat('%', #{keyword}, '%')
+                    </if>
+                    <if test='item == "c"'>
+                        content like concat('%', #{keyword}, '%')
+                    </if>
+                    <if test='item == "w"'>
+                        writer like concat('%', #{keyword}, '%')
+                    </if>
+                </foreach>
+            </if>
+        </where>
+    </sql>
+
+<!--  계약 가능 리스트  -->
+    <select id="contractAuctionList" resultType="Contract">
+        select * from tbl_contract where conState = 0 and delFlag =0
     </select>
+
+<!--  계약 생성 (의뢰자)  -->
+    <insert id="insert">
+        <selectKey resultType="int" keyProperty="conNo" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into tbl_contract(conname, concategory, conlocation, conspace, concontent, conrequest, concondition, constartday, conendday, conprice, condocument, conimg, memid, comid, conState)
+        values ('conname', 'concategory', 'conlocation', 'conspace', 'concontent', 'conrequest', 'concondition', 'constartday', 'conendday', 'conprice', 'condocument', 'conimg', 'memid', 'comid',
+        0)
+    </insert>
+
+<!-- 계약 수정   -->
+    <update id="update">
+        update tbl_contract set conName ='이런' where conNo = 20
+    </update>
+
+<!--  계약 단순 파기  -->
+    <update id="updateAsRemove">
+        update tbl_contract set delFlag =1 where conNo = 20
+    </update>
+
+<!--  모든 계약 총 수 (페이징 및 검색 활용) -->
+    <select id="getTotal" resultType="int">
+        select count(conNo) from tbl_contract
+        <include refid="search"></include>
+    </select>
+
+<!-- 계약 검색   -->
+    <select id="selectOne" resultType="Contract">
+        select *
+        from tbl_contract
+        where conNo = #{conNo}
+    </select>
+
+
+
 
 </mapper>
