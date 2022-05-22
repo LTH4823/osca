@@ -16,11 +16,11 @@ public class ContractMapperTests {
     @Autowired(required = false)
     private ContractMapper contractMapper;
 
-    @Test
-    public void contractList(){
-        contractMapper.contractAuctionList();
-        log.info("success");
-    }
+//    @Test
+//    public void contractList(){
+//        contractMapper.contractAuctionList();
+//        log.info("success");
+//    }
 
 
 //    @Test

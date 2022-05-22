@@ -39,7 +39,12 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     public ContractDTO getOne(Integer conNo) {
-        return null;
+
+        Contract contract = contractMapper.getOne(conNo);
+
+        ContractDTO contractDTO = modelMapper.map(contract, ContractDTO.class);
+
+        return contractDTO;
     }
 
     @Override

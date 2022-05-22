@@ -17,6 +17,8 @@ public interface ContractMapper {
 
     int getTotal(ListDTO listDTO);
 
+    Contract getOne(Integer conNo);
+
     void insert(Contract contract);
     void updateAsRemove(Integer conNo);
     void update(Contract contract);

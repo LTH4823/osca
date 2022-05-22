@@ -45,14 +45,14 @@
 <!-- 계약 수정   -->
     <update id="update">
         update tbl_contract
-        set conName =#{conName}
+        set conName = #{conName}, conContent = #{conContent}, updateDate = now()
         where conNo = #{conNo}
     </update>
 
 <!--  계약 단순 파기  -->
     <update id="updateAsRemove">
         update tbl_contract
-        set delFlag =1
+        set delFlag =1,updateDate = now()
         where conNo = #{conNo}
     </update>
 
@@ -63,7 +63,7 @@
     </select>
 
 <!-- 계약 검색   -->
-    <select id="selectOne" resultType="Contract">
+    <select id="getOne" resultType="Contract">
         select *
         from tbl_contract
         where conNo = #{conNo}

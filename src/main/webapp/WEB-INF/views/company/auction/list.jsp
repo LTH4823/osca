@@ -21,7 +21,7 @@
     <c:forEach items="${dtoList}" var="contract">
         <li>
             <span>${contract.conNo}</span>
-            <span><a href="" class="dtoLink"><c:out value="${contract.conName}"></c:out></a></span>
+            <span><a href="/company/auction/read/${contract.conNo}" class="dtoLink"><c:out value="${contract.conName}"></c:out></a></span>
             <span>${contract.conContent}</span>
             <span>${contract.conLocation}</span>
         </li>
@@ -52,7 +52,7 @@ ${pageMaker}
         </ul>
     </div>
 </div>
-<form class="actionForm" action="/board/list" method="get">
+<form class="actionForm" action="/company/auction/list" method="get">
     <input type="hidden" name="page" value="${listDTO.page}">
     <input type="hidden" name="size" value="${listDTO.size}">
     <input type="hidden" name="type" value="${listDTO.type == null? "":listDTO.type}">
@@ -89,7 +89,7 @@ ${pageMaker}
 
         const pageNum = target.getAttribute("href")
         actionForm.querySelector("input[name='page']").value = pageNum
-        actionForm.setAttribute("action", "/auction") //뒤로 가기 문제 방지
+        actionForm.setAttribute("action", "/company/auction/list") //뒤로 가기 문제 방지
         actionForm.submit()
     }, false)
     document.querySelector(".searchBtn").addEventListener("click", (e) => {
@@ -97,7 +97,7 @@ ${pageMaker}
         const keyword = document.querySelector(".searchDiv input[name='keyword']").value
 
         console.log(type, keyword)
-        actionForm.setAttribute("action", "/auction") //뒤로 가기 문제 방지
+        actionForm.setAttribute("action", "/company/auction/list") //뒤로 가기 문제 방지
         actionForm.querySelector("input[name='page']").value = 1
         actionForm.querySelector("input[name='type']").value = type
         actionForm.querySelector("input[name='keyword']").value = keyword
