@@ -61,7 +61,7 @@ public class CompanyServiceImpl implements CompanyService{
     // 회원탈퇴==============================================================================
     @Override
     public void delete(String comId) {
-        companyMapper.delete(comId);
+        companyMapper.updateAsRemoved(comId);
     }
 
     // 회원정보 수정==========================================================================

@@ -101,7 +101,7 @@ public class CompanyConteroller {
         log.info("modified");
         rttr.addFlashAttribute("result","modified");
 
-        return "redirect:/company/"+comId;
+        return "redirect:/company/mypage/";
     }
 
 

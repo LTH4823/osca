@@ -347,7 +347,7 @@
 
         const registerForm = document.querySelector(".registerForm")
 
-        //registerForm.submit()
+        registerForm.submit()
     }, false)
 
 

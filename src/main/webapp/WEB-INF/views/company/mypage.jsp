@@ -22,9 +22,9 @@
     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
         <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
 
-<%--        <sec:authorize access="isAuthenticated()">--%>
-<%--            <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>--%>
-<%--        </sec:authorize>--%>
+        <%--        <sec:authorize access="isAuthenticated()">--%>
+        <%--            <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>--%>
+        <%--        </sec:authorize>--%>
 
         <sec:authorize access="isAuthenticated()">
             <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
@@ -76,8 +76,8 @@
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
                         회원정보 수정
                     </a>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">
+                        <div class="sb-nav-link-icon"><i class="fas"></i></div>
                         회원탈퇴
                     </a>
                 </div>
@@ -101,18 +101,33 @@
             <button>회원정보 수정</button>
         </form>
 
-
         <form action="/company/remove/${company.comId}}" class="delForm" method="post">
-            <button>회원탈퇴</button>
         </form>
-
-        <form action=""></form>
-
 
     </div>
 
-<%--</div>--%>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">회원탈퇴하기</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>탈퇴 후 서비스 이용 및 생성 진행 완료 한 계약에 관하여 정보를 열람하거나 확인이 어려우실 수 있습니다.</p>
+                    <p>회원을 탈퇴 하시겠습니까?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-danger delBtn">탈퇴하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
@@ -122,15 +137,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-<script src="js/datatables-simple-demo.js"></script>
+<%--<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>--%>
+<%--<script src="js/datatables-simple-demo.js"></script>--%>
 
 
 <script>
     const delForm = document.querySelector(".delForm");
 
-    delForm.addEventListener("click", (e) => {
-        delForm.setAttribute("action", `/company/remove/${comId}`)
+    <%--delForm.addEventListener("click", (e) => {--%>
+    <%--    delForm.setAttribute("action", `/company/remove/${comId}`)--%>
+    <%--    delForm.submit()--%>
+    <%--}, false)--%>
+
+    const delBtn = document.querySelector(".delBtn");
+
+    delBtn.addEventListener("click", (e) => {
+        delForm.setAttribute("action", `/company/remove/${company.comId}`)
         delForm.submit()
     }, false)
 
