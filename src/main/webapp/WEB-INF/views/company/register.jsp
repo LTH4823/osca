@@ -98,7 +98,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">간략 회사소개</label>
-                                            <input type="text" name="comProfile" class="reqBurith form-control"/>
+                                            <input type="text" name="comIntro" class="comIntro form-control"/>
                                         </div>
                                     </div>
                                     <div class="input-group d-flex flex-row align-items-center mb-4">
@@ -165,8 +165,9 @@
 
                                         <div class="registerFile form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example3c">프로필 이미지를 넣어주세요.</label>
-                                                <input type="file" name="" class="comProfile form-control"/>
+                                                <input type="file" class="comProfile form-control"/>
 <%--                                                <input type="hidden" name="comProfile" class="comProfile form-control"/>--%>
+                                            <div class="comProfileResult"></div>
                                         </div>
                                     </div>
 
@@ -219,21 +220,48 @@
 
 <script>
 
+    const comProfileResult = document.querySelector(".comProfileResult");
+
+    document.querySelector(".comProfile").addEventListener("change", (e)=> {
+        const hidenInput = document.querySelector("input[name=comProfile]")
+        const img = document.querySelector(".thumbnailProfile")
+        console.log(hidenInput)
+        console.log(img)
+        if (hidenInput){
+            const link = hidenInput.getAttribute("data-link")
+            deleteToServer(link).then(result =>{
+                hidenInput.remove()
+                img.remove()
+            })
+        }
+        const formObj = new FormData();
+        const fileInput = document.querySelector(".comProfile")
+        console.log(fileInput.files)
+        const files = fileInput.files
+        for (let i = 0; i < files.length; i++) {
+            console.log(files[i])
+            formObj.append("files", files[i])
+        }
+        uploadToServer(formObj).then(resultArr => {
+            comProfileResult.innerHTML += resultArr.map(result => `
+        <img class="thumbnailProfile" src ='/view?fileName=\${result.thumbnail}'>
+           <input type="hidden" data-link="\${result.link}" name="comProfile" value="\${result.thumbnail}">`).join(" ")
+
+        })
+    },false)
+
     const businessCheckResult = document.querySelector(".businessCheckResult");
     const businessInput = document.querySelector(".businessInput").cloneNode()
+
     document.querySelector(".businessCheck").addEventListener("change",(e)=> {
-
         const hidenInput = document.querySelector("input[name=businessCheck]")
-
         if (hidenInput){
             const link = hidenInput.value
             deleteToServer(link).then(result =>{
                 hidenInput.remove()
             })
         }
-
         console.log(hidenInput)
-
         const formObj = new FormData();
         const fileInput = document.querySelector(".businessCheck")
         console.log(fileInput.files)
