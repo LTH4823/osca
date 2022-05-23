@@ -88,7 +88,8 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">사업자등록번호 등본</label>
-                                            <input type="file" name="businessNum" class="reqBurith form-control"/>
+                                            <input type="file" name="" class="reqBurith form-control"/>
+                                            <input type="hidden" name="businessCheck" class="reqBurith form-control"/>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -116,7 +117,8 @@
                                                        id="custom_extraAddress" placeholder="참고항목">
                                             </div>
 
-                                            <div id="map" style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+                                            <div id="map"
+                                                 style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
                                         </div>
                                     </div>
 
@@ -124,17 +126,18 @@
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">전화번호</label>
-                                            <input type="text" name="comPhone" id="form3Example1c" class="reqCall form-control"/>
+                                            <input type="text" name="comPhone" id="form3Example1c"
+                                                   class="reqCall form-control"/>
                                         </div>
                                     </div>
-
 
 
                                     <div class="d-flex flex-row align-items-center mb-4">
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example3c">이메일</label>
-                                            <input type="email" name="comEmail" id="form3Example3c" class="reqEmail form-control"/>
+                                            <input type="email" name="comEmail" id="form3Example3c"
+                                                   class="reqEmail form-control"/>
                                         </div>
                                     </div>
 
@@ -142,7 +145,8 @@
 
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example4c">비밀번호</label>
-                                            <input type="password" name="password" id="form3Example4c" class="reqPw form-control"/>
+                                            <input type="password" name="password" id="form3Example4c"
+                                                   class="reqPw form-control"/>
                                         </div>
                                     </div>
 
@@ -158,8 +162,8 @@
 
                                         <div class="registerFile form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example3c">프로필 이미지를 넣어주세요.</label>
-                                            <input type="file" name="comProfile" class="comProfile form-control"/>
-                                            <div class="uploadResult"></div>
+                                                <input type="file" name="" class="comProfile form-control"/>
+                                                <input type="hidden" name="comProfile" class="comProfile form-control"/>
                                         </div>
                                     </div>
 
@@ -180,7 +184,19 @@
         </div>
     </div>
 </section>
-<footer></footer>
+<footer>
+    <div>
+        <h2>Ajax Upload</h2>
+        <div class="uploadInputDiv">
+            <input type="file" name="upload" class="uploadFile">
+        </div>
+        <button class="uploadBtn">UPLOAD</button>
+    </div>
+
+    <div class="uploadResult">
+
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -189,33 +205,102 @@
 
 <%--map--%>
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" ></script>
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services" ></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services"></script>
 <script src="../../../resources/js/address.js"></script>
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/67818242f4.js" crossorigin="anonymous"></script>
 
+<%--axios--%>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
-
     const comProfile = document.querySelector(".comProfile")
-
-    comProfile.addEventListener("change",(e)=>{
+    comProfile.addEventListener("change", (e) => {
         console.log("change")
 
+    }, false)
+
+    const uploadResult = document.querySelector(".uploadResult")
+
+    const cloneInput = document.querySelector(".uploadFile").cloneNode()
+
+    uploadResult.addEventListener("click",(e)=>{
+        if (e.target.getAttribute("class").includes("delBtn")<0){
+            return
+        }
+        const btn = e.target
+        const link = btn.getAttribute("data-link")
+
+        deleteToServer(link).then(result =>{
+            btn.closest("div").remove()
+        })
 
     },false)
 
+    document.querySelector(".uploadBtn").addEventListener("click", (e) => {
 
-    document.querySelector(".registerBtn").addEventListener("click", (e)=>{
+        const formObj = new FormData();
+
+        const fileInput = document.querySelector(".uploadFile")
+
+        console.log(fileInput.files)
+
+        const files = fileInput.files
+
+        for (let i = 0; i < files.length; i++) {
+            console.log(files[i])
+            formObj.append("files", files[i])
+        }
+        uploadToServer(formObj).then(resultArr =>{
+            uploadResult.innerHTML += resultArr.map(result =>`<div>
+        <img src ='/view?fileName=\${result.thumbnail}'>
+           <input type="hidden" value="\${result.thumbnail}">
+            <h1>\${result.link}</h1>
+        <button data-link='\${result.link}' class="delBtn">x</button>
+    \${result.original}</div>`).join(" ")
+
+            fileInput.remove()
+            document.querySelector(".uploadInputDiv").appendChild(cloneInput.cloneNode())
+
+        })
+
+    }, false)
+
+
+    async function uploadToServer(formObj) {
+
+        console.log("upload to server......")
+        console.log(formObj)
+
+        const response = await axios({
+            method: 'post',
+            url: '/upload1',
+            data: formObj,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+
+        return response.data
+    }
+
+    async function deleteToServer(fileName) {
+        const options = {header: {"Content-Type": "application/x-www-form-urlencoded"}}
+
+        const res = await axios.post("/delete", "fileName=" + fileName, options)
+
+        console.log(res.data)
+    }
+
+    document.querySelector(".registerBtn").addEventListener("click", (e) => {
         e.preventDefault()
         e.stopPropagation()
 
         const registerForm = document.querySelector(".registerForm")
 
-        registerForm.submit()
-    },false)
+        //registerForm.submit()
+    }, false)
 
 
 </script>
