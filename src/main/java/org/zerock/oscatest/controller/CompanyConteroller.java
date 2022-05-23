@@ -51,31 +51,15 @@ public class CompanyConteroller {
 
 
     // mypage ==================================================================================
-    @PreAuthorize("hasRole('ROLE_COMPANY')")
-    @GetMapping("/{comId}")
-    public String myPageGET(@PathVariable("comId")String comId, Model model){
-        log.info("===============================");
-        log.info(comId);
-        model.addAttribute("company", companyService.getInfo(comId));
-        return "/company/mypage";
-    }
-
 //    @PreAuthorize("hasRole('ROLE_COMPANY')")
-//    @GetMapping("/mypage/{comId}")
-////    @AuthenticationPrincipal CompanyDTO companyDTO
-//    public String myPageGET( @PathVariable String comId, CompanyDTO companyDTO, Model model){
+//    @GetMapping("/{comId}")
+//    public String myPageGET(@PathVariable("comId")String comId, Model model){
 //        log.info("===============================");
-//        log.info(companyDTO);
-//        companyDTO.setComId(comId);
-////        String id = (String) session.getAttribute("username");
-//        log.info("===============================");
-//        log.info("===============================");
-//        log.info(companyDTO.getComId());
-//        log.info("===============================");
-//        log.info("===============================");
-//        model.addAttribute("MyPage", companyService.getInfo(companyDTO.getComId()));
+//        log.info(comId);
+//        model.addAttribute("company", companyService.getInfo(comId));
 //        return "/company/mypage";
 //    }
+//
 
     @PreAuthorize("hasRole('ROLE_COMPANY')")
     @GetMapping("/mypage/")

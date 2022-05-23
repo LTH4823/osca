@@ -82,14 +82,17 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">사업자등록번호</label>
-                                            <input type="text" name="businessNum" class="reqBurith form-control"/>
+                                            <input type="text" name="businessNum" class="businessNum form-control"/>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-outline flex-fill mb-0 businessInput">
                                             <label class="form-label" for="form3Example1c">사업자등록번호 등본</label>
-                                            <input type="file" name="" class="reqBurith form-control"/>
-                                            <input type="hidden" name="businessCheck" class="reqBurith form-control"/>
+                                            <input type="file" class="businessCheck form-control"/>
+                                            <div class="businessCheckResult">
+
+                                            </div>
+<%--                                            <input type="hidden" name="businessCheck" class="reqBurith form-control"/>--%>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -163,7 +166,7 @@
                                         <div class="registerFile form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example3c">프로필 이미지를 넣어주세요.</label>
                                                 <input type="file" name="" class="comProfile form-control"/>
-                                                <input type="hidden" name="comProfile" class="comProfile form-control"/>
+<%--                                                <input type="hidden" name="comProfile" class="comProfile form-control"/>--%>
                                         </div>
                                     </div>
 
@@ -215,39 +218,46 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
-    const comProfile = document.querySelector(".comProfile")
-    comProfile.addEventListener("change", (e) => {
-        console.log("change")
 
-    }, false)
+    const businessCheckResult = document.querySelector(".businessCheckResult");
+    const businessInput = document.querySelector(".businessInput").cloneNode()
+    document.querySelector(".businessCheck").addEventListener("change",(e)=> {
+
+        const hidenInput = document.querySelector("input[name=businessCheck]")
+
+        if (hidenInput){
+            const link = hidenInput.value
+            deleteToServer(link).then(result =>{
+                hidenInput.remove()
+            })
+        }
+
+        console.log(hidenInput)
+
+        const formObj = new FormData();
+        const fileInput = document.querySelector(".businessCheck")
+        console.log(fileInput.files)
+        const files = fileInput.files
+        for (let i = 0; i < files.length; i++) {
+            console.log(files[i])
+            formObj.append("files", files[i])
+        }
+        uploadToServer(formObj).then(resultArr => {
+            businessCheckResult.innerHTML += resultArr.map(result => `
+           <input type="hidden" name="businessCheck" value="\${result.link}">`).join(" ")
+        })
+    },false)
+
 
     const uploadResult = document.querySelector(".uploadResult")
-
     const cloneInput = document.querySelector(".uploadFile").cloneNode()
-
-    uploadResult.addEventListener("click",(e)=>{
-        if (e.target.getAttribute("class").includes("delBtn")<0){
-            return
-        }
-        const btn = e.target
-        const link = btn.getAttribute("data-link")
-
-        deleteToServer(link).then(result =>{
-            btn.closest("div").remove()
-        })
-
-    },false)
 
     document.querySelector(".uploadBtn").addEventListener("click", (e) => {
 
         const formObj = new FormData();
-
         const fileInput = document.querySelector(".uploadFile")
-
         console.log(fileInput.files)
-
         const files = fileInput.files
-
         for (let i = 0; i < files.length; i++) {
             console.log(files[i])
             formObj.append("files", files[i])
@@ -259,14 +269,24 @@
             <h1>\${result.link}</h1>
         <button data-link='\${result.link}' class="delBtn">x</button>
     \${result.original}</div>`).join(" ")
-
             fileInput.remove()
             document.querySelector(".uploadInputDiv").appendChild(cloneInput.cloneNode())
-
         })
-
     }, false)
 
+
+    uploadResult.addEventListener("click",(e)=>{
+        if (e.target.getAttribute("class").indexOf("delBtn") < 0){
+            return
+        }
+        const btn = e.target
+        const link = btn.getAttribute("data-link")
+
+        deleteToServer(link).then(result =>{
+            btn.closest("div").remove()
+        })
+
+    },false)
 
     async function uploadToServer(formObj) {
 
