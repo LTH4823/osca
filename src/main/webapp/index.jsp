@@ -16,9 +16,9 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="resources/css/reset.css" rel="stylesheet">
-    <link href="resources/css/style.css" rel="stylesheet" />
-    <link href="resources/css/customStyle.css" rel="stylesheet" />
+    <link href="/resources/css/reset.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet" />
+    <link href="/resources/css/customStyle.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -38,8 +38,8 @@
         <div class="navbarToggleArea collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                 <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="auction">Auction</a></li>
-                <li class="nav-item"><a class="nav-link" href="workers">Workers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/company/auction/">Auction</a></li>
+                <li class="nav-item"><a class="nav-link" href="/company/workers/">Workers</a></li>
 
                 <sec:authorize access="isAuthenticated()">
                 <li class="nav-item"><a class="nav-link" href="/company/mypage/${companyDTO.comId}">MyPage</a></li>

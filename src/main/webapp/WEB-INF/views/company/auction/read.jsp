@@ -13,11 +13,13 @@
     <button>입찰하기</button>
     <button class="modBtn">수정하기</button>
     <button class="delBtn" >삭제하기</button>
+    <button class="listBtn">돌아가기</button>
     <form class="actionForm" action="/company/remove/${dto.conNo}" method="post"></form>
 
 <script>
     const actionForm = document.querySelector(".actionForm");
     const delBtn = document.querySelector(".delBtn")
+    const listBtn = document.querySelector(".listBtn");
 
     delBtn.addEventListener("click",(e)=>{
         actionForm.setAttribute("action",`/company/auction/remove/${dto.conNo}`)
@@ -27,6 +29,11 @@
     document.querySelector(".modBtn").addEventListener("click",(e)=> {
         self.location = `/company/auction/modify/${dto.conNo}${listDTO.link}`
     }, false)
+
+    listBtn.addEventListener("click",(e)=>{
+        self.location = `/company/auction/list${listDTO.link}`
+    },false)
+
 </script>
 
 </body>

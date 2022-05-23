@@ -37,7 +37,7 @@ const modBtn = document.querySelector(".modBtn");
 const modForm = document.querySelector(".modForm");
 
 listBtn.addEventListener("click",(e)=>{
-    self.location = `/company/auction/list${listDTO.link}`
+    self.location = `/company/auction/read/${dto.conNo}?${listDTO.link}`
 },false)
 
 modBtn.addEventListener("click",(e)=>{

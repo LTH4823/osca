@@ -37,14 +37,14 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 //        return user;
 
-        CompanyLoginDTO companyDTO = new CompanyLoginDTO(company.getComId(),company.getPassword(), authority);
+        CompanyLoginDTO companyLoginDTO = new CompanyLoginDTO(company.getComId(),company.getPassword(), authority);
         log.info("==========================================================");
         log.info("==========================================================");
-        log.info(companyDTO);
+        log.info(companyLoginDTO);
         log.info("==========================================================");
         log.info("==========================================================");
 
-        return companyDTO;
+        return companyLoginDTO;
     }
 }
 

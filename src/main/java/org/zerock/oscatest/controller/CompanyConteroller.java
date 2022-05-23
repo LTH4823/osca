@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.zerock.oscatest.dto.CompanyDTO;
 import org.zerock.oscatest.service.CompanyService;
 
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 @Log4j2
 @Controller
@@ -26,6 +28,11 @@ import javax.servlet.http.HttpSession;
 public class CompanyConteroller {
 
     private final CompanyService companyService;
+
+    @GetMapping("/")
+    public String basic(){
+        return "redirect:/";
+    }
 
     // 회원가입=================================================================================
     @GetMapping("/register")
@@ -56,18 +63,33 @@ public class CompanyConteroller {
 //    @PreAuthorize("hasRole('ROLE_COMPANY')")
 //    @GetMapping("/mypage/{comId}")
 ////    @AuthenticationPrincipal CompanyDTO companyDTO
-//    public String myPageGET(@PathVariable("comId") String comId, RedirectAttributes rttr){
+//    public String myPageGET( @PathVariable String comId, CompanyDTO companyDTO, Model model){
 //        log.info("===============================");
-////        log.info(companyDTO);
+//        log.info(companyDTO);
+//        companyDTO.setComId(comId);
 ////        String id = (String) session.getAttribute("username");
-////        log.info(id);
-//        companyService.getInfo(comId);
-//        rttr.addFlashAttribute("MyPage", comId);
-////        model.addAttribute("MyPage", comId);
+//        log.info("===============================");
+//        log.info("===============================");
+//        log.info(companyDTO.getComId());
+//        log.info("===============================");
+//        log.info("===============================");
+//        model.addAttribute("MyPage", companyService.getInfo(companyDTO.getComId()));
 //        return "/company/mypage";
 //    }
 
-
+    @PreAuthorize("hasRole('ROLE_COMPANY')")
+    @GetMapping("/mypage/")
+    public String myPageGET(Principal principal, Model model){
+        log.info("===============================");
+        log.info("===============================");
+        log.info(principal);
+        log.info(principal.getName());
+        log.info("===============================");
+        log.info("===============================");
+        log.info("===============================");
+        model.addAttribute("company", companyService.getInfo(principal.getName()));
+        return "/company/mypage";
+    }
 
     //=========================================================================================
 

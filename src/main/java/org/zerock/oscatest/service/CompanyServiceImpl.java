@@ -45,6 +45,14 @@ public class CompanyServiceImpl implements CompanyService{
 
         Company company = companyMapper.info(comId);
 
+        log.info("=================================");
+        log.info("=================================");
+        log.info(company);
+        log.info("=================================");
+        log.info("=================================");
+
+
+
         CompanyDTO companyDTO = modelMapper.map(company, CompanyDTO.class);
 
         return companyDTO;

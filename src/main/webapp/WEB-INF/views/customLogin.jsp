@@ -46,9 +46,6 @@
                     <li class="nav-item"><a class="nav-link " href="#!">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Auction</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Workers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">MyRoom</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Logout</a></li>
-
                 </ul>
             </div>
         </div>
