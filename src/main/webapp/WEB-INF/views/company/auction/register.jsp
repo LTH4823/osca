@@ -38,59 +38,53 @@
 </nav>
 
 
-<form action="/company/auction/register" class="registerForm actionForm" method="post">
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <input type="text" name="conName" >계약명
-    <input type="text" name="conCategory" >작업 종류
-    <div class="input-group d-flex flex-row align-items-center mb-4">
-        <div class="form-outline flex-fill mb-0">
-            <p class="form-label" for="form3Example3c">주소</p>
-            <div class="registerAdressFind">
+<form action="/company/auction/register" class="registerForm" method="post">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <input type="text" name="conName">계약명
+        <input type="text" name="conCategory">작업 종류
+        <div class="input-group d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+                <p class="form-label" for="form3Example3c">주소</p>
+                <div class="registerAdressFind">
+                    <input type="text" class="registerAdressInput form-control"
+                           id="custom_postcode" name="comAddress" placeholder="우편번호">
+                    <input type="button" class=" form-control-text"
+                           onclick="custom_execDaumPostcode()" value="우편번호 찾기">
+                </div>
                 <input type="text" class="registerAdressInput form-control"
-                       id="custom_postcode" name="comAddress" placeholder="우편번호">
-                <input type="button" class=" form-control-text"
-                       onclick="custom_execDaumPostcode()" value="우편번호 찾기">
-            </div>
-            <input type="text" class="registerAdressInput form-control"
-                   id="custom_address" name="conLocation" placeholder="주소">
+                       id="custom_address" name="conLocation" placeholder="주소">
 
-            <div class="customFlexRow">
-                <input type="text" class="registerAdressInput form-control"
-                       id="custom_detailAddress" placeholder="상세주소">
-                <input type="text" class="registerAdressInput form-control"
-                       id="custom_extraAddress" placeholder="참고항목">
-            </div>
+                <div class="customFlexRow">
+                    <input type="text" class="registerAdressInput form-control"
+                           id="custom_detailAddress" placeholder="상세주소">
+                    <input type="text" class="registerAdressInput form-control"
+                           id="custom_extraAddress" placeholder="참고항목">
+                </div>
 
-            <div id="map"
-                 style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+                <div id="map"
+                     style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+            </div>
         </div>
-    </div>
-    <input type="text" name="conSpace" placeholder="제곱미터 단위로 넣어 주세요." >면적
-    <input type="text" name="conContent" >주요업무
-    <input type="text" name="conRequest" >요구사항
-    <input type="text" name="conStartDay" >시작일
-    <input type="text" name="conEndDay" >마감일
-    <input type="file" class="documentInput" >계약서
-    <div class="documentInputResult"></div>
-<%--    <input type="file" class="conImg" multiple>시공이미지--%>
+        <input type="text" name="conSpace" placeholder="제곱미터 단위로 넣어 주세요.">면적
+        <input type="text" name="conContent">주요업무
+        <input type="text" name="conRequest">요구사항
+        <input type="text" name="conStartDay">시작일
+        <input type="text" name="conEndDay">마감일
+        <input type="file" class="documentInput">계약서
+        <div class="documentInputResult"></div>
+        <%--    <input type="file" class="conImg" multiple>시공이미지--%>
 
-        <div>
-            <div class="uploadInputDiv">
-                <input type="file" name="upload" class="uploadFile" multiple>
-            </div>
-            <button type="button" class="uploadBtn">UPLOAD</button>
+        <div class="uploadInputDiv">
+            <input type="file" name="upload" class="uploadFile" multiple>
         </div>
-
-    <input type="hidden" name="uuid[0]" value="aaa">
-
+        <button type="button" class="uploadBtn">UPLOAD</button>
         <div class="uploadResult">
 
         </div>
 
-    <div class="conImgResult"></div>
-    <input type="text" name="comId" >의뢰자
-    <input type="text" name="memId" >시공사
-</div>
+        <div class="conImgResult"></div>
+        <input type="text" name="comId">의뢰자
+    </div>
 </form>
 
 <button class="registerBtn">등록</button>
@@ -102,51 +96,52 @@
 <script>
 
 
-     const uploadResult = document.querySelector(".uploadResult")
-     const cloneInput = document.querySelector(".uploadFile").cloneNode()
+    const uploadResult = document.querySelector(".uploadResult")
+    const cloneInput = document.querySelector(".uploadFile").cloneNode()
 
-     document.querySelector(".uploadBtn").addEventListener("click", (e) => {
+    document.querySelector(".uploadBtn").addEventListener("click", (e) => {
 
-         const formObj = new FormData();
-         const fileInput = document.querySelector(".uploadFile")
-         console.log(fileInput.files)
-         const files = fileInput.files
-         for (let i = 0; i < files.length; i++) {
-             console.log(files[i])
-             formObj.append("files", files[i])
-         }
-         uploadToServer(formObj).then(resultArr =>{
-             uploadResult.innerHTML += resultArr.map(({uuid, thumbnail, link,fileName, savePath, img}) =>
-                 `<div data-uuid='\${uuid}' data-img='\${img}' data-filename='\${fileName}' data-savepath='\${savePath}'>
+        const formObj = new FormData();
+        const fileInput = document.querySelector(".uploadFile")
+        console.log(fileInput.files)
+        const files = fileInput.files
+        for (let i = 0; i < files.length; i++) {
+            console.log(files[i])
+            formObj.append("files", files[i])
+        }
+        uploadToServer(formObj).then(resultArr => {
+            //구조 분해 할당
+            uploadResult.innerHTML += resultArr.map(({uuid, thumbnail, link, fileName, savePath, img}) =>
+                `<div data-uuid='\${uuid}' data-img='\${img}' data-filename='\${fileName}' data-savepath='\${savePath}'>
                 <img src='/view?fileName=\${thumbnail}'>
                 <button type="button" data-link='\${link}' class="delBtn">x</button>
                 \${fileName}</div>`).join(" ")
-             fileInput.remove()
-             document.querySelector(".uploadInputDiv").appendChild(cloneInput.cloneNode())
-         })
-     }, false)
+            fileInput.remove()
+            document.querySelector(".uploadInputDiv").appendChild(cloneInput.cloneNode())
+        })
+    }, false)
 
 
-     uploadResult.addEventListener("click",(e)=>{
-         if (e.target.getAttribute("class").indexOf("delBtn") < 0){
-             return
-         }
-         const btn = e.target
-         const link = btn.getAttribute("data-link")
+    uploadResult.addEventListener("click", (e) => {
+        if (e.target.getAttribute("class").indexOf("delBtn") < 0) {
+            return
+        }
+        const btn = e.target
+        const link = btn.getAttribute("data-link")
 
-         deleteToServer(link).then(result =>{
-             btn.closest("div").remove()
-         })
+        deleteToServer(link).then(result => {
+            btn.closest("div").remove()
+        })
 
-     },false)
+    }, false)
 
 
     const documentInputResult = document.querySelector(".documentInputResult");
-    document.querySelector(".documentInput").addEventListener("change",(e)=> {
+    document.querySelector(".documentInput").addEventListener("change", (e) => {
         const hidenInput = document.querySelector("input[name=conDocument]")
-        if (hidenInput){
+        if (hidenInput) {
             const link = hidenInput.value
-            deleteToServer(link).then(result =>{
+            deleteToServer(link).then(result => {
                 hidenInput.remove()
             })
         }
@@ -163,7 +158,7 @@
             documentInputResult.innerHTML += resultArr.map(result => `
            <input type="hidden" name="conDocument" value="\${result.link}">`).join(" ")
         })
-    },false)
+    }, false)
 
 
     async function uploadToServer(formObj) {
@@ -192,17 +187,17 @@
     }
 
 
-    document.querySelector(".registerBtn").addEventListener("click", (e)=>{
+    document.querySelector(".registerBtn").addEventListener("click", (e) => {
         e.preventDefault()
         e.stopPropagation()
 
         const divArr = document.querySelectorAll(".uploadResult > div")
 
         let str = "";
-        for(let i= 0;i < divArr.length; i++){
+        for (let i = 0; i < divArr.length; i++) {
             const fileObj = divArr[i]
 
-            if(i===0){
+            if (i === 0) {
                 const mainImageLink = fileObj.querySelector("img").getAttribute("src")
                 str += `<input type='hidden' name='conImg' value='\${mainImageLink}'>`
             }
@@ -225,7 +220,7 @@
 
         registerForm.submit()
 
-    },false)
+    }, false)
 
 </script>
 </body>

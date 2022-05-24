@@ -52,8 +52,8 @@ public class AuctionController {
         log.info("==============================");
         log.info(contractDTO);
 
-        contractService.register(contractDTO);
-//        contractService.insert(contractDTO);
+//        contractService.register(contractDTO);
+        contractService.insert(contractDTO);
 
         rttr.addFlashAttribute("result","register");
         log.info("registered");
