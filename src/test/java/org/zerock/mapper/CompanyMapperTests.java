@@ -46,7 +46,7 @@ public class CompanyMapperTests {
     @Test
     public void delete(){
         String comId = "comId04";
-       companyMapper.delete(comId);
+       companyMapper.updateAsRemoved(comId);
     }
 
     @Test

@@ -70,8 +70,22 @@
     <input type="text" name="conRequest" >요구사항
     <input type="text" name="conStartDay" >시작일
     <input type="text" name="conEndDay" >마감일
-    <input type="file" name="conDocument" >계약서
-    <input type="file" name="conImg" >시공이미지
+    <input type="file" class="documentInput" >계약서
+    <div class="documentInputResult"></div>
+<%--    <input type="file" class="conImg" multiple>시공이미지--%>
+
+        <div>
+            <div class="uploadInputDiv">
+                <input type="file" name="upload" class="uploadFile" multiple>
+            </div>
+            <button type="button" class="uploadBtn">UPLOAD</button>
+        </div>
+
+        <div class="uploadResult">
+
+        </div>
+
+    <div class="conImgResult"></div>
     <input type="text" name="comId" >의뢰자
     <input type="text" name="memId" >시공사
 </div>
@@ -81,7 +95,133 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services"></script>
 <script src="../../../resources/js/address.js"></script>
+<%--axios--%>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
+
+
+     const uploadResult = document.querySelector(".uploadResult")
+     const cloneInput = document.querySelector(".uploadFile").cloneNode()
+
+     document.querySelector(".uploadBtn").addEventListener("click", (e) => {
+
+         const formObj = new FormData();
+         const fileInput = document.querySelector(".uploadFile")
+         console.log(fileInput.files)
+         const files = fileInput.files
+         for (let i = 0; i < files.length; i++) {
+             console.log(files[i])
+             formObj.append("files", files[i])
+         }
+         multiUploadToServer(formObj).then(resultArr =>{
+             uploadResult.innerHTML += resultArr.map(result =>`<div>
+         <img src ='/view?fileName=\${result.thumbnail}'>
+            <input type="hidden" value="\${result.thumbnail}">
+             <h1>\${result.link}</h1>
+         <button type="button" data-link='\${result.link}' class="delBtn">x</button>
+     \${result.fileName}</div>`).join(" ")
+             fileInput.remove()
+             document.querySelector(".uploadInputDiv").appendChild(cloneInput.cloneNode())
+         })
+     }, false)
+
+
+     uploadResult.addEventListener("click",(e)=>{
+         if (e.target.getAttribute("class").indexOf("delBtn") < 0){
+             return
+         }
+         const btn = e.target
+         const link = btn.getAttribute("data-link")
+
+         multiDeleteToServer(link).then(result =>{
+             btn.closest("div").remove()
+         })
+
+     },false)
+
+
+    const documentInputResult = document.querySelector(".documentInputResult");
+    document.querySelector(".documentInput").addEventListener("change",(e)=> {
+        const hidenInput = document.querySelector("input[name=conDocument]")
+        if (hidenInput){
+            const link = hidenInput.value
+            deleteToServer(link).then(result =>{
+                hidenInput.remove()
+            })
+        }
+        console.log(hidenInput)
+        const formObj = new FormData();
+        const fileInput = document.querySelector(".documentInput")
+        console.log(fileInput.files)
+        const files = fileInput.files
+        for (let i = 0; i < files.length; i++) {
+            console.log(files[i])
+            formObj.append("files", files[i])
+        }
+        uploadToServer(formObj).then(resultArr => {
+            documentInputResult.innerHTML += resultArr.map(result => `
+           <input type="hidden" name="conDocument" value="\${result.link}">`).join(" ")
+        })
+    },false)
+
+
+
+
+    async function multiUploadToServer(formObj) {
+
+        console.log("upload to server......")
+        console.log(formObj)
+
+        const response = await axios({
+            method: 'post',
+            url: '/upload2',
+            data: formObj,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+
+        return response.data
+    }
+
+    async function multiDeleteToServer(fileName) {
+        const options = {header: {"Content-Type": "application/x-www-form-urlencoded"}}
+
+        const res = await axios.post("/delete2", "fileName=" + fileName, options)
+
+        console.log(res.data)
+    }
+
+
+
+
+
+    async function uploadToServer(formObj) {
+
+        console.log("upload to server......")
+        console.log(formObj)
+
+        const response = await axios({
+            method: 'post',
+            url: '/upload1',
+            data: formObj,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+
+        return response.data
+    }
+
+    async function deleteToServer(fileName) {
+        const options = {header: {"Content-Type": "application/x-www-form-urlencoded"}}
+
+        const res = await axios.post("/delete", "fileName=" + fileName, options)
+
+        console.log(res.data)
+    }
+
+
     document.querySelector(".registerBtn").addEventListener("click", (e)=>{
         e.preventDefault()
         e.stopPropagation()

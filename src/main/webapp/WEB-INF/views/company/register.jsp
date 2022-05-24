@@ -276,44 +276,44 @@
     },false)
 
 
-    const uploadResult = document.querySelector(".uploadResult")
-    const cloneInput = document.querySelector(".uploadFile").cloneNode()
+    // const uploadResult = document.querySelector(".uploadResult")
+    // const cloneInput = document.querySelector(".uploadFile").cloneNode()
+    //
+    // document.querySelector(".uploadBtn").addEventListener("click", (e) => {
+    //
+    //     const formObj = new FormData();
+    //     const fileInput = document.querySelector(".uploadFile")
+    //     console.log(fileInput.files)
+    //     const files = fileInput.files
+    //     for (let i = 0; i < files.length; i++) {
+    //         console.log(files[i])
+    //         formObj.append("files", files[i])
+    //     }
+    //     uploadToServer(formObj).then(resultArr =>{
+    //         uploadResult.innerHTML += resultArr.map(result =>`<div>
+    //     <img src ='/view?fileName=\${result.thumbnail}'>
+    //        <input type="hidden" value="\${result.thumbnail}">
+    //         <h1>\${result.link}</h1>
+    //     <button data-link='\${result.link}' class="delBtn">x</button>
+    // \${result.fileName}</div>`).join(" ")
+    //         fileInput.remove()
+    //         document.querySelector(".uploadInputDiv").appendChild(cloneInput.cloneNode())
+    //     })
+    // }, false)
 
-    document.querySelector(".uploadBtn").addEventListener("click", (e) => {
 
-        const formObj = new FormData();
-        const fileInput = document.querySelector(".uploadFile")
-        console.log(fileInput.files)
-        const files = fileInput.files
-        for (let i = 0; i < files.length; i++) {
-            console.log(files[i])
-            formObj.append("files", files[i])
-        }
-        uploadToServer(formObj).then(resultArr =>{
-            uploadResult.innerHTML += resultArr.map(result =>`<div>
-        <img src ='/view?fileName=\${result.thumbnail}'>
-           <input type="hidden" value="\${result.thumbnail}">
-            <h1>\${result.link}</h1>
-        <button data-link='\${result.link}' class="delBtn">x</button>
-    \${result.original}</div>`).join(" ")
-            fileInput.remove()
-            document.querySelector(".uploadInputDiv").appendChild(cloneInput.cloneNode())
-        })
-    }, false)
-
-
-    uploadResult.addEventListener("click",(e)=>{
-        if (e.target.getAttribute("class").indexOf("delBtn") < 0){
-            return
-        }
-        const btn = e.target
-        const link = btn.getAttribute("data-link")
-
-        deleteToServer(link).then(result =>{
-            btn.closest("div").remove()
-        })
-
-    },false)
+    // uploadResult.addEventListener("click",(e)=>{
+    //     if (e.target.getAttribute("class").indexOf("delBtn") < 0){
+    //         return
+    //     }
+    //     const btn = e.target
+    //     const link = btn.getAttribute("data-link")
+    //
+    //     deleteToServer(link).then(result =>{
+    //         btn.closest("div").remove()
+    //     })
+    //
+    // },false)
 
     async function uploadToServer(formObj) {
 
