@@ -10,6 +10,8 @@ import java.util.List;
 @Transactional
 public interface ContractService {
 
+    void register(ContractDTO contractDTO);
+
     ListResponseDTO<ContractDTO>getList(ListDTO listDTO);
 
     ContractDTO getOne(Integer conNo);

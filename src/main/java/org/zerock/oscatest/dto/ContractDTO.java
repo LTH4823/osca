@@ -1,10 +1,16 @@
 package org.zerock.oscatest.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ContractDTO {
     private Integer conNo;
     private String conName;
@@ -22,6 +28,8 @@ public class ContractDTO {
     private String memId;
     private String comId;
     private String conState;
+
+    private List<UploadResultDTO> uploads = new ArrayList<>();
 
     private LocalDate regDate;
     private LocalDate updateDate;

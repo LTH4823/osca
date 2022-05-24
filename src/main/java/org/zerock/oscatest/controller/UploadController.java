@@ -9,7 +9,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.zerock.oscatest.dto.UploadResultDTO;
-import org.zerock.oscatest.service.FileService;
+//import org.zerock.oscatest.service.FileService;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,7 +27,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UploadController {
 
-    private final FileService fileService;
+//    private final FileService fileService;
 
     @GetMapping("/view")
     public ResponseEntity<byte[]> viewFile(String fileName){
@@ -152,100 +152,100 @@ public class UploadController {
         return list;
     }
 
-    @PostMapping("/delete2")
-    @ResponseBody
-    public Map<String, String> multiDeleteFile(String fileName){
-        int idx = fileName.lastIndexOf("/");
-        String path = fileName.substring(0,idx);
-        String name = fileName.substring(idx+1);//uuid_fileName
-        String uuid = name.substring(0,name.indexOf("_"));
-
-        log.info("path: " + path);
-        log.info("name: " + name);
-
-        File targetFile = new File("C:\\upload\\"+fileName);
-
-        boolean result = targetFile.delete();
-
-        //thumbnail
-        if(result){
-            File thumbFile = new File("C:\\upload\\"+path+"\\s_"+name);
-            thumbFile.delete();
-        }
-        fileService.remove(uuid);
-        return Map.of("result", "success");
-    }
-
-    @PostMapping("/upload2")
-    @ResponseBody
-    public List<UploadResultDTO> upload2(MultipartFile[] files) {
-        log.info("======================");
-        log.info(files);
-        log.info("======================");
-
-        List<UploadResultDTO> list = new ArrayList<>();
-
-        //업로드된 파일 있다고 가정
-        for (MultipartFile file : files) {
-
-            log.info("======================");
-            log.info(file.getOriginalFilename());
-            log.info(file.getResource());
-            log.info(makeFolders());
-            log.info(file.getContentType());
-            log.info("======================");
-
-
-            String originalFileName = file.getOriginalFilename();
-
-            boolean img = file.getContentType().startsWith("image");
-
-            String uuid = UUID.randomUUID().toString();
-
-            String saveName = uuid + "_" + originalFileName;
-
-            String saveFolder = makeFolders();
-
-            File saveFile = new File("C:\\upload\\" + saveFolder + "\\" + saveName);
-
-            try (InputStream in = file.getInputStream();
-                 FileOutputStream fos = new FileOutputStream(saveFile);
-            ) {
-
-                FileCopyUtils.copy(in, fos);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            if (img) {
-                //saveName = UUID+"_"+fileName
-                String thumbFileName = saveFolder + "\\s_" + saveName;
-                File thumbFile = new File("C:\\upload\\" + thumbFileName);
-
-                try {
-                    Thumbnails.of(saveFile)
-                            .size(200, 200)
-                            .toFile(thumbFile);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-            UploadResultDTO uploadResultDTO =UploadResultDTO.builder()
-                    .fileName(originalFileName)
-                    .uuid(uuid)
-                    .img(img)
-                    .savePath(saveFolder)
-                    .build();
-
-            list.add(uploadResultDTO);
-            fileService.register(uploadResultDTO);
-            log.info("======================");
-        }
-
-        return list;
-    }
+//    @PostMapping("/delete2")
+//    @ResponseBody
+//    public Map<String, String> multiDeleteFile(String fileName){
+//        int idx = fileName.lastIndexOf("/");
+//        String path = fileName.substring(0,idx);
+//        String name = fileName.substring(idx+1);//uuid_fileName
+//        String uuid = name.substring(0,name.indexOf("_"));
+//
+//        log.info("path: " + path);
+//        log.info("name: " + name);
+//
+//        File targetFile = new File("C:\\upload\\"+fileName);
+//
+//        boolean result = targetFile.delete();
+//
+//        //thumbnail
+//        if(result){
+//            File thumbFile = new File("C:\\upload\\"+path+"\\s_"+name);
+//            thumbFile.delete();
+//        }
+//
+//        return Map.of("result", "success");
+//    }
+//
+//    @PostMapping("/upload2")
+//    @ResponseBody
+//    public List<UploadResultDTO> upload2(MultipartFile[] files) {
+//        log.info("======================");
+//        log.info(files);
+//        log.info("======================");
+//
+//        List<UploadResultDTO> list = new ArrayList<>();
+//
+//        //업로드된 파일 있다고 가정
+//        for (MultipartFile file : files) {
+//
+//            log.info("======================");
+//            log.info(file.getOriginalFilename());
+//            log.info(file.getResource());
+//            log.info(makeFolders());
+//            log.info(file.getContentType());
+//            log.info("======================");
+//
+//
+//            String originalFileName = file.getOriginalFilename();
+//
+//            boolean img = file.getContentType().startsWith("image");
+//
+//            String uuid = UUID.randomUUID().toString();
+//
+//            String saveName = uuid + "_" + originalFileName;
+//
+//            String saveFolder = makeFolders();
+//
+//            File saveFile = new File("C:\\upload\\" + saveFolder + "\\" + saveName);
+//
+//            try (InputStream in = file.getInputStream();
+//                 FileOutputStream fos = new FileOutputStream(saveFile);
+//            ) {
+//
+//                FileCopyUtils.copy(in, fos);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            if (img) {
+//                //saveName = UUID+"_"+fileName
+//                String thumbFileName = saveFolder + "\\s_" + saveName;
+//                File thumbFile = new File("C:\\upload\\" + thumbFileName);
+//
+//                try {
+//                    Thumbnails.of(saveFile)
+//                            .size(200, 200)
+//                            .toFile(thumbFile);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//
+//            UploadResultDTO uploadResultDTO =UploadResultDTO.builder()
+//                    .fileName(originalFileName)
+//                    .uuid(uuid)
+//                    .img(img)
+//                    .savePath(saveFolder)
+//                    .build();
+//
+//            list.add(uploadResultDTO);
+//
+//            log.info("======================");
+//        }
+//
+//        return list;
+//    }
 
     //저장할 파일들의 폴더 위치 생성
     private String makeFolders() {

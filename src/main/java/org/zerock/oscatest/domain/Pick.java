@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Builder
-public class AttachFile {
+public class Pick {
     private String uuid;
     private Integer conNo;
     private String fileName;

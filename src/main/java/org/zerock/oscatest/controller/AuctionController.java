@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.oscatest.dto.*;
 import org.zerock.oscatest.service.ContractService;
 
+import java.util.Arrays;
+
 @Log4j2
 @Controller
 @RequestMapping("/company/auction/")
@@ -49,7 +51,10 @@ public class AuctionController {
     public String registerPOST(ContractDTO contractDTO, RedirectAttributes rttr){
         log.info("==============================");
         log.info(contractDTO);
-        contractService.insert(contractDTO);
+
+        contractService.register(contractDTO);
+//        contractService.insert(contractDTO);
+
         rttr.addFlashAttribute("result","register");
         log.info("registered");
         return "redirect: /";

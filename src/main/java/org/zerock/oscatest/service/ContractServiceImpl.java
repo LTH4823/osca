@@ -5,10 +5,12 @@ import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.zerock.oscatest.domain.Contract;
+import org.zerock.oscatest.domain.Pick;
 import org.zerock.oscatest.dto.ContractDTO;
 import org.zerock.oscatest.dto.ListDTO;
 import org.zerock.oscatest.dto.ListResponseDTO;
 import org.zerock.oscatest.mapper.ContractMapper;
+import org.zerock.oscatest.mapper.FileMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +21,31 @@ import java.util.stream.Collectors;
 public class ContractServiceImpl implements ContractService {
 
     private final ContractMapper contractMapper;
+    private final FileMapper fileMapper;
     private final ModelMapper modelMapper;
+
+    @Override
+    public void register(ContractDTO contractDTO) {
+
+        Contract contract = modelMapper.map(contractDTO, Contract.class);
+
+        List<Pick> files = contractDTO.getUploads().stream().map(uploadResultDTO
+                -> modelMapper.map(uploadResultDTO, Pick.class)).collect(Collectors.toList());
+
+        log.info("==================================");
+        log.info(contract);
+        log.info(files);
+        contractMapper.insert(contract);
+
+        files.forEach(file ->fileMapper.insert(file));
+
+        log.info("==================================");
+        log.info("==================================");
+
+
+
+
+    }
 
     @Override
     public ListResponseDTO<ContractDTO> getList(ListDTO listDTO) {

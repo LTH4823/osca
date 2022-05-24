@@ -5,12 +5,12 @@
 <mapper namespace="org.zerock.oscatest.mapper.FileMapper">
 
     <insert id="insert">
-        insert into tbl_file (uuid, fileName, savepath, img)
-        values (#{uuid},#{fileName},#{savePath},#{img})
+        insert into tbl_pick (uuid, fileName, savepath, img, conNo)
+        values (#{uuid},#{fileName},#{savePath},#{img}, last_insert_id())
     </insert>
 
     <delete id="delete">
-        delete from tbl_file where uuid = #{uuid}
+        delete from tbl_pick where uuid = #{uuid}
     </delete>
 
 </mapper>

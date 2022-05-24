@@ -38,7 +38,7 @@
 </nav>
 
 
-<form action="/company/auction/register" class="registerForm" method="post">
+<form action="/company/auction/register" class="registerForm actionForm" method="post">
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <input type="text" name="conName" >계약명
     <input type="text" name="conCategory" >작업 종류
@@ -81,6 +81,8 @@
             <button type="button" class="uploadBtn">UPLOAD</button>
         </div>
 
+    <input type="hidden" name="uuid[0]" value="aaa">
+
         <div class="uploadResult">
 
         </div>
@@ -113,13 +115,12 @@
              console.log(files[i])
              formObj.append("files", files[i])
          }
-         multiUploadToServer(formObj).then(resultArr =>{
-             uploadResult.innerHTML += resultArr.map(result =>`<div>
-         <img src ='/view?fileName=\${result.thumbnail}'>
-            <input type="hidden" value="\${result.thumbnail}">
-             <h1>\${result.link}</h1>
-         <button type="button" data-link='\${result.link}' class="delBtn">x</button>
-     \${result.fileName}</div>`).join(" ")
+         uploadToServer(formObj).then(resultArr =>{
+             uploadResult.innerHTML += resultArr.map(({uuid, thumbnail, link,fileName, savePath, img}) =>
+                 `<div data-uuid='\${uuid}' data-img='\${img}' data-filename='\${fileName}' data-savepath='\${savePath}'>
+                <img src='/view?fileName=\${thumbnail}'>
+                <button type="button" data-link='\${link}' class="delBtn">x</button>
+                \${fileName}</div>`).join(" ")
              fileInput.remove()
              document.querySelector(".uploadInputDiv").appendChild(cloneInput.cloneNode())
          })
@@ -133,7 +134,7 @@
          const btn = e.target
          const link = btn.getAttribute("data-link")
 
-         multiDeleteToServer(link).then(result =>{
+         deleteToServer(link).then(result =>{
              btn.closest("div").remove()
          })
 
@@ -163,37 +164,6 @@
            <input type="hidden" name="conDocument" value="\${result.link}">`).join(" ")
         })
     },false)
-
-
-
-
-    async function multiUploadToServer(formObj) {
-
-        console.log("upload to server......")
-        console.log(formObj)
-
-        const response = await axios({
-            method: 'post',
-            url: '/upload2',
-            data: formObj,
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        });
-
-        return response.data
-    }
-
-    async function multiDeleteToServer(fileName) {
-        const options = {header: {"Content-Type": "application/x-www-form-urlencoded"}}
-
-        const res = await axios.post("/delete2", "fileName=" + fileName, options)
-
-        console.log(res.data)
-    }
-
-
-
 
 
     async function uploadToServer(formObj) {
@@ -226,9 +196,35 @@
         e.preventDefault()
         e.stopPropagation()
 
+        const divArr = document.querySelectorAll(".uploadResult > div")
+
+        let str = "";
+        for(let i= 0;i < divArr.length; i++){
+            const fileObj = divArr[i]
+
+            if(i===0){
+                const mainImageLink = fileObj.querySelector("img").getAttribute("src")
+                str += `<input type='hidden' name='conImg' value='\${mainImageLink}'>`
+            }
+
+            const uuid = fileObj.getAttribute("data-uuid")
+            const img = fileObj.getAttribute("data-img")
+            const savePath = fileObj.getAttribute("data-savepath")
+            const fileName = fileObj.getAttribute("data-filename")
+
+            str += `<input type='hidden' name='uploads[\${i}].uuid' value='\${uuid}'>`
+            str += `<input type='hidden' name='uploads[\${i}].img' value='\${img}'>`
+            str += `<input type='hidden' name='uploads[\${i}].savePath' value='\${savePath}'>`
+            str += `<input type='hidden' name='uploads[\${i}].fileName' value='\${fileName}'>`
+        }//for
+
+        // document.querySelector(".actionForm").innerHTML += str
+
         const registerForm = document.querySelector(".registerForm")
+        registerForm.innerHTML += str
 
         registerForm.submit()
+
     },false)
 
 </script>
