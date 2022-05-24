@@ -37,13 +37,50 @@
     </ul>
 </nav>
 
+
 <form action="/company/auction/register" class="registerForm" method="post">
-    <input type="text" name="conName" >
-    <input type="text" name="conContent" >
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <input type="text" name="conName" >계약명
+    <input type="text" name="conCategory" >작업 종류
+    <div class="input-group d-flex flex-row align-items-center mb-4">
+        <div class="form-outline flex-fill mb-0">
+            <p class="form-label" for="form3Example3c">주소</p>
+            <div class="registerAdressFind">
+                <input type="text" class="registerAdressInput form-control"
+                       id="custom_postcode" name="comAddress" placeholder="우편번호">
+                <input type="button" class=" form-control-text"
+                       onclick="custom_execDaumPostcode()" value="우편번호 찾기">
+            </div>
+            <input type="text" class="registerAdressInput form-control"
+                   id="custom_address" name="conLocation" placeholder="주소">
+
+            <div class="customFlexRow">
+                <input type="text" class="registerAdressInput form-control"
+                       id="custom_detailAddress" placeholder="상세주소">
+                <input type="text" class="registerAdressInput form-control"
+                       id="custom_extraAddress" placeholder="참고항목">
+            </div>
+
+            <div id="map"
+                 style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+        </div>
+    </div>
+    <input type="text" name="conSpace" placeholder="제곱미터 단위로 넣어 주세요." >면적
+    <input type="text" name="conContent" >주요업무
+    <input type="text" name="conRequest" >요구사항
+    <input type="text" name="conStartDay" >시작일
+    <input type="text" name="conEndDay" >마감일
+    <input type="file" name="conDocument" >계약서
+    <input type="file" name="conImg" >시공이미지
+    <input type="text" name="comId" >의뢰자
+    <input type="text" name="memId" >시공사
+</div>
 </form>
 
 <button class="registerBtn">등록</button>
-
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services"></script>
+<script src="../../../resources/js/address.js"></script>
 <script>
     document.querySelector(".registerBtn").addEventListener("click", (e)=>{
         e.preventDefault()
