@@ -58,11 +58,15 @@
                     <%--                    </a>--%>
                     <a class="nav-link" href="">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        생성한 계약
+                        생성 계약
                     </a>
                     <a class="nav-link" href="">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        계약 진행중
+                        계약 협상
+                    </a>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        계약 진행
                     </a>
                     <a class="nav-link" href="">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
@@ -108,13 +112,14 @@
                             실적
                         </div>
                         <div class="card-body">
-                            <div width="569" height="227"
-                                 style="display: block; height: 227px; width: 569px;"
+                            <div width="500" height="300"
+                                 style="display: block; height: 300px; width: 500px;"
                                  class="chartjs-render-monitor">
-                                <p class="d-block p-2 bg-primary text-white text-end">생성 계약 건수: </p>
-                                <p class="d-block p-2 bg-primary text-white text-end">협상 계약 건수: </p>
-                                <p class="d-block p-2 bg-primary text-white text-end">계약 완료 건수: </p>
-                                <p class="d-block p-2 bg-primary text-white text-end">계약 파기 건수: </p>
+                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 생성 건수: 0</span></p>
+                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 협상 건수: 0</span></p>
+                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 진행 건수: 0</span></p>
+                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 완료 건수: 0</span></p>
+                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 파기 건수: 0</span></p>
                             </div>
                         </div>
                     </div>
@@ -131,12 +136,14 @@
                             회사 정보
                         </div>
                         <div class="card-body">
-                            <div id="" width="569" height="227"
-                                 style="display: block; height: 227px; width: 569px;"
+                            <div id="" width="500" height="300"
+                                 style="display: block; height: 300px; width: 500px;"
                                  class="chartjs-render-monitor">
                                 <div  class="row">
                                     <div class="">
-                                        <p>${company.comProfile}</p>
+                                        <c:if test="${company.comProfile !=null}">
+                                            <img src='view?fileName=${company.comProfile}' alt="zxcv">
+                                        </c:if>
                                     </div>
                                     <div  class="">
                                         <p>${company.comName}</p>
@@ -164,10 +171,10 @@
                             회사주소
                         </div>
                         <div class="card-body">
-                            <div width="569" height="227"
-                                 style="display: block; height: 227px; width: 569px;"
+                            <div width="500" height="227"
+                                 style="display: block; height: 227px; width: 500px;"
                                  class="chartjs-render-monitor"><p>${company.comAddress}</p>
-                                <div class="map" style=" margin: 0em 0em 0em 3em; height: 180px; width: 540px;"></div>
+                                <div class="map" style=" margin: 0em 0em 0em 0em; height: 180px; width: 540px;"></div>
                             </div>
                         </div>
                     </div>
@@ -185,17 +192,18 @@
 
                         </div>
                         <div class="card-body">
-                            <div id="myBarChart" width="569" height="227"
-                                 style="display: block; height: 227px; width: 569px;"
+                            <div id="myBarChart" width="500" height="227"
+                                 style="display: block; height: 227px; width: 500px;"
                                  class="chartjs-render-monitor"><p>${company.businessNum}</p>
-                                <p>${company.businessCheck}</p></div>
+                                <p>${company.businessCheck}</p>
+                            <c:if test="${company.businessCheck !=null}">
+                                <img src='view?fileName=${company.businessCheck}' alt="zxcv">
+                            </c:if>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -226,7 +234,7 @@
 <%--            <button>회원정보 수정</button>--%>
 <%--        </form>--%>
         <p></p>
-
+        <img src="/view?fileName=\2022/05/24/e53a029f-be9a-46b0-b6a8-ad65329ed8fc_hguc 바운드독.jpg" alt="">
     </div>
 </div>
 <footer>
@@ -249,18 +257,18 @@
 
 <script>
     const delForm = document.querySelector(".delForm");
-
     <%--delForm.addEventListener("click", (e) => {--%>
     <%--    delForm.setAttribute("action", `/company/remove/${comId}`)--%>
     <%--    delForm.submit()--%>
     <%--}, false)--%>
-
     const delBtn = document.querySelector(".delBtn");
-
     delBtn.addEventListener("click", (e) => {
         delForm.setAttribute("action", `/company/remove/${company.comId}`)
         delForm.submit()
     }, false)
+
+
+
 
 </script>
 
