@@ -165,14 +165,4 @@ public class UploadController {
         return str;
     }
 
-
-//    @PostMapping("/upload2")
-//    public void upload2(MultipartFile[] file){
-//
-//        log.info("======================");
-//        log.info(file);
-//
-//    }
-
-
 }

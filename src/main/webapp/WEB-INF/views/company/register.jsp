@@ -41,11 +41,10 @@
             </div>
             <div class="navbarToggleArea collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link " href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Auction</a></li>
+                    <li class="nav-item"><a class="nav-link " href="http://localhost:8080/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost:8080/company/auction/list">Auction</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Workers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">MyRoom</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Logout</a></li>
+
 
                 </ul>
             </div>
@@ -189,17 +188,17 @@
     </div>
 </section>
 <footer>
-    <div>
-        <h2>Ajax Upload</h2>
-        <div class="uploadInputDiv">
-            <input type="file" name="upload" class="uploadFile">
-        </div>
-        <button class="uploadBtn">UPLOAD</button>
-    </div>
+<%--    <div>--%>
+<%--        <h2>Ajax Upload</h2>--%>
+<%--        <div class="uploadInputDiv">--%>
+<%--            <input type="file" name="upload" class="uploadFile">--%>
+<%--        </div>--%>
+<%--        <button class="uploadBtn">UPLOAD</button>--%>
+<%--    </div>--%>
 
-    <div class="uploadResult">
+<%--    <div class="uploadResult">--%>
 
-    </div>
+<%--    </div>--%>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
