@@ -46,9 +46,16 @@
     <c:forEach items="${dtoList}" var="contract">
         <li>
             <span>${contract.conNo}</span>
-            <span><a href="/company/auction/read/${contract.conNo}" class="dtoLink"><c:out value="${contract.conName}"></c:out></a></span>
+            <span><a href="/company/auction/read/${contract.conNo}" class="dtoLink">
+                <c:out value="${contract.conName}"></c:out></a></span>
+
             <span>${contract.conContent}</span>
             <span>${contract.conLocation}</span>
+            <span>${contract.conImg}</span>
+
+            <c:if test="${contract.conImg !=null}">
+                <img src='${contract.conImg}' alt="zxcv"/>
+            </c:if>
         </li>
     </c:forEach>
 </ul>

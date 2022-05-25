@@ -4,6 +4,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.zerock.oscatest.dto.ContractDTO;
 import org.zerock.oscatest.dto.ListDTO;
 import org.zerock.oscatest.dto.ListResponseDTO;
+import org.zerock.oscatest.dto.UploadResultDTO;
 
 import java.util.List;
 
@@ -19,6 +20,8 @@ public interface ContractService {
     void insert(ContractDTO contractDTO);
     void update(ContractDTO contractDTO);
     void remove(Integer conNo);
+
+    List<UploadResultDTO> getFiles(Integer conNo);
 
 
 }

@@ -7,15 +7,13 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.oscatest.dto.*;
 import org.zerock.oscatest.service.ContractService;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Log4j2
 @Controller
@@ -69,7 +67,16 @@ public class AuctionController {
         model.addAttribute("dto", contractService.getOne(conNo));
 
         return "/company/auction/read";
+
     }
+
+    @GetMapping("/files/{conNo}")
+    @ResponseBody
+    public List<UploadResultDTO> getFiles(@PathVariable("conNo")Integer conNo){
+
+        return contractService.getFiles(conNo);
+    }
+
 
     //계약 수정 ==================================================================================
     @GetMapping("/modify/{conNo}")

@@ -9,6 +9,7 @@ import org.zerock.oscatest.domain.Pick;
 import org.zerock.oscatest.dto.ContractDTO;
 import org.zerock.oscatest.dto.ListDTO;
 import org.zerock.oscatest.dto.ListResponseDTO;
+import org.zerock.oscatest.dto.UploadResultDTO;
 import org.zerock.oscatest.mapper.ContractMapper;
 import org.zerock.oscatest.mapper.FileMapper;
 
@@ -119,5 +120,15 @@ public class ContractServiceImpl implements ContractService {
     @Override
     public void remove(Integer cnoNo) {
         contractMapper.updateAsRemove(cnoNo);
+    }
+
+    @Override
+    public List<UploadResultDTO> getFiles(Integer conNo) {
+        List<Pick> pickFiles = contractMapper.selectFiles(conNo);
+
+        return pickFiles.stream()
+                .map(pick -> modelMapper
+                        .map(pick, UploadResultDTO.class))
+                .collect(Collectors.toList());
     }
 }

@@ -1,6 +1,7 @@
 package org.zerock.oscatest.mapper;
 
 import org.zerock.oscatest.domain.Contract;
+import org.zerock.oscatest.domain.Pick;
 import org.zerock.oscatest.dto.ContractDTO;
 import org.zerock.oscatest.dto.ListDTO;
 
@@ -22,5 +23,9 @@ public interface ContractMapper {
     void insert(Contract contract);
     void updateAsRemove(Integer conNo);
     void update(Contract contract);
+
+    List<Pick> selectFiles(Integer conNo);
+
+
 
 }

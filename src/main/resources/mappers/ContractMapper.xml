@@ -64,12 +64,13 @@
 
 <!-- 계약 검색   -->
     <select id="getOne" resultType="Contract">
-        select *
-        from tbl_contract
+        select* from tbl_contract
         where conNo = #{conNo}
     </select>
 
 
-
+    <select id="selectFiles" resultType="Pick">
+        select * from tbl_pick where conNo= #{conNo}
+    </select>
 
 </mapper>

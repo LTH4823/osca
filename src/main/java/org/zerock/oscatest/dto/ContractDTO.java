@@ -34,4 +34,17 @@ public class ContractDTO {
     private LocalDate regDate;
     private LocalDate updateDate;
     private int delFlag;
+
+    public String getMain(){
+        if (conImg ==null){
+            return null;
+        }
+
+        int idx = conImg.indexOf("s_");
+        String first = conImg.substring(0, idx);
+        String second = conImg.substring(idx +2);
+
+        return first + second;
+    }
+
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
+    <li nk href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
     <link href="../../../resources/css/style.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -32,31 +32,65 @@
     </ul>
 </nav>
 
-    <h1>${dto}</h1>
-    <button>의뢰자 정보보기</button>
-    <button>입찰하기</button>
-    <button class="modBtn">수정하기</button>
-    <button class="delBtn" >삭제하기</button>
-    <button class="listBtn">돌아가기</button>
-    <form class="actionForm" action="/company/remove/${dto.conNo}" method="post"></form>
+<h1>${dto}</h1>
 
+<c:if test="${dto.conImg !=null}">
+    <img src='${dto.conImg}' alt="zxcv"/>
+</c:if>
+
+<button class="moreBtn">더보기</button>
+<div class="pictures">
+    <c:if test="${dto.conImg != null}">
+        <img src="${dto.getMain()}">
+    </c:if>
+</div>
+
+
+<button>의뢰자 정보보기</button>
+<button>입찰하기</button>
+<button class="modBtn">수정하기</button>
+<button class="delBtn">삭제하기</button>
+<button class="listBtn">돌아가기</button>
+<form class="actionForm" action="/company/remove/${dto.conNo}" method="post"></form>
+<%--axios--%>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
+
     const actionForm = document.querySelector(".actionForm");
     const delBtn = document.querySelector(".delBtn")
     const listBtn = document.querySelector(".listBtn");
 
-    delBtn.addEventListener("click",(e)=>{
-        actionForm.setAttribute("action",`/company/auction/remove/${dto.conNo}`)
+    delBtn.addEventListener("click", (e) => {
+        actionForm.setAttribute("action", `/company/auction/remove/${dto.conNo}`)
         actionForm.submit()
-    },false)
+    }, false)
 
-    document.querySelector(".modBtn").addEventListener("click",(e)=> {
+    document.querySelector(".modBtn").addEventListener("click", (e) => {
         self.location = `/company/auction/modify/${dto.conNo}${listDTO.link}`
     }, false)
 
-    listBtn.addEventListener("click",(e)=>{
+    listBtn.addEventListener("click", (e) => {
         self.location = `/company/auction/list${listDTO.link}`
-    },false)
+    }, false)
+
+    // document.querySelector(".moreBtn").addEventListener("click",(e)=>{
+    //
+    //     axios.get("/company/auction/files/\${dto.conNo}").then(
+    //         res => {
+    //             const arr = res.data
+    //             let str =""
+    //             for (let i = 0; i < arr.length; i++) {
+    //                 str += `<img src='/view?fileName=\${arr[i].link}'>`
+    //             }
+    //
+    //             document.querySelector(".pictures").innerHTML =str
+    //
+    //         }
+    //     )
+    //
+    // },fale)
+
+
 
 </script>
 
