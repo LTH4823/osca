@@ -52,5 +52,64 @@ ${pageMaker}
     <input type="hidden" name="keyword" value="${listDTO.keyword == null? "":listDTO.keyword}">
 </form>
 
+<script>
+    const linkDiv = document.querySelector(".pagination")
+    const actionForm = document.querySelector(".actionForm")
+
+    linkDiv.addEventListener("click", (e) => {
+        e.stopPropagation()
+        e.preventDefault()
+
+        const target = e.target
+
+        if (target.getAttribute("class") !== 'page-link') {
+            return
+        }
+
+        const pageNum = target.getAttribute("href")
+        actionForm.querySelector("input[name='page']").value = pageNum
+        actionForm.setAttribute("action", "/company/workers/list") //뒤로 가기 문제 방지
+        actionForm.submit()
+    }, false)
+    document.querySelector(".searchBtn").addEventListener("click", (e) => {
+        const type = document.querySelector('.searchDiv .type').value
+        const keyword = document.querySelector(".searchDiv input[name='keyword']").value
+
+        console.log(type, keyword)
+        actionForm.setAttribute("action", "/company/workers/list") //뒤로 가기 문제 방지
+        actionForm.querySelector("input[name='page']").value = 1
+        actionForm.querySelector("input[name='type']").value = type
+        actionForm.querySelector("input[name='keyword']").value = keyword
+        actionForm.submit()
+
+
+    }, false)
+
+    document.querySelector(".dtoList").addEventListener("click", (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        const target = e.target;
+        if (target.getAttribute("class").indexOf('dtoLink') < 0) {
+            return
+        }
+        const url = target.getAttribute("href")
+        //alert(url)
+
+        actionForm.setAttribute("action", url)
+        actionForm.submit()
+
+    }, false)
+
+    <%--   단순한 데이터 보내기 방식으로 할 시 param을 추가하여 받을 수 있게 해줌 단순한 방법   --%>
+    <%--const result = ${param.result}--%>
+    const result = `${result == null ? "" : result}`
+    console.log(result)
+
+    if (result !== '') {
+        alert("처리되었습니다.")
+    }
+
+</script>
+
 </body>
 </html>
