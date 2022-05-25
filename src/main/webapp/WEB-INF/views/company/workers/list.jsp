@@ -2,114 +2,280 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Workers</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
+    <link href="../../../resources/css/style.css" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
-<body>
-<%--<h1>${dtoList}</h1>--%>
+<body class="sb-nav-fixed">
 
-<ul class="dtoList">
-    <c:forEach items="${dtoList}" var="company">
-        <li>
-            <span>${company.comId}</span>
-            <span><a href="/company/workers/read/${company.comId}" class="dtoLink">
-                <c:out value="${company.comName}"></c:out></a></span>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="index.html"><span style="margin: 0em 0em 0em 1em ">O.S.C.A</span></a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+            class="fas fa-bars"></i></button>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
 
-            <span>${company.comProfile}</span>
+        <%--        <sec:authorize access="isAuthenticated()">--%>
+        <%--            <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>--%>
+        <%--        </sec:authorize>--%>
 
-            <c:if test="${comProfile.conImg !=null}">
-                <img src='${comProfile.conImg}' alt="zxcv"/>
-            </c:if>
-        </li>
-    </c:forEach>
-</ul>
-<div class="col-sm-12 col-md-7">
-    <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-        <ul class="pagination">
-            <li class="page-item" id="dataTable_previous">
-                <a class="page-link" href="${pageMaker.start-1}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+        <sec:authorize access="isAuthenticated()">
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </sec:authorize>
+
+
+    </ul>
+</nav>
+
+<section id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">서비스</div>
+                    <a class="nav-link" href="/company/mypage/">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Mypage
+                    </a>
+                    <a class="nav-link" href="/company/auction/">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Auction
+                    </a>
+                    <a class="nav-link" href="/company/workers/">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Workers
+                    </a>
+
+                    <div class="sb-sidenav-menu-heading">계약목록</div>
+                    <%--                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"--%>
+                    <%--                       data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">--%>
+                    <%--                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>--%>
+                    <%--                        Layouts--%>
+                    <%--                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--%>
+                    <%--                    </a>--%>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        생성 계약
+                    </a>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        계약 협상
+                    </a>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        계약 진행
+                    </a>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        계약 완료
+                    </a> <a class="nav-link" href="">
+                    <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                    계약 파기
                 </a>
-            </li>
-
-            <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="num">
-                <li class="page-item"><a class="page-link" href="${num}">${num}</a></li>
-            </c:forEach>
-
-            <li class="page-item" id="dataTable_next">
-                <a class="page-link" href="${pageMaker.end+1}" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
+                    <%--                    <div class="sb-sidenav-menu-heading">회원정보</div>--%>
+                    <%--                    <a class="nav-link" href="">--%>
+                    <%--                        <div class="sb-nav-link-icon"><i class="fas "></i></div>--%>
+                    <%--                        회원정보 수정--%>
+                    <%--                    </a>--%>
+                    <%--                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">--%>
+                    <%--                        <div class="sb-nav-link-icon"><i class="fas"></i></div>--%>
+                    <%--                        회원탈퇴--%>
+                    <%--                    </a>--%>
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">궁금하다면?</div>
+                <a>ChatBot line</a>
+            </div>
+        </nav>
     </div>
-</div>
 
-${pageMaker}
-<form class="actionForm" action="/company/workers/list" method="get">
-    <input type="hidden" name="page" value="${listDTO.page}">
-    <input type="hidden" name="size" value="${listDTO.size}">
-    <input type="hidden" name="type" value="${listDTO.type == null? "":listDTO.type}">
-    <input type="hidden" name="keyword" value="${listDTO.keyword == null? "":listDTO.keyword}">
-</form>
+    <div id="layoutSidenav_content">
+        <div class="container-fluid px-4">
+            <div class="py-5 customFlexColumn">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <!-- Container wrapper -->
+                    <div class="container-fluid">
 
-<script>
-    const linkDiv = document.querySelector(".pagination")
-    const actionForm = document.querySelector(".actionForm")
-
-    linkDiv.addEventListener("click", (e) => {
-        e.stopPropagation()
-        e.preventDefault()
-
-        const target = e.target
-
-        if (target.getAttribute("class") !== 'page-link') {
-            return
-        }
-
-        const pageNum = target.getAttribute("href")
-        actionForm.querySelector("input[name='page']").value = pageNum
-        actionForm.setAttribute("action", "/company/workers/list") //뒤로 가기 문제 방지
-        actionForm.submit()
-    }, false)
-    document.querySelector(".searchBtn").addEventListener("click", (e) => {
-        const type = document.querySelector('.searchDiv .type').value
-        const keyword = document.querySelector(".searchDiv input[name='keyword']").value
-
-        console.log(type, keyword)
-        actionForm.setAttribute("action", "/company/workers/list") //뒤로 가기 문제 방지
-        actionForm.querySelector("input[name='page']").value = 1
-        actionForm.querySelector("input[name='type']").value = type
-        actionForm.querySelector("input[name='keyword']").value = keyword
-        actionForm.submit()
+                        <div class="searchDiv">
+                            <select class="type">
+                                <option value="">---</option>
+                                <option value="t" ${listDTO.type =="t"?"selected":""}>제목</option>
+                                <option value="tc"  ${listDTO.type =="tc"?"selected":""}>제목내용</option>
+                                <option value="tcw"  ${listDTO.type =="tcw"?"selected":""}>제목내용작성자</option>
+                            </select>
+                            <input type="text" name="keyword" value="${listDTO.keyword}">
+                            <button class="searchBtn">Search</button>
+                        </div>
 
 
-    }, false)
+                        <!-- Collapsible wrapper -->
+                    </div>
+                    <!-- Container wrapper -->
+                </nav>
+                <!-- Navbar -->
 
-    document.querySelector(".dtoList").addEventListener("click", (e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        const target = e.target;
-        if (target.getAttribute("class").indexOf('dtoLink') < 0) {
-            return
-        }
-        const url = target.getAttribute("href")
-        //alert(url)
+                <div class="container px-4 px-lg-5 mt-5">
 
-        actionForm.setAttribute("action", url)
-        actionForm.submit()
+                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                        <c:forEach items="${dtoList}" var="company">
+                            <div class="col mb-5 dtoList">
+                                <div class="card h-100"
+                                     style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <!-- Product image-->
+                                    <c:if test="${company.comProfile !=null}">
+                                        <img src='${company.comProfile}' style="max-width: 150px; max-height: 150px;"
+                                             alt="..."/>
+                                    </c:if>
+                                    <!-- Product details-->
+                                    <div class="card-body p-4">
+                                        <div class="text-center">
+                                            <!-- Product name-->
+                                            <h5 class="fw-bolder"><a href="/company/workers/read/${company.comId}"
+                                                                     class="dtoLink">
+                                                <c:out value="${company.comName}"></c:out></a></h5>
+                                            <!-- Product price-->
 
-    }, false)
+                                            <span>${company.comPhone}</span> ~
+                                            <span>${company.comEmail}</span>
 
-    <%--   단순한 데이터 보내기 방식으로 할 시 param을 추가하여 받을 수 있게 해줌 단순한 방법   --%>
-    <%--const result = ${param.result}--%>
-    const result = `${result == null ? "" : result}`
-    console.log(result)
+                                        </div>
+                                    </div>
+                                    <!-- Product actions-->
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                        <div class="text-center">
+                                            <a href="/company/workers/read/${company.comId}"
+                                               class="dtoLink btn btn-outline-dark mt-auto">상세보기</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                        <ul class="pagination">
+                            <li class="page-item" id="dataTable_previous">
+                                <a class="page-link" href="${pageMaker.start-1}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
 
-    if (result !== '') {
-        alert("처리되었습니다.")
-    }
+                            <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="num">
+                                <li class="page-item"><a class="page-link" href="${num}">${num}</a></li>
+                            </c:forEach>
 
-</script>
+                            <li class="page-item" id="dataTable_next">
+                                <a class="page-link" href="${pageMaker.end+1}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <%--<h1>${dtoList}</h1>--%>
+
+            <%--<ul class="dtoList">--%>
+            <%--    <c:forEach items="${dtoList}" var="company">--%>
+            <%--        <li>--%>
+            <%--            <span>${company.comId}</span>--%>
+            <%--            <span><a href="/company/workers/read/${company.comId}" class="dtoLink">--%>
+            <%--                <c:out value="${company.comName}"></c:out></a></span>--%>
+
+            <%--            <span>${company.comProfile}</span>--%>
+
+            <%--            <c:if test="${comProfile.conImg !=null}">--%>
+            <%--                <img src='${comProfile.conImg}' alt="zxcv"/>--%>
+            <%--            </c:if>--%>
+            <%--        </li>--%>
+            <%--    </c:forEach>--%>
+            <%--</ul>--%>
+        </div>
+        <footer>
+            ${pageMaker}
+            <form class="actionForm" action="/company/workers/list" method="get">
+                <input type="hidden" name="page" value="${listDTO.page}">
+                <input type="hidden" name="size" value="${listDTO.size}">
+                <input type="hidden" name="type" value="${listDTO.type == null? "":listDTO.type}">
+                <input type="hidden" name="keyword" value="${listDTO.keyword == null? "":listDTO.keyword}">
+            </form>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                crossorigin="anonymous"></script>
+        <script src="../../../resources/js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+                crossorigin="anonymous"></script>
+
+        <script>
+            const linkDiv = document.querySelector(".pagination")
+            const actionForm = document.querySelector(".actionForm")
+
+            linkDiv.addEventListener("click", (e) => {
+                e.stopPropagation()
+                e.preventDefault()
+
+                const target = e.target
+
+                if (target.getAttribute("class") !== 'page-link') {
+                    return
+                }
+
+                const pageNum = target.getAttribute("href")
+                actionForm.querySelector("input[name='page']").value = pageNum
+                actionForm.setAttribute("action", "/company/workers/list") //뒤로 가기 문제 방지
+                actionForm.submit()
+            }, false)
+            document.querySelector(".searchBtn").addEventListener("click", (e) => {
+                const type = document.querySelector('.searchDiv .type').value
+                const keyword = document.querySelector(".searchDiv input[name='keyword']").value
+
+                console.log(type, keyword)
+                actionForm.setAttribute("action", "/company/workers/list") //뒤로 가기 문제 방지
+                actionForm.querySelector("input[name='page']").value = 1
+                actionForm.querySelector("input[name='type']").value = type
+                actionForm.querySelector("input[name='keyword']").value = keyword
+                actionForm.submit()
+
+
+            }, false)
+
+            document.querySelector(".dtoList").addEventListener("click", (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                const target = e.target;
+                if (target.getAttribute("class").indexOf('dtoLink') < 0) {
+                    return
+                }
+                const url = target.getAttribute("href")
+                //alert(url)
+
+                actionForm.setAttribute("action", url)
+                actionForm.submit()
+
+            }, false)
+
+            <%--   단순한 데이터 보내기 방식으로 할 시 param을 추가하여 받을 수 있게 해줌 단순한 방법   --%>
+            <%--const result = ${param.result}--%>
+            const result = `${result == null ? "" : result}`
+            console.log(result)
+
+            if (result !== '') {
+                alert("처리되었습니다.")
+            }
+
+        </script>
 
 </body>
 </html>

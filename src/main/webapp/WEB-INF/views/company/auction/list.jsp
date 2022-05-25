@@ -40,10 +40,15 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Mypage
                     </a>
-                    <%--                    <a class="nav-link" href="index.html">--%>
-                    <%--                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>--%>
-                    <%--                        Workers--%>
-                    <%--                    </a>--%>
+                    <a class="nav-link" href="/company/auction/">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Auction
+                    </a>
+                    <a class="nav-link" href="/company/workers/">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Workers
+                    </a>
+
 
                     <div class="sb-sidenav-menu-heading">계약목록</div>
                     <%--                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"--%>
