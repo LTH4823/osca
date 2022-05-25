@@ -8,6 +8,7 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<body class="sb-nav-fixed">
 
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
@@ -30,66 +31,199 @@
 
     </ul>
 </nav>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
 
-<div class="searchDiv">
-    <select class="type">
-        <option value="">---</option>
-        <option value="t" ${listDTO.type =="t"?"selected":""}>제목</option>
-        <option value="tc"  ${listDTO.type =="tc"?"selected":""}>제목내용</option>
-        <option value="tcw"  ${listDTO.type =="tcw"?"selected":""}>제목내용작성자</option>
-    </select>
-    <input type="text" name="keyword" value="${listDTO.keyword}">
-    <button class="searchBtn">Search</button>
-</div>
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">서비스</div>
+                    <a class="nav-link" href="/company/mypage/">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Mypage
+                    </a>
+                    <%--                    <a class="nav-link" href="index.html">--%>
+                    <%--                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>--%>
+                    <%--                        Workers--%>
+                    <%--                    </a>--%>
 
-<ul class="dtoList">
-    <c:forEach items="${dtoList}" var="contract">
-        <li>
-            <span>${contract.conNo}</span>
-            <span><a href="/company/auction/read/${contract.conNo}" class="dtoLink">
-                <c:out value="${contract.conName}"></c:out></a></span>
-
-            <span>${contract.conContent}</span>
-            <span>${contract.conLocation}</span>
-            <span>${contract.conImg}</span>
-
-            <c:if test="${contract.conImg !=null}">
-                <img src='${contract.conImg}' alt="zxcv"/>
-            </c:if>
-        </li>
-    </c:forEach>
-</ul>
-
-${pageMaker}
-<div><a href="/company/auction/register">add</a></div>
-
-<div class="col-sm-12 col-md-7">
-    <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-        <ul class="pagination">
-            <li class="page-item" id="dataTable_previous">
-                <a class="page-link" href="${pageMaker.start-1}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+                    <div class="sb-sidenav-menu-heading">계약목록</div>
+                    <%--                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"--%>
+                    <%--                       data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">--%>
+                    <%--                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>--%>
+                    <%--                        Layouts--%>
+                    <%--                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--%>
+                    <%--                    </a>--%>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        생성 계약
+                    </a>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        계약 협상
+                    </a>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        계약 진행
+                    </a>
+                    <a class="nav-link" href="">
+                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                        계약 완료
+                    </a> <a class="nav-link" href="">
+                    <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                    계약 파기
                 </a>
-            </li>
+                    <%--                    <div class="sb-sidenav-menu-heading">회원정보</div>--%>
+                    <%--                    <a class="nav-link" href="">--%>
+                    <%--                        <div class="sb-nav-link-icon"><i class="fas "></i></div>--%>
+                    <%--                        회원정보 수정--%>
+                    <%--                    </a>--%>
+                    <%--                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">--%>
+                    <%--                        <div class="sb-nav-link-icon"><i class="fas"></i></div>--%>
+                    <%--                        회원탈퇴--%>
+                    <%--                    </a>--%>
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">궁금하다면?</div>
+                <a>ChatBot line</a>
+            </div>
+        </nav>
+    </div>
 
-            <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="num">
-                <li class="page-item"><a class="page-link" href="${num}">${num}</a></li>
-            </c:forEach>
+    <div id="layoutSidenav_content">
+        <div class="container-fluid px-4">
+            <section class="py-5 customFlexColumn">
 
-            <li class="page-item" id="dataTable_next">
-                <a class="page-link" href="${pageMaker.end+1}" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <!-- Container wrapper -->
+                    <div class="container-fluid">
+
+                        <button type="button" class="btn btn-primary"><a class="text-white" style="text-decoration: none" href="/company/auction/register">계약생성</a></button>
+
+                        <div class="searchDiv">
+                            <select class="type">
+                                <option value="">---</option>
+                                <option value="t" ${listDTO.type =="t"?"selected":""}>제목</option>
+                                <option value="tc"  ${listDTO.type =="tc"?"selected":""}>제목내용</option>
+                                <option value="tcw"  ${listDTO.type =="tcw"?"selected":""}>제목내용작성자</option>
+                            </select>
+                            <input type="text" name="keyword" value="${listDTO.keyword}">
+                            <button class="searchBtn">Search</button>
+                        </div>
+
+
+                        <!-- Collapsible wrapper -->
+                    </div>
+                    <!-- Container wrapper -->
+                </nav>
+                <!-- Navbar -->
+
+                <div class="container px-4 px-lg-5 mt-5">
+
+                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                        <c:forEach items="${dtoList}" var="contract">
+                            <div class="col mb-5 dtoList">
+                                <div class="card h-100"
+                                     style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <!-- Product image-->
+                                    <c:if test="${contract.conImg !=null}">
+                                        <img src='${contract.conImg}' style="max-width: 150px; max-height: 150px;"
+                                             alt="..."/>
+                                    </c:if>
+                                    <!-- Product details-->
+                                    <div class="card-body p-4">
+                                        <div class="text-center">
+                                            <!-- Product name-->
+                                            <h5 class="fw-bolder"><a href="/company/auction/read/${contract.conNo}"
+                                                                     class="dtoLink">
+                                                <c:out value="${contract.conName}"></c:out></a></h5>
+                                            <!-- Product price-->
+                                            <p>${contract.conContent}</p>
+
+                                            <span>${contract.conStartDay}</span> ~
+                                            <span>${contract.conEndDay}</span>
+
+                                        </div>
+                                    </div>
+                                    <!-- Product actions-->
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                        <div class="text-center">
+                                            <a href="/company/auction/read/${contract.conNo}"
+                                               class="dtoLink btn btn-outline-dark mt-auto">상세보기</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+
+
+            </section>
+
+
+            <%--            <ul class="dtoList">--%>
+            <%--                <c:forEach items="${dtoList}" var="contract">--%>
+            <%--                    <li>--%>
+            <%--                        <span>${contract.conNo}</span>--%>
+            <%--                        <span><a href="/company/auction/read/${contract.conNo}" class="dtoLink">--%>
+            <%--                <c:out value="${contract.conName}"></c:out></a></span>--%>
+
+            <%--                        <span>${contract.conContent}</span>--%>
+            <%--                        <span>${contract.conLocation}</span>--%>
+            <%--                        <span>${contract.conImg}</span>--%>
+
+            <%--                        <c:if test="${contract.conImg !=null}">--%>
+            <%--                            <img src='${contract.conImg}' alt="zxcv"/>--%>
+            <%--                        </c:if>--%>
+            <%--                    </li>--%>
+            <%--                </c:forEach>--%>
+            <%--            </ul>--%>
+
+            ${pageMaker}
+
+
+            <div class="col-sm-12 col-md-7">
+                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                    <ul class="pagination">
+                        <li class="page-item" id="dataTable_previous">
+                            <a class="page-link" href="${pageMaker.start-1}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+
+                        <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="num">
+                            <li class="page-item"><a class="page-link" href="${num}">${num}</a></li>
+                        </c:forEach>
+
+                        <li class="page-item" id="dataTable_next">
+                            <a class="page-link" href="${pageMaker.end+1}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <form class="actionForm" action="/company/auction/list" method="get">
+                <input type="hidden" name="page" value="${listDTO.page}">
+                <input type="hidden" name="size" value="${listDTO.size}">
+                <input type="hidden" name="type" value="${listDTO.type == null? "":listDTO.type}">
+                <input type="hidden" name="keyword" value="${listDTO.keyword == null? "":listDTO.keyword}">
+            </form>
+
+
+        </div>
     </div>
 </div>
-<form class="actionForm" action="/company/auction/list" method="get">
-    <input type="hidden" name="page" value="${listDTO.page}">
-    <input type="hidden" name="size" value="${listDTO.size}">
-    <input type="hidden" name="type" value="${listDTO.type == null? "":listDTO.type}">
-    <input type="hidden" name="keyword" value="${listDTO.keyword == null? "":listDTO.keyword}">
-</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+<script src="../../../resources/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+        crossorigin="anonymous"></script>
 <script>
     const linkDiv = document.querySelector(".pagination")
     const actionForm = document.querySelector(".actionForm")

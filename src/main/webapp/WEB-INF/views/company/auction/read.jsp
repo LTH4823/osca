@@ -73,22 +73,20 @@
         self.location = `/company/auction/list${listDTO.link}`
     }, false)
 
-    // document.querySelector(".moreBtn").addEventListener("click",(e)=>{
-    //
-    //     axios.get("/company/auction/files/\${dto.conNo}").then(
-    //         res => {
-    //             const arr = res.data
-    //             let str =""
-    //             for (let i = 0; i < arr.length; i++) {
-    //                 str += `<img src='/view?fileName=\${arr[i].link}'>`
-    //             }
-    //
-    //             document.querySelector(".pictures").innerHTML =str
-    //
-    //         }
-    //     )
-    //
-    // },fale)
+    document.querySelector(".moreBtn").addEventListener("click",(e)=>{
+
+        axios.get("/company/auction/files/${conNo}").then(
+            res => {
+                const arr = res.data
+                let str =""
+                for (let i = 0; i < arr.length; i++) {
+                    str += `<img src='/view?fileName=\${arr[i].link}'>`
+                }
+                document.querySelector(".pictures").innerHTML =str
+            }
+        )
+
+    },false)
 
 
 
