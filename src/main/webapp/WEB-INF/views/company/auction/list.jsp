@@ -31,9 +31,8 @@
 
     </ul>
 </nav>
-<div id="layoutSidenav">
+<section id="layoutSidenav">
     <div id="layoutSidenav_nav">
-
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
@@ -93,7 +92,7 @@
 
     <div id="layoutSidenav_content">
         <div class="container-fluid px-4">
-            <section class="py-5 customFlexColumn">
+            <div class="py-5 customFlexColumn">
 
                 <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -159,9 +158,29 @@
                         </c:forEach>
                     </div>
                 </div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                        <ul class="pagination">
+                            <li class="page-item" id="dataTable_previous">
+                                <a class="page-link" href="${pageMaker.start-1}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
 
+                            <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="num">
+                                <li class="page-item"><a class="page-link" href="${num}">${num}</a></li>
+                            </c:forEach>
 
-            </section>
+                            <li class="page-item" id="dataTable_next">
+                                <a class="page-link" href="${pageMaker.end+1}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
 
 
             <%--            <ul class="dtoList">--%>
@@ -182,41 +201,24 @@
             <%--                </c:forEach>--%>
             <%--            </ul>--%>
 
-            ${pageMaker}
 
 
-            <div class="col-sm-12 col-md-7">
-                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                    <ul class="pagination">
-                        <li class="page-item" id="dataTable_previous">
-                            <a class="page-link" href="${pageMaker.start-1}" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-
-                        <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="num">
-                            <li class="page-item"><a class="page-link" href="${num}">${num}</a></li>
-                        </c:forEach>
-
-                        <li class="page-item" id="dataTable_next">
-                            <a class="page-link" href="${pageMaker.end+1}" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <form class="actionForm" action="/company/auction/list" method="get">
-                <input type="hidden" name="page" value="${listDTO.page}">
-                <input type="hidden" name="size" value="${listDTO.size}">
-                <input type="hidden" name="type" value="${listDTO.type == null? "":listDTO.type}">
-                <input type="hidden" name="keyword" value="${listDTO.keyword == null? "":listDTO.keyword}">
-            </form>
 
 
         </div>
     </div>
-</div>
+</section>
+
+<footer>
+    ${pageMaker}
+    <form class="actionForm" action="/company/auction/list" method="get">
+        <input type="hidden" name="page" value="${listDTO.page}">
+        <input type="hidden" name="size" value="${listDTO.size}">
+        <input type="hidden" name="type" value="${listDTO.type == null? "":listDTO.type}">
+        <input type="hidden" name="keyword" value="${listDTO.keyword == null? "":listDTO.keyword}">
+    </form>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
 <script src="../../../resources/js/script.js"></script>
