@@ -195,7 +195,6 @@
                             <div id="myBarChart" width="500" height="227"
                                  style="display: block; height: 227px; width: 500px;"
                                  class="chartjs-render-monitor"><p>${company.businessNum}</p>
-                                <p>${company.businessCheck}</p>
                             <c:if test="${company.businessCheck !=null}">
                                 <img src='/view?fileName=${company.businessCheck}' alt="zxcv">
                             </c:if>
