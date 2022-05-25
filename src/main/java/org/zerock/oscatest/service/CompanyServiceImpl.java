@@ -7,8 +7,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.zerock.oscatest.domain.Company;
 
+import org.zerock.oscatest.domain.Contract;
 import org.zerock.oscatest.dto.CompanyDTO;
+import org.zerock.oscatest.dto.ContractDTO;
+import org.zerock.oscatest.dto.ListDTO;
+import org.zerock.oscatest.dto.ListResponseDTO;
 import org.zerock.oscatest.mapper.CompanyMapper;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -37,6 +44,23 @@ public class CompanyServiceImpl implements CompanyService{
                         .comAddress(companyDTO.getComAddress())
                         .authority("COMPANY")
                 .build());
+    }
+
+
+    // 회사리스트=============================================================================
+    @Override
+    public ListResponseDTO<CompanyDTO> getList(ListDTO listDTO) {
+        List<Company> companyList = companyMapper.getList(listDTO);
+
+        List<CompanyDTO> dtoList =
+                companyList.stream().map(company -> modelMapper.map(company, CompanyDTO.class))
+                        .collect(Collectors.toList());
+
+
+        return ListResponseDTO.<CompanyDTO>builder()
+                .dtoList(dtoList)
+                .total(companyMapper.getTotal(listDTO))
+                .build();
     }
 
     // mypage 정보=========================================================================

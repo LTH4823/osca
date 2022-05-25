@@ -5,6 +5,25 @@
 
 <mapper namespace="org.zerock.oscatest.mapper.CompanyMapper">
 
+
+    <sql id="search">
+        <where>
+            <if test="keyword != null">
+                <foreach collection="types" item="item" separator=" OR " open="(" close=")">
+                    <if test='item == "t"'>
+                        title like concat('%', #{keyword}, '%')
+                    </if>
+                    <if test='item == "c"'>
+                        content like concat('%', #{keyword}, '%')
+                    </if>
+                    <if test='item == "w"'>
+                        writer like concat('%', #{keyword}, '%')
+                    </if>
+                </foreach>
+            </if>
+        </where>
+    </sql>
+
 <!--  회사 등록  -->
     <insert id="insert">
         insert into tbl_company(comid, password, comname, comphone, comemail, comAddress, businessnum, businesscheck, comintro, comcategory, conno, comprofile,authority)
@@ -12,6 +31,17 @@
                 #{comIntro},#{comCategory},#{conNo},#{comProfile},#{authority});
 
     </insert>
+
+<!--  회사 리스트  -->
+    <select id="getList" resultType="Company">
+        select * from tbl_company order by regDate limit #{skip},#{size}
+    </select>
+
+    <!--  모든 시공사 수 (페이징 및 검색 활용) -->
+    <select id="getTotal" resultType="int">
+        select count(comId) from tbl_company
+        <include refid="search"></include>
+    </select>
 
 <!--  비밀번호 찾기  -->
 
