@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: peter
-  Date: 2022-05-22
-  Time: 오후 5:45
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -47,7 +41,7 @@
                 <p class="form-label" for="form3Example3c">주소</p>
                 <div class="registerAdressFind">
                     <input type="text" class="registerAdressInput form-control"
-                           id="custom_postcode" name="comAddress" placeholder="우편번호">
+                           id="custom_postcode" name="conAddress" placeholder="우편번호">
                     <input type="button" class=" form-control-text"
                            onclick="custom_execDaumPostcode()" value="우편번호 찾기">
                 </div>
@@ -79,6 +73,10 @@
         </div>
         <button type="button" class="uploadBtn">UPLOAD</button>
         <div class="uploadResult">
+
+
+
+
 
         </div>
 
@@ -214,12 +212,19 @@
         }//for
 
         // document.querySelector(".actionForm").innerHTML += str
+        // registerForm.innerHTML += str
+
+
+
+        // const actionForm = document.querySelector(".actionForm")
+        // actionForm.innerHTML += str
 
         const registerForm = document.querySelector(".registerForm")
-        registerForm.innerHTML += str
 
+
+//
+        document.querySelector(".uploadResult").innerHTML += str
         registerForm.submit()
-
     }, false)
 
 </script>

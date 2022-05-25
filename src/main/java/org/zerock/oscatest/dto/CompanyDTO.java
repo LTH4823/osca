@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.time.LocalDate;
 
 @Data
@@ -32,4 +34,18 @@ public class CompanyDTO {
     private LocalDate regDate;
     private LocalDate updateDate;
     private int delFlag ;
+
+    public String getProfile(){
+
+        if(comProfile == null){
+            return "";
+        }
+        try {
+            return URLEncoder.encode(comProfile, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
 }

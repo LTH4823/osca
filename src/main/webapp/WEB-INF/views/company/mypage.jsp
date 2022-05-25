@@ -142,7 +142,7 @@
                                 <div  class="row">
                                     <div class="">
                                         <c:if test="${company.comProfile !=null}">
-                                            <img src='view?fileName=${company.comProfile}' alt="zxcv">
+                                            <img src='/view?fileName=${company.getProfile()}' alt="zxcv">
                                         </c:if>
                                     </div>
                                     <div  class="">
@@ -197,7 +197,7 @@
                                  class="chartjs-render-monitor"><p>${company.businessNum}</p>
                                 <p>${company.businessCheck}</p>
                             <c:if test="${company.businessCheck !=null}">
-                                <img src='view?fileName=${company.businessCheck}' alt="zxcv">
+                                <img src='/view?fileName=${company.businessCheck}' alt="zxcv">
                             </c:if>
                         </div>
                     </div>
