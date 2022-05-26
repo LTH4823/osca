@@ -13,7 +13,7 @@ import org.zerock.oscatest.service.CompanyService;
 @Controller
 @RequestMapping("/company/workers/")
 @RequiredArgsConstructor
-public class workerController {
+public class WorkerController {
 
     private final CompanyService companyService;
 
