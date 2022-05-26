@@ -51,15 +51,6 @@ public class CompanyConteroller {
 
 
     // mypage ==================================================================================
-//    @PreAuthorize("hasRole('ROLE_COMPANY')")
-//    @GetMapping("/{comId}")
-//    public String myPageGET(@PathVariable("comId")String comId, Model model){
-//        log.info("===============================");
-//        log.info(comId);
-//        model.addAttribute("company", companyService.getInfo(comId));
-//        return "/company/mypage";
-//    }
-//
 
     @PreAuthorize("hasRole('ROLE_COMPANY')")
     @GetMapping("/mypage/")

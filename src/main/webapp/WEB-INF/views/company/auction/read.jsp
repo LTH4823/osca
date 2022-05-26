@@ -1,13 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
+
 <head>
     <title>Title</title>
-    <li nk href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
     <link href="../../../resources/css/style.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
@@ -26,8 +27,6 @@
         <sec:authorize access="isAuthenticated()">
             <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
         </sec:authorize>
-
-
     </ul>
 </nav>
 
@@ -39,25 +38,79 @@
 
 <button class="moreBtn">더보기</button>
 <div class="pictures">
-    <c:if test="${dto.conImg != null}">
-        <img src="${dto.getMain()}">
-    </c:if>
+    <%--    <c:if test="${dto.conImg != null}">--%>
+    <%--        <img src="${dto.getMain()}">--%>
+    <%--    </c:if>--%>
 </div>
 
 
-<button>의뢰자 정보보기</button>
-<button>입찰하기</button>
+<button type="button" class="comInfo btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">의뢰자 정보보기
+</button>
+<button type="button" class="comBid btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">입찰하기
+</button>
 <button class="modBtn">수정하기</button>
 <button class="delBtn">삭제하기</button>
 <button class="listBtn">돌아가기</button>
 <form class="actionForm" action="/company/remove/${dto.conNo}" method="post"></form>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="infoBody modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">입찰하기</h5>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="infoBody modal-body">
+                <form class="bidForm" action="">
+                    <p>주의사항 입찰은 1회만 가능 하며, 입찰 후 변동은 어렵습니다.</p>
+                    <p>입찰 가격을 입력해 주십시오.</p>
+                    <input type="text">
+                    <button type="button" class="btn btn-primary">보내기</button>
+                </form>
+            </div>
+            <%--            <div class="modal-footer">--%>
+            <%--              --%>
+            <%--            </div>--%>
+        </div>
+    </div>
+</div>
+
 <%--axios--%>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+<script src="../../../resources/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+        crossorigin="anonymous"></script>
 <script>
 
-    const actionForm = document.querySelector(".actionForm");
+    const actionForm = document.querySelector(".actionForm")
     const delBtn = document.querySelector(".delBtn")
-    const listBtn = document.querySelector(".listBtn");
+    const listBtn = document.querySelector(".listBtn")
 
     delBtn.addEventListener("click", (e) => {
         actionForm.setAttribute("action", `/company/auction/remove/${dto.conNo}`)
@@ -72,21 +125,31 @@
         self.location = `/company/auction/list${listDTO.link}`
     }, false)
 
-    document.querySelector(".moreBtn").addEventListener("click",(e)=>{
+    document.querySelector(".moreBtn").addEventListener("click", (e) => {
 
         axios.get("/company/auction/files/${conNo}").then(
             res => {
                 const arr = res.data
-                let str =""
+                let str = ""
                 for (let i = 0; i < arr.length; i++) {
                     str += `<img src='/view?fileName=\${arr[i].link}'>`
                 }
-                document.querySelector(".pictures").innerHTML =str
+                document.querySelector(".pictures").innerHTML = str
             }
         )
+    }, false)
 
-    },false)
-
+    <%--document.querySelector(".comInfo").addEventListener("click",(e)=> {--%>
+    <%--    axios.get("/info/${comId}").then(--%>
+    <%--        res=>{--%>
+    <%--            const arr = res.date--%>
+    <%--            for (let i = 0; i < arr.length; i++) {--%>
+    <%--                str+=`<h1> ${arr[i]} </h1>`--%>
+    <%--            }--%>
+    <%--            document.querySelector(".infoBody").innerHTML=str--%>
+    <%--        }--%>
+    <%--    )--%>
+    <%--},false)--%>
 
 
 </script>

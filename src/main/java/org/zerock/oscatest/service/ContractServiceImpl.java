@@ -43,9 +43,6 @@ public class ContractServiceImpl implements ContractService {
         log.info("==================================");
         log.info("==================================");
 
-
-
-
     }
 
     @Override
