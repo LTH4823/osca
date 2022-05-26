@@ -12,27 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class ContractController {
 
-    @GetMapping("/addlist")
+    @GetMapping("/add/list")
     public void addListGET(){
 
     }
 
-    @GetMapping("/dellist")
+    @GetMapping("/del/list")
     public void delListGET(){
 
     }
 
-    @GetMapping("/negolist")
+    @GetMapping("/nego/list")
     public void negoListGET(){
 
     }
 
-    @GetMapping("/progresslist")
+    @GetMapping("/progress/list")
     public void progressListGET(){
 
     }
 
-    @GetMapping("/finshlist")
+    @GetMapping("/finish/list")
     public void finshListGET(){
 
     }
