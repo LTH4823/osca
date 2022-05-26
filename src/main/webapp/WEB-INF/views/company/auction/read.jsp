@@ -78,7 +78,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel2">입찰하기</h5>
+                <h5 class="modal-title" id="exampleModalLabel2">입찰</h5>
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -86,13 +86,13 @@
                 <form class="bidForm" action="">
                     <p>주의사항 입찰은 1회만 가능 하며, 입찰 후 변동은 어렵습니다.</p>
                     <p>입찰 가격을 입력해 주십시오.</p>
-                    <input type="text">
-                    <button type="button" class="btn btn-primary">보내기</button>
+
                 </form>
             </div>
-            <%--            <div class="modal-footer">--%>
-            <%--              --%>
-            <%--            </div>--%>
+                        <div class="modal-footer">
+                            <input type="text">
+                            <button type="button" class="bidBtn btn btn-primary">입찰하기</button>
+                        </div>
         </div>
     </div>
 </div>

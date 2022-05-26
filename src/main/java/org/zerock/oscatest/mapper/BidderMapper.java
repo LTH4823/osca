@@ -8,9 +8,9 @@ import java.util.List;
 public interface BidderMapper {
 
     List<Bidder>getList(String comId);
-    void updateAsBid(BidderDTO bidderDTO);
-    void updateAsRaise(BidderDTO bidderDTO);
-    void updateAsPay(BidderDTO bidderDTO);
+    void insert(Bidder bidder);
+    void updateAsBid(Bidder bidder);
+    void updateAsRaise(Bidder bidder);
     void updateAsRemove(String comId, Integer conNo);
 //    void updateAsRemove(String comId, Integer conNo);
 
