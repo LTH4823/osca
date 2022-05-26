@@ -8,12 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.zerock.oscatest.dto.CompanyDTO;
 import org.zerock.oscatest.service.CompanyService;
 import org.zerock.oscatest.service.ContractService;
 
 @Log4j2
 @Controller
-@RequestMapping("/info")
+@RequestMapping("/info/")
 @RequiredArgsConstructor
 public class GetInfoController {
 
@@ -22,9 +24,14 @@ public class GetInfoController {
     private final ModelMapper modelMapper;
 
     @GetMapping("/{comId}")
-    public void companyGET(@PathVariable("comId")String comId, Model model){
+    @ResponseBody
+//    , Model model
+    public CompanyDTO companyGET(@PathVariable("comId")String comId){
         log.info("===============================");
         log.info(comId);
-        model.addAttribute("company", companyService.getInfo(comId));
+        CompanyDTO companyDTO = companyService.getInfo(comId);
+        log.info(companyDTO);
+//        model.addAttribute("company", companyService.getInfo(comId));
+        return companyDTO;
     }
 }

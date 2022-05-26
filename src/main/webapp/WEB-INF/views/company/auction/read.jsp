@@ -139,17 +139,35 @@
         )
     }, false)
 
-    <%--document.querySelector(".comInfo").addEventListener("click",(e)=> {--%>
-    <%--    axios.get("/info/${comId}").then(--%>
-    <%--        res=>{--%>
-    <%--            const arr = res.date--%>
-    <%--            for (let i = 0; i < arr.length; i++) {--%>
-    <%--                str+=`<h1> ${arr[i]} </h1>`--%>
-    <%--            }--%>
-    <%--            document.querySelector(".infoBody").innerHTML=str--%>
-    <%--        }--%>
-    <%--    )--%>
-    <%--},false)--%>
+
+    document.querySelector(".comInfo").addEventListener("click", (e) => {
+
+        axios.get("/info/${dto.comId}").then(
+            res => {
+                const info = res.data
+                console.log(info)
+                console.log(info)
+                let str = ""
+                str = `<p>\${info.comName}</p> <p>\${info.comPhone}</p> <p>\${info.comEmail}</p>`
+                // let comName = document.createElement("div").appendChild(document.createTextNode(`\${info.comName}`))
+                // let comPhone = document.createElement("div").appendChild(document.createTextNode(`\${info.comPhone}`))
+                // let comEmail = document.createElement("div").appendChild(document.createTextNode(`\${info.comEmail}`))
+
+                // document.querySelector(".infoBody").appendChild(comName)
+                // 내부 디자인 완료 후 태그안에 값 직접 넣어서 꾸며줄 예정
+
+                document.querySelector(".infoBody").innerHTML = str
+
+                // ({comName, comEmail, comPhone}) => `<p class='\${comName}'>\${comName}</p>
+                //         <p class='\${comName}'>\${comName}</p>
+                //         <p class='\${comName}'>\${comName}</p>
+                //         <p class='\${comName}'>\${comName}</p>`
+
+                <%--document.querySelector(".infoBody").innerHTML += arr.map(({comName,comPhone,comEmail}) =>--%>
+                <%--        ` <h7>${comName}</h7> `).join(" ")--%>
+            }
+        )
+    }, false)
 
 
 </script>
