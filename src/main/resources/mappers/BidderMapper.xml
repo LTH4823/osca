@@ -12,7 +12,7 @@
 
 <!-- 입찰하기  -->
     <insert id="insert">
-        insert into tbl_bidder (bId, conNo, comId, price) VALUES (#{bId},#{conNo},#{comId},#{price})
+        insert into tbl_bidder (conNo, comId, price) VALUES (#{conNo},#{comId},#{price})
     </insert>
 
 <!-- 낙찰하기   -->

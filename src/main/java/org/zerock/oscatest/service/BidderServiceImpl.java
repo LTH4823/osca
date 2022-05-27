@@ -25,7 +25,6 @@ public class BidderServiceImpl implements BidderService{
     public void insert(BidderDTO bidderDTO) {
         bidderMapper.insert(Bidder.builder()
                 .comId(bidderDTO.getComId())
-                        .bId(bidderDTO.getComId())
                         .comId(bidderDTO.getComId())
                         .conNo(bidderDTO.getConNo())
                         .price(bidderDTO.getPrice())
