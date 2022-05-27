@@ -19,23 +19,23 @@ public class BidderController {
 
     private final BidderService bidderService;
 
-    @PostMapping("add/{conNo}&{price}")
+    @PostMapping("add")
 //    @ResponseBody
-    public String insertBidPost(Principal principal,
-                                @PathVariable("conNo") Integer conNo,
-                                @PathVariable("price") String price, BidderDTO bidderDTO){
+    public String insertBidPost(BidderDTO bidderDTO){
 
-        bidderDTO.setComId(principal.getName());
-        bidderDTO.setConNo(conNo);
-        bidderDTO.setPrice(price);
-        log.info(principal.getName());
-
-        bidderService.insert(bidderDTO);
-
+//        bidderDTO.setComId(principal.getName());
+//        log.info(principal.getName());
+        log.info("==============================");
+        log.info("==============================");
+        log.info("==============================");
         log.info("==============================");
         log.info(bidderDTO);
-
-        log.info("bid==================================");
+        bidderService.insert(bidderDTO);
+        log.info("==============================");
+        log.info(bidderDTO);
+        log.info("==============================");
+        log.info("==============================");
+        log.info("bid===========================");
         return "redirect: /company/auction/";
     }
 

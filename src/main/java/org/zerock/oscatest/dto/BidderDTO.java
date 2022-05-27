@@ -7,7 +7,7 @@ import java.time.LocalDate;
 @Data
 public class BidderDTO {
 
-    private Integer bno;
+    private String bId;
     private Integer conNo;
     private String comId;
     private String price;

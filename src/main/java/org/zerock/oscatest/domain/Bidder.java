@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Bidder {
 
-    private Integer bno;
+    private String bId;
     private Integer conNo;
     private String comId;
     private String price;

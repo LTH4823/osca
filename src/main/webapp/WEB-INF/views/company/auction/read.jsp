@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <html>
 
 <head>
@@ -23,6 +24,10 @@
         <%--        <sec:authorize access="isAuthenticated()">--%>
         <%--            <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>--%>
         <%--        </sec:authorize>--%>
+
+        <sec:authorize access="isAuthenticated()">
+            <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>
+        </sec:authorize>
 
         <sec:authorize access="isAuthenticated()">
             <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
@@ -83,9 +88,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="infoBody modal-body">
-                <form class="bidForm" action="/bidder/add/">
+                <form class="bidForm" action="/bidder/add/" method="post">
                     <p>주의사항 입찰은 1회만 가능 하며, 입찰 후 변동은 어렵습니다.</p>
                     <p>입찰 가격을 입력해 주십시오.</p>
+
+                    <input type="hidden" name="comId" value="<sec:authentication property="principal.comId"></sec:authentication>">
                     <input type="hidden" name="conNo" value="${dto.conNo}">
                     <input type="text" name="price">
                     <button type="button" class="bidBtn btn btn-primary">입찰하기</button>
