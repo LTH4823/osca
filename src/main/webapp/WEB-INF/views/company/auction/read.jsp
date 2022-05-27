@@ -83,16 +83,17 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="infoBody modal-body">
-                <form class="bidForm" action="">
+                <form class="bidForm" action="/bidder/add/">
                     <p>주의사항 입찰은 1회만 가능 하며, 입찰 후 변동은 어렵습니다.</p>
                     <p>입찰 가격을 입력해 주십시오.</p>
-
+                    <input type="hidden" name="conNo" value="${dto.conNo}">
+                    <input type="text" name="price">
+                    <button type="button" class="bidBtn btn btn-primary">입찰하기</button>
                 </form>
             </div>
-                        <div class="modal-footer">
-                            <input type="text">
-                            <button type="button" class="bidBtn btn btn-primary">입찰하기</button>
-                        </div>
+<%--                        <div class="modal-footer">--%>
+<%--                            --%>
+<%--                        </div>--%>
         </div>
     </div>
 </div>
@@ -112,10 +113,17 @@
     const delBtn = document.querySelector(".delBtn")
     const listBtn = document.querySelector(".listBtn")
 
+
+
     delBtn.addEventListener("click", (e) => {
         actionForm.setAttribute("action", `/company/auction/remove/${dto.conNo}`)
         actionForm.submit()
     }, false)
+
+
+    document.querySelector(".bidBtn").addEventListener("click", (e)=>{
+        document.querySelector(".bidForm").submit()
+    },false)
 
     document.querySelector(".modBtn").addEventListener("click", (e) => {
         self.location = `/company/auction/modify/${dto.conNo}${listDTO.link}`
