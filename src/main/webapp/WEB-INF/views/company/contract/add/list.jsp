@@ -8,6 +8,7 @@
 </head>
 <body class="sb-nav-fixed">
 
+<%@ include file="/WEB-INF/includes/navbar.jsp" %>
 
     <div id="layoutSidenav_content">
         <div class="container-fluid px-4">
@@ -25,5 +26,6 @@
 </div>
 
     <%@ include file="/WEB-INF/includes/footer.jsp" %>
+
 </body>
 </html>
