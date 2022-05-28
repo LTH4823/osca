@@ -13,4 +13,5 @@ public interface BidderService {
     void updateAsBid(BidderDTO bidderDTO);
     void updateAsRaise(BidderDTO bidderDTO);
     void updateAsRemove(String comId, Integer conNo);
+    int getBidderTotal(String comId, Integer conNo);
 }

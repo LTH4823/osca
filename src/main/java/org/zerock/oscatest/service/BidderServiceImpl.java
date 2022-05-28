@@ -45,4 +45,9 @@ public class BidderServiceImpl implements BidderService{
     public void updateAsRemove(String comId, Integer conNo) {
 
     }
+
+    @Override
+    public int getBidderTotal(String comId, Integer conNo) {
+        return bidderMapper.getBidderTotal(comId, conNo);
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.zerock.oscatest.dto.*;
+import org.zerock.oscatest.service.BidderService;
 import org.zerock.oscatest.service.ContractService;
 
 import java.security.Principal;
@@ -18,6 +19,7 @@ import java.security.Principal;
 public class ContractController {
 
     private final ContractService contractService;
+    private final BidderService bidderService;
 
     @GetMapping("/add/list")
     public void addListGET(ContractListDTO contractListDTO, Model model, Principal principal){
@@ -27,6 +29,7 @@ public class ContractController {
         contractListDTO.setComId(principal.getName());
         log.info(contractListDTO);
         ListResponseDTO<ContractDTO> responseDTO = contractService.getAddList(contractListDTO);
+
         model.addAttribute("dtoList",responseDTO.getDtoList());
         int total= responseDTO.getTotal();
         model.addAttribute("pageMaker",new PageMaker(contractListDTO.getPage(),total));
