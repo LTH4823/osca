@@ -3,20 +3,22 @@ package org.zerock.oscatest.mapper;
 import org.zerock.oscatest.domain.Contract;
 import org.zerock.oscatest.domain.Pick;
 import org.zerock.oscatest.dto.ContractDTO;
+import org.zerock.oscatest.dto.ContractListDTO;
 import org.zerock.oscatest.dto.ListDTO;
 
 import java.util.List;
 
 public interface ContractMapper {
 
-    List<Contract>contractAuctionList(ListDTO listDTO);
+    List<Contract>allList(ListDTO listDTO);
 
 //    원래 company 나 admin 가야할 놈들
-    List<Contract>contractProgressList();
-    List<Contract>contractSuccessList();
-    List<Contract>contractFailList();
+    List<Contract>progressList();
+    List<Contract>finishList();
+    List<Contract>addList(ContractListDTO contractListDTO);
 
     int getTotal(ListDTO listDTO);
+    int getContractTotal(ContractListDTO contractListDTO);
 
     Contract getOne(Integer conNo);
 

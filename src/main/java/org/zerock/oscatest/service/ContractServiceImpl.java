@@ -6,10 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.zerock.oscatest.domain.Contract;
 import org.zerock.oscatest.domain.Pick;
-import org.zerock.oscatest.dto.ContractDTO;
-import org.zerock.oscatest.dto.ListDTO;
-import org.zerock.oscatest.dto.ListResponseDTO;
-import org.zerock.oscatest.dto.UploadResultDTO;
+import org.zerock.oscatest.dto.*;
 import org.zerock.oscatest.mapper.ContractMapper;
 import org.zerock.oscatest.mapper.FileMapper;
 
@@ -48,7 +45,7 @@ public class ContractServiceImpl implements ContractService {
     @Override
     public ListResponseDTO<ContractDTO> getList(ListDTO listDTO) {
 
-        List<Contract> contractList = contractMapper.contractAuctionList(listDTO);
+        List<Contract> contractList = contractMapper.allList(listDTO);
 
         List<ContractDTO> dtoList =
                 contractList.stream().map(contract -> modelMapper.map(contract, ContractDTO.class))
@@ -127,5 +124,21 @@ public class ContractServiceImpl implements ContractService {
                 .map(pick -> modelMapper
                         .map(pick, UploadResultDTO.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public ListResponseDTO<ContractDTO> getAddList(ContractListDTO contractListDTO) {
+
+        List<Contract> contractList = contractMapper.addList(contractListDTO);
+
+        List<ContractDTO> dtoList =
+                contractList.stream().map(contract -> modelMapper.map(contract, ContractDTO.class))
+                        .collect(Collectors.toList());
+
+
+        return ListResponseDTO.<ContractDTO>builder()
+                .dtoList(dtoList)
+                .total(contractMapper.getContractTotal(contractListDTO))
+                .build();
     }
 }

@@ -8,6 +8,7 @@
 <!-- 해당 계약 입찰리스트   -->
     <select id="getList" resultType="org.zerock.oscatest.domain.Bidder">
         select * from tbl_bidder where conNo = #{conNo} order by bno desc
+            limit #{skip},#{size}
     </select>
 
 <!-- 입찰하기  -->

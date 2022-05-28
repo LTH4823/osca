@@ -10,67 +10,117 @@
             <if test="keyword != null">
                 <foreach collection="types" item="item" separator=" OR " open="(" close=")">
                     <if test='item == "t"'>
-                        title like concat('%', #{keyword}, '%')
+                        conName like concat('%', #{keyword}, '%')
                     </if>
                     <if test='item == "c"'>
-                        content like concat('%', #{keyword}, '%')
+                        conContent like concat('%', #{keyword}, '%')
                     </if>
                     <if test='item == "w"'>
-                        writer like concat('%', #{keyword}, '%')
+                        comId like concat('%', #{keyword}, '%')
                     </if>
                 </foreach>
             </if>
         </where>
     </sql>
 
-<!--  계약 가능 리스트  -->
-    <select id="contractAuctionList" resultType="Contract">
-        select * from tbl_contract where conState = 0 and delFlag =0
+
+    <!--  계약 리스트  -->
+    <select id="allList" resultType="Contract">
+        select *
+        from tbl_contract
+        where conState = 0
+          and delFlag = 0
         order by conNo desc
-            limit #{skip},#{size}
+            limit #{skip}, #{size}
     </select>
 
-<!--  계약 생성 (의뢰자)  -->
+    <!--  본인 계약 생성 리스트  -->
+    <select id="addList" resultType="Contract">
+        select *
+        from tbl_contract
+        where conState = 0
+          and delFlag = 0
+          and comId = #{comId}
+        order by conNo desc
+            limit #{skip}, #{size}
+    </select>
+
+    <!--  본인 계약 현황 리스트  -->
+    <select id="progressList" resultType="Contract">
+        select *
+        from tbl_contract
+        where conState = 0
+          and delFlag = 0
+          and comId = #{comId}
+        order by conNo desc
+            limit #{skip}, #{size}
+    </select>
+
+    <!--  본인 계약 완료 리스트  -->
+    <select id="finishList" resultType="Contract">
+        select *
+        from tbl_contract
+        where conState = 0
+          and delFlag = 0
+          and comId = #{comId}
+        order by conNo desc
+            limit #{skip}, #{size}
+    </select>
+
+
+    <!--  계약 생성 (의뢰자)  -->
     <insert id="insert">
         <selectKey resultType="int" keyProperty="conNo" order="AFTER">
             select last_insert_id()
         </selectKey>
         insert into tbl_contract(conname, concategory, conlocation, conspace, concontent,
-                                 conrequest, concondition, constartday, conendday, conprice,
-                                 condocument, conimg, memid, comid, conState)
+        conrequest, concondition, constartday, conendday, conprice,
+        condocument, conimg, memid, comid, conState)
         values (#{conName},#{conCategory}, #{conLocation},#{conSpace},#{conContent},#{conRequest},#{conCondition},
-          #{conStartDay},#{conEndDay},#{conPrice},#{conDocument},#{conImg},#{memId},#{comId},0)
+        #{conStartDay},#{conEndDay},#{conPrice},#{conDocument},#{conImg},#{memId},#{comId},0)
     </insert>
 
-<!-- 계약 수정   -->
+    <!-- 계약 수정   -->
     <update id="update">
         update tbl_contract
-        set conName = #{conName}, conContent = #{conContent}, updateDate = now()
+        set conName    = #{conName},
+            conContent = #{conContent},
+            updateDate = now()
         where conNo = #{conNo}
     </update>
 
-<!--  계약 단순 파기  -->
+    <!--  계약 단순 파기  -->
     <update id="updateAsRemove">
         update tbl_contract
-        set delFlag =1,updateDate = now()
+        set delFlag    =1,
+            updateDate = now()
         where conNo = #{conNo}
     </update>
 
-<!--  모든 계약 총 수 (페이징 및 검색 활용) -->
+    <!--  모든 계약 총 수 (페이징 및 검색 활용) -->
+    <select id="getContractTotal" resultType="int">
+        select count(conNo) from tbl_contract where comId = #{comId}
+        <include refid="search"></include>
+    </select>
+
+    <!--  모든 계약 총 수 (페이징 및 검색 활용) -->
     <select id="getTotal" resultType="int">
         select count(conNo) from tbl_contract
         <include refid="search"></include>
     </select>
 
-<!-- 계약 검색   -->
+    <!-- 계약 검색   -->
     <select id="getOne" resultType="Contract">
-        select* from tbl_contract
+        select*
+        from tbl_contract
         where conNo = #{conNo}
     </select>
 
 
     <select id="selectFiles" resultType="Pick">
-        select * from tbl_pick where conNo= #{conNo}
+        select *
+        from tbl_pick
+        where conNo = #{conNo}
     </select>
 
 </mapper>
