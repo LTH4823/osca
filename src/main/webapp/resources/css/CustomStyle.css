@@ -3,71 +3,6 @@ body {
     height: 100vh;
 }
 
-/*Navbar-----------------------------------------*/
-.customNavbar {
-    height: 5.5em;
-    background-color: rgba(255, 255, 255, 0.836);
-    padding: 0;
-    font-family: "Lato", sans-serif;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    /* box-shadow: 0.3px 1.2px 1px 1px; */
-}
-
-/* .customNavbar .navbarLogo{
-  width: 2.5em;
-  height: 2.5em;
-} */
-.customNavbar .navbarTitle:hover {
-    color: rgb(0, 217, 255);
-}
-
-.customNavbar .navbarToggleBtn {
-    padding: 1em;
-}
-
-.customNavbar .navbarToggle {
-    padding: 0;
-}
-
-.customNavbar .navbarTitle {
-    font-weight: bolder;
-    color: rgb(0, 157, 255);
-    text-shadow: 1.8px 1.5px rgb(0, 105, 150);
-}
-
-.customNavbar .navbarBody {
-    padding: 0;
-}
-
-.customNavbar .navbarToggleArea .nav-item:hover {
-    background-color: rgba(0, 17, 255, 0.1);
-}
-
-.customNavbar .navbarToggleArea .nav-item a {
-    padding: 0.5em;
-}
-
-.customNavbar li {
-    font-size: 1.3em;
-    margin: 0.5em;
-    font-weight: 600;
-}
-
-.customNavbar li :hover {
-    background-color: rgba(0, 17, 255, 0.1);
-    border-radius: 0.3em;
-    color: rgb(0, 0, 132);
-    font-weight: bolder;
-}
-
-@media (max-width: 991px) {
-    .navbarToggleArea {
-        background-color: rgb(255, 255, 255);
-    }
-}
-
-/*-----------------------------------------*/
-
 /* login page----------------------------- */
 
 .loginBody {
@@ -207,18 +142,6 @@ body {
 /*----------------------------------------------
 
 
-/* mainList-------------------------------------- */
-.mainLogo {
-}
-
-.mainLogo h1 {
-}
-
-.mainLogo p {
-}
-
-/*----------------------------------------------
-
 
 
 /* contractView------------------------------ */
@@ -296,140 +219,7 @@ body {
     margin: 0em 0em 0em 1em;
 }
 
-/* cludeContract --------------------------*/
-
-.cludeContract {
-    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-}
-
-.cludeContractTitle {
-    font-size: 55px;
-    margin: 0.4em;
-}
-
-.cludeCardRequester {
-    padding: 0px;
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-}
-
-.cludeCardContractor {
-    padding: 0px;
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-}
-
-.cludeCardImg {
-    margin: 0em 1em 0em 0em;
-    max-width: 200px;
-}
-
-.cludeCardBody {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.cludeCardPhone {
-    margin: 0em 1em 0em 0em;
-}
-
-.cludeCardPhone img {
-    max-width: 1.5em;
-    margin: 0em 0.2em 0em 0em;
-}
-
-.cludeCardConnect {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 0em 0em 0.5em 0em;
-}
-
-.cludeCardEmail img {
-    max-width: 1.5em;
-    margin: 0em 0.2em 0em 0em;
-}
-
-.cludeCardAdress {
-    margin: 0.7em 0em;
-}
-
-.cludeeCardCategory {
-    background-color: #5efce8;
-}
-
-.cludeCardName {
-    font-size: 20px;
-}
-
-.cludeContractSummary {
-    width: calc(100% - 5%);
-    margin: 7em 0em 0em 0em;
-}
-
-.cludeContractSummary .summaryValue {
-    margin: 2em 0em 0em 2em;
-    font-size: 30px;
-}
-
-.cludeContractChat {
-    width: calc(100% - 5%);
-    margin: 7em 0em 0em 0em;
-}
-
-.cludeContractChat .chatValue {
-    width: calc(100% - 40%);
-    height: 70vh;
-    margin: 2em 0em 0em 2em;
-}
-
-.cludeContractChat .chatBtns {
-    margin: 2em 0em 0em 2em;
-}
-
-.cludeContractSummaryTitle {
-    font-size: 40px;
-}
-
-.cludeContractRange .rangeStart {
-}
-
-.cludeContractRange .rangeEnd {
-}
-
-.cludeContractPay input {
-    width: 100px;
-    height: 4em;
-}
-
-.cludeAcceptBtn {
-    width: 20em;
-    height: 5em;
-    font-size: larger;
-    margin: 2em;
-}
-
-.cludeContractSignArea {
-    width: calc(100%);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-
-/*-----------------------------------------*/
-
-/*workers-------------------------------------------------------*/
-
-.workers {
-    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-}
-
-.workersSelect {
-}
-
 /*---------------------------------------------------------------*/
-
 .customFlexRow {
     display: flex;
     align-items: center;
@@ -462,61 +252,8 @@ body {
     flex-wrap: wrap;
 }
 
-.customNoneListStyle {
-    list-style: none;
-}
 
-.customCard {
-    padding: 2em;
-    margin: 1em;
-}
 
-.customImgSmallSize {
-    width: 200px;
-    height: 200px;
-}
 
-.customContractForm {
-    padding: 20px;
-}
 
-.customPDF {
-    width: 80vw;
-    height: 80vh;
-}
 
-.customSign {
-    width: 150px;
-    height: 150px;
-    background-color: rgb(255, 255, 255);
-    margin: 1.5em;
-}
-
-.customPDFSmall {
-    width: 30vw;
-    height: 30vh;
-}
-
-.chatArea {
-    width: 40vw;
-    height: 70vh;
-    background-color: antiquewhite;
-    border: 0.1em solid;
-    margin: 3em;
-}
-
-.chatLine {
-    width: 40vw;
-    height: 10vh;
-    background-color: rgb(86, 76, 63);
-    border: 0.1em solid;
-}
-
-.customPagination {
-    margin: 1em;
-}
-
-.customListName {
-    height: 4.6em;
-    text-align: center;
-}

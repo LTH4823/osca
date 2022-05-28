@@ -12,94 +12,11 @@
 </head>
 <body class="sb-nav-fixed">
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html"><span style="margin: 0em 0em 0em 1em ">O.S.C.A</span></a>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-            class="fas fa-bars"></i></button>
-    <!-- Navbar-->
-    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-        <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
+<%@ include file="/WEB-INF/includes/navbar.jsp" %>
 
-        <%--        <sec:authorize access="isAuthenticated()">--%>
-        <%--            <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>--%>
-        <%--        </sec:authorize>--%>
+        <div id="layoutSidenav_content">
+            <div class="container-fluid px-4">
 
-        <sec:authorize access="isAuthenticated()">
-            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-        </sec:authorize>
-
-
-    </ul>
-</nav>
-<div id="layoutSidenav">
-    <div id="layoutSidenav_nav">
-
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-                    <div class="sb-sidenav-menu-heading">서비스</div>
-                    <a class="nav-link" href="/company/mypage/">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Mypage
-                    </a>
-                    <a class="nav-link" href="/company/auction/">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Auction
-                    </a>
-                    <a class="nav-link" href="/company/workers/">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Workers
-                    </a>
-
-                    <div class="sb-sidenav-menu-heading">계약목록</div>
-                    <%--                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"--%>
-                    <%--                       data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">--%>
-                    <%--                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>--%>
-                    <%--                        Layouts--%>
-                    <%--                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--%>
-                    <%--                    </a>--%>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        생성 계약
-                    </a>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        계약 협상
-                    </a>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        계약 진행
-                    </a>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        계약 완료
-                    </a> <a class="nav-link" href="">
-                    <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                    계약 파기
-                </a>
-                    <div class="sb-sidenav-menu-heading">회원정보</div>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        회원정보 수정
-                    </a>
-                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">
-                        <div class="sb-nav-link-icon"><i class="fas"></i></div>
-                        회원탈퇴
-                    </a>
-                </div>
-            </div>
-            <div class="sb-sidenav-footer">
-                <div class="small">궁금하다면?</div>
-                <a>ChatBot line</a>
-            </div>
-        </nav>
-    </div>
-
-
-        <div class="container-fluid px-4">
-            <div id="layoutSidenav_content">
                 <h1 style="margin: 0.5em 0em 0em 0.5em">MyPage</h1>
 
             <div class="row">
@@ -239,18 +156,9 @@
         <img src="/view?fileName=\2022/05/24/e53a029f-be9a-46b0-b6a8-ad65329ed8fc_hguc 바운드독.jpg" alt="">
     </div>
 </div>
-<footer>
 
+<%@ include file="/WEB-INF/includes/footer.jsp" %>
 
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-<script src="../../../resources/js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-        crossorigin="anonymous"></script>
 <%--카카오 맵 api--%>
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c"></script>
@@ -268,9 +176,6 @@
         delForm.setAttribute("action", `/company/remove/${company.comId}`)
         delForm.submit()
     }, false)
-
-
-
 
 </script>
 

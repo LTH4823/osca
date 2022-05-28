@@ -67,7 +67,7 @@
 <header class="bg-secondary bg-gradient py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="mainLogo text-center text-white">
-            <h1 class="display-4 fw-bolder">OSCA</h1>
+            <h1 class="display-4 fw-bolder">O.S.C.A</h1>
             <p class="lead fw-normal text-white-50 mb-0">체납 걱정 No! 찾는 수고 No!! 믿을 수 있는 계약 Yes!!!</p>
         </div>
     </div>

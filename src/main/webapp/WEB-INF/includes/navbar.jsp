@@ -1,13 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-    <li nk href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
-    <link href="../../../../../resources/css/style.css" rel="stylesheet"/>
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-</head>
-<body class="sb-nav-fixed">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
 
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
@@ -57,25 +51,25 @@
                     <%--                        Layouts--%>
                     <%--                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--%>
                     <%--                    </a>--%>
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="/company/contract/add/list">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
                         생성 계약
                     </a>
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="/company/contract/nego/list">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
                         계약 협상
                     </a>
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="/company/contract/progress/list">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        계약 진행
+                        계약 현황
                     </a>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        계약 완료
-                    </a> <a class="nav-link" href="">
-                    <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                    계약 파기
-                </a>
+                    <%--                    <a class="nav-link" href="">--%>
+                    <%--                        <div class="sb-nav-link-icon"><i class="fas "></i></div>--%>
+                    <%--                        계약 완료--%>
+                    <%--                    </a> <a class="nav-link" href="">--%>
+                    <%--                    <div class="sb-nav-link-icon"><i class="fas "></i></div>--%>
+                    <%--                    계약 파기--%>
+                    <%--                </a>--%>
                     <div class="sb-sidenav-menu-heading">회원정보</div>
                     <a class="nav-link" href="">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
@@ -93,14 +87,3 @@
             </div>
         </nav>
     </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-<script src="../../../../../resources/js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-        crossorigin="anonymous"></script>
-</body>
-</html>
