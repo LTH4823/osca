@@ -51,18 +51,18 @@
                                                                             class="dataTable-sorter">No.</a></th>
                                 <th data-sortable="" style="width: 20%;"><a href="#"
                                                                                  class="dataTable-sorter">계약명</a></th>
-                                <th data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter">장소</a>
+                                <th data-sortable="" style="width: 20%;"><a href="#" class="dataTable-sorter">장소</a>
                                 </th>
-                                <th data-sortable="" style="width: 30%;"><a href="#"
+                                <th data-sortable="" style="width: 25%;"><a href="#"
                                                                                 class="dataTable-sorter">기간</a></th>
 
-                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">보기</a></th>
+                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">정보</a></th>
                                 <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">파기</a>
+                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">입찰</a>
                                 </th>
                             </tr>
                             </thead>
                             <tbody class="dtoList">
-
                                 <c:forEach items="${dtoList}" var="contract" varStatus="status">
                                     <td data-conNo = "${contract.conNo}" class="con-link text-center">${status.count}</td>
                                     <td data-conName = "${contract.conName}" class="con-link text-center">${contract.conName}</td>
@@ -70,8 +70,8 @@
                                     <td class="con-link text-center">${contract.conStartDay} ~ ${contract.conEndDay}</td>
                                     <td class="con-link text-center"><button class="readBtn btn btn-primary">보기</button></td>
                                     <td class="con-link text-center"><button class="delBtn btn btn-danger">파기</button></td>
+                                    <td class="con-link text-center"><button class="readBtn btn btn-success">상태</button></td>
                                 </c:forEach>
-
                             </tbody>
                         </table>
                     </div>
