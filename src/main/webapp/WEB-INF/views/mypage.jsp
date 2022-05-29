@@ -70,6 +70,17 @@
                                         <p>${company.comEmail}</p>
                                         <p>${company.comPhone}</p>
                                         <p>${company.comIntro}</p>
+
+                                        <div class="sb-sidenav-menu-heading">회원정보</div>
+                                        <a class="nav-link" href="">
+                                            <div class="sb-nav-link-icon"><i class="fas "></i></div>
+                                            회원정보 수정
+                                        </a>
+                                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">
+                                            <div class="sb-nav-link-icon"><i class="fas"></i></div>
+                                            회원탈퇴
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>
@@ -123,6 +134,8 @@
                 </div>
             </div>
         </div>
+
+
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"

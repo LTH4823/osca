@@ -70,15 +70,7 @@
                     <%--                    <div class="sb-nav-link-icon"><i class="fas "></i></div>--%>
                     <%--                    계약 파기--%>
                     <%--                </a>--%>
-                    <div class="sb-sidenav-menu-heading">회원정보</div>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        회원정보 수정
-                    </a>
-                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">
-                        <div class="sb-nav-link-icon"><i class="fas"></i></div>
-                        회원탈퇴
-                    </a>
+
                 </div>
             </div>
             <div class="sb-sidenav-footer">

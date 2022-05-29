@@ -157,7 +157,7 @@
 
     document.querySelector(".comInfo").addEventListener("click", (e) => {
 
-        axios.get("/info/${dto.comId}").then(
+        axios.get("/info/${dto.requester}").then(
             res => {
                 const info = res.data
                 console.log(info)
