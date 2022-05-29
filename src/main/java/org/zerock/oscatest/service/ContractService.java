@@ -18,6 +18,6 @@ public interface ContractService {
     void remove(Integer conNo);
     List<UploadResultDTO> getFiles(Integer conNo);
 
-    ListResponseDTO<ContractDTO>getAddList(ContractListDTO contractListDTO);
+    ListResponseDTO<ContractDTO>getAddList(ContractAddListDTO contractAddListDTO);
 
 }

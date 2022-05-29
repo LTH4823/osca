@@ -84,7 +84,7 @@
                                             id="form1Example3" />
                                     </div> -->
                                 <div class="loginAtags customRow">
-                                    <button type="button" class="btn btn-primary"><a class="text-light" style="text-decoration: none" href="/register" >사업자</a></button>
+                                    <button type="button" class="btn btn-primary"><a class="text-light" style="text-decoration: none" href="/register" >회원가입</a></button>
                                     <%--                                    <a href="/company/register" >회원가입</a>--%>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">비밀번호 찾기</button>
                                 </div>

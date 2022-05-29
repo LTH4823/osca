@@ -73,15 +73,8 @@
         </div>
         <button type="button" class="uploadBtn">UPLOAD</button>
         <div class="uploadResult">
-
-
-
-
-
         </div>
-
         <div class="conImgResult"></div>
-        <input type="text" name="requester">의뢰자
     </div>
 </form>
 

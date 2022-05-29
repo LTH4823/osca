@@ -40,7 +40,7 @@
         from tbl_contract
         where conState = 0
           and delFlag = 0
-          and worker = #{worker}
+          and requester = #{requester}
         order by conNo desc
             limit #{skip}, #{size}
     </select>
@@ -51,7 +51,7 @@
         from tbl_contract
         where conState = 0
           and delFlag = 0
-          and worker = #{worker}
+          and requester = #{requester}
         order by conNo desc
             limit #{skip}, #{size}
     </select>
@@ -62,7 +62,7 @@
         from tbl_contract
         where conState = 0
           and delFlag = 0
-          and worker = #{worker}
+          and requester = #{requester}
         order by conNo desc
             limit #{skip}, #{size}
     </select>
@@ -97,9 +97,9 @@
         where conNo = #{conNo}
     </update>
 
-    <!--  모든 계약 총 수 (시공사용) -->
+    <!--  모든 계약 총 수 (의뢰자용) -->
     <select id="getContractTotal" resultType="int">
-        select count(conNo) from tbl_contract where worker = #{worker}
+        select count(conNo) from tbl_contract where requester = #{requester}
         <include refid="search"></include>
     </select>
 

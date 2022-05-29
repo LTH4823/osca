@@ -11,9 +11,9 @@ import java.net.URLEncoder;
 @ToString
 @Getter
 @Setter
-public class ContractListDTO {
+public class ContractAddListDTO {
 
-    private String worker;
+    private String requester;
 
     private int page;
     private int size;
@@ -24,7 +24,7 @@ public class ContractListDTO {
     private String type;
     private String keyword;
 
-    public ContractListDTO() {
+    public ContractAddListDTO() {
         this.page = 1;
         this.size = 10;
     }

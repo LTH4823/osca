@@ -127,9 +127,9 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public ListResponseDTO<ContractDTO> getAddList(ContractListDTO contractListDTO) {
+    public ListResponseDTO<ContractDTO> getAddList(ContractAddListDTO contractAddListDTO) {
 
-        List<Contract> contractList = contractMapper.addList(contractListDTO);
+        List<Contract> contractList = contractMapper.addList(contractAddListDTO);
 
         List<ContractDTO> dtoList =
                 contractList.stream().map(contract -> modelMapper.map(contract, ContractDTO.class))
@@ -138,7 +138,7 @@ public class ContractServiceImpl implements ContractService {
 
         return ListResponseDTO.<ContractDTO>builder()
                 .dtoList(dtoList)
-                .total(contractMapper.getContractTotal(contractListDTO))
+                .total(contractMapper.getContractTotal(contractAddListDTO))
                 .build();
     }
 }

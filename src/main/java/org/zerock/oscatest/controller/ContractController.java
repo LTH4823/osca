@@ -22,17 +22,17 @@ public class ContractController {
     private final BidderService bidderService;
 
     @GetMapping("/add/list")
-    public void addListGET(ContractListDTO contractListDTO, Model model, Principal principal){
+    public void addListGET(ContractAddListDTO contractAddListDTO, Model model, Principal principal){
         log.info("=================================");
         log.info("My Add Contract");
-        log.info(contractListDTO);
-        contractListDTO.setWorker(principal.getName());
-        log.info(contractListDTO);
-        ListResponseDTO<ContractDTO> responseDTO = contractService.getAddList(contractListDTO);
+        log.info(contractAddListDTO);
+        contractAddListDTO.setRequester(principal.getName());
+        log.info(contractAddListDTO);
+        ListResponseDTO<ContractDTO> responseDTO = contractService.getAddList(contractAddListDTO);
 
         model.addAttribute("dtoList",responseDTO.getDtoList());
         int total= responseDTO.getTotal();
-        model.addAttribute("pageMaker",new PageMaker(contractListDTO.getPage(),total));
+        model.addAttribute("pageMaker",new PageMaker(contractAddListDTO.getPage(),total));
     }
 
 

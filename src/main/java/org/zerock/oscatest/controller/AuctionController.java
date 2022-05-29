@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.oscatest.dto.*;
 import org.zerock.oscatest.service.ContractService;
 
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,10 +47,11 @@ public class AuctionController {
     public void registerGET(){}
 
     @PostMapping("/register")
-    public String registerPOST(ContractDTO contractDTO, RedirectAttributes rttr){
+    public String registerPOST(ContractDTO contractDTO, Principal principal, RedirectAttributes rttr){
         log.info("==============================");
         log.info(contractDTO);
 
+        contractDTO.setRequester(principal.getName());
         contractService.register(contractDTO);
 //        contractService.insert(contractDTO);
 
