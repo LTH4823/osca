@@ -57,6 +57,11 @@ public class ContractController {
 
     }
 
+    @GetMapping("/nego/sign")
+    public void negoSignGET(){
+
+    }
+
     @GetMapping("/progress/list")
     public void progressListGET(){
 
