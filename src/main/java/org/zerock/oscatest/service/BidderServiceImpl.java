@@ -2,12 +2,15 @@ package org.zerock.oscatest.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.zerock.oscatest.domain.Bidder;
-import org.zerock.oscatest.dto.BidderDTO;
+import org.zerock.oscatest.domain.Company;
+import org.zerock.oscatest.dto.*;
 import org.zerock.oscatest.mapper.BidderMapper;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -15,10 +18,23 @@ import java.util.List;
 public class BidderServiceImpl implements BidderService{
 
     private final BidderMapper bidderMapper;
+    private final ModelMapper modelMapper;
+
 
     @Override
-    public List<Bidder> getList(String comId) {
-        return null;
+    public ListResponseDTO<BidderDTO> getList(BidderListDTO bidderListDTO) {
+        List<Bidder> bidderList = bidderMapper.getList(bidderListDTO);
+
+
+        List<BidderDTO> dtoList =
+                bidderList.stream().map(bidder -> modelMapper.map(bidder, BidderDTO.class))
+                        .collect(Collectors.toList());
+
+
+        return ListResponseDTO.<BidderDTO>builder()
+                .dtoList(dtoList)
+                .total(bidderMapper.getBidderTotal(bidderListDTO))
+                .build();
     }
 
     @Override
@@ -46,8 +62,5 @@ public class BidderServiceImpl implements BidderService{
 
     }
 
-    @Override
-    public int getBidderTotal(String comId, Integer conNo) {
-        return bidderMapper.getBidderTotal(comId, conNo);
-    }
+
 }

@@ -19,7 +19,6 @@ import java.security.Principal;
 public class ContractController {
 
     private final ContractService contractService;
-    private final BidderService bidderService;
 
     @GetMapping("/add/list")
     public void addListGET(ContractAddListDTO contractAddListDTO, Model model, Principal principal){

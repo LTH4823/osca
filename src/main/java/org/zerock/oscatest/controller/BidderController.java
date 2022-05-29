@@ -3,10 +3,10 @@ package org.zerock.oscatest.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.oscatest.dto.BidderDTO;
-import org.zerock.oscatest.dto.ContractDTO;
+import org.zerock.oscatest.dto.*;
 import org.zerock.oscatest.service.BidderService;
 
 import java.security.Principal;
@@ -37,6 +37,22 @@ public class BidderController {
         log.info("==============================");
         log.info("bid===========================");
         return "redirect: /auction/";
+    }
+
+
+    @GetMapping("/{conNo}/list")
+    public String listGET(@PathVariable("conNo") Integer conNo, BidderListDTO bidderListDTO, Model model){
+        log.info("=================================");
+        log.info("My Contract Bidder List");
+        log.info(conNo);
+        bidderListDTO.setConNo(conNo);
+        log.info(bidderListDTO);
+        ListResponseDTO<BidderDTO> responseDTO = bidderService.getList(bidderListDTO);
+        model.addAttribute("dtoList",responseDTO.getDtoList());
+        int total = responseDTO.getTotal();
+        model.addAttribute("pageMaker", new PageMaker(bidderListDTO.getPage(),total));
+
+        return "auction/bidder/list";
     }
 
 //    @PostMapping("/register")

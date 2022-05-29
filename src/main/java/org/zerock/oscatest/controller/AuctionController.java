@@ -69,7 +69,6 @@ public class AuctionController {
         model.addAttribute("dto", contractService.getOne(conNo));
 
         return "/auction/read";
-
     }
 
     @GetMapping("/files/{conNo}")

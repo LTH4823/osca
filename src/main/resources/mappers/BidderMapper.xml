@@ -14,7 +14,7 @@
 
 <!-- 해당 계약 입찰자 인수  -->
     <select id="getBidderTotal" resultType="int">
-        select count(conNo) from tbl_bidder where comId=#{comId} and conNo = #{conNo};
+        select count(conNo) from tbl_bidder where conNo = #{conNo};
     </select>
 
 
