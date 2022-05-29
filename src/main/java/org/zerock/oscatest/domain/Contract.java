@@ -26,8 +26,8 @@ public class Contract {
     private String conPrice;
     private String conDocument;
     private String conImg;
-    private String memId;
-    private String comId;
+    private String requester;
+    private String worker;
     private String conState;
 
     private LocalDate regDate;

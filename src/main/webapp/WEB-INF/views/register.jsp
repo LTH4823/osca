@@ -20,7 +20,7 @@
     <!-- reset -->
     <link href="../../resources/css/reset.css" rel="stylesheet"/>
     <!-- custom -->
-    <link href="../../resources/css/CustomStyle.css" rel="stylesheet"/>
+    <link href="../../resources/css/custom.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -62,17 +62,17 @@
 
                                 <form class="registerForm mx-1 mx-md-4 " action="/register" method="post">
 
-<%--                                    <div class="d-flex flex-row align-items-center mb-4">--%>
+                                    <div class="d-flex flex-row align-items-center mb-4">
 
-<%--                                        <div class="form-outline flex-fill mb-0">--%>
-<%--                                            <label class="form-label" for="form3Example1c">선택해 주십시오.</label>--%>
-<%--                                            <input type="radio" name="authority" value="MEMBER" class="">--%>
-<%--                                            <span>의뢰자</span>--%>
-<%--                                            <input type="radio" name="authority" value="COMPANY" class="">--%>
-<%--                                            <span>시공사</span>--%>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <p class="form-label" for="form3Example1c">선택해 주십시오.</p>
+                                            <input type="radio" name="authority" value="MEMBER" class="">
+                                            <span>의뢰자</span>
+                                            <input type="radio" name="authority" value="COMPANY" class="">
+                                            <span>시공사</span>
 
-<%--                                        </div>--%>
-<%--                                    </div>--%>
+                                        </div>
+                                    </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
 

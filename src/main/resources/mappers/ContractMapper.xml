@@ -40,7 +40,7 @@
         from tbl_contract
         where conState = 0
           and delFlag = 0
-          and comId = #{comId}
+          and worker = #{worker}
         order by conNo desc
             limit #{skip}, #{size}
     </select>
@@ -51,7 +51,7 @@
         from tbl_contract
         where conState = 0
           and delFlag = 0
-          and comId = #{comId}
+          and worker = #{worker}
         order by conNo desc
             limit #{skip}, #{size}
     </select>
@@ -62,7 +62,7 @@
         from tbl_contract
         where conState = 0
           and delFlag = 0
-          and comId = #{comId}
+          and worker = #{worker}
         order by conNo desc
             limit #{skip}, #{size}
     </select>
@@ -75,9 +75,9 @@
         </selectKey>
         insert into tbl_contract(conname, concategory, conlocation, conspace, concontent,
         conrequest, concondition, constartday, conendday, conprice,
-        condocument, conimg, memid, comid, conState)
+        condocument, conimg, requester, worker, conState)
         values (#{conName},#{conCategory}, #{conLocation},#{conSpace},#{conContent},#{conRequest},#{conCondition},
-        #{conStartDay},#{conEndDay},#{conPrice},#{conDocument},#{conImg},#{memId},#{comId},0)
+        #{conStartDay},#{conEndDay},#{conPrice},#{conDocument},#{conImg},#{requester},#{worker},0)
     </insert>
 
     <!-- 계약 수정   -->
@@ -97,9 +97,9 @@
         where conNo = #{conNo}
     </update>
 
-    <!--  모든 계약 총 수 (페이징 및 검색 활용) -->
+    <!--  모든 계약 총 수 (시공사용) -->
     <select id="getContractTotal" resultType="int">
-        select count(conNo) from tbl_contract where comId = #{comId}
+        select count(conNo) from tbl_contract where worker = #{worker}
         <include refid="search"></include>
     </select>
 

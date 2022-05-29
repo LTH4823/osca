@@ -26,7 +26,7 @@ public class ContractController {
         log.info("=================================");
         log.info("My Add Contract");
         log.info(contractListDTO);
-        contractListDTO.setComId(principal.getName());
+        contractListDTO.setWorker(principal.getName());
         log.info(contractListDTO);
         ListResponseDTO<ContractDTO> responseDTO = contractService.getAddList(contractListDTO);
 

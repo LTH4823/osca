@@ -42,7 +42,7 @@ public class CompanyServiceImpl implements CompanyService{
                         .businessCheck(companyDTO.getBusinessCheck())
                         .comIntro(companyDTO.getComIntro())
                         .comAddress(companyDTO.getComAddress())
-                        .authority("COMPANY")
+                        .authority(companyDTO.getAuthority())
                 .build());
     }
 

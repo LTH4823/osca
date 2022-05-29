@@ -18,7 +18,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/resources/css/reset.css" rel="stylesheet">
     <link href="/resources/css/style.css" rel="stylesheet" />
-    <link href="/resources/css/customStyle.css" rel="stylesheet" />
+    <link href="/resources/css/custom.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                 <li class="nav-item"><a class="nav-link" href="/workers/">Workers</a></li>
 
                 <sec:authorize access="isAuthenticated()">
-                <li class="nav-item"><a class="nav-link" href="/company/mypage/${companyDTO.comId}">MyPage</a></li>
+                <li class="nav-item"><a class="nav-link" href="/mypage/${companyDTO.comId}">MyPage</a></li>
                 </sec:authorize>
 
                 <sec:authorize access="isAuthenticated()">

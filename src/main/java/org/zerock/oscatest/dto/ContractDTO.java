@@ -25,8 +25,8 @@ public class ContractDTO {
     private String conPrice;
     private String conDocument;
     private String conImg;
-    private String memId;
-    private String comId;
+    private String requester;
+    private String worker;
     private String conState;
 
     private List<UploadResultDTO> uploads = new ArrayList<>();

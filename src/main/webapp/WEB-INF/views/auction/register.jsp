@@ -81,7 +81,7 @@
         </div>
 
         <div class="conImgResult"></div>
-        <input type="text" name="comId">의뢰자
+        <input type="text" name="requester">의뢰자
     </div>
 </form>
 

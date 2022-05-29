@@ -13,7 +13,7 @@ import java.net.URLEncoder;
 @Setter
 public class ContractListDTO {
 
-    private String comId;
+    private String worker;
 
     private int page;
     private int size;

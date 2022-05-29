@@ -21,7 +21,7 @@
     <!-- reset -->
     <link href="../../resources/css/reset.css" rel="stylesheet"/>
     <!-- custom -->
-    <link href="../../resources/css/CustomStyle.css" rel="stylesheet"/>
+    <link href="../../resources/css/custom.css" rel="stylesheet"/>
 
 
 </head>
@@ -84,7 +84,7 @@
                                             id="form1Example3" />
                                     </div> -->
                                 <div class="loginAtags customRow">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">회원가입</button>
+                                    <button type="button" class="btn btn-primary"><a class="text-light" style="text-decoration: none" href="/register" >사업자</a></button>
                                     <%--                                    <a href="/company/register" >회원가입</a>--%>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">비밀번호 찾기</button>
                                 </div>
@@ -100,26 +100,6 @@
                                 <i class="fab me-2"></i>Kakao
                             </a>
                         </form>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">회원가입 선택</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body customFlexRowAround">
-                                        <button type="button" class="btn btn-secondary"><a class="text-light" style="text-decoration: none" href="#" >의뢰자</a></button>
-                                        <button type="button" class="btn btn-primary"><a class="text-light" style="text-decoration: none" href="/register" >사업자</a></button>
-
-                                    </div>
-<%--                                    <div class="modal-footer">--%>
-<%--                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--%>
-<%--                                        <button type="button" class="btn btn-primary">Save changes</button>--%>
-<%--                                    </div>--%>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">

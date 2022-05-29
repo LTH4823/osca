@@ -83,8 +83,8 @@ public class ContractServiceImpl implements ContractService {
                 .conPrice(contractDTO.getConPrice())
                 .conDocument(contractDTO.getConDocument())
                 .conImg(contractDTO.getConImg())
-                .memId(contractDTO.getMemId())
-                .comId(contractDTO.getComId())
+                .requester(contractDTO.getRequester())
+                .worker(contractDTO.getWorker())
                 .conState(contractDTO.getConState())
                 .build());
     }
@@ -105,8 +105,8 @@ public class ContractServiceImpl implements ContractService {
                 .conPrice(contractDTO.getConPrice())
                 .conDocument(contractDTO.getConDocument())
                 .conImg(contractDTO.getConImg())
-                .memId(contractDTO.getMemId())
-                .comId(contractDTO.getComId())
+                .requester(contractDTO.getRequester())
+                .worker(contractDTO.getWorker())
                 .conState(contractDTO.getConState())
                 .build());
     }
