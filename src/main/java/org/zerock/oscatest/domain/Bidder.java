@@ -18,6 +18,15 @@ public class Bidder {
     private String price;
     private int state;
 
+    private String comPhone;
+    private String comEmail;
+    private String businessNum;
+    private String comIntro;
+    private String comProfile;
+
+
+
+
     private LocalDate regDate;
     private LocalDate updateDate;
     private int delFlag ;

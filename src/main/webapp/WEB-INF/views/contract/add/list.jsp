@@ -63,19 +63,25 @@
                             </tr>
                             </thead>
                             <tbody class="dtoList">
+
                                 <c:forEach items="${dtoList}" var="contract" varStatus="status">
+                                <tr>
                                     <td data-conNo = "${contract.conNo}" class="con-link text-center">${status.count}</td>
                                     <td data-conName = "${contract.conName}" class="con-link text-center">${contract.conName}</td>
                                     <td data-conLocation = "${contract.conLocation}" class="con-link text-center">${contract.conLocation}</td>
                                     <td class="con-link text-center">${contract.conStartDay} ~ ${contract.conEndDay}</td>
                                     <td class="con-link text-center"><button class="readBtn btn btn-primary">보기</button></td>
                                     <td class="con-link text-center"><button class="delBtn btn btn-danger">파기</button></td>
-                                    <td class="con-link text-center"><button class="readBtn btn btn-success">상태</button></td>
+                                    <td class="con-link text-center"><a class="dtoLink btn btn-success mt-auto"
+                                                                        href="/bidder/${contract.conNo}/list">상태</a></td>
+                                </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
                     </div>
 
+
+                    <form class="actionForm" action=""></form>
 
                     <%@ include file="/WEB-INF/includes/pagination.jsp" %>
 
@@ -88,14 +94,47 @@
         <h1>${bidders}</h1>
 <%--        <h7>${dtoList}</h7>--%>
 
-<%--        <h7>${pageMaker}</h7>--%>
+        <h7>${pageMaker}</h7>
 
 
     </div>
 </div>
 </div>
 
+<form class="actionForm" action="/company/auction/list" method="get">
+    <input type="hidden" name="page" value="${listDTO.page}">
+    <input type="hidden" name="size" value="${listDTO.size}">
+    <input type="hidden" name="type" value="${listDTO.type == null? "":listDTO.type}">
+    <input type="hidden" name="keyword" value="${listDTO.keyword == null? "":listDTO.keyword}">
+</form>
+
 <%@ include file="/WEB-INF/includes/footer.jsp" %>
+
+<script>
+
+    const actionForm = document.querySelector(".actionForm")
+
+    document.querySelector(".dtoList").addEventListener("click", (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        const target = e.target;
+        console.log(target)
+        if (target.getAttribute("class").indexOf('dtoLink') < 0) {
+            return
+        }
+        const url = target.getAttribute("href")
+        //alert(url)
+
+        actionForm.setAttribute("action", url)
+        actionForm.submit()
+
+    }, false)
+
+
+
+
+</script>
+
 
 </body>
 </html>

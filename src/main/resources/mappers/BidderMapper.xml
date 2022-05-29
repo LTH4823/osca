@@ -5,15 +5,19 @@
 
 <mapper namespace="org.zerock.oscatest.mapper.BidderMapper">
 
+<!--    select * from tbl_bidder where conNo = #{conNo} order by bno desc-->
 <!-- 해당 계약 입찰리스트   -->
-    <select id="getList" resultType="org.zerock.oscatest.domain.Bidder">
-        select * from tbl_bidder where conNo = #{conNo} order by bno desc
-            limit #{skip},#{size}
+    <select id="getList" resultType="Bidder">
+        select com.comId, comPhone, comEmail, businessNum, comIntro, comProfile, bno, bid.conNo, price
+        from tbl_company com INNER join tbl_bidder bid on com.comId = bid.comId where bid.conNo = #{conNo} group by com.comId
+        limit #{skip},#{size}
     </select>
 
 
 <!-- 해당 계약 입찰자 인수  -->
     <select id="getBidderTotal" resultType="int">
+
+
         select count(conNo) from tbl_bidder where conNo = #{conNo};
     </select>
 

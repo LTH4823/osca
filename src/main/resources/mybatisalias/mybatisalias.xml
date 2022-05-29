@@ -8,6 +8,7 @@
         <typeAlias type="org.zerock.oscatest.domain.Company" alias="Company"></typeAlias>
         <typeAlias type="org.zerock.oscatest.domain.Contract" alias="Contract"></typeAlias>
         <typeAlias type="org.zerock.oscatest.domain.Pick" alias="Pick"></typeAlias>
+        <typeAlias type="org.zerock.oscatest.domain.Bidder" alias="Bidder"></typeAlias>
     </typeAliases>
 
 </configuration>
