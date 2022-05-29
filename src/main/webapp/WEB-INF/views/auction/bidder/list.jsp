@@ -40,51 +40,49 @@
             </div>
             <div class="card-body">
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
-                    <div class="dataTable-top">
+<%--                    <div class="dataTable-top">--%>
+
+<%--                    </div>--%>
+                    <div class="dataTable-container row">
+
+                        <c:forEach items="${dtoList}" var="company">
+                        <div class="col-md-4 py-3">
+                            <div class="card h-100">
+                                <div class="card-body customFlexRow">
+
+<%--                                    <img src="../img/asset/logo/logo.png" style="max-width: 70px; max-height: 70px;" alt="">--%>
+
+                                    <div>
+                                        <h4 class="card-title">${company.comName}</h4>
+                                        <p class="card-text">${company.comIntro}</p>
+                                        <p class="card-text">${company.comPhone}</p>
+                                        <p class="card-text">${company.comEmail}</p>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="card-footer">
+                                    <div class="input-group" style="margin:1em 1em 1em 0;">
+                                        <span class="input-group-text">\</span>
+                                        <input type="text" class="form-control" value="${company.price}" readonly>
+                                    </div>
+                                    <div class="">
+                                        <button class="readBtn btn btn-primary">상세보기</button>
+                                        <button class="selectBtn btn btn-success">낙찰</button>
+                                        <button class="delBtn btn btn-danger">거부</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </c:forEach>
+
 
                     </div>
-                    <div class="dataTable-container">
-                        <table id="datatablesSimple" class="dataTable-table">
-                            <thead>
-                            <tr>
-                                <th data-sortable="" style="width: 5%;"><a href="#"
-                                                                           class="dataTable-sorter">No.</a></th>
-                                <th data-sortable="" style="width: 20%;"><a href="#"
-                                                                            class="dataTable-sorter">계약명</a></th>
-                                <th data-sortable="" style="width: 20%;"><a href="#" class="dataTable-sorter">장소</a>
-                                </th>
-                                <th data-sortable="" style="width: 25%;"><a href="#"
-                                                                            class="dataTable-sorter">기간</a></th>
 
-                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">정보</a></th>
-                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">파기</a>
-                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">입찰</a>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody class="dtoList">
-
-                            <c:forEach items="${dtoList}" var="contract" varStatus="status">
-                                <tr>
-<%--                                    <td data-conNo = "${contract.conNo}" class="con-link text-center">${status.count}</td>--%>
-<%--                                    <td data-conName = "${contract.conName}" class="con-link text-center">${contract.conName}</td>--%>
-<%--                                    <td data-conLocation = "${contract.conLocation}" class="con-link text-center">${contract.conLocation}</td>--%>
-<%--                                    <td class="con-link text-center">${contract.conStartDay} ~ ${contract.conEndDay}</td>--%>
-<%--                                    <td class="con-link text-center"><button class="readBtn btn btn-primary">보기</button></td>--%>
-<%--                                    <td class="con-link text-center"><button class="delBtn btn btn-danger">파기</button></td>--%>
-<%--                                    <td class="con-link text-center"><a class="dtoLink btn btn-success mt-auto"--%>
-<%--                                                                        href="/bidder/${contract.conNo}/list">상태</a></td>--%>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-
-
-                    <h1>${dtoList}</h1>
-
+<%--                    <h1>${dtoList}</h1>--%>
                     <form class="actionForm" action=""></form>
-
                     <%@ include file="/WEB-INF/includes/pagination.jsp" %>
 
 
