@@ -21,25 +21,6 @@ public class CommonController {
 
     private final ContractService contractService;
 
-
-//    @GetMapping("/companyregister")
-//    public String companyRegisterGET(){
-//        return"/companyregister";
-//    }
-//
-//    @PostMapping("/companyregister")
-//    public String companyRegisterPOST(CompanyDTO companyDTO, RedirectAttributes rttr){
-//
-//        log.info("==============================");
-//        log.info(companyDTO);
-//        //companyService.register(companyDTO);
-//        rttr.addFlashAttribute("result","register");
-//        log.info("registered");
-//        return "redirect: /";
-//    }
-
-
-
     @GetMapping("/accessError")
     public void accessError(){}
 

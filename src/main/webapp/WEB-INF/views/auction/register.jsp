@@ -32,7 +32,7 @@
 </nav>
 
 
-<form action="/company/auction/register" class="registerForm" method="post">
+<form action="/auction/register" class="registerForm" method="post">
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <input type="text" name="conName">계약명
         <input type="text" name="conCategory">작업 종류

@@ -21,7 +21,7 @@
                 <div class="container-fluid">
 
                     <button type="button" class="btn btn-primary"><a class="text-white" style="text-decoration: none"
-                                                                     href="/company/auction/register">계약생성</a></button>
+                                                                     href="/auction/register">계약생성</a></button>
 
                     <div class="searchDiv">
                         <select class="type">
@@ -57,7 +57,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
-                                        <h5 class="fw-bolder"><a href="/company/auction/read/${contract.conNo}"
+                                        <h5 class="fw-bolder"><a href="/auction/read/${contract.conNo}"
                                                                  class="dtoLink">
                                             <c:out value="${contract.conName}"></c:out></a></h5>
                                         <!-- Product price-->
@@ -71,7 +71,7 @@
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                     <div class="text-center">
-                                        <a href="/company/auction/read/${contract.conNo}"
+                                        <a href="/auction/read/${contract.conNo}"
                                            class="dtoLink btn btn-outline-dark mt-auto">상세보기</a>
                                     </div>
                                 </div>

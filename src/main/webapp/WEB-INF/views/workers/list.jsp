@@ -53,7 +53,7 @@
                                     <div class="card-body p-4">
                                         <div class="text-center">
                                             <!-- Product name-->
-                                            <h5 class="fw-bolder"><a href="/company/workers/read/${company.comId}"
+                                            <h5 class="fw-bolder"><a href="/workers/read/${company.comId}"
                                                                      class="dtoLink">
                                                 <c:out value="${company.comName}"></c:out></a></h5>
                                             <!-- Product price-->

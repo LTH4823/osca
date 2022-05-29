@@ -6,7 +6,7 @@
     <title>마이페이지</title>
 
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
-    <link href="../../../resources/css/style.css" rel="stylesheet"/>
+    <link href="../../resources/css/style.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
 </head>
@@ -162,18 +162,18 @@
 <%--카카오 맵 api--%>
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c"></script>
-<script type="text/javascript" src="../../../resources/js/kakaomap.js"></script>
+<script type="text/javascript" src="../../resources/js/kakaomap.js"></script>
 
 
 <script>
     const delForm = document.querySelector(".delForm");
     <%--delForm.addEventListener("click", (e) => {--%>
-    <%--    delForm.setAttribute("action", `/company/remove/${comId}`)--%>
+    <%--    delForm.setAttribute("action", `/remove/${comId}`)--%>
     <%--    delForm.submit()--%>
     <%--}, false)--%>
     const delBtn = document.querySelector(".delBtn");
     delBtn.addEventListener("click", (e) => {
-        delForm.setAttribute("action", `/company/remove/${company.comId}`)
+        delForm.setAttribute("action", `/remove/${company.comId}`)
         delForm.submit()
     }, false)
 

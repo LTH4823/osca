@@ -133,11 +133,11 @@
     },false)
 
     document.querySelector(".modBtn").addEventListener("click", (e) => {
-        self.location = `/company/auction/modify/${dto.conNo}${listDTO.link}`
+        self.location = `/auction/modify/${dto.conNo}${listDTO.link}`
     }, false)
 
     listBtn.addEventListener("click", (e) => {
-        self.location = `/company/auction/list${listDTO.link}`
+        self.location = `/auction/list${listDTO.link}`
     }, false)
 
     document.querySelector(".moreBtn").addEventListener("click", (e) => {

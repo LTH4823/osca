@@ -68,7 +68,7 @@
     </select>
 
 
-    <!--  계약 생성 (의뢰자)  -->
+    <!--  계약 생성 (의뢰자 생성자)  -->
     <insert id="insert">
         <selectKey resultType="int" keyProperty="conNo" order="AFTER">
             select last_insert_id()

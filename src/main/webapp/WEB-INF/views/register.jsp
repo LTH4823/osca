@@ -12,15 +12,15 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico"/>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../../../resources/css/style.css" rel="stylesheet"/>
+    <link href="../../resources/css/style.css" rel="stylesheet"/>
     <!-- googlefont -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
     <!-- reset -->
-    <link href="../../../resources/css/reset.css" rel="stylesheet"/>
+    <link href="../../resources/css/reset.css" rel="stylesheet"/>
     <!-- custom -->
-    <link href="../../../resources/css/CustomStyle.css" rel="stylesheet"/>
+    <link href="../../resources/css/CustomStyle.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -60,7 +60,19 @@
 
                                 <p class="registerLogo text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">O.S.C.A</p>
 
-                                <form class="registerForm mx-1 mx-md-4 " action="/company/register" method="post">
+                                <form class="registerForm mx-1 mx-md-4 " action="/register" method="post">
+
+<%--                                    <div class="d-flex flex-row align-items-center mb-4">--%>
+
+<%--                                        <div class="form-outline flex-fill mb-0">--%>
+<%--                                            <label class="form-label" for="form3Example1c">선택해 주십시오.</label>--%>
+<%--                                            <input type="radio" name="authority" value="MEMBER" class="">--%>
+<%--                                            <span>의뢰자</span>--%>
+<%--                                            <input type="radio" name="authority" value="COMPANY" class="">--%>
+<%--                                            <span>시공사</span>--%>
+
+<%--                                        </div>--%>
+<%--                                    </div>--%>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
 
@@ -210,7 +222,7 @@
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services"></script>
-<script src="../../../resources/js/address.js"></script>
+<script src="../../resources/js/address.js"></script>
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/67818242f4.js" crossorigin="anonymous"></script>
 

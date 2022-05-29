@@ -3,26 +3,21 @@ package org.zerock.oscatest.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.oscatest.dto.CompanyLoginDTO;
 import org.zerock.oscatest.dto.CompanyDTO;
 import org.zerock.oscatest.service.CompanyService;
 
-import javax.servlet.http.HttpSession;
 import java.security.Principal;
 
 @Log4j2
 @Controller
-@RequestMapping("/company/")
+@RequestMapping("/")
 @RequiredArgsConstructor
 
 public class CompanyConteroller {
@@ -63,7 +58,7 @@ public class CompanyConteroller {
         log.info("===============================");
         log.info("===============================");
         model.addAttribute("company", companyService.getInfo(principal.getName()));
-        return "/company/mypage";
+        return "mypage";
     }
 
     //=========================================================================================
@@ -92,7 +87,7 @@ public class CompanyConteroller {
         log.info("modified");
         rttr.addFlashAttribute("result","modified");
 
-        return "redirect:/company/mypage/";
+        return "redirect:/mypage/";
     }
 
 

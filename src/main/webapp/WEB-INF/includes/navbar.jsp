@@ -31,15 +31,15 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">서비스</div>
-                    <a class="nav-link" href="/company/mypage/">
+                    <a class="nav-link" href="/mypage/">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Mypage
                     </a>
-                    <a class="nav-link" href="/company/auction/">
+                    <a class="nav-link" href="/auction/">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Auction
                     </a>
-                    <a class="nav-link" href="/company/workers/">
+                    <a class="nav-link" href="/workers/">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Workers
                     </a>
@@ -51,15 +51,15 @@
                     <%--                        Layouts--%>
                     <%--                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--%>
                     <%--                    </a>--%>
-                    <a class="nav-link" href="/company/contract/add/list">
+                    <a class="nav-link" href="/contract/add/list">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
                         생성 계약
                     </a>
-                    <a class="nav-link" href="/company/contract/nego/list">
+                    <a class="nav-link" href="/contract/nego/list">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
                         계약 협상
                     </a>
-                    <a class="nav-link" href="/company/contract/progress/list">
+                    <a class="nav-link" href="/contract/progress/list">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
                         계약 현황
                     </a>

@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="modal-body customFlexRowAround">
                                         <button type="button" class="btn btn-secondary"><a class="text-light" style="text-decoration: none" href="#" >의뢰자</a></button>
-                                        <button type="button" class="btn btn-primary"><a class="text-light" style="text-decoration: none" href="/company/register" >사업자</a></button>
+                                        <button type="button" class="btn btn-primary"><a class="text-light" style="text-decoration: none" href="/register" >사업자</a></button>
 
                                     </div>
 <%--                                    <div class="modal-footer">--%>

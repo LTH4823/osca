@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link href="../../../../../resources/css/style.css" rel="stylesheet"/>
+    <link href="../../../../resources/css/style.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
@@ -13,7 +13,7 @@
 <div id="layoutSidenav_content">
     <div class="container-fluid px-4">
 
-        <h1 class="mt-4">계약 협상</h1>
+        <h1 class="mt-4">계약 현황</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
             <li class="breadcrumb-item active">Tables</li>

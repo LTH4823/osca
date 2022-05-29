@@ -14,7 +14,7 @@ import java.security.Principal;
 
 @Log4j2
 @Controller
-@RequestMapping("/company/contract/")
+@RequestMapping("/contract/")
 @RequiredArgsConstructor
 public class ContractController {
 

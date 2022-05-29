@@ -11,7 +11,7 @@ import org.zerock.oscatest.service.CompanyService;
 
 @Log4j2
 @Controller
-@RequestMapping("/company/workers/")
+@RequestMapping("/workers/")
 @RequiredArgsConstructor
 public class WorkerController {
 
@@ -30,7 +30,7 @@ public class WorkerController {
 
     @GetMapping("/")
     public String basic(){
-        return "redirect:/company/workers/list";
+        return "redirect:/workers/list";
     }
 
 }

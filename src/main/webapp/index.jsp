@@ -38,8 +38,8 @@
         <div class="navbarToggleArea collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                 <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/company/auction/">Auction</a></li>
-                <li class="nav-item"><a class="nav-link" href="/company/workers/">Workers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/auction/">Auction</a></li>
+                <li class="nav-item"><a class="nav-link" href="/workers/">Workers</a></li>
 
                 <sec:authorize access="isAuthenticated()">
                 <li class="nav-item"><a class="nav-link" href="/company/mypage/${companyDTO.comId}">MyPage</a></li>

@@ -36,7 +36,7 @@ public class BidderController {
         log.info("==============================");
         log.info("==============================");
         log.info("bid===========================");
-        return "redirect: /company/auction/";
+        return "redirect: /auction/";
     }
 
 //    @PostMapping("/register")

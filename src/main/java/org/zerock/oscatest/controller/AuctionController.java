@@ -17,7 +17,7 @@ import java.util.List;
 
 @Log4j2
 @Controller
-@RequestMapping("/company/auction/")
+@RequestMapping("/auction/")
 @RequiredArgsConstructor
 public class AuctionController {
 
@@ -37,7 +37,7 @@ public class AuctionController {
 
     @GetMapping("/")
     public String basic(){
-        return "redirect:/company/auction/list";
+        return "redirect:/auction/list";
     }
 
     //계약 등록 ==================================================================================
@@ -66,7 +66,7 @@ public class AuctionController {
         log.info(listDTO);
         model.addAttribute("dto", contractService.getOne(conNo));
 
-        return "/company/auction/read";
+        return "/auction/read";
 
     }
 
@@ -85,7 +85,7 @@ public class AuctionController {
         log.info(conNo);
         model.addAttribute("dto",contractService.getOne(conNo));
 
-        return "/company/auction/modify";
+        return "/auction/modify";
 
     }
 
@@ -99,11 +99,8 @@ public class AuctionController {
 
         rttr.addFlashAttribute("result","modified");
 
-        return "redirect:/company/auction/read/"+conNo+listDTO.getLink();
+        return "redirect:/auction/read/"+conNo+listDTO.getLink();
     }
-
-
-
 
 
     //계약 파기 ==================================================================================
@@ -114,7 +111,7 @@ public class AuctionController {
         log.info("remove"+conNo);
         contractService.remove(conNo);
         rttr.addFlashAttribute("result","removed");
-        return "redirect:/company/auction/list";
+        return "redirect:/auction/list";
     }
 
 
