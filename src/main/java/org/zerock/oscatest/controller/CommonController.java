@@ -70,7 +70,7 @@ public class CommonController {
 
     // mypage ==================================================================================
 
-    @PreAuthorize("hasRole('ROLE_COMPANY')")
+//    @PreAuthorize("hasRole('ROLE_COMPANY')")
     @GetMapping("/mypage/")
     public String myPageGET(Principal principal, Model model){
         log.info("===============================");
@@ -98,7 +98,7 @@ public class CommonController {
 //        return "/company/"+comId;
 //    }
 
-    @PreAuthorize("hasRole('ROLE_COMPANY')")
+//    @PreAuthorize("hasRole('ROLE_COMPANY')")
     @PostMapping("/modify/{comId}")
     public String modifyPOST( String comId, CompanyDTO companyDTO, RedirectAttributes rttr){
 

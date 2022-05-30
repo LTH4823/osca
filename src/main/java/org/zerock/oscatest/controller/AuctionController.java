@@ -42,7 +42,7 @@ public class AuctionController {
     }
 
     //계약 등록 ==================================================================================
-    @PreAuthorize("hasRole('ROLE_COMPANY')")
+//    @PreAuthorize("hasRole('ROLE_COMPANY')")
     @GetMapping("/register")
     public void registerGET(){}
 
