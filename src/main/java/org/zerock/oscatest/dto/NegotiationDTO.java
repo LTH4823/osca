@@ -1,20 +1,16 @@
-package org.zerock.oscatest.domain;
+package org.zerock.oscatest.dto;
 
-import lombok.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 
-@Getter
-@Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public class Nego {
+@Data
+public class NegotiationDTO {
 
     private Integer negoNo;
     private String worker;
     private String requester;
-    private Integer replyCount;
+    private Integer commentCount;
 
     private LocalDate regDate;
     private LocalDate updateDate;

@@ -140,14 +140,20 @@
             str = `<p>\${result.comName}</p>`
             // console.log(`<p>\${result.comId}</p>`)
             document.querySelector(".infoBody").innerHTML = str
-        })
+        }).catch(err=>console.log(err))
 
 
     },false)
 
     async function infoToServer(comId){
-        const res = await axios.get("/info/"+comId)
-        return res.data
+
+        try {
+            const res = await axios.get("/info/"+comId)
+            return res.data
+        }catch (err){
+            return err
+        }
+
     }
 
 

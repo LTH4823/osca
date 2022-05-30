@@ -49,16 +49,16 @@
                             <tr>
                                 <th data-sortable="" style="width: 5%;"><a href="#"
                                                                            class="dataTable-sorter">No.</a></th>
-                                <th data-sortable="" style="width: 20%;"><a href="#"
-                                                                            class="dataTable-sorter">계약명</a></th>
-                                <th data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter">장소</a>
-                                </th>
                                 <th data-sortable="" style="width: 30%;"><a href="#"
-                                                                            class="dataTable-sorter">기간</a></th>
-
-                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">보기</a></th>
-                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">파기</a>
+                                                                            class="dataTable-sorter">계약명</a></th>
+                                <th data-sortable="" style="width: 20%;"><a href="#" class="dataTable-sorter">시공사명</a>
                                 </th>
+                                <th data-sortable="" style="width: 20%;"><a href="#"
+                                                                            class="dataTable-sorter">의뢰자명</a></th>
+
+                                <th data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter text-center">협상 현황</a></th>
+<%--                                <th data-sortable="" style="width: 12.5%;"><a href="#" class="dataTable-sorter text-center">파기</a>--%>
+<%--                                </th>--%>
                             </tr>
                             </thead>
                             <tbody class="dtoList">

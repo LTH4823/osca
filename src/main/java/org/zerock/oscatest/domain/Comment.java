@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Reply {
+public class Comment {
 
     private Integer rno;
     private Integer negoNo;

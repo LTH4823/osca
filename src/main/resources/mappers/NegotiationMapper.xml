@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.oscatest.mapper.NegotiationMapper">
+
+    <select id="getList" resultType="Negotiation">
+        select * from tbl_negotiation order by negoNo limit #{skip}, #{size}
+    </select>
+
+    <insert id="insert">
+        insert into tbl_negotiation(conNo, worker, requester)
+        values (#{conNo},#{worker},#{requester})
+    </insert>
+
+
+</mapper>
