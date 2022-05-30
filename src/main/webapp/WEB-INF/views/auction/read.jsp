@@ -142,7 +142,7 @@
 
     document.querySelector(".moreBtn").addEventListener("click", (e) => {
 
-        axios.get("/company/auction/files/${conNo}").then(
+        axios.get("/auction/files/${conNo}").then(
             res => {
                 const arr = res.data
                 let str = ""

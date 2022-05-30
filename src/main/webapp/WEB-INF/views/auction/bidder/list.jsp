@@ -43,7 +43,7 @@
 <%--                    <div class="dataTable-top">--%>
 
 <%--                    </div>--%>
-                    <div class="dataTable-container row">
+                    <div class="dataTable-container row bidList">
 
                         <c:forEach items="${dtoList}" var="company">
                         <div class="col-md-4 py-3">
@@ -57,18 +57,17 @@
                                         <p class="card-text">${company.comIntro}</p>
                                         <p class="card-text">${company.comPhone}</p>
                                         <p class="card-text">${company.comEmail}</p>
-
-
                                     </div>
 
                                 </div>
-                                <div class="card-footer">
+                                <div class="card-footer" data-conNo = "${company.comId}">
                                     <div class="input-group" style="margin:1em 1em 1em 0;">
                                         <span class="input-group-text">\</span>
                                         <input type="text" class="form-control" value="${company.price}" readonly>
                                     </div>
-                                    <div class="">
-                                        <button class="readBtn btn btn-primary">상세보기</button>
+                                    <div data-comId = "${company.comId}" class="bidBtns">
+                                        <button class="readBtn btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">상세보기</button>
                                         <button class="selectBtn btn btn-success">낙찰</button>
                                         <button class="delBtn btn btn-danger">거부</button>
                                     </div>
@@ -93,9 +92,26 @@
 
         <h1>${bidders}</h1>
         <%--        <h7>${dtoList}</h7>--%>
-
         <h7>${pageMaker}</h7>
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="infoBody modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
@@ -109,6 +125,35 @@
 </form>
 
 <%@ include file="/WEB-INF/includes/footer.jsp" %>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+    document.querySelector(".bidList").addEventListener("click",(e) => {
+
+        const btn = e.target
+        const comId = btn.closest('div').getAttribute("data-comId")
+        console.log(btn.closest('div').getAttribute("data-comId"))
+
+
+        infoToServer(comId).then(result=>{
+            let str = ""
+            str = `<p>\${result.comName}</p>`
+            // console.log(`<p>\${result.comId}</p>`)
+            document.querySelector(".infoBody").innerHTML = str
+        })
+
+
+    },false)
+
+    async function infoToServer(comId){
+        const res = await axios.get("/info/"+comId)
+        return res.data
+    }
+
+
+
+
+</script>
 
 </body>
 </html>
