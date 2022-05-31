@@ -40,47 +40,49 @@
             </div>
             <div class="card-body">
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
-<%--                    <div class="dataTable-top">--%>
+                    <%--                    <div class="dataTable-top">--%>
 
-<%--                    </div>--%>
+                    <%--                    </div>--%>
                     <div class="dataTable-container row bidList">
 
                         <c:forEach items="${dtoList}" var="company">
-                        <div class="col-md-4 py-3">
-                            <div class="card h-100">
-                                <div class="card-body customFlexRow">
+                            <div class="col-md-4 py-3">
+                                <div class="card h-100">
+                                    <div class="card-body customFlexRow">
 
-<%--                                    <img src="../img/asset/logo/logo.png" style="max-width: 70px; max-height: 70px;" alt="">--%>
+                                            <%--                                    <img src="../img/asset/logo/logo.png" style="max-width: 70px; max-height: 70px;" alt="">--%>
 
-                                    <div>
-                                        <h4 class="card-title">${company.comName}</h4>
-                                        <p class="card-text">${company.comIntro}</p>
-                                        <p class="card-text">${company.comPhone}</p>
-                                        <p class="card-text">${company.comEmail}</p>
+                                        <div>
+                                            <h4 class="card-title">${company.comName}</h4>
+                                            <p class="card-text">${company.comIntro}</p>
+                                            <p class="card-text">${company.comPhone}</p>
+                                            <p class="card-text">${company.comEmail}</p>
+                                        </div>
+
                                     </div>
-
-                                </div>
-                                <div class="card-footer" data-conNo = "${company.comId}">
-                                    <div class="input-group" style="margin:1em 1em 1em 0;">
-                                        <span class="input-group-text">\</span>
-                                        <input type="text" class="form-control" value="${company.price}" readonly>
-                                    </div>
-                                    <div data-comId = "${company.comId}" class="bidBtns">
-                                        <button class="readBtn btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal">상세보기</button>
-                                        <button class="selectBtn btn btn-success">낙찰</button>
-                                        <button class="delBtn btn btn-danger">거부</button>
+                                    <div class="card-footer" data-conNo="${company.comId}">
+                                        <div class="input-group" style="margin:1em 1em 1em 0;">
+                                            <span class="input-group-text">\</span>
+                                            <input type="text" class="form-control" value="${company.price}" readonly>
+                                        </div>
+                                        <div data-comId="${company.comId}" class="bidBtns">
+                                            <button class="readBtn btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal">상세보기
+                                            </button>
+                                            <button class="selectBtn btn btn-success" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal2">낙찰</button>
+                                            <button class="delBtn btn btn-danger">거부</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
                         </c:forEach>
 
 
                     </div>
 
-<%--                    <h1>${dtoList}</h1>--%>
+                    <%--                    <h1>${dtoList}</h1>--%>
                     <form class="actionForm" action=""></form>
                     <%@ include file="/WEB-INF/includes/pagination.jsp" %>
 
@@ -113,6 +115,29 @@
             </div>
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        해당 입찰자로 낙찰 하시겠습니까?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                        <button type="button" class="btn btn-primary">승인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
     </div>
 </div>
 </div>
@@ -128,35 +153,46 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
 
-    document.querySelector(".bidList").addEventListener("click",(e) => {
+    const bidList = document.querySelector(".bidList");
 
-        const btn = e.target
+    bidList.addEventListener("click", (e) => {
+
+        let btn = e.target
         const comId = btn.closest('div').getAttribute("data-comId")
-        console.log(btn.closest('div').getAttribute("data-comId"))
+        // console.log(btn.closest('div').getAttribute("data-comId"))
+        // console.log(btn.getAttribute("class"))
+        // console.log(btn.classList.contains('readBtn'))
+
+        if (btn.classList.contains("readBtn")){
+            infoToServer(comId).then(result => {
+                let str = ""
+                str = `<p>\${result.comName}</p>`
+                // console.log(`<p>\${result.comId}</p>`)
+                document.querySelector(".infoBody").innerHTML = str
+            }).catch(err => console.log(err))
+        }
+
+        if (btn.classList.contains("selectBtn")){
+            console.log("select")
+        }
+
+        if (btn.classList.contains("delBtn")){
+            console.log("del")
+        }
 
 
-        infoToServer(comId).then(result=>{
-            let str = ""
-            str = `<p>\${result.comName}</p>`
-            // console.log(`<p>\${result.comId}</p>`)
-            document.querySelector(".infoBody").innerHTML = str
-        }).catch(err=>console.log(err))
+    }, false)
 
-
-    },false)
-
-    async function infoToServer(comId){
+    async function infoToServer(comId) {
 
         try {
-            const res = await axios.get("/info/"+comId)
+            const res = await axios.get("/info/" + comId)
             return res.data
-        }catch (err){
+        } catch (err) {
             return err
         }
 
     }
-
-
 
 
 </script>
