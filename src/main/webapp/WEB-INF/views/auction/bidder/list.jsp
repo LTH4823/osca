@@ -62,15 +62,16 @@
                                     </div>
                                     <div class="card-footer" data-conNo="${company.comId}">
                                         <div class="input-group" style="margin:1em 1em 1em 0;">
-                                            <span class="input-group-text">\</span>
                                             <input type="text" class="form-control" value="${company.price}" readonly>
+                                            <span class="input-group-text">\</span>
                                         </div>
                                         <div data-comId="${company.comId}" class="bidBtns">
                                             <button class="readBtn btn btn-primary" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal">상세보기
                                             </button>
                                             <button class="selectBtn btn btn-success" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal2">낙찰</button>
+                                                    data-bs-target="#exampleModal2">낙찰
+                                            </button>
                                             <button class="delBtn btn btn-danger">거부</button>
                                         </div>
                                     </div>
@@ -116,7 +117,8 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -124,18 +126,27 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+
+                        <form class="selectBidder" action="/contract/nego/list" method="post">
+                            <input class="conNo" type="hidden" value="">
+                            <input class="worker" type="hidden" value="">
+                            <input class="requester" type="hidden" value="">
+                            <p class="comName" value="" readonly>입찰자명</p>
+                            <div class="input-group" style="margin:1em 1em 1em 0;">
+                                <input type="text" class="price form-control" value="${company.price}" readonly>
+                                <span class="input-group-text">\</span>
+                            </div>
+                        </form>
+
                         해당 입찰자로 낙찰 하시겠습니까?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                        <button type="button" class="btn btn-primary">승인</button>
+                        <button type="button" class="selectBtn btn btn-primary">승인</button>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
 
 
     </div>
@@ -149,21 +160,26 @@
     <input type="hidden" name="keyword" value="${listDTO.keyword == null? "":listDTO.keyword}">
 </form>
 
+<%--<h2>${contract.requester}</h2>--%>
+
 <%@ include file="/WEB-INF/includes/footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
 
     const bidList = document.querySelector(".bidList");
+    const conNo = ${contract.conNo}
 
     bidList.addEventListener("click", (e) => {
-
         let btn = e.target
         const comId = btn.closest('div').getAttribute("data-comId")
+
+
+
         // console.log(btn.closest('div').getAttribute("data-comId"))
         // console.log(btn.getAttribute("class"))
         // console.log(btn.classList.contains('readBtn'))
 
-        if (btn.classList.contains("readBtn")){
+        if (btn.classList.contains("readBtn")) {
             infoToServer(comId).then(result => {
                 let str = ""
                 str = `<p>\${result.comName}</p>`
@@ -172,26 +188,37 @@
             }).catch(err => console.log(err))
         }
 
-        if (btn.classList.contains("selectBtn")){
-            console.log("select")
+        if (btn.classList.contains("selectBtn")) {
+            contractInfoToServer(conNo).then(result =>{
+                console.log(result)
+            }).catch(err=>console.log(err))
         }
 
-        if (btn.classList.contains("delBtn")){
+        if (btn.classList.contains("delBtn")) {
             console.log("del")
         }
 
+        return
 
     }, false)
 
     async function infoToServer(comId) {
-
         try {
-            const res = await axios.get("/info/" + comId)
+            const res = await axios.get("/info/company/" + comId)
             return res.data
         } catch (err) {
             return err
         }
+    }
 
+    async function contractInfoToServer(conNo){
+        try {
+            const res = await axios.get("/info/contract/"+conNo)
+            console.log(res.data)
+            return res.data
+        }catch (err){
+            return err
+        }
     }
 
 

@@ -2,14 +2,10 @@ package org.zerock.oscatest.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.zerock.oscatest.dto.CompanyDTO;
+import org.zerock.oscatest.dto.ContractDTO;
 import org.zerock.oscatest.service.CompanyService;
 import org.zerock.oscatest.service.ContractService;
 
@@ -17,21 +13,29 @@ import org.zerock.oscatest.service.ContractService;
 @Controller
 @RequestMapping("/info/")
 @RequiredArgsConstructor
-public class GetInfoController {
+public class InfoController {
 
     private final CompanyService companyService;
     private final ContractService contractService;
-    private final ModelMapper modelMapper;
 
-    @GetMapping("/{comId}")
+    @GetMapping("company/{comId}")
     @ResponseBody
-//    , Model model
-    public CompanyDTO companyGET(@PathVariable("comId")String comId){
+    public CompanyDTO companyGET(@PathVariable("comId") String comId) {
         log.info("===============================");
         log.info(comId);
         CompanyDTO companyDTO = companyService.getInfo(comId);
         log.info(companyDTO);
-//        model.addAttribute("company", companyService.getInfo(comId));
         return companyDTO;
     }
+
+    @GetMapping("contract/{conNo}")
+    @ResponseBody
+    public ContractDTO cotractGET(@PathVariable("conNo") Integer conNo) {
+        log.info("===============================");
+        log.info(conNo);
+        ContractDTO contractDTO = contractService.getOne(conNo);
+        log.info(contractDTO);
+        return contractDTO;
+    }
 }
+

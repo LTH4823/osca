@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.oscatest.dto.*;
 import org.zerock.oscatest.service.BidderService;
+import org.zerock.oscatest.service.ContractService;
 
 import java.security.Principal;
 
@@ -18,6 +19,7 @@ import java.security.Principal;
 public class BidderController {
 
     private final BidderService bidderService;
+    private final ContractService contractService;
 
     @PostMapping("add")
 //    @ResponseBody
@@ -47,8 +49,10 @@ public class BidderController {
         log.info(conNo);
         bidderListDTO.setConNo(conNo);
         log.info(bidderListDTO);
+        ContractDTO contractDTO = contractService.getOne(conNo);
         ListResponseDTO<BidderDTO> responseDTO = bidderService.getList(bidderListDTO);
         model.addAttribute("dtoList",responseDTO.getDtoList());
+        model.addAttribute("contract",contractDTO);
         int total = responseDTO.getTotal();
         model.addAttribute("pageMaker", new PageMaker(bidderListDTO.getPage(),total));
 
