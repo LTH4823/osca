@@ -20,6 +20,7 @@ public class NegoController {
 
     private final NegotiationService negotiationService;
 
+
     @PostMapping("/register")
     public String registerPOST(NegotiationDTO negotiationDTO, RedirectAttributes rttr){
 

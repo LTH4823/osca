@@ -11,6 +11,7 @@ import org.zerock.oscatest.service.BidderService;
 import org.zerock.oscatest.service.ContractService;
 
 import java.security.Principal;
+import java.util.Map;
 
 @Log4j2
 @Controller
@@ -55,22 +56,31 @@ public class BidderController {
         model.addAttribute("contract",contractDTO);
         int total = responseDTO.getTotal();
         model.addAttribute("pageMaker", new PageMaker(bidderListDTO.getPage(),total));
-
         return "auction/bidder/list";
     }
 
-//    @PostMapping("/register")
-//    public String registerPOST(ContractDTO contractDTO, RedirectAttributes rttr){
-//        log.info("==============================");
-//        log.info(contractDTO);
-//
-//        contractService.register(contractDTO);
-////        contractService.insert(contractDTO);
-//
-//        rttr.addFlashAttribute("result","register");
-//        log.info("registered");
-//        return "redirect: /";
-//    }
 
+    @PostMapping("/remove")
+    @ResponseBody
+    public String remove(String comId){
+
+        return "";
+    }
+
+    @PostMapping("/allremove")
+    @ResponseBody
+    public Map<String,String> allRemove(){
+        bidderService.allUpdateAsRemove();
+        return Map.of("result","success");
+    }
+
+
+    @PostMapping("/selectbid/{comId}")
+    @ResponseBody
+    public Map<String, String> selectBid(@PathVariable("comId") String comId){
+        log.info(comId);
+        bidderService.updateAsSelect(comId);
+        return Map.of("result","success");
+    }
 
 }

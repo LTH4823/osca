@@ -75,5 +75,15 @@ public class BidderServiceImpl implements BidderService{
         return bidderDTO;
     }
 
+    @Override
+    public void updateAsSelect(String comId) {
+        bidderMapper.updateAsSelect(comId);
+    }
+
+    @Override
+    public void allUpdateAsRemove() {
+        bidderMapper.allUpdateAsRemove();
+    }
+
 
 }

@@ -192,21 +192,24 @@
         if (btn.classList.contains("bidBtn")) {
 
             bidderInfoToServer(bno).then(result =>{
-                bidderName.innerText = result.comId
+                const comId = result.comId
+                bidderName.innerText = comId
 
-                worker.value = result.comId
-                console.log(result.comId)
-                console.log(worker)
+                worker.value = comId
 
                 price.value = result.price
                 console.log(result.price)
-                console.log(price)
 
             }).catch(err => console.log(err))
 
             document.querySelector(".selectBtn").addEventListener("click",(e)=>{
+                console.log(comId)
+                const conNo = document.querySelector(".conNo").getAttribute("value")
                 e.preventDefault()
                 e.stopPropagation()
+                selectToServer(comId)
+                allRemoveToServer()
+                updateAsNegotiation(conNo)
                 const selectBidder = document.querySelector(".selectBidder")
                 selectBidder.submit()
 
@@ -220,6 +223,30 @@
         return
 
     }, false)
+
+    async function updateAsNegotiation(conNo){
+        try {
+            const res = axios.post("/contract/updatenego/"+conNo)
+        }catch (err){
+            return err;
+        }
+    }
+
+    async function selectToServer(comId){
+        try {
+            const res = axios.post("/bidder/selectbid/"+comId)
+        }catch (err){
+            return err;
+        }
+    }
+
+    async function allRemoveToServer(){
+        try {
+            const res = await axios.post("/bidder/allremove")
+        }catch (err){
+            return err;
+        }
+    }
 
     async function infoToServer(comId) {
         try {

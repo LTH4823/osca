@@ -16,18 +16,18 @@
                comProfile,
                bno,
                bid.conNo,
-               price
+               price,
+               bid.delFlag
         from tbl_company com
                  INNER join tbl_bidder bid on com.comId = bid.comId
-        where bid.conNo = #{conNo}
-          and delFlag = 0
+        where bid.conNo = #{conNo} and bid.delFlag = 0
         group by com.comId
         order by bno desc
             limit #{skip}, #{size}
     </select>
 
 
-    <update id="AllUpdateAsRemove">
+    <update id="allUpdateAsRemove">
         update tbl_bidder
         set delFlag=1
         where state = 0
@@ -39,11 +39,11 @@
         where comId = #{comId}
     </update>
 
-    <update id="updateAsRemove">
-        update tbl_bidder
-        set delFlag=1
-        where comId = #{comId}
-    </update>
+<!--    <update id="updateAsRemove">-->
+<!--        update tbl_bidder-->
+<!--        set delFlag=1-->
+<!--        where comId = #{comId}-->
+<!--    </update>-->
 
     <!-- 해당 계약 입찰자 인수  -->
     <select id="getBidderTotal" resultType="int">
