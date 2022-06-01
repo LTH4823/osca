@@ -3,14 +3,16 @@ package org.zerock.oscatest.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.oscatest.dto.CompanyDTO;
-import org.zerock.oscatest.dto.NegotiationDTO;
+import org.zerock.oscatest.dto.*;
 import org.zerock.oscatest.service.ContractService;
 import org.zerock.oscatest.service.NegotiationService;
+
+import java.security.Principal;
 
 @Log4j2
 @Controller
@@ -30,6 +32,19 @@ public class NegoController {
         rttr.addFlashAttribute("result","register");
         log.info("registered");
         return "redirect: /contract/nego/list";
+    }
+
+    @GetMapping("/list")
+    public void getNegoListGET(NegotiationListDTO negotiationListDTO, Model model, Principal principal){
+        log.info("=================================");
+        log.info("My Negotiation List");
+        log.info(negotiationListDTO);
+        negotiationListDTO.setWorker(principal.getName());
+        log.info(negotiationListDTO);
+        ListResponseDTO<NegotiationDTO> responseDTO = negotiationService.getList(negotiationListDTO);
+        model.addAttribute("dtoList",responseDTO.getDtoList());
+        int total= responseDTO.getTotal();
+        model.addAttribute("pageMaker",new PageMaker(negotiationListDTO.getPage(),total));
     }
 
 

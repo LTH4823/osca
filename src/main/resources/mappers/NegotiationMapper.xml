@@ -6,13 +6,20 @@
 <mapper namespace="org.zerock.oscatest.mapper.NegotiationMapper">
 
     <select id="getList" resultType="Negotiation">
-        select * from tbl_negotiation order by negoNo limit #{skip}, #{size}
+        select *
+        from tbl_negotiation
+        where worker = #{worker} or requester =#{worker}
+        order by negoNo limit #{skip}, #{size}
     </select>
 
     <insert id="insert">
         insert into tbl_negotiation(conNo, worker, requester, price)
-        values (#{conNo},#{worker},#{requester}, #{price})
+        values (#{conNo}, #{worker}, #{requester}, #{price})
     </insert>
 
+    <select id="getTotal" resultType="int">
+        select count(negoNo)
+        from tbl_negotiation
+    </select>
 
 </mapper>

@@ -8,7 +8,10 @@ import org.zerock.oscatest.domain.Company;
 import org.zerock.oscatest.domain.Contract;
 import org.zerock.oscatest.domain.Negotiation;
 import org.zerock.oscatest.domain.Pick;
+import org.zerock.oscatest.dto.ContractDTO;
+import org.zerock.oscatest.dto.ListResponseDTO;
 import org.zerock.oscatest.dto.NegotiationDTO;
+import org.zerock.oscatest.dto.NegotiationListDTO;
 import org.zerock.oscatest.mapper.NegotiationMapper;
 
 import java.util.List;
@@ -33,4 +36,18 @@ public class NegotiationServiceImpl implements NegotiationService {
                 .price(negotiationDTO.getPrice())
                 .build());
     }
+
+    @Override
+    public ListResponseDTO<NegotiationDTO> getList(NegotiationListDTO negotiationListDTO) {
+        List<Negotiation> negotiationList = negotiationMapper.getList(negotiationListDTO);
+
+        List<NegotiationDTO> dtoList =
+                negotiationList.stream().map(negotiation ->
+                        modelMapper.map(negotiation, NegotiationDTO.class)).collect(Collectors.toList());
+
+        return ListResponseDTO.<NegotiationDTO>builder()
+                .dtoList(dtoList)
+                .total(negotiationMapper.getTotal(negotiationListDTO)).build();
+    }
 }
+

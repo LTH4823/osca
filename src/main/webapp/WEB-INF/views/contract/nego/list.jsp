@@ -63,13 +63,14 @@
                             </thead>
                             <tbody class="dtoList">
 
-                            <c:forEach items="${dtoList}" var="contract" varStatus="status">
-                                <td data-conNo = "${contract.conNo}" class="con-link text-center">${status.count}</td>
-                                <td data-conName = "${contract.conName}" class="con-link text-center">${contract.conName}</td>
-                                <td data-conLocation = "${contract.conLocation}" class="con-link text-center">${contract.conLocation}</td>
-                                <td class="con-link text-center">${contract.conStartDay} ~ ${contract.conEndDay}</td>
-                                <td class="con-link text-center"><button class="readBtn btn btn-primary">보기</button></td>
-                                <td class="con-link text-center"><button class="delBtn btn btn-danger">파기</button></td>
+                            <c:forEach items="${dtoList}" var="nego" varStatus="status">
+                                <tr>
+                                <td data-num = "${status.count}" class="con-link text-center">${status.count}</td>
+                                <td data-conNo = "${nego.conNo}" class="con-link text-center">${nego.conNo}</td>
+                                <td data-conName = "${nego.worker}" class="con-link text-center">${nego.worker}</td>
+                                <td data-conLocation = "${nego.requester}" class="con-link text-center">${nego.requester}</td>
+                                <td class="con-link text-center"><button class="detailBtn btn btn-primary">보기</button></td>
+                                </tr>
                             </c:forEach>
 
                             </tbody>
@@ -81,6 +82,9 @@
         </div>
 
 
+<%--        <h1>${dtoList}</h1>--%>
+
+<%--        <h1>${pageMaker}</h1>--%>
         <%--        <h7>${dtoList}</h7>--%>
 
         <%--        <h7>${pageMaker}</h7>--%>
