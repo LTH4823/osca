@@ -12,7 +12,9 @@ import java.time.LocalDate;
 public class Negotiation {
 
     private Integer negoNo;
+    private Integer conNo;
     private String worker;
+    private String price;
     private String requester;
     private Integer commentCount;
 

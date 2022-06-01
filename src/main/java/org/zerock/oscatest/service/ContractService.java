@@ -18,6 +18,8 @@ public interface ContractService {
     void remove(Integer conNo);
     List<UploadResultDTO> getFiles(Integer conNo);
 
+    void updateAsNegotiation(Integer conNo);
+
     ListResponseDTO<ContractDTO>getAddList(ContractAddListDTO contractAddListDTO);
 
 }

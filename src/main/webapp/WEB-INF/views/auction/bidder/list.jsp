@@ -53,23 +53,25 @@
                                             <%--                                    <img src="../img/asset/logo/logo.png" style="max-width: 70px; max-height: 70px;" alt="">--%>
 
                                         <div>
-                                            <h4 class="card-title">${company.comName}</h4>
+                                            <h4 data-id="${company.comId}" class="card-title">${company.comId}</h4>
+                                            <h4 data-name="${company.comName}" class="card-title">${company.comName}</h4>
                                             <p class="card-text">${company.comIntro}</p>
                                             <p class="card-text">${company.comPhone}</p>
                                             <p class="card-text">${company.comEmail}</p>
+                                            <p data-conNo="${company.conNo}" class="card-text">${company.conNo}</p>
                                         </div>
 
                                     </div>
                                     <div class="card-footer" data-conNo="${company.comId}">
                                         <div class="input-group" style="margin:1em 1em 1em 0;">
-                                            <input type="text" class="form-control" value="${company.price}" readonly>
+                                            <input data-price ="${company.price}" type="text" class="form-control" value="${company.price}" readonly>
                                             <span class="input-group-text">\</span>
                                         </div>
-                                        <div data-comId="${company.comId}" class="bidBtns">
+                                        <div data-bno ="${company.bno}" data-comId="${company.comId}" class="bidBtns">
                                             <button class="readBtn btn btn-primary" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal">상세보기
                                             </button>
-                                            <button class="selectBtn btn btn-success" data-bs-toggle="modal"
+                                            <button class="bidBtn btn btn-success" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal2">낙찰
                                             </button>
                                             <button class="delBtn btn btn-danger">거부</button>
@@ -127,13 +129,13 @@
                     </div>
                     <div class="modal-body">
 
-                        <form class="selectBidder" action="/contract/nego/list" method="post">
-                            <input class="conNo" type="hidden" value="">
-                            <input class="worker" type="hidden" value="">
-                            <input class="requester" type="hidden" value="">
-                            <p class="comName" value="" readonly>입찰자명</p>
+                        <p class="bidderName"></p>
+                        <form class="selectBidder" action="/contract/nego/register" method="post">
+                            <input class="conNo" type="hidden" name="conNo" value="${contract.conNo}">
+                            <input class="worker" type="hidden" name="worker" value="">
+                            <input class="requester" type="hidden" name="requester" value="${contract.requester}">
                             <div class="input-group" style="margin:1em 1em 1em 0;">
-                                <input type="text" class="price form-control" value="${company.price}" readonly>
+                                <input type="text" class="price form-control" name="price" value="" readonly>
                                 <span class="input-group-text">\</span>
                             </div>
                         </form>
@@ -166,18 +168,17 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
 
-    const bidList = document.querySelector(".bidList");
-    const conNo = ${contract.conNo}
+    const bidList = document.querySelector(".bidList")
+    let worker = document.querySelector(".worker")
+    let price = document.querySelector(".price")
+    let bidderName = document.querySelector(".bidderName")
+
 
     bidList.addEventListener("click", (e) => {
         let btn = e.target
         const comId = btn.closest('div').getAttribute("data-comId")
-
-
-
-        // console.log(btn.closest('div').getAttribute("data-comId"))
-        // console.log(btn.getAttribute("class"))
-        // console.log(btn.classList.contains('readBtn'))
+        const  bno = btn.closest('div').getAttribute("data-bno")
+        console.log(bno)
 
         if (btn.classList.contains("readBtn")) {
             infoToServer(comId).then(result => {
@@ -188,10 +189,28 @@
             }).catch(err => console.log(err))
         }
 
-        if (btn.classList.contains("selectBtn")) {
-            contractInfoToServer(conNo).then(result =>{
-                console.log(result)
-            }).catch(err=>console.log(err))
+        if (btn.classList.contains("bidBtn")) {
+
+            bidderInfoToServer(bno).then(result =>{
+                bidderName.innerText = result.comId
+
+                worker.value = result.comId
+                console.log(result.comId)
+                console.log(worker)
+
+                price.value = result.price
+                console.log(result.price)
+                console.log(price)
+
+            }).catch(err => console.log(err))
+
+            document.querySelector(".selectBtn").addEventListener("click",(e)=>{
+                e.preventDefault()
+                e.stopPropagation()
+                const selectBidder = document.querySelector(".selectBidder")
+                selectBidder.submit()
+
+            }, false)
         }
 
         if (btn.classList.contains("delBtn")) {
@@ -211,11 +230,11 @@
         }
     }
 
-    async function contractInfoToServer(conNo){
+    async function bidderInfoToServer(bno){
         try {
-            const res = await axios.get("/info/contract/"+conNo)
+            const res = await axios.get("/info/bidder/" + bno)
             console.log(res.data)
-            return res.data
+            return  res.data
         }catch (err){
             return err
         }

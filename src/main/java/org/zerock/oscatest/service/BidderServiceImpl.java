@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.zerock.oscatest.domain.Bidder;
 import org.zerock.oscatest.domain.Company;
+import org.zerock.oscatest.domain.Contract;
 import org.zerock.oscatest.dto.*;
 import org.zerock.oscatest.mapper.BidderMapper;
 
@@ -52,14 +53,26 @@ public class BidderServiceImpl implements BidderService{
 
     }
 
-    @Override
-    public void updateAsRaise(BidderDTO bidderDTO) {
-
-    }
 
     @Override
     public void updateAsRemove(String comId, Integer conNo) {
 
+    }
+
+    @Override
+    public BidderDTO getOne(Integer bno) {
+
+        Bidder bidder = bidderMapper.getOne(bno);
+
+        log.info("=================================");
+        log.info("=================================");
+        log.info(bidder);
+        log.info("=================================");
+        log.info("=================================");
+
+        BidderDTO bidderDTO = modelMapper.map(bidder, BidderDTO.class);
+
+        return bidderDTO;
     }
 
 

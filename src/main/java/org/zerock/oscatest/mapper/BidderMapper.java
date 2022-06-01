@@ -12,11 +12,14 @@ public interface BidderMapper {
 
     List<Bidder>getList(BidderListDTO bidderListDTO);
     void insert(Bidder bidder);
-    void updateAsBid(Bidder bidder);
-    void updateAsRaise(Bidder bidder);
-    void updateAsRemove(String comId, Integer conNo);
+    Bidder getOne(Integer bno);
+
+    void updateAsSelect(String comId);
+    void allUpdateAsRemove();
+
 //    void updateAsRemove(String comId, Integer conNo);
 //    int getBidderTotal(@Param("comId") String comId, @Param("conNo") Integer conNo);
+
     int getBidderTotal(BidderListDTO bidderListDTO);
     void delete();
 }

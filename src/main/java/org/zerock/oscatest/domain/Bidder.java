@@ -25,9 +25,6 @@ public class Bidder {
     private String comIntro;
     private String comProfile;
 
-
-
-
     private LocalDate regDate;
     private LocalDate updateDate;
     private int delFlag ;

@@ -10,8 +10,8 @@
     </select>
 
     <insert id="insert">
-        insert into tbl_negotiation(conNo, worker, requester)
-        values (#{conNo},#{worker},#{requester})
+        insert into tbl_negotiation(conNo, worker, requester, price)
+        values (#{conNo},#{worker},#{requester}, #{price})
     </insert>
 
 

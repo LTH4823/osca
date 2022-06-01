@@ -34,6 +34,11 @@
             limit #{skip}, #{size}
     </select>
 
+<!--  계약 협상 진행  -->
+    <update id="updateAsNegotiation">
+        update tbl_contract set conState =1 where conNo = #{conNo};
+    </update>
+
     <!--  본인 계약 생성 리스트  -->
     <select id="addList" resultType="Contract">
         select *

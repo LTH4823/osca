@@ -5,47 +5,97 @@
 
 <mapper namespace="org.zerock.oscatest.mapper.BidderMapper">
 
-<!--    select * from tbl_bidder where conNo = #{conNo} order by bno desc-->
-<!-- 해당 계약 입찰리스트   -->
+    <!--    select * from tbl_bidder where conNo = #{conNo} order by bno desc-->
+    <!-- 해당 계약 입찰리스트   -->
     <select id="getList" resultType="Bidder">
-        select com.comId, comName comPhone, comEmail, businessNum, comIntro, comProfile, bno, bid.conNo, price
-        from tbl_company com INNER join tbl_bidder bid on com.comId = bid.comId where bid.conNo = #{conNo} group by com.comId
+        select com.comId,
+               comName comPhone,
+               comEmail,
+               businessNum,
+               comIntro,
+               comProfile,
+               bno,
+               bid.conNo,
+               price
+        from tbl_company com
+                 INNER join tbl_bidder bid on com.comId = bid.comId
+        where bid.conNo = #{conNo}
+          and delFlag = 0
+        group by com.comId
         order by bno desc
-        limit #{skip},#{size}
+            limit #{skip}, #{size}
     </select>
 
 
-<!-- 해당 계약 입찰자 인수  -->
+    <update id="AllUpdateAsRemove">
+        update tbl_bidder
+        set delFlag=1
+        where state = 0
+    </update>
+
+    <update id="updateAsSelect">
+        update tbl_bidder
+        set state = 1
+        where comId = #{comId}
+    </update>
+
+    <update id="updateAsRemove">
+        update tbl_bidder
+        set delFlag=1
+        where comId = #{comId}
+    </update>
+
+    <!-- 해당 계약 입찰자 인수  -->
     <select id="getBidderTotal" resultType="int">
-
-
-        select count(conNo) from tbl_bidder where conNo = #{conNo};
+        select count(conNo)
+        from tbl_bidder
+        where conNo = #{conNo}
     </select>
 
+    <!--  입찰자 선택하기  -->
+    <select id="getOne" resultType="Bidder">
+        select *
+        from tbl_bidder
+        where bno = #{bno}
+    </select>
 
-<!-- 입찰하기  -->
+    <!-- 입찰하기  -->
     <insert id="insert">
-        insert into tbl_bidder (conNo, comId, price) VALUES (#{conNo},#{comId},#{price})
+        insert into tbl_bidder (conNo, comId, price)
+        VALUES (#{conNo}, #{comId}, #{price})
     </insert>
 
-<!-- 낙찰하기   -->
+    <!-- 낙찰하기   -->
     <update id="updateAsBid">
-        update tbl_bidder set state =1 where comId = #{comId} and conNo = #{conNo} and price=#{price}
+        update tbl_bidder
+        set state =1
+        where comId = #{comId}
+          and conNo = #{conNo}
+          and price = #{price}
     </update>
 
-<!--  낙찰 후 협상 금액 변경  -->
+    <!--  낙찰 후 협상 금액 변경  -->
     <update id="updateRaise">
-        update tbl_bidder set price = #{price} where comId = #{comId} and conNo = #{conNo} and state =1
+        update tbl_bidder
+        set price = #{price}
+        where comId = #{comId}
+          and conNo = #{conNo}
+          and state = 1
     </update>
 
-<!-- 입찰제거(update) 변경예정  -->
+    <!-- 입찰제거(update) 변경예정  -->
     <update id="updateAsRemove">
-        update tbl_bidder set delFlag=1 where comId = #{comId} and conNo = #{conNo}
+        update tbl_bidder
+        set delFlag=1
+        where comId = #{comId}
+          and conNo = #{conNo}
     </update>
 
-<!--  데이터 삭제  -->
+    <!--  데이터 삭제  -->
     <delete id="delete">
-        delete from tbl_bidder where delFlag =1;
+        delete
+        from tbl_bidder
+        where delFlag = 1;
     </delete>
 
 </mapper>

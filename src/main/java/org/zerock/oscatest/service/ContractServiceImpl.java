@@ -127,6 +127,11 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
+    public void updateAsNegotiation(Integer conNo) {
+        contractMapper.updateAsNegotiation(conNo);
+    }
+
+    @Override
     public ListResponseDTO<ContractDTO> getAddList(ContractAddListDTO contractAddListDTO) {
 
         List<Contract> contractList = contractMapper.addList(contractAddListDTO);

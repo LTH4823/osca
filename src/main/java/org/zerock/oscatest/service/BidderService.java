@@ -11,6 +11,6 @@ public interface BidderService {
     ListResponseDTO<BidderDTO> getList(BidderListDTO bidderListDTO);
     void insert(BidderDTO bidderDTO);
     void updateAsBid(BidderDTO bidderDTO);
-    void updateAsRaise(BidderDTO bidderDTO);
     void updateAsRemove(String comId, Integer conNo);
+    BidderDTO getOne(Integer bno);
 }

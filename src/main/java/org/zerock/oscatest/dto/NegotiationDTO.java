@@ -8,9 +8,12 @@ import java.time.LocalDate;
 public class NegotiationDTO {
 
     private Integer negoNo;
+    private Integer conNo;
     private String worker;
+    private String price;
     private String requester;
     private Integer commentCount;
+
 
     private LocalDate regDate;
     private LocalDate updateDate;
