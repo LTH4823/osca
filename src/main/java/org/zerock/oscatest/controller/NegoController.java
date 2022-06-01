@@ -56,17 +56,17 @@ public class NegoController {
 //    }
 //
     @GetMapping("/read/{negoNo}")
-    public String negoReadGET(@PathVariable("negoNo") Integer negoNo, RedirectAttributes rttr) {
+    public String negoReadGET(@PathVariable("negoNo") Integer negoNo, Model model) {
         log.info("===========================================================");
         log.info("===========================================================");
         log.info(negoNo);
         NegotiationDTO negotiationDTO = negotiationService.getOne(negoNo);
         log.info(negotiationDTO);
-        rttr.addAttribute("negotiationDTO", negotiationDTO);
+        model.addAttribute("nego", negotiationDTO);
         log.info("===========================================================");
         log.info("===========================================================");
 
-        return "redirect:/contract/nego/read";
+        return "contract/nego/read";
     }
 //
 //    @GetMapping("/sign")
