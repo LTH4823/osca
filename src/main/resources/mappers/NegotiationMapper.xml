@@ -22,4 +22,8 @@
         from tbl_negotiation
     </select>
 
+    <select id="getOne" resultType="Negotiation">
+        select * from tbl_negotiation where negoNo = #{negoNo}
+    </select>
+
 </mapper>

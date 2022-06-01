@@ -49,5 +49,13 @@ public class NegotiationServiceImpl implements NegotiationService {
                 .dtoList(dtoList)
                 .total(negotiationMapper.getTotal(negotiationListDTO)).build();
     }
-}
 
+    @Override
+    public NegotiationDTO getOne(Integer negoNo) {
+        Negotiation negotiation = negotiationMapper.getOne(negoNo);
+        log.info(negotiation);
+        NegotiationDTO negotiationDTO = modelMapper.map(negotiation, NegotiationDTO.class);
+        log.info(negotiationDTO);
+        return negotiationDTO;
+    }
+}

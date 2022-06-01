@@ -11,4 +11,5 @@ public interface NegotiationMapper {
     void insert(Negotiation negotiation);
     List<Negotiation> getList(NegotiationListDTO negotiationListDTO);
     int getTotal(NegotiationListDTO negotiationListDTO);
+    Negotiation getOne(Integer negoNo);
 }

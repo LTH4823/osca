@@ -9,5 +9,6 @@ public interface NegotiationService {
     void insert(NegotiationDTO negotiationDTO);
 
     ListResponseDTO<NegotiationDTO> getList(NegotiationListDTO negotiationListDTO);
+    NegotiationDTO getOne(Integer negoNo);
 
 }
