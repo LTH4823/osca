@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>협상 내역</title>
     <link href="../../../../resources/css/style.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -13,7 +13,7 @@
 <div id="layoutSidenav_content">
     <div class="container-fluid px-4">
 
-        <h1 class="mt-4">계약 협상</h1>
+        <h1 class="mt-4"></h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
             <li class="breadcrumb-item active">Tables</li>
@@ -49,30 +49,27 @@
                             <tr>
                                 <th data-sortable="" style="width: 5%;"><a href="#"
                                                                            class="dataTable-sorter">No.</a></th>
-                                <th data-sortable="" style="width: 30%;"><a href="#"
-                                                                            class="dataTable-sorter">계약명</a></th>
-                                <th data-sortable="" style="width: 20%;"><a href="#" class="dataTable-sorter">시공사명</a>
-                                </th>
                                 <th data-sortable="" style="width: 20%;"><a href="#"
-                                                                            class="dataTable-sorter">의뢰자명</a></th>
+                                                                            class="dataTable-sorter">제목</a></th>
+                                <th data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter">금액</a>
+                                </th>
+                                <th data-sortable="" style="width: 30%;"><a href="#"
+                                                                            class="dataTable-sorter">작성날짜</a></th>
 
-                                <th data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter text-center">협상 현황</a></th>
-<%--                                <th data-sortable="" style="width: 12.5%;"><a href="#" class="dataTable-sorter text-center">파기</a>--%>
-<%--                                </th>--%>
+                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">보기</a></th>
+                                <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter text-center">파기</a>
+                                </th>
                             </tr>
                             </thead>
                             <tbody class="dtoList">
 
-                            <c:forEach items="${dtoList}" var="nego" varStatus="status">
-                                <tr>
-                                <td data-num = "${status.count}" class="con-link text-center">${status.count}</td>
-                                <td data-conNo = "${nego.conNo}" class="con-link text-center">${nego.conNo}</td>
-                                <td data-conName = "${nego.worker}" class="con-link text-center">${nego.worker}</td>
-                                <td data-conLocation = "${nego.requester}" class="con-link text-center">${nego.requester}</td>
-                                <td class="con-link text-center"><button class="detailBtn btn btn-primary"><a class="text-white"
-                                        href="/contract/nego/comment/list" style="text-decoration: none">보기</a></button></td>
-<%--                                    href="/contract/nego/read/${nego.negoNo}" style="text-decoration: none">보기</a></button></td>--%>
-                                </tr>
+                            <c:forEach items="${dtoList}" var="contract" varStatus="status">
+                                <td data-conNo = "${contract.conNo}" class="con-link text-center">${status.count}</td>
+                                <td data-conName = "${contract.conName}" class="con-link text-center">${contract.conName}</td>
+                                <td data-conLocation = "${contract.conLocation}" class="con-link text-center">${contract.conLocation}</td>
+                                <td class="con-link text-center">${contract.conStartDay} ~ ${contract.conEndDay}</td>
+                                <td class="con-link text-center"><button class="readBtn btn btn-primary">보기</button></td>
+                                <td class="con-link text-center"><button class="delBtn btn btn-danger">파기</button></td>
                             </c:forEach>
 
                             </tbody>
@@ -84,9 +81,6 @@
         </div>
 
 
-<%--        <h1>${dtoList}</h1>--%>
-
-<%--        <h1>${pageMaker}</h1>--%>
         <%--        <h7>${dtoList}</h7>--%>
 
         <%--        <h7>${pageMaker}</h7>--%>
