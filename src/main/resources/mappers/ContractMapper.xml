@@ -85,6 +85,14 @@
         #{conStartDay},#{conEndDay},#{conPrice},#{conDocument},#{conImg},#{requester},#{worker},0)
     </insert>
 
+
+<!--  계약 시공사설정  -->
+
+    <update id="updateToWorker">
+        update tbl_contract set worker = #{worker} where conNo = #{conNo};
+    </update>
+
+
     <!-- 계약 수정   -->
     <update id="update">
         update tbl_contract

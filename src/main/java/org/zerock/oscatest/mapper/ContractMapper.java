@@ -25,6 +25,8 @@ public interface ContractMapper {
     void updateAsRemove(Integer conNo);
     void update(Contract contract);
 
+    void updateToWorker(Contract contract);
+
     void updateAsNegotiation(Integer conNo);
 
     List<Pick> selectFiles(Integer conNo);
