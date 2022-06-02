@@ -1,6 +1,7 @@
 package org.zerock.oscatest.service;
 
 import org.springframework.transaction.annotation.Transactional;
+import org.zerock.oscatest.domain.Contract;
 import org.zerock.oscatest.dto.*;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public interface ContractService {
     List<UploadResultDTO> getFiles(Integer conNo);
 
     void updateAsNegotiation(Integer conNo);
+
+
 
     ListResponseDTO<ContractDTO>getAddList(ContractAddListDTO contractAddListDTO);
 
