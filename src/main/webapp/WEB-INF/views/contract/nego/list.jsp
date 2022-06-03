@@ -70,7 +70,7 @@
                                 <td data-conName = "${nego.worker}" class="con-link text-center">${nego.worker}</td>
                                 <td data-conLocation = "${nego.requester}" class="con-link text-center">${nego.requester}</td>
                                 <td class="con-link text-center"><button class="detailBtn btn btn-primary"><a class="text-white"
-                                        href="/contract/nego/comment/list" style="text-decoration: none">보기</a></button></td>
+                                        href="/contract/nego/read/${nego.negoNo}" style="text-decoration: none">보기</a></button></td>
 <%--                                    href="/contract/nego/read/${nego.negoNo}" style="text-decoration: none">보기</a></button></td>--%>
                                 </tr>
                             </c:forEach>
