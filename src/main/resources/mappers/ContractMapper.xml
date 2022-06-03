@@ -56,7 +56,8 @@
         from tbl_contract
         where conState = 0
           and delFlag = 0
-          and requester = #{requester}
+          and conState =1
+          and (worker = #{worker} or requester = #{worker})
         order by conNo desc
             limit #{skip}, #{size}
     </select>
