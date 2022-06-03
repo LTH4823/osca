@@ -165,6 +165,8 @@
         </div>
     </div>
     <span>${nego}</span>
+
+    <embed class="pdfTest" src="" frameborder="0"></embed>
 </div>
 
 
@@ -227,7 +229,8 @@
 
     document.addEventListener('DOMContentLoaded', (e) => {
         infoToServer(conNo).then(result => {
-            console.log(result)
+            document.querySelector(".pdfTest").src = '/view?fileName='+result.conDocument
+            console.log(result.conDocument)
         }).catch(err => console.log(err))
     }, false);
 
