@@ -69,9 +69,9 @@ public class NegoController {
         return "contract/nego/read";
     }
 //
-//    @GetMapping("/sign")
-//    public void negoSignGET(){
-//
-//    }
+    @GetMapping("/sign")
+    public void negoSignGET(){
+
+    }
 
 }

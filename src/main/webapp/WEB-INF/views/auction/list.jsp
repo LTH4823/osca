@@ -175,6 +175,7 @@ ${pageMaker}
         actionForm.setAttribute("action", "/company/auction/list") //뒤로 가기 문제 방지
         actionForm.submit()
     }, false)
+
     document.querySelector(".searchBtn").addEventListener("click", (e) => {
         const type = document.querySelector('.searchDiv .type').value
         const keyword = document.querySelector(".searchDiv input[name='keyword']").value
