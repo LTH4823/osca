@@ -166,7 +166,17 @@
     </div>
     <span>${nego}</span>
 
-    <embed class="pdfTest" src="" frameborder="0"></embed>
+    <h1>PDF.js Previous/Next example</h1>
+
+    <div>
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+        &nbsp; &nbsp;
+        <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+    </div>
+
+    <canvas id="the-canvas"></canvas>
+
 </div>
 
 
@@ -199,11 +209,16 @@
 
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp" %>
+<%--pdf.js--%>
+<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 <!-- html2canvas -->
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="../../../../../resources/js/sign.js"></script>
+<script src="../../../../../resources/js/pdfview.js"></script>
+
 <script>
+
 
     const companySign = document.querySelector(".companySign");
     signSet(companySign);
@@ -229,8 +244,9 @@
 
     document.addEventListener('DOMContentLoaded', (e) => {
         infoToServer(conNo).then(result => {
-            document.querySelector(".pdfTest").src = '/view?fileName='+result.conDocument
+            // document.querySelector(".pdfTest").src = '/view?fileName='+result.conDocument
             console.log(result.conDocument)
+            viewer("/view?fileName="+result.conDocument)
         }).catch(err => console.log(err))
     }, false);
 
