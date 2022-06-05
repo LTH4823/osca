@@ -3,6 +3,46 @@ body {
     height: 100vh;
 }
 
+/* navbar--------------------------------- */
+
+
+.navSide{
+    background-color: rgb(250,250,250);
+}
+
+
+.sideTitle span{
+    font-size: small;
+    color: black;
+
+}
+.sideIcon{
+    color: #0a4345;
+    font-size: large;
+    margin-right: 0.4em;
+}
+.navSide a span{
+    font-size: medium;
+    font-weight: bolder;
+    color: black;
+}
+
+.navSide a:hover{
+    font-size: large;
+    color: #0dcaf0;
+}
+
+.navSide a span:hover{
+    font-size: large;
+    color: #0dcaf0;
+}
+
+
+/*-----------------------------------------*/
+
+
+
+
 /* login page----------------------------- */
 
 .loginBody {
