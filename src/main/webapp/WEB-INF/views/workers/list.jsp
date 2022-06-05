@@ -32,7 +32,7 @@
 
             <div class="container px-4 px-lg-5 mt-5">
 
-                <div class="dtoList row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="dtoList row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
                     <c:forEach items="${dtoList}" var="company">
                         <div class="col mb-5">
