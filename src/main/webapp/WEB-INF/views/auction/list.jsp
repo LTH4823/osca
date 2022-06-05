@@ -192,6 +192,7 @@ ${pageMaker}
     }, false)
 
 
+
     <%--   단순한 데이터 보내기 방식으로 할 시 param을 추가하여 받을 수 있게 해줌 단순한 방법   --%>
     <%--const result = ${param.result}--%>
     const result = `${result == null ? "" : result}`
