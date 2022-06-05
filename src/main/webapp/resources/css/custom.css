@@ -281,6 +281,21 @@ input[type = password] {
     border-radius: 1.5em;
 }
 
+.comProfile{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.phoneIcon{
+    font-size: larger;
+    margin: 0.3em;
+}
+
+.emailIcon{
+    font-size: larger;
+    margin: 0.3em;
+}
+
 /*----------------------------------------------
 
 

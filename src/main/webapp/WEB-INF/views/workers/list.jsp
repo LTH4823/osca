@@ -47,7 +47,7 @@
                             <div class="card customCard h-100"
                                  style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                                 <c:if test="${company.comProfile !=null}">
-                                    <img src='/view?fileName=${company.getProfile()}' alt="zxcv">
+                                    <img src='/view?fileName=${company.getProfile()}' alt="...">
                                 </c:if>
                                 <div class="card-body">
                                     <div class="text-center">
@@ -95,18 +95,45 @@
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable ">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">회사정보</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="infoBody modal-body">
+                        <div class="card ">
 
+                            <div class="card-body">
+                                <div class="customFlexRow">
+                                    <img class="comProfile" src="" alt="...">
+                                </div>
+                                <div>
+                                    <p>
+                                        <span>회사명: </span> <span class="comName"></span>
+                                    </p>
+                                </div>
+                                <div class="">
+                                    <p>
+                                        <span>소개글: </span> <span class="comIntro"></span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p><span>분야: </span><span class="comCategory">계단</span></p>
+                                </div>
+                                <div>
+                                    <p><span>주소: </span><span class="comAddress"></span></p>
+                                    <div class="map customFlexRow"
+                                         style=" margin: 0em 0em 0em 0em; height: 180px;"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer customFlexRowAround">
+                        <button type="button" class="btn bg-white"> <a class="phoneIcon" href=""><i class="fa-solid fa-phone"></i></a><span
+                                class="comPhone"></span></button>
+                        <button type="button" class="btn bg-white"><a class="emailIcon" href=""><i class="fa-solid fa-envelope"></i></a><span
+                                class="comEmail"></span> </button>
                     </div>
                 </div>
             </div>
@@ -130,7 +157,7 @@
         <%--        </li>--%>
         <%--    </c:forEach>--%>
         <%--</ul>--%>
-<%--        ${pageMaker}--%>
+        <%--        ${pageMaker}--%>
         <form class="actionForm" action="/workers/list" method="get">
             <input type="hidden" name="page" value="${listDTO.page}">
             <input type="hidden" name="size" value="${listDTO.size}">
@@ -141,6 +168,10 @@
 
     <%@ include file="/WEB-INF/includes/footer.jsp" %>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <%--카카오 맵 api--%>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c"></script>
+    <script type="text/javascript" src="../../resources/js/kakaomap.js"></script>
     <script>
         const dtoList = document.querySelector(".dtoList")
         const linkDiv = document.querySelector(".pagination")
@@ -156,12 +187,21 @@
 
                 console.log(btn.getAttribute("data-comId"))
                 const comId = btn.getAttribute("data-comId")
-                infoToServer(comId).then(result =>{
+                infoToServer(comId).then(result => {
                     console.log(result)
-                    let str = ""
-                    str = `<p>\${result.comName}</p>`
-                    // console.log(`<p>\${result.comId}</p>`)
-                    document.querySelector(".infoBody").innerHTML = str
+                    // let str = ""
+                    // str = `<p>\${result.comName}</p>`
+                    // // console.log(`<p>\${result.comId}</p>`)
+                    // document.querySelector(".infoBody").innerHTML = str
+                    document.querySelector(".comProfile").src = '/view?fileName=' + result.comProfile
+                    document.querySelector(".comName").innerText = result.comName
+                    document.querySelector(".comIntro").innerText = result.comIntro
+                    document.querySelector(".comAddress").innerText = result.comAddress
+                    document.querySelector(".comPhone").innerText = result.comPhone
+                    document.querySelector(".comEmail").innerText = result.comEmail
+                    document.querySelector("phoneIcon").href = "tel:" + result.comPhone
+                    document.querySelector("emailIcon").href = "mailto:" + result.comEmail
+
                 }).catch(err => console.log(err))
             }
 
