@@ -228,7 +228,7 @@ input[type = password] {
 }
 
 .registerRadio input[type=radio]:checked+label{
-    background-color: #333;
+    background-color: rgb(0,157,255);
     color: #fff;
 }
 
