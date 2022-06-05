@@ -15,28 +15,20 @@
 <div id="layoutSidenav_content">
     <div class="container-fluid px-4">
         <div class="py-5 customFlexColumn">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <!-- Container wrapper -->
-                <div class="container-fluid">
-
-                    <div class="searchDiv">
-                        <select class="type">
-                            <option value="">---</option>
-                            <option value="t" ${listDTO.type =="t"?"selected":""}>제목</option>
-                            <option value="tc"  ${listDTO.type =="tc"?"selected":""}>제목내용</option>
-                            <option value="tcw"  ${listDTO.type =="tcw"?"selected":""}>제목내용작성자</option>
-                        </select>
-                        <input type="text" name="keyword" value="${listDTO.keyword}">
-                        <button class="searchBtn">Search</button>
-                    </div>
-
-
-                    <!-- Collapsible wrapper -->
+            <!-- Container wrapper -->
+            <div class="container-fluid customFlexColumn">
+                <div class="searchDiv input-group">
+                    <select class="type searchSelect border-light form-select-sm">
+                        <option value="" selected>-------</option>
+                        <option value="t" ${listDTO.type =="t"?"selected":""}>회사명</option>
+                        <option value="tc"  ${listDTO.type =="tc"?"selected":""}>주소</option>
+                        <option value="tcw"  ${listDTO.type =="tcw"?"selected":""}>분야</option>
+                    </select>
+                    <input type="text" class="form-control" name="keyword" value="${listDTO.keyword}">
+                    <button class="btn btn-success searchBtn">검색</button>
                 </div>
-                <!-- Container wrapper -->
-            </nav>
-            <!-- Navbar -->
+            </div>
+
 
             <div class="container px-4 px-lg-5 mt-5">
 
@@ -69,7 +61,7 @@
                     </c:forEach>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-7">
+            <div class="col-sm-12 col-md-7 customFlexColumn">
                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                     <ul class="pagination">
                         <li class="page-item" id="dataTable_previous">
@@ -130,10 +122,12 @@
                         </div>
                     </div>
                     <div class="modal-footer customFlexRowAround">
-                        <button type="button" class="btn bg-white"> <a class="phoneIcon" href=""><i class="fa-solid fa-phone"></i></a><span
+                        <button type="button" class="btn bg-white"><a class="phoneIcon" href=""><i
+                                class="fa-solid fa-phone"></i></a><span
                                 class="comPhone"></span></button>
-                        <button type="button" class="btn bg-white"><a class="emailIcon" href=""><i class="fa-solid fa-envelope"></i></a><span
-                                class="comEmail"></span> </button>
+                        <button type="button" class="btn bg-white"><a class="emailIcon" href=""><i
+                                class="fa-solid fa-envelope"></i></a><span
+                                class="comEmail"></span></button>
                     </div>
                 </div>
             </div>
