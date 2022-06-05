@@ -8,44 +8,92 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
     <link href="../../resources/css/style.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="../../resources/css/custom.css" rel="stylesheet"/>
+    <link href="../../resources/css/sb-admin-2.min.css" rel="stylesheet"/>
+
 
 </head>
 <body class="sb-nav-fixed">
 
 <%@ include file="/WEB-INF/includes/navbar.jsp" %>
 
-        <div id="layoutSidenav_content">
-            <div class="container-fluid px-4">
+<div id="layoutSidenav_content">
+    <div class="container-fluid px-4">
 
-                <h1 style="margin: 0.5em 0em 0em 0.5em">MyPage</h1>
-
-            <div class="row">
+<%--        <h1 class="mt-4 mb-4 text-black" style="margin: 0.5em 0em 0em 0.5em">MyPage</h1>--%>
+        <div class="card m-4">
+            <div class="row mt-3">
                 <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <svg class="svg-inline--fa fa-chart-area me-1" aria-hidden="true" focusable="false"
-                                 data-prefix="fas" data-icon="chart-area" role="img"
-                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
-                                <path fill="currentColor"
-                                      d="M64 400C64 408.8 71.16 416 80 416H480C497.7 416 512 430.3 512 448C512 465.7 497.7 480 480 480H80C35.82 480 0 444.2 0 400V64C0 46.33 14.33 32 32 32C49.67 32 64 46.33 64 64V400zM128 320V236C128 228.3 130.8 220.8 135.9 214.1L215.3 124.2C228.3 109.4 251.4 109.7 263.1 124.8L303.2 171.8C312.2 182.7 328.6 183.4 338.6 173.4L359.6 152.4C372.7 139.3 394.4 140.1 406.5 154.2L472.3 231C477.3 236.8 480 244.2 480 251.8V320C480 337.7 465.7 352 448 352H159.1C142.3 352 127.1 337.7 127.1 320L128 320z"></path>
-                            </svg><!-- <i class="fas fa-chart-area me-1"></i> Font Awesome fontawesome.com -->
-                            실적
-                        </div>
+                    <div class="mb-4">
+<%--                        <div class="card-header">--%>
+<%--                            <svg class="svg-inline--fa fa-chart-area me-1" aria-hidden="true" focusable="false"--%>
+<%--                                 data-prefix="fas" data-icon="chart-area" role="img"--%>
+<%--                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">--%>
+<%--                                <path fill="currentColor"--%>
+<%--                                      d="M64 400C64 408.8 71.16 416 80 416H480C497.7 416 512 430.3 512 448C512 465.7 497.7 480 480 480H80C35.82 480 0 444.2 0 400V64C0 46.33 14.33 32 32 32C49.67 32 64 46.33 64 64V400zM128 320V236C128 228.3 130.8 220.8 135.9 214.1L215.3 124.2C228.3 109.4 251.4 109.7 263.1 124.8L303.2 171.8C312.2 182.7 328.6 183.4 338.6 173.4L359.6 152.4C372.7 139.3 394.4 140.1 406.5 154.2L472.3 231C477.3 236.8 480 244.2 480 251.8V320C480 337.7 465.7 352 448 352H159.1C142.3 352 127.1 337.7 127.1 320L128 320z"></path>--%>
+<%--                            </svg><!-- <i class="fas fa-chart-area me-1"></i> Font Awesome fontawesome.com -->--%>
+<%--                            실적--%>
+<%--                        </div>--%>
                         <div class="card-body">
-                            <div width="500" height="300"
-                                 style="display: block; height: 300px; width: 500px;"
-                                 class="chartjs-render-monitor">
-                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 생성 건수: 0</span></p>
-                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 협상 건수: 0</span></p>
-                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 진행 건수: 0</span></p>
-                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 완료 건수: 0</span></p>
-                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 파기 건수: 0</span></p>
+                            <div style="display: block; height: 300px; width: 500px;"
+                                 class="">
+                                <%--                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 생성 건수: 0</span></p>--%>
+                                <%--                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 협상 건수: 0</span></p>--%>
+                                <%--                                <p class="d-block p-2 bg-primary text-white text-end"><span>계약 현황 건수: 0</span></p>--%>
+
+                                <div class="card m-3 border-left-primary shadow py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    <h4>생성 계약 건수: </h4>
+                                                    <span>Created Contract Count</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card m-3 border-left-info shadow py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                    <h4>계약 협상 건수: </h4>
+                                                    <span>Contract Negotiation Count</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card m-3 border-left-success shadow py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    <h4>계약 현황 건수: </h4>
+                                                    <span>Contract Progress Count</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6">
-                    <div class="card mb-4">
+                    <div class="card mb-4 m-4">
                         <div class="card-header">
                             <svg class="svg-inline--fa fa-chart-bar me-1" aria-hidden="true" focusable="false"
                                  data-prefix="fas" data-icon="chart-bar" role="img"
@@ -56,42 +104,41 @@
                             회사 정보
                         </div>
                         <div class="card-body">
-                            <div id="" width="500" height="300"
-                                 style="display: block; height: 300px; width: 500px;"
-                                 class="chartjs-render-monitor">
-                                <div  class="row">
-                                    <div class="">
-                                        <c:if test="${company.comProfile !=null}">
-                                            <img src='/view?fileName=${company.getProfile()}' alt="zxcv">
-                                        </c:if>
-                                    </div>
-                                    <div  class="">
-                                        <p>${company.comName}</p>
-                                        <p>${company.comEmail}</p>
-                                        <p>${company.comPhone}</p>
-                                        <p>${company.comIntro}</p>
-
-                                        <div class="sb-sidenav-menu-heading">회원정보</div>
-                                        <a class="nav-link" href="">
-                                            <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                                            회원정보 수정
-                                        </a>
-                                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">
-                                            <div class="sb-nav-link-icon"><i class="fas"></i></div>
-                                            회원탈퇴
-                                        </a>
-
-                                    </div>
+                            <div class="customFlexRowAround">
+                                <c:if test="${company.comProfile !=null}">
+                                    <img src='/view?fileName=${company.getProfile()}' alt="zxcv">
+                                </c:if>
+                                <div class="companyInfo">
+                                    <p><span>회사명: </span> ${company.comName}</p>
+                                    <p><span>Email: </span>${company.comEmail}</p>
+                                    <p><span>Phone: </span>${company.comPhone}</p>
+                                    <p><span>분야: </span>${company.comCategory}</p>
+                                </div>
+                                <div class="bg-light mt-3" style="width: 100%;">
+                                    <p class="text-center m-2"><span>소개: </span>${company.comIntro}</p>
                                 </div>
                             </div>
+
+
+                            <%--                        <div class="sb-sidenav-menu-heading customFlexRowAround">--%>
+                            <%--                            <button class="btn btn-success text-white"><a class="nav-link text-white" href="">--%>
+                            <%--                                회원정보 수정--%>
+                            <%--                            </a></button>--%>
+                            <%--                            <button class="btn btn-danger text-white"><a class="nav-link text-white"--%>
+                            <%--                                                                         data-bs-toggle="modal"--%>
+                            <%--                                                                         data-bs-target="#exampleModal" href="">--%>
+                            <%--                                회원탈퇴--%>
+                            <%--                            </a></button>--%>
+                            <%--                        </div>--%>
                         </div>
+
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-xl-6">
-                    <div class="card mb-4">
+                    <div class="card mb-4 m-4">
                         <div class="card-header">
                             <svg class="svg-inline--fa fa-chart-area me-1" aria-hidden="true" focusable="false"
                                  data-prefix="fas" data-icon="chart-area" role="img"
@@ -101,17 +148,18 @@
                             </svg><!-- <i class="fas fa-chart-area me-1"></i> Font Awesome fontawesome.com -->
                             회사주소
                         </div>
-                        <div class="card-body">
+                        <div class="card-body ">
+                            <p>${company.comAddress}</p>
                             <div width="500" height="227"
                                  style="display: block; height: 227px; width: 500px;"
-                                 class="chartjs-render-monitor"><p>${company.comAddress}</p>
-                                <div class="map" style=" margin: 0em 0em 0em 0em; height: 180px; width: 540px;"></div>
+                                 class="customFlexColumn">
+                                <div class="map" style=" margin: 0em 0em 0em 0em; height: 180px; width: 400px;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6">
-                    <div class="card mb-4">
+                    <div class="card mb-4 m-4">
                         <div class="card-header">
                             <svg class="svg-inline--fa fa-chart-bar me-1" aria-hidden="true" focusable="false"
                                  data-prefix="fas" data-icon="chart-bar" role="img"
@@ -123,19 +171,19 @@
 
                         </div>
                         <div class="card-body">
+                            <p>${company.businessNum}</p>
                             <div id="myBarChart" width="500" height="227"
                                  style="display: block; height: 227px; width: 500px;"
-                                 class="chartjs-render-monitor"><p>${company.businessNum}</p>
-                            <c:if test="${company.businessCheck !=null}">
-                                <img src='/view?fileName=${company.businessCheck}' alt="zxcv">
-                            </c:if>
+                                 class="chartjs-render-monitor">
+                                <c:if test="${company.businessCheck !=null}">
+                                    <img src='/view?fileName=${company.businessCheck}' alt="zxcv">
+                                </c:if>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -160,11 +208,11 @@
                 </div>
             </div>
         </div>
-<%--        <form action="/company/modify/${company.comId}" class="modForm" method="post">--%>
-<%--            <input type="text" name="comId" value="<c:out value="${company.comId}"/>">--%>
-<%--            <input type="text" name="comName" value="<c:out value="${company.comName}"/>">--%>
-<%--            <button>회원정보 수정</button>--%>
-<%--        </form>--%>
+        <%--        <form action="/company/modify/${company.comId}" class="modForm" method="post">--%>
+        <%--            <input type="text" name="comId" value="<c:out value="${company.comId}"/>">--%>
+        <%--            <input type="text" name="comName" value="<c:out value="${company.comName}"/>">--%>
+        <%--            <button>회원정보 수정</button>--%>
+        <%--        </form>--%>
         <p></p>
         <img src="/view?fileName=\2022/05/24/e53a029f-be9a-46b0-b6a8-ad65329ed8fc_hguc 바운드독.jpg" alt="">
     </div>

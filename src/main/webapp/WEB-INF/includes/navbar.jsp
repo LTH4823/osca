@@ -71,14 +71,6 @@
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
                         <span class="">계약 현황</span>
                     </a>
-                    <%--                    <a class="nav-link" href="">--%>
-                    <%--                        <div class="sb-nav-link-icon"><i class="fas "></i></div>--%>
-                    <%--                        계약 완료--%>
-                    <%--                    </a> <a class="nav-link" href="">--%>
-                    <%--                    <div class="sb-nav-link-icon"><i class="fas "></i></div>--%>
-                    <%--                    계약 파기--%>
-                    <%--                </a>--%>
-
                 </div>
             </div>
             <div class="sb-sidenav-footer">

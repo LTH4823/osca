@@ -6,41 +6,41 @@ body {
 /* navbar--------------------------------- */
 
 
-.navSide{
-    background-color: rgb(250,250,250);
+.navSide {
+    background-color: rgb(250, 250, 250);
 }
 
 
-.sideTitle span{
+.sideTitle span {
     font-size: small;
     color: black;
 
 }
-.sideIcon{
+
+.sideIcon {
     color: #0a4345;
     font-size: large;
     margin-right: 0.4em;
 }
-.navSide a span{
+
+.navSide a span {
     font-size: medium;
     font-weight: bolder;
     color: black;
 }
 
-.navSide a:hover{
+.navSide a:hover {
     font-size: large;
     color: #0dcaf0;
 }
 
-.navSide a span:hover{
+.navSide a span:hover {
     font-size: large;
     color: #0dcaf0;
 }
 
 
 /*-----------------------------------------*/
-
-
 
 
 /* login page----------------------------- */
@@ -54,7 +54,7 @@ body {
     /* background-image: linear-gradient(135deg, #5efce8 10%, #736efe 100%); */
     /* background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);*/
     /*background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);*/
-    background-color: rgb(250,250,250);
+    background-color: rgb(250, 250, 250);
 }
 
 .loginLogo {
@@ -70,7 +70,7 @@ body {
     /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);*/
 }
 
-input[name = "username"]{
+input[name = "username"] {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
@@ -80,8 +80,8 @@ input[type = password] {
     border-top-right-radius: 0;
 }
 
-.submitBtns{
-    padding: 0em  3em 2em 3em;
+.submitBtns {
+    padding: 0em 3em 2em 3em;
 }
 
 .customLoginBtn {
@@ -163,9 +163,11 @@ input[type = password] {
     .customNavbar {
         display: none;
     }
+
     .loginLogo {
         font-size: 70px;
     }
+
     .loginBody {
         background-image: none;
         background-color: rgb(255, 255, 255);
@@ -205,11 +207,11 @@ input[type = password] {
 }
 
 
-.registerRadio input[type=radio]{
+.registerRadio input[type=radio] {
     display: none;
 }
 
-.registerRadio input[type=radio] + label{
+.registerRadio input[type=radio] + label {
     display: inline-block;
     cursor: pointer;
     height: 24px;
@@ -217,18 +219,18 @@ input[type = password] {
     border: 1px solid #333;
     line-height: 24px;
     text-align: center;
-    font-weight:bold;
-    font-size:13px;
+    font-weight: bold;
+    font-size: 13px;
 }
 
 
-.registerRadio input[type=radio]+label{
+.registerRadio input[type=radio] + label {
     background-color: #fff;
     color: #333;
 }
 
-.registerRadio input[type=radio]:checked+label{
-    background-color: rgb(0,157,255);
+.registerRadio input[type=radio]:checked + label {
+    background-color: rgb(0, 157, 255);
     color: #fff;
 }
 
@@ -257,10 +259,10 @@ input[type = password] {
 
 /*----------------------------------------------
 
-/*workers---------------------------------------*/
+/*default---------------------------------------*/
 
 
-#layoutSidenav_content{
+#layoutSidenav_content {
     /*background-color: #d9d9d9;*/
     /*background-image: linear-gradient(360deg, #d9d9d9 0%, #f6f2f2 74%);*/
 
@@ -271,49 +273,57 @@ input[type = password] {
 
 }
 
-.customCard{
+.customCard {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     font-weight: bold;
 }
 
-.customCard img{
+.customCard img {
     padding: 1em;
     border-radius: 1.5em;
 }
 
-.comProfile{
+.comProfile {
     max-height: 200px;
     max-width: 200px;
 }
 
-.phoneIcon{
+.phoneIcon {
     font-size: larger;
     margin: 0.3em;
 }
 
-.emailIcon{
+.emailIcon {
     font-size: larger;
     margin: 0.3em;
 }
 
-.searchDiv{
+.searchDiv {
     width: calc(100% - 30%);
     height: 3em;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-.searchSelect{
+.searchSelect {
     width: 8em;
 }
 
-    /*----------------------------------------------
+/*----------------------------------------------*/
 
 
 
-     */
-/* contractView------------------------------ */
+
+
+
+
+/* mypage------------------------------ */
 
 /*----------------------------------------------*/
+
+
+
+
+
 
 .contractView {
     /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
