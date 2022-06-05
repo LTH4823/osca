@@ -75,7 +75,7 @@ input[name = "username"]{
     border-bottom-right-radius: 0;
 }
 
-input[type = "password"] {
+input[type = password] {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
@@ -153,8 +153,6 @@ input[type = "password"] {
 /*    }*/
 /*}*/
 
-
-
 @media (max-width: 575px) {
     .loginImg {
         display: none;
@@ -197,7 +195,7 @@ input[type = "password"] {
 .registerLogo {
     font-weight: bolder;
     color: rgb(0, 157, 255);
-    text-shadow: 6px 6px rgb(80, 151, 238);
+    text-shadow: 6px 6px rgb(0, 157, 255, 0.3);
     font-size: 100px;
     margin: 20px 0px;
 }
@@ -205,6 +203,35 @@ input[type = "password"] {
 .registerForm {
     font-family: "Nanum Gothic Coding", monospace;
 }
+
+
+.registerRadio input[type=radio]{
+    display: none;
+}
+
+.registerRadio input[type=radio] + label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 90px;
+    border: 1px solid #333;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+}
+
+
+.registerRadio input[type=radio]+label{
+    background-color: #fff;
+    color: #333;
+}
+
+.registerRadio input[type=radio]:checked+label{
+    background-color: #333;
+    color: #fff;
+}
+
 
 .registerBtn {
     margin: 2em;

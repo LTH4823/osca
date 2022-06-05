@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -26,30 +27,23 @@
 <body>
 
 <section class="registerBody" id="page-content-wrapper">
-    <!-- Top navigation-->
-    <nav class=" navbar customNavbar navbar-expand-lg navbar-light  border-bottom">
-        <div class="navbarBody container-fluid">
 
-            <a class="navbarTitle btn fs-2" id="sidebarToggle">
-                O.S.C.A</a>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary bg-gradient shadow-sm">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="/index.jsp"><span style="margin: 0em 0em 0em 1em ">O.S.C.A</span></a>
 
-            <div class="navbarToggleBtn ">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbarToggle navbar-toggler-icon"></span></button>
-            </div>
-            <div class="navbarToggleArea collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link " href="http://localhost:8080/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="http://localhost:8080/company/auction/list">Auction</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Workers</a></li>
-
-
-                </ul>
-            </div>
-        </div>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+            <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
+            <sec:authorize access="isAnonymous()">
+                <li class="nav-item"><a class="nav-link" href="/customLogin">Login</a></li>
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+            </sec:authorize>
+        </ul>
     </nav>
+
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
@@ -64,13 +58,10 @@
 
                                     <div class="d-flex flex-row align-items-center mb-4">
 
-                                        <div class="form-outline flex-fill mb-0">
-                                            <p class="form-label" for="form3Example1c">선택해 주십시오.</p>
-                                            <input type="radio" name="authority" value="MEMBER" class="">
-                                            <span>의뢰자</span>
-                                            <input type="radio" name="authority" value="COMPANY" class="">
-                                            <span>시공사</span>
-
+                                        <div class="registerRadio form-outline flex-fill mb-0">
+                                            <p class="form-label" for="form3Example1c">가입 대상을 선택해 주십시오.</p>
+                                            <input type="radio" name="authority" value="MEMBER" id="radioMember"><label for="radioMember">의뢰자</label>
+                                            <input type="radio" name="authority" value="COMPANY" id="ratioCompany"><label for="ratioCompany">시공사</label>
                                         </div>
                                     </div>
 
