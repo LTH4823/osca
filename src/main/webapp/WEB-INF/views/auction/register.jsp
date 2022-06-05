@@ -6,31 +6,13 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
     <link href="../../../resources/css/style.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="../../../resources/css/custom.css" rel="stylesheet"/>
 </head>
 <body>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html"><span style="margin: 0em 0em 0em 1em ">O.S.C.A</span></a>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-            class="fas fa-bars"></i></button>
-    <!-- Navbar-->
-    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-        <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
+<%@ include file="/WEB-INF/includes/navbar.jsp" %>
 
-        <%--        <sec:authorize access="isAuthenticated()">--%>
-        <%--            <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>--%>
-        <%--        </sec:authorize>--%>
-
-        <sec:authorize access="isAuthenticated()">
-            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-        </sec:authorize>
-
-
-    </ul>
-</nav>
-
+<div id="layoutSidenav_content">
 
 <form action="/auction/register" class="registerForm" method="post">
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
@@ -79,6 +61,8 @@
 </form>
 
 <button class="registerBtn">등록</button>
+</div>
+<%@ include file="/WEB-INF/includes/footer.jsp" %>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services"></script>
 <script src="../../../resources/js/address.js"></script>
