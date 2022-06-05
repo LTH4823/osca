@@ -22,7 +22,7 @@ public class ListDTO {
 
     public ListDTO() {
         this.page = 1;
-        this.size = 10;
+        this.size = 12;
     }
 
     public void setType(String type) {

@@ -17,6 +17,10 @@
         <%--            <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>--%>
         <%--        </sec:authorize>--%>
 
+        <sec:authorize access="isAuthenticated()">
+            <li class="nav-item"><a class="nav-link"><sec:authentication property="principal.comId"></sec:authentication></a></li>
+        </sec:authorize>
+
         <sec:authorize access="isAnonymous()">
             <li class="nav-item"><a class="nav-link" href="/customLogin">Login</a></li>
         </sec:authorize>
