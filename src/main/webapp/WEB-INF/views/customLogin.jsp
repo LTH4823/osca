@@ -66,8 +66,8 @@
                             </div>
 
                             <div class="rememberLine text-start">
-                                <input type="checkbox" class="rememberInput text-start" name="remember-me"
-                                       value="off"><span class="rememberWord">로그인 상태유지</span>
+                                <input type="checkbox" class="rememberInput text-start" name="remember-me">
+                                <span class="rememberWord">로그인 상태유지</span>
                             </div>
                             <div class="d-flex justify-content-around align-items-center mb-4">
                                 <div class="loginAtags customRow">
