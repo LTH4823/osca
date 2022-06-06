@@ -42,7 +42,7 @@ public class AuctionController {
     }
 
     //계약 등록 ==================================================================================
-//    @PreAuthorize("hasRole('ROLE_COMPANY')")
+    @PreAuthorize("hasRole('ROLE_COMPANY') and hasRole('ROLE_MEMBER')")
     @GetMapping("/register")
     public void registerGET(){}
 
@@ -61,6 +61,7 @@ public class AuctionController {
     }
 
     //계약 조회 ==================================================================================
+    @PreAuthorize("hasRole('ROLE_COMPANY') and hasRole('ROLE_MEMBER')")
     @GetMapping("/read/{conNo}")
     public String readGET(@PathVariable("conNo")Integer conNo, ListDTO listDTO, Model model){
         log.info("=====================================");

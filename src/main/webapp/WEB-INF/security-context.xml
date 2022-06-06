@@ -24,7 +24,7 @@
 <!--        <security:intercept-url pattern="/company/mypage" access="hasRole('ROLE_COMPANY')"></security:intercept-url>-->
 <!--        <security:intercept-url pattern="/admin/adminList" access="hasRole('ROLE_ADMIN')"></security:intercept-url>-->
 
-        <security:access-denied-handler error-page="/accessError"></security:access-denied-handler>
+        <security:access-denied-handler error-page="/WEB-INF/views/Error/accessError"></security:access-denied-handler>
 
 
         <security:csrf disabled="true"></security:csrf>
