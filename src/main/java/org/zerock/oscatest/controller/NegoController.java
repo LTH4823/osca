@@ -21,7 +21,7 @@ import java.security.Principal;
 @Controller
 @RequestMapping("/contract/nego/")
 @RequiredArgsConstructor
-@PreAuthorize("hasRole('ROLE_COMPANY') and hasRole('ROLE_MEMBER')")
+@PreAuthorize("hasRole('ROLE_COMPANY') or hasRole('ROLE_MEMBER')")
 public class NegoController {
 
     private final NegotiationService negotiationService;

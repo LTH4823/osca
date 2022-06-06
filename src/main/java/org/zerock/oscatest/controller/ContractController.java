@@ -19,7 +19,7 @@ import java.security.Principal;
 @Controller
 @RequestMapping("/contract/")
 @RequiredArgsConstructor
-@PreAuthorize("hasRole('ROLE_COMPANY') and hasRole('ROLE_MEMBER')")
+@PreAuthorize("hasRole('ROLE_COMPANY') or hasRole('ROLE_MEMBER')")
 public class ContractController {
 
     private final ContractService contractService;

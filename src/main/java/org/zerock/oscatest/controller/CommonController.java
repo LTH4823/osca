@@ -70,7 +70,7 @@ public class CommonController {
 
     // mypage ==================================================================================
 
-    @PreAuthorize("hasRole('ROLE_COMPANY') and hasRole('ROLE_MEMBER')")
+    @PreAuthorize("hasRole('ROLE_COMPANY') or hasRole('ROLE_MEMBER')")
     @GetMapping("/mypage/")
     public String myPageGET(Principal principal, Model model){
         log.info("===============================");
