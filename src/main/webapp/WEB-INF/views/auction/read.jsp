@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <title>Title</title>
+    <title>옥션 상세보기</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
     <link href="../../../resources/css/style.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -13,64 +13,136 @@
 
 <body>
 <%@ include file="/WEB-INF/includes/navbar.jsp" %>
-<div id="layoutSidenav_content">
+<sec:authentication property="principal" var="pinfo"/>
+<div id="layoutSidenav_content" class="h-100">
     <%--    <span>${dto}</span>--%>
     <div class="container-fluid px-4">
-        <div class="py-5">
+        <div class="">
 
+            <div class="card md-4 h-100">
 
-            <c:if test="${dto.conImg !=null}">
-                <img src='${dto.conImg}' style="width: 300px; height: 300px;" alt="zxcv"/>
-            </c:if>
+                <div class="customFlexRowAround">
 
-            <button class="moreBtn">더보기</button>
-            <div class="pictures">
-                <%--    <c:if test="${dto.conImg != null}">--%>
-                <%--        <img src="${dto.getMain()}">--%>
-                <%--    </c:if>--%>
-            </div>
-
-
-            <button type="button" class="comInfo btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                의뢰자 정보보기
-            </button>
-            <button type="button" class="comBid btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                입찰하기
-            </button>
-
-            <sec:authentication property="principal" var="pinfo"/>
-            <sec:authorize access="isAuthenticated()"/>
-            <c:if test="${pinfo.username eq dto.requester}">
-                <div class="controlBtns">
-                    <button class="modBtn btn btn-secondary">수정하기</button>
-                    <button class="delBtn btn btn-danger">삭제하기</button>
-                </div>
-            </c:if>
-            <%--    <button class="listBtn">돌아가기</button>--%>
-            <form class="actionForm" action="/company/remove/${dto.conNo}" method="post"></form>
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="card col-md-3 m-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h5>시공 이미지</h5>
                         </div>
-                        <div class="infoBody modal-body">
-
+                        <div class="card-body customFlexColumn">
+                            <c:if test="${dto.conImg !=null}">
+                                <img src='${dto.conImg}' alt="zxcv"/>
+                            </c:if>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+
+                        <div class="card-footer customFlexRowAround">
+                            <button class="moreBtn btn btn-secondary">시공 이미지 더보기</button>
+                        </div>
+                    </div>
+
+                    <div class="card col-md-5 m-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h5>계약정보</h5>
+                        </div>
+                        <div class="card-body customFlexColumn">
+                            <h4>계약명: ${dto.conName}</h4>
+                            <p>의뢰주: ${dto.requester}</p>
+                            <p>분야: ${dto.conCategory}</p>
+                            <p>기간: ${dto.conStartDay} ~ ${dto.conEndDay}</p>
+                            <p>주요업무: ${dto.conContent}</p>
+                            <p>요구사항: ${dto.conRequest}</p>
+                            <p>위치: ${dto.conName}</p>
+                            <div class="map"></div>
+                        </div>
+                        <div class="card-footer w-100 customFlexRowAround">
+<%--                            <sec:authorize access="isAuthenticated()"/>--%>
+<%--                            <c:if test="${pinfo.username ne dto.requester}">--%>
+                                <div class="bidBtns w-100 customFlexRowAround">
+                                    <button type="button" class="comInfo btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                        의뢰자 정보
+                                    </button>
+                                    <button type="button" class="comBid btn btn-success" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal2">
+                                        입찰하기
+                                    </button>
+                                </div>
+<%--                            </c:if>--%>
+
+<%--                            <sec:authorize access="isAuthenticated()"/>--%>
+<%--                            <c:if test="${pinfo.username eq dto.requester}">--%>
+<%--                                <div class="controlBtns w-100 customFlexRowAround">--%>
+<%--                                    <button class="modBtn btn btn-secondary">수정하기</button>--%>
+<%--                                    <button class="delBtn btn btn-danger">삭제하기</button>--%>
+<%--                                </div>--%>
+<%--                            </c:if>--%>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="pictures customFlexColumn h-100">
+                    <%--    <c:if test="${dto.conImg != null}">--%>
+                    <%--        <img src="${dto.getMain()}">--%>
+                    <%--    </c:if>--%>
+                </div>
+
+                <%--    <button class="listBtn">돌아가기</button>--%>
+                <form class="actionForm" action="/company/remove/${dto.conNo}" method="post"></form>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">회사정보</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="infoBody modal-body">
+                                <div class="card ">
+
+                                    <div class="card-body">
+                                        <div class="customFlexRow">
+                                            <img class="comProfile" src="" alt="...">
+                                        </div>
+                                        <div>
+                                            <p>
+                                                <span>회사명: </span> <span class="comName"></span>
+                                            </p>
+                                        </div>
+                                        <div class="">
+                                            <p>
+                                                <span>소개글: </span> <span class="comIntro"></span>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p><span>분야: </span><span class="comCategory">계단</span></p>
+                                        </div>
+                                        <div>
+                                            <p><span>주소: </span><span class="comAddress"></span></p>
+                                            <div class="map customFlexRow"
+                                                 style=" margin: 0em 0em 0em 0em; height: 180px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer customFlexRowAround">
+                                <button type="button" class="btn bg-white"><a class="phoneIcon" href=""><i
+                                        class="fa-solid fa-phone"></i></a><span
+                                        class="comPhone"></span></button>
+                                <button type="button" class="btn bg-white"><a class="emailIcon" href=""><i
+                                        class="fa-solid fa-envelope"></i></a><span
+                                        class="comEmail"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </
+            >
         </div>
+
+
     </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
@@ -111,71 +183,85 @@
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
         crossorigin="anonymous"></script>
+
+<%--카카오 맵 api--%>
+<script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c"></script>
+<script type="text/javascript" src="../../resources/js/kakaomap.js"></script>
+
 <script>
 
     const actionForm = document.querySelector(".actionForm")
     const delBtn = document.querySelector(".delBtn")
     // const listBtn = document.querySelector(".listBtn")
 
+    if (delBtn){
 
-    delBtn.addEventListener("click", (e) => {
-        actionForm.setAttribute("action", `/company/auction/remove/${dto.conNo}`)
-        actionForm.submit()
-    }, false)
+        delBtn.addEventListener("click", (e) => {
+            actionForm.setAttribute("action", `/company/auction/remove/${dto.conNo}`)
+            actionForm.submit()
+        }, false)
 
+        document.querySelector(".modBtn").addEventListener("click", (e) => {
+            self.location = `/auction/modify/${dto.conNo}${listDTO.link}`
+        }, false)
+
+    }
 
     document.querySelector(".bidBtn").addEventListener("click", (e) => {
         document.querySelector(".bidForm").submit()
-    }, false)
-
-    document.querySelector(".modBtn").addEventListener("click", (e) => {
-        self.location = `/auction/modify/${dto.conNo}${listDTO.link}`
     }, false)
 
     <%--listBtn.addEventListener("click", (e) => {--%>
     <%--    self.location = `/auction/list${listDTO.link}`--%>
     <%--}, false)--%>
 
-    document.querySelector(".moreBtn").addEventListener("click", (e) => {
-
+    document.addEventListener('DOMContentLoaded',(e)=>{
         axios.get("/auction/files/${conNo}").then(
             res => {
                 const arr = res.data
                 let str = ""
                 for (let i = 0; i < arr.length; i++) {
-                    str += `<img src='/view?fileName=\${arr[i].link}'>`
+                    str += `<img src='/view?fileName=\${arr[i].link}' style="max-width: 700px;"><p> \${i+1}번째 시공이미지</p> `
                 }
                 document.querySelector(".pictures").innerHTML = str
             }
         )
-    }, false)
+    },false)
+
+    <%--document.querySelector(".moreBtn").addEventListener("click", (e) => {--%>
+
+    <%--    axios.get("/auction/files/${conNo}").then(--%>
+    <%--        res => {--%>
+    <%--            const arr = res.data--%>
+    <%--            let str = ""--%>
+    <%--            for (let i = 0; i < arr.length; i++) {--%>
+    <%--                str += `<img src='/view?fileName=\${arr[i].link}' style="max-width: 700px;">`--%>
+    <%--            }--%>
+    <%--            document.querySelector(".pictures").innerHTML = str--%>
+    <%--        }--%>
+    <%--    )--%>
+    <%--}, false)--%>
 
 
     document.querySelector(".comInfo").addEventListener("click", (e) => {
 
         axios.get("/info/company/${dto.requester}").then(
-            res => {
-                const info = res.data
+            result => {
+                const info = result.data
                 console.log(info)
-                console.log(info)
-                let str = ""
-                str = `<p>\${info.comName}</p> <p>\${info.comPhone}</p> <p>\${info.comEmail}</p>`
-                // let comName = document.createElement("div").appendChild(document.createTextNode(`\${info.comName}`))
-                // let comPhone = document.createElement("div").appendChild(document.createTextNode(`\${info.comPhone}`))
-                // let comEmail = document.createElement("div").appendChild(document.createTextNode(`\${info.comEmail}`))
-
-                // document.querySelector(".infoBody").appendChild(comName)
-                // 내부 디자인 완료 후 태그안에 값 직접 넣어서 꾸며줄 예정
-
-                document.querySelector(".infoBody").innerHTML = str
-
-                // ({comName, comEmail, comPhone}) => `<p class='\${comName}'>\${comName}</p>
-                //         <p class='\${comName}'>\${comName}</p>
-                //         <p class='\${comName}'>\${comName}</p>
-                //         <p class='\${comName}'>\${comName}</p>`
-
-                <%--document.querySelector(".infoBody").innerHTML += arr.map(({comName,comPhone,comEmail}) =>--%>
-                <%--        ` <h7>${comName}</h7> `).join(" ")--%>
+                console.log(info.comName)
+                // let str = ""
+                // str = `<p>\${info.comName}</p> <p>\${info.comPhone}</p> <p>\${info.comEmail}</p>`
+                // document.querySelector(".infoBody").innerHTML = str
+                // document.querySelector(".comProfile").src = '/view?fileName=' + result.comProfile
+                document.querySelector(".comName").innerText = result.comName
+                document.querySelector(".comIntro").innerText = result.comIntro
+                document.querySelector(".comAddress").innerText = result.comAddress
+                document.querySelector(".comPhone").innerText = result.comPhone
+                document.querySelector(".comEmail").innerText = result.comEmail
+                document.querySelector("phoneIcon").href = "tel:" + result.comPhone
+                document.querySelector("emailIcon").href = "mailto:" + result.comEmail
             }
         )
     }, false)
