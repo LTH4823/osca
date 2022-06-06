@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,53 +13,117 @@
 
 <div id="layoutSidenav_content">
 
-<form action="/auction/register" class="registerForm" method="post">
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <input type="text" name="conName">계약명
-        <input type="text" name="conCategory">작업 종류
-        <div class="input-group d-flex flex-row align-items-center mb-4">
-            <div class="form-outline flex-fill mb-0">
-                <p class="form-label" for="form3Example3c">주소</p>
-                <div class="registerAdressFind">
-                    <input type="text" class="registerAdressInput form-control"
-                           id="custom_postcode" name="conAddress" placeholder="우편번호">
-                    <input type="button" class=" form-control-text"
-                           onclick="custom_execDaumPostcode()" value="우편번호 찾기">
-                </div>
-                <input type="text" class="registerAdressInput form-control"
-                       id="custom_address" name="conLocation" placeholder="주소">
 
-                <div class="customFlexRow">
-                    <input type="text" class="registerAdressInput form-control"
-                           id="custom_detailAddress" placeholder="상세주소">
-                    <input type="text" class="registerAdressInput form-control"
-                           id="custom_extraAddress" placeholder="참고항목">
-                </div>
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-12 col-xl-11">
+                <div class="text-black" style="border-radius: 25px; margin: 20px">
+                    <div class="p-md-1">
+                        <div class="row justify-content-center">
+                            <div class="contractForm customFlexColumn col-md-10 col-lg-6">
 
-                <div id="map"
-                     style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+                                <h2 class="formTitle">계약 생성</h2>
+                                <form action="/auction/register" class="registerForm" method="post">
+                                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+
+                                        <div class="conRegisterInput">
+                                            <span>계약명</span><input type="text" class="form-control" name="conName">
+                                        </div>
+
+                                        <div class="conRegisterInput">
+                                            <span>작업 종류</span>
+                                            <select type="text" class="form-control form-select" name="conCategory">
+                                                <option value="가구" selected>가구</option>
+                                                <option value="창문">창문</option>
+                                                <option value="계단">계단</option>
+                                                <option value="외벽">외벽</option>
+                                                <option value="바닥">바닥</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="conRegisterInput input-group d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <p class="form-label" for="form3Example3c">주소</p>
+                                                <div class="registerAdressFind">
+                                                    <input type="text" class="registerAdressInput form-control"
+                                                           id="custom_postcode" name="conAddress" placeholder="우편번호">
+                                                    <input type="button" class=" form-control-text"
+                                                           onclick="custom_execDaumPostcode()" value="우편번호 찾기">
+                                                </div>
+                                                <input type="text" class="registerAdressInput form-control"
+                                                       id="custom_address" name="conLocation" placeholder="주소">
+                                                <div class="customFlexColumn">
+                                                    <div class="customFlexRow">
+                                                        <input type="text" class="registerAdressInput form-control"
+                                                               id="custom_detailAddress" placeholder="상세주소">
+                                                        <input type="text" class="registerAdressInput form-control"
+                                                               id="custom_extraAddress" placeholder="참고항목">
+                                                    </div>
+
+                                                    <div id="map"
+                                                         style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="conRegisterInput">
+                                            <span>면적</span>
+                                            <input type="text" class="form-control" name="conSpace"
+                                                   placeholder="제곱미터 단위로 넣어 주세요.">
+                                        </div>
+
+                                        <div class="conRegisterInput">
+                                            <span>주요업무</span>
+                                            <textarea type="text" class="form-control" name="conContent"></textarea>
+                                        </div>
+
+                                        <div class="conRegisterInput">
+                                            <span>요구사항</span>
+                                            <textarea type="text" class="form-control" name="conRequest"></textarea>
+                                        </div>
+
+                                        <div class="conRegisterInput">
+                                            <span>기간</span>
+                                            <div class="conDays customFlexRowAround">
+                                                <input type="date" class="form-control" name="conStartDay">
+                                                <input type="date" class="form-control" name="conEndDay">
+                                            </div>
+                                        </div>
+                                        <div class="conRegisterInput">
+                                            <span>계약서</span>
+                                            <input type="file" class="documentInput form-control">
+                                        </div>
+                                        <div class="documentInputResult"></div>
+                                        <%--    <input type="file" class="conImg" multiple>시공이미지--%>
+
+                                        <div class="conRegisterInput">
+                                            <span>시공관련 이미지</span>
+                                            <div class="input-group">
+                                                <div class="uploadInputDiv">
+                                                    <input type="file" name="upload" class="uploadFile form-control"
+                                                           multiple>
+                                                </div>
+                                                <button type="button" class="uploadBtn btn btn-success">UPLOAD</button>
+                                            </div>
+                                        </div>
+                                        <div class="uploadResult">
+                                        </div>
+                                        <div class="conImgResult"></div>
+                                    </div>
+                                </form>
+
+                                <button class="registerBtn btn btn-primary"><span class="text-white">등록</span></button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <input type="text" name="conSpace" placeholder="제곱미터 단위로 넣어 주세요.">면적
-        <input type="text" name="conContent">주요업무
-        <input type="text" name="conRequest">요구사항
-        <input type="text" name="conStartDay">시작일
-        <input type="text" name="conEndDay">마감일
-        <input type="file" class="documentInput">계약서
-        <div class="documentInputResult"></div>
-        <%--    <input type="file" class="conImg" multiple>시공이미지--%>
-
-        <div class="uploadInputDiv">
-            <input type="file" name="upload" class="uploadFile" multiple>
-        </div>
-        <button type="button" class="uploadBtn">UPLOAD</button>
-        <div class="uploadResult">
-        </div>
-        <div class="conImgResult"></div>
     </div>
-</form>
 
-<button class="registerBtn">등록</button>
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp" %>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -190,7 +253,6 @@
 
         // document.querySelector(".actionForm").innerHTML += str
         // registerForm.innerHTML += str
-
 
 
         // const actionForm = document.querySelector(".actionForm")

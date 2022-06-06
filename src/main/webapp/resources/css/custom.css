@@ -312,8 +312,41 @@ input[type = password] {
 
 
 
+/*auction register-------------------------------*/
 
+.conDays input[type=date]{
+    display: inline;
+    width: 150px;
+    margin: 0.5em;
+}
 
+.contractForm{
+    background-color: white;
+    border-radius: 0.5em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.conRegisterInput{
+    width: calc(100% - 10%);
+    margin-top: 1em;
+}
+
+.documentInput{
+
+}
+
+.uploadFile{
+    width: 275px;
+}
+
+.registerBtn{
+ width: calc(100% - 60%);
+}
+
+.formTitle{
+    margin-top: 1.5em;
+}
+/*----------------------------------------------*/
 
 
 /* mypage------------------------------ */
