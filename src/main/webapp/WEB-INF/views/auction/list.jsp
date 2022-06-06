@@ -36,7 +36,7 @@
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <c:forEach items="${dtoList}" var="contract">
                         <div class="col mb-5 dtoList">
-                            <div class="card h-100"
+                            <div class="card customCard h-100"
                                  style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                                 <!-- Product image-->
                                 <c:if test="${contract.conImg !=null}">
