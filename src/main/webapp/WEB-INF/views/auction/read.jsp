@@ -14,10 +14,9 @@
 <body>
 <%@ include file="/WEB-INF/includes/navbar.jsp" %>
 <div id="layoutSidenav_content">
-<%--    <span>${dto}</span>--%>
+    <%--    <span>${dto}</span>--%>
     <div class="container-fluid px-4">
         <div class="py-5">
-
 
 
             <c:if test="${dto.conImg !=null}">
@@ -38,8 +37,15 @@
             <button type="button" class="comBid btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                 입찰하기
             </button>
-            <button class="modBtn">수정하기</button>
-            <button class="delBtn">삭제하기</button>
+
+            <sec:authentication property="principal" var="pinfo"/>
+            <sec:authorize access="isAuthenticated()"/>
+            <c:if test="${pinfo.username eq dto.requester}">
+                <div class="controlBtns">
+                    <button class="modBtn btn btn-secondary">수정하기</button>
+                    <button class="delBtn btn btn-danger">삭제하기</button>
+                </div>
+            </c:if>
             <%--    <button class="listBtn">돌아가기</button>--%>
             <form class="actionForm" action="/company/remove/${dto.conNo}" method="post"></form>
 
