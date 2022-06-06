@@ -150,10 +150,10 @@
         uploadToServer(formObj).then(resultArr => {
             //구조 분해 할당
             uploadResult.innerHTML += resultArr.map(({uuid, thumbnail, link, fileName, savePath, img}) =>
-                `<div data-uuid='\${uuid}' data-img='\${img}' data-filename='\${fileName}' data-savepath='\${savePath}'>
+                `<div class="customFlexColumn" style="margin: 1em;" data-uuid='\${uuid}' data-img='\${img}' data-filename='\${fileName}' data-savepath='\${savePath}'>
                 <img src='/view?fileName=\${thumbnail}'>
-                <button type="button" data-link='\${link}' class="delBtn">x</button>
-                \${fileName}</div>`).join(" ")
+                <button type="button" data-link='\${link}' class="delBtn btn btn-danger"><i class="fa-solid fa-x"></i></button>
+                </div>`).join(" ")
             fileInput.remove()
             document.querySelector(".uploadInputDiv").appendChild(cloneInput.cloneNode())
         })
