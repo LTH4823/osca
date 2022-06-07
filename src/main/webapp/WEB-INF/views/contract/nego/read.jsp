@@ -114,16 +114,16 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">사인란</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body customFlexColumn">
                 <div class="signArea">
                     <div class="companySignArea">
-                        <h4>시공사(인)</h4>
+                        <h4 class="text-center">사인(인)</h4>
                         <canvas class="companySign">
 
                         </canvas>
@@ -131,10 +131,15 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                 <button type="button" class="signClear btn btn-secondary">지우기</button>
-                <button type="button" class="signSave btn btn-primary">완료</button>
+                <button type="button" class="signSave finishNegotiation btn btn-primary">완료</button>
             </div>
+            <form action="" method="post">
+                <input type="hidden" class="worker" value="">
+                <input type="hidden" class="price" value="">
+                <input type="hidden" class="sign" value="">
+                <input type="hidden" class="sign" value="">
+            </form>
         </div>
     </div>
 </div>
