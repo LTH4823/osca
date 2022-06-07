@@ -166,7 +166,7 @@
     </div>
     <span>${nego}</span>
 
-    <h1>PDF.js Previous/Next example</h1>
+<%--    <h1>PDF.js Previous/Next example</h1>--%>
 
     <div>
         <button id="prev">Previous</button>
