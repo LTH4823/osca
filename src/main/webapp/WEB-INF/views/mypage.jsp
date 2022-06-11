@@ -108,15 +108,24 @@
                                 <c:if test="${company.comProfile !=null}">
                                     <img src='/view?fileName=${company.getProfile()}' alt="zxcv">
                                 </c:if>
-                                <div class="companyInfo">
+                                <div class="companyInfo w-50">
                                     <p><span>회사명: </span> ${company.comName}</p>
                                     <p><span>Email: </span>${company.comEmail}</p>
                                     <p><span>Phone: </span>${company.comPhone}</p>
                                     <p><span>분야: </span>${company.comCategory}</p>
+                                    <div class="w-100 customFlexRowAround">
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            회원정보 수정
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            회원 탈퇴
+                                        </button>
+                                    </div>
                                 </div>
                                 <div class="bg-light mt-3" style="width: 100%;">
                                     <p class="text-center m-2"><span>소개: </span>${company.comIntro}</p>
                                 </div>
+
                             </div>
 
 
