@@ -78,7 +78,7 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                    <h4>계약 현황 건수: </h4>
+                                                    <h4>계약 현황 건수: 3</h4>
                                                     <span>Contract Progress Count</span>
                                                 </div>
                                             </div>
