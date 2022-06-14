@@ -5,21 +5,19 @@
 
 <mapper namespace="org.zerock.oscatest.mapper.CommentMapper">
 
-    <select id="getTotal" resultType="int">
-
+    <select id="selectListOfNego" resultType="Comment" >
+        select * from tbl_comment where cno = #{negoNo} and rno > 0 order by rno asc
     </select>
 
-    <select id="" resultType="">
-
-    </select>
-
-    <insert id="">
-
+    <insert id="insert">
+        insert into tbl_comment (negoNo, commentText, writer)
+        values (#{negoNo}, #{commentText}, #{write})
     </insert>
+    <select id="selectTotalOfNego" resultType="int">
+        select count(cno) from tbl_comment where negoNo = #{negoNo} and cno > 0
+    </select>
 
-    <update id="">
-
+    <update id="updateAsRemoved">
+        update tbl_comment set commentText ='DELETED', updateDate = now() where negoNo = #{negoNo}
     </update>
-
-
 </mapper>
