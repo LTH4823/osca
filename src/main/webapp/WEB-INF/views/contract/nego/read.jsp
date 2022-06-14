@@ -105,7 +105,8 @@
                 </div>
                 <div class="card-footer">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" aria-label="Recipient's username"
+                               aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">입력</button>
                     </div>
                 </div>
@@ -120,31 +121,41 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">사인란</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body customFlexColumn">
-                <div class="signArea">
-                    <div class="companySignArea">
-                        <h4 class="text-center">사인(인)</h4>
-                        <canvas class="companySign">
+            <div>
+                <div class="modal-body customFlexColumn">
+                    <div class="signArea customFlexRowAround">
+                        <div class="workerSignArea">
+                            <h4 class="text-center">시공사 사인(인)</h4>
+                            <canvas class="workerSign">
 
-                        </canvas>
+                            </canvas>
+                        </div>
+                        <div class="requesterSignArea">
+                            <h4 class="text-center">의뢰자 사인(인)</h4>
+                            <canvas class="requesterSign">
+
+                            </canvas>
+                        </div>
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="signClear btn btn-secondary">지우기</button>
+                    <button type="button" class="signSave finishNegotiation btn btn-primary">완료</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="signClear btn btn-secondary">지우기</button>
-                <button type="button" class="signSave finishNegotiation btn btn-primary">완료</button>
-            </div>
+
             <form action="" method="post">
                 <input type="hidden" class="worker" value="">
+                <input type="hidden" class="requester" value="">
                 <input type="hidden" class="price" value="">
-                <input type="hidden" class="sign" value="">
-                <input type="hidden" class="sign" value="">
+                <input type="hidden" class="requesterSign" value="">
+                <input type="hidden" class="workerSign" value="">
             </form>
         </div>
     </div>
@@ -180,8 +191,11 @@
     }, false)
 
 
-    const companySign = document.querySelector(".companySign");
-    signSet(companySign)
+    const workerSign = document.querySelector(".workerSign");
+    signSet(workerSign)
+
+    const requesterSign = document.querySelector(".requesterSign");
+    signSet(requesterSign)
 
     const conNo = ${nego.conNo};
 

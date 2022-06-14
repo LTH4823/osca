@@ -366,9 +366,14 @@ input[type = password] {
     height: 600px;
 }
 
-.companySign {
+.workerSign {
     border: 0.1em solid black;
 }
+
+.requesterSign {
+    border: 0.1em solid black;
+}
+
 /*----------------------------------------------*/
 
 
