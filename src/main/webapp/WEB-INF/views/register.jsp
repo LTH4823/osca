@@ -274,7 +274,7 @@
         }
         uploadToServer(formObj).then(resultArr => {
             businessCheckResult.innerHTML += resultArr.map(result => `
-           <input type="hidden" name="businessCheck" value="\${result.thumbnail}">`).join(" ")
+          <input type="hidden" name="businessCheck" value="\${result.thumbnail}">`).join(" ")
         })
     },false)
 
