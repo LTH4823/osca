@@ -155,7 +155,6 @@
 <%--pdf.js--%>
 <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 <!-- html2canvas -->
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="../../../../../resources/js/sign.js"></script>
 <script src="../../../../../resources/js/pdfview.js"></script>
