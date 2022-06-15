@@ -116,7 +116,7 @@
 
 
 <%--${pageMaker}--%>
-<form class="actionForm" action="/company/auction/list" method="get">
+<form class="actionForm" action="/auction/list" method="get">
     <input type="hidden" name="page" value="${listDTO.page}">
     <input type="hidden" name="size" value="${listDTO.size}">
     <input type="hidden" name="type" value="${listDTO.type == null? "":listDTO.type}">
@@ -169,7 +169,7 @@
         const keyword = document.querySelector(".searchDiv input[name='keyword']").value
 
         console.log(type, keyword)
-        actionForm.setAttribute("action", "/company/auction/list") //뒤로 가기 문제 방지
+        actionForm.setAttribute("action", "/auction/list") //뒤로 가기 문제 방지
         actionForm.querySelector("input[name='page']").value = 1
         actionForm.querySelector("input[name='type']").value = type
         actionForm.querySelector("input[name='keyword']").value = keyword

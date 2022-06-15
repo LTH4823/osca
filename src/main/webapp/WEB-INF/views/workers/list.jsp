@@ -223,7 +223,7 @@
 
             const pageNum = target.getAttribute("href")
             actionForm.querySelector("input[name='page']").value = pageNum
-            actionForm.setAttribute("action", "/company/workers/list") //뒤로 가기 문제 방지
+            actionForm.setAttribute("action", "/workers/list") //뒤로 가기 문제 방지
             actionForm.submit()
         }, false)
         document.querySelector(".searchBtn").addEventListener("click", (e) => {
@@ -231,7 +231,7 @@
             const keyword = document.querySelector(".searchDiv input[name='keyword']").value
 
             console.log(type, keyword)
-            actionForm.setAttribute("action", "/company/workers/list") //뒤로 가기 문제 방지
+            actionForm.setAttribute("action", "/workers/list") //뒤로 가기 문제 방지
             actionForm.querySelector("input[name='page']").value = 1
             actionForm.querySelector("input[name='type']").value = type
             actionForm.querySelector("input[name='keyword']").value = keyword
