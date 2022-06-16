@@ -23,8 +23,8 @@
 <%--        <h1 class="mt-4 mb-4 text-black" style="margin: 0.5em 0em 0em 0.5em">MyPage</h1>--%>
         <div class="card m-4">
             <div class="row mt-3">
-                <div class="col-xl-6">
-                    <div class="mb-4">
+                <div class="col-xl-6 customFlexRowEnd">
+                    <div class="mb-5">
 <%--                        <div class="card-header">--%>
 <%--                            <svg class="svg-inline--fa fa-chart-area me-1" aria-hidden="true" focusable="false"--%>
 <%--                                 data-prefix="fas" data-icon="chart-area" role="img"--%>
@@ -146,8 +146,8 @@
             </div>
 
             <div class="row mt-4">
-                <div class="col-xl-6">
-                    <div class="card mb-4 m-4">
+                <div class="col-xl-6 customFlexRowEnd">
+                    <div class="comaddressImg card mb-4 m-4">
                         <div class="card-header">
                             <svg class="svg-inline--fa fa-chart-area me-1" aria-hidden="true" focusable="false"
                                  data-prefix="fas" data-icon="chart-area" role="img"

@@ -463,6 +463,14 @@ input[type = password] {
     flex-wrap: wrap;
 }
 
+.customFlexRowEnd {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .customFlexRowAround {
     display: flex;
     align-items: center;
@@ -493,4 +501,7 @@ input[type = password] {
     width: 200px;
 }
 
+.comaddressImg{
+    width: calc(100% - 30%);
+}
 
