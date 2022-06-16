@@ -39,7 +39,7 @@
                             <div class="card customCard h-100"
                                  style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                                 <c:if test="${company.comProfile !=null}">
-                                    <img src='/view?fileName=${company.getProfile()}' alt="...">
+                                    <img class="workerImg" src='/view?fileName=${company.getProfile()}' alt="...">
                                 </c:if>
                                 <div class="card-body">
                                     <div class="text-center">

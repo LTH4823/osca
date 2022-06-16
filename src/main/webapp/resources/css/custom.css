@@ -311,58 +311,59 @@ input[type = password] {
 /*----------------------------------------------*/
 
 
-
 /*auction register-------------------------------*/
 
-.conDays input[type=date]{
+.conDays input[type=date] {
     display: inline;
     width: 150px;
     margin: 0.5em;
 }
 
-.contractForm{
+.contractForm {
     background-color: white;
     border-radius: 0.5em;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.conRegisterInput{
+.conRegisterInput {
     width: calc(100% - 10%);
     margin-top: 1em;
 }
 
-.documentInput{
+.documentInput {
 
 }
 
-.uploadFile{
+.uploadFile {
     width: 275px;
 }
 
-.registerBtn{
- width: calc(100% - 60%);
+.registerBtn {
+    width: calc(100% - 60%);
 }
 
-.formTitle{
+.formTitle {
     margin-top: 1.5em;
 }
+
 /*----------------------------------------------*/
 
 /*negotiation------------------------------------*/
 
-#the-canvas{
+#the-canvas {
     max-width: 500px;
 }
 
-.pdfArea{
+.pdfArea {
     height: 500px;
 }
-.conImg{
+
+.conImg {
     width: calc(100% - 10%);
     height: 500px;
 }
 
-.chatArea{
+.chatArea {
     height: 600px;
 }
 
@@ -380,10 +381,6 @@ input[type = password] {
 /* mypage------------------------------ */
 
 /*----------------------------------------------*/
-
-
-
-
 
 
 .contractView {
@@ -491,7 +488,9 @@ input[type = password] {
 }
 
 
-
-
+.workerImg {
+    height: 200px;
+    width: 200px;
+}
 
 

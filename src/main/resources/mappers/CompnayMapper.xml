@@ -34,7 +34,7 @@
 
 <!--  회사 리스트  -->
     <select id="getList" resultType="Company">
-        select * from tbl_company where authority = 'COMPANY' order by regDate limit #{skip},#{size}
+        select * from tbl_company where authority = 'COMPANY' order by regDate desc limit #{skip},#{size}
     </select>
 
     <!--  모든 시공사 수 (페이징 및 검색 활용) -->
