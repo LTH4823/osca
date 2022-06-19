@@ -6,10 +6,9 @@
     <title>마이페이지</title>
 
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
-    <link href="../../resources/css/style.css" rel="stylesheet"/>
+    <link href="../../../resources/css/style.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <link href="../../resources/css/custom.css" rel="stylesheet"/>
-    <link href="../../resources/css/sb-admin-2.min.css" rel="stylesheet"/>
+    <link href="../../../resources/css/custom.css" rel="stylesheet"/>
 
 
 </head>
@@ -78,7 +77,7 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                    <h4>계약 현황 건수: 3</h4>
+                                                    <h4>계약 현황 건수: </h4>
                                                     <span>Contract Progress Count</span>
                                                 </div>
                                             </div>

@@ -21,7 +21,7 @@
     <link href="/resources/css/custom.css" rel="stylesheet"/>
 </head>
 
-<body class="container-fluid w-100 h-100">
+<body class="container-fluid w-100 h-100" style="padding: 0px;">
 
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary bg-gradient shadow-sm">
@@ -41,6 +41,10 @@
             <sec:authorize access="isAuthenticated()">
                 <li class="nav-item"><a class="nav-link"><sec:authentication
                         property="principal.comId"></sec:authentication></a></li>
+            </sec:authorize>
+
+            <sec:authorize access="isAuthenticated()">
+                <li class="nav-item"><a class="nav-link" href="/mypage/">Mypage</a></li>
             </sec:authorize>
 
             <sec:authorize access="isAnonymous()">
