@@ -92,10 +92,10 @@
         </div>
 
 
-        <h1>${bidders}</h1>
-<%--        <h7>${dtoList}</h7>--%>
+<%--        <h1>${bidders}</h1>--%>
+<%--&lt;%&ndash;        <h7>${dtoList}</h7>&ndash;%&gt;--%>
 
-        <h7>${pageMaker}</h7>
+<%--        <h7>${pageMaker}</h7>--%>
 
 
     </div>
