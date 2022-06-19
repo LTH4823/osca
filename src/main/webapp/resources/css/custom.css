@@ -505,3 +505,65 @@ input[type = password] {
     width: calc(100% - 30%);
 }
 
+/*---------------------------------------------------------------*/
+
+.subCard {
+    height: 100%;
+    padding: 1em;
+}
+
+.subCard-auction {
+    padding: 1em;
+    background-image: url(../assets/img/auction10.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 0.7em;
+}
+
+.subCard-workers {
+    padding: 1em;
+    background-image: url(../assets/img/workers.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 0.7em;
+}
+
+.subCard-question {
+    background-image: url(../assets/img/question04.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 0.7em;
+}
+
+.subCardWord{
+    margin: 2em;
+
+}
+
+.subArea{
+ padding: 1em;
+    transition: all 1s;
+}
+
+.subArea:hover{
+    transform: scale(0.8);
+}
+
+.subTitle{
+    background-image: linear-gradient(to bottom, rgba(210, 206, 206, 0.5) 0%, rgba(156, 152, 145, 0.5) 100%);
+    border-radius: 0.5em;
+    width: 10em;
+    height: 2em;
+    position: relative;
+}
+
+.mainTile{
+    border-radius: 1.5em;
+    background-image: linear-gradient(to bottom, rgba(210, 206, 206, 0.5) 0%, rgba(156, 152, 145, 0.5) 100%);
+}
