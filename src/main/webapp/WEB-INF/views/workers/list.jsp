@@ -115,8 +115,8 @@
                                 </div>
                                 <div>
                                     <p><span>주소: </span><span class="comAddress"></span></p>
-                                    <div class="map customFlexRow"
-                                         style=" margin: 0em 0em 0em 0em; height: 180px;"></div>
+                                    <div id="map" class="customFlexColumn"></div>
+                                    <button onclick="mapCentering()">relayout 호출하기</button>
                                 </div>
                             </div>
                         </div>
@@ -125,9 +125,11 @@
                         <button type="button" class="btn bg-white"><a class="phoneIcon" href=""><i
                                 class="fa-solid fa-phone"></i></a><span
                                 class="comPhone"></span></button>
+
                         <button type="button" class="btn bg-white"><a class="emailIcon" href=""><i
                                 class="fa-solid fa-envelope"></i></a><span
                                 class="comEmail"></span></button>
+
                     </div>
                 </div>
             </div>
@@ -162,9 +164,9 @@
 
     <%@ include file="/WEB-INF/includes/footer.jsp" %>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <%--카카오 맵 api--%>
-    <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c"></script>
+    <!-- services 라이브러리 불러오기 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1e60987ffadf27e61dcc9c42a7a4a15c&libraries=services,clusterer,drawing"></script>
+
     <script type="text/javascript" src="../../resources/js/kakaomap.js"></script>
     <script>
         const dtoList = document.querySelector(".dtoList")
@@ -193,14 +195,16 @@
                     document.querySelector(".comAddress").innerText = result.comAddress
                     document.querySelector(".comPhone").innerText = result.comPhone
                     document.querySelector(".comEmail").innerText = result.comEmail
-                    document.querySelector("phoneIcon").href = "tel:" + result.comPhone
-                    document.querySelector("emailIcon").href = "mailto:" + result.comEmail
-
+                    document.querySelector(".phoneIcon").href = "tel:" + result.comPhone
+                    document.querySelector(".emailIcon").href = "mailto:" + result.comEmail
+                    const comDetailAddress =result.comAddress.split(",",2)
+                    console.log(comDetailAddress)
+                    console.log(comDetailAddress[1])
                 }).catch(err => console.log(err))
             }
-
-
         }, false)
+
+
 
         async function infoToServer(comId) {
             try {
