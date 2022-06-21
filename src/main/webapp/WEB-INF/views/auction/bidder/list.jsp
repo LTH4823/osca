@@ -137,6 +137,7 @@
                         <p class="bidderName"></p>
                         <form class="selectBidder" action="/contract/nego/register" method="post">
                             <input class="conNo" type="hidden" name="conNo" value="${contract.conNo}">
+                            <input class="conName" type="hidden" name="conName" value="${contract.conName}">
                             <input class="worker" type="hidden" name="worker" value="">
                             <input class="requester" type="hidden" name="requester" value="${contract.requester}">
                             <div class="input-group" style="margin:1em 1em 1em 0;">

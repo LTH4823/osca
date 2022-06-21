@@ -13,8 +13,8 @@
     </select>
 
     <insert id="insert">
-        insert into tbl_negotiation(conNo, worker, requester, price)
-        values (#{conNo}, #{worker}, #{requester}, #{price})
+        insert into tbl_negotiation(conNo,conName, worker, requester, price)
+        values (#{conNo}, #{conName}, #{worker}, #{requester}, #{price})
     </insert>
 
     <select id="getTotal" resultType="int">

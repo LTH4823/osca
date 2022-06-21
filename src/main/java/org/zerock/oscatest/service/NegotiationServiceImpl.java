@@ -31,6 +31,7 @@ public class NegotiationServiceImpl implements NegotiationService {
 
         negotiationMapper.insert(Negotiation.builder()
                 .conNo(negotiationDTO.getConNo())
+                .conName(negotiationDTO.getConName())
                 .worker(negotiationDTO.getWorker())
                 .requester(negotiationDTO.getRequester())
                 .price(negotiationDTO.getPrice())

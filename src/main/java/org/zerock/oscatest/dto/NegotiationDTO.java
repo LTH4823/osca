@@ -9,6 +9,7 @@ public class NegotiationDTO {
 
     private Integer negoNo;
     private Integer conNo;
+    private String conName;
     private String worker;
     private String price;
     private String requester;
