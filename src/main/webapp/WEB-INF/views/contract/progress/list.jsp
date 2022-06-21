@@ -14,18 +14,14 @@
 <div id="layoutSidenav_content">
     <div class="container-fluid px-4">
 
-        <h1 class="mt-4">계약 현황</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-            <li class="breadcrumb-item active">Tables</li>
-        </ol>
+        <h1 class="mt-4">현황 목록</h1>
         <div class="card mb-4">
-            <div class="card-body">
-                DataTables is a third party plugin that is used to generate the demo table below. For more information
-                about DataTables, please visit the
-                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                .
-            </div>
+<%--            <div class="card-body">--%>
+<%--                DataTables is a third party plugin that is used to generate the demo table below. For more information--%>
+<%--                about DataTables, please visit the--%>
+<%--                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>--%>
+<%--                .--%>
+<%--            </div>--%>
         </div>
 
 
@@ -37,7 +33,7 @@
                     <path fill="currentColor"
                           d="M448 32C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H448zM224 256V160H64V256H224zM64 320V416H224V320H64zM288 416H448V320H288V416zM448 256V160H288V256H448z"></path>
                 </svg><!-- <i class="fas fa-table me-1"></i> Font Awesome fontawesome.com -->
-                DataTable Example
+                계약 현황 목록
             </div>
             <div class="card-body">
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">

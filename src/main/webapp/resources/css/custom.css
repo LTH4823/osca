@@ -539,14 +539,14 @@ input[type = password] {
     border-radius: 0.7em;
 }
 
-.subCard-question {
-    background-image: url(../assets/img/question04.jpeg);
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center center;
-    background-size: cover;
-    border-radius: 0.7em;
-}
+/*.subCard-question {*/
+/*    background-image: url(../assets/img/question04.jpeg);*/
+/*    background-repeat: no-repeat;*/
+/*    background-attachment: scroll;*/
+/*    background-position: center center;*/
+/*    background-size: cover;*/
+/*    border-radius: 0.7em;*/
+/*}*/
 
 .subCardWord{
     margin: 2em;
@@ -583,3 +583,4 @@ input[type = password] {
 .auctionImg{
     height: 120px;
 }
+

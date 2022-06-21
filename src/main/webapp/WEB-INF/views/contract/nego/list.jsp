@@ -44,23 +44,13 @@
                         <table id="datatablesSimple" class="dataTable-table">
                             <thead>
                             <tr>
-                                <th class="text-center"  style="width: 3%;"><a href="#"
-                                                                           class="dataTable-sorter text-center">No.</a></th>
-                                <th class="text-center" style="width: 30%;"><a href="#"
-                                                                            class="dataTable-sorter">계약명</a></th>
-                                <th class="text-center" style="width: 20%;"><a href="#" class="dataTable-sorter">시공사명</a>
-                                </th>
-                                <th class="text-center" style="width: 20%;"><a href="#"
-                                                                            class="dataTable-sorter">의뢰자명</a></th>
-                                <th class="text-center" style="width: 9%;"><a href="#"
-                                                                            class="dataTable-sorter text-center">계약정보</a>
-                                </th>
-                                <th class="text-center" style="width: 9%;"><a href="#"
-                                                                            class="dataTable-sorter text-center">현상진행</a>
-                                </th>
-                                <th class="text-center" style="width: 9%;"><a href="#"
-                                                                            class="dataTable-sorter text-center">협상파기</a>
-                                </th>
+                                <th class="text-center" style="width: 3%;">No.</th>
+                                <th class="text-center" style="width: 30%;">계약명</th>
+                                <th class="text-center" style="width: 20%;">시공사명</th>
+                                <th class="text-center" style="width: 20%;">의뢰자명</th>
+                                <th class="text-center" style="width: 9%;">계약정보</th>
+                                <th class="text-center" style="width: 9%;">현상진행</th>
+                                <th class="text-center" style="width: 9%;">협상파기</th>
                                 <%--                                <th data-sortable="" style="width: 12.5%;"><a href="#" class="dataTable-sorter text-center">파기</a>--%>
                                 <%--                                </th>--%>
                             </tr>
@@ -69,26 +59,21 @@
 
                             <c:forEach items="${dtoList}" var="nego" varStatus="status">
                                 <tr>
-                                    <h4>${nego}</h4>
-                                    <td data-num="${status.count}" class="con-link text-center">${status.count}</td>
-                                    <td data-conNo="${nego.conNo}" class="con-link text-center">${nego.conName}</td>
-                                    <td data-conName="${nego.worker}" class="con-link text-center">${nego.worker}</td>
+                                    <td data-num="${status.count}" class="text-center">${status.count}</td>
+                                    <td data-conNo="${nego.conNo}" class="text-center">${nego.conName}</td>
+                                    <td data-conName="${nego.worker}" class="text-center">${nego.worker}</td>
                                     <td data-conLocation="${nego.requester}"
                                         class="con-link text-center">${nego.requester}</td>
                                     <td class="con-link text-center">
-                                        <button class="detailBtn btn btn-info"><a class="text-white" style="text-decoration: none">보기</a>
-                                        </button>
+                                        <button class="detailBtn btn btn-info"><a class="text-white" style="text-decoration: none">보기</a></button>
                                     </td>
                                         <%--                                    href="/contract/nego/read/${nego.negoNo}" style="text-decoration: none">보기</a></button></td>--%>
-                                    <td class="con-link text-center">
-                                        <button class="detailBtn btn btn-primary"><a class="text-white"
-                                                                                     href="/contract/nego/read/${nego.negoNo}"
-                                                                                     style="text-decoration: none">진행</a>
+                                    <td class="text-center">
+                                        <button class="detailBtn btn btn-primary"><a class="text-white" href="/contract/nego/read/${nego.negoNo}" style="text-decoration: none">진행</a>
                                         </button>
                                     </td>
-                                    <td class="con-link text-center">
-                                        <button class="detailBtn btn btn-danger"><a class="text-white" style="text-decoration: none">파기</a>
-                                        </button>
+                                    <td class="text-center">
+                                        <button class="detailBtn btn btn-danger"><a class="text-white" style="text-decoration: none">파기</a></button>
                                     </td>
                                 </tr>
                             </c:forEach>
