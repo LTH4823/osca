@@ -263,13 +263,13 @@
                 // str = `<p>\${info.comName}</p> <p>\${info.comPhone}</p> <p>\${info.comEmail}</p>`
                 // document.querySelector(".infoBody").innerHTML = str
                 // document.querySelector(".comProfile").src = '/view?fileName=' + result.comProfile
-                document.querySelector(".comName").innerText = result.comName
-                document.querySelector(".comIntro").innerText = result.comIntro
-                document.querySelector(".comAddress").innerText = result.comAddress
-                document.querySelector(".comPhone").innerText = result.comPhone
-                document.querySelector(".comEmail").innerText = result.comEmail
-                document.querySelector("phoneIcon").href = "tel:" + result.comPhone
-                document.querySelector("emailIcon").href = "mailto:" + result.comEmail
+                document.querySelector(".comName").innerText = info.comName
+                document.querySelector(".comIntro").innerText = info.comIntro
+                document.querySelector(".comAddress").innerText = info.comAddress
+                document.querySelector(".comPhone").innerText = info.comPhone
+                document.querySelector(".comEmail").innerText = info.comEmail
+                document.querySelector(".phoneIcon").href = "tel:" + info.comPhone
+                document.querySelector(".emailIcon").href = "mailto:" + info.comEmail
             }
         )
     }, false)
