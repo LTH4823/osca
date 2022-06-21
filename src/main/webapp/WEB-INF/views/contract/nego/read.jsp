@@ -23,25 +23,12 @@
                 <div class="contractInfo card-body customFlexColumn">
 
                     <div class="pdfArea">
-                        <canvas id="the-canvas" class="h-100"></canvas>
-                        <div>
-                            <p>Page: <span id="page_num"></span> / <span id="page_count"></span></p>
-                            <button id="prev" class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleDark"
-                                    data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button id="next" class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExampleDark"
-                                    data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                            <%--                          --%>
-                            <%--                            <button id="prev"><i class="fa-solid fa-angle-left"></i></button>--%>
-                            <%--                            <button id="next"><i class="fa-solid fa-angle-right"></i></button>--%>
+                        <canvas id="the-canvas" class=""></canvas>
 
+                        <div class="card-body customFlexRowAround w-100">
+                            <button id="prev" class="btn btn-info"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+                            <p style="margin: 0px;">Page: <span id="page_num"></span> / <span id="page_count"></span></p>
+                            <button id="next" class="btn btn-info"><span class="text-black carousel-control-next-icon" aria-hidden="true"></span></button>
                         </div>
                     </div>
 
