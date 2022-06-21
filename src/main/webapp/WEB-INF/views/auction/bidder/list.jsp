@@ -14,20 +14,19 @@
 <div id="layoutSidenav_content">
     <div class="container-fluid px-4">
 
-        <h1 class="mt-4">입찰자</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-            <li class="breadcrumb-item active">Tables</li>
-        </ol>
+        <h1 class="mt-4">입찰자 목록</h1>
+<%--        <ol class="breadcrumb mb-4">--%>
+<%--            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>--%>
+<%--            <li class="breadcrumb-item active">Tables</li>--%>
+<%--        </ol>--%>
         <div class="card mb-4">
-            <div class="card-body">
-                DataTables is a third party plugin that is used to generate the demo table below. For more information
-                about DataTables, please visit the
-                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                .
-            </div>
+            <%--            <div class="card-body">--%>
+            <%--            DataTables is a third party plugin that is used to generate the demo table below. For more information--%>
+            <%--            about DataTables, please visit the--%>
+            <%--            <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>--%>
+            <%--            .--%>
+            <%--        </div>--%>
         </div>
-
 
         <div class="card mb-4">
             <div class="card-header">
@@ -37,7 +36,7 @@
                     <path fill="currentColor"
                           d="M448 32C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H448zM224 256V160H64V256H224zM64 320V416H224V320H64zM288 416H448V320H288V416zM448 256V160H288V256H448z"></path>
                 </svg><!-- <i class="fas fa-table me-1"></i> Font Awesome fontawesome.com -->
-                DataTable Example
+                 입찰자 목록
             </div>
             <div class="card-body">
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
@@ -52,7 +51,9 @@
                                     <div class="card-body customFlexRow">
 
                                             <%--                                    <img src="../img/asset/logo/logo.png" style="max-width: 70px; max-height: 70px;" alt="">--%>
-
+<%--                                                <c:if test="${company.comProfile !=null}">--%>
+<%--                                                    <img src='/view?fileName=${company.getProfile()}' alt="...">--%>
+<%--                                                </c:if>--%>
                                         <div>
                                             <h4 data-id="${company.comId}" class="card-title">${company.comId}</h4>
                                             <h4 data-name="${company.comName}" class="card-title">${company.comName}</h4>
@@ -96,9 +97,9 @@
         </div>
 
 
-        <h1>${bidders}</h1>
-        <%--        <h7>${dtoList}</h7>--%>
-        <h7>${pageMaker}</h7>
+<%--        <h1>${bidders}</h1>--%>
+<%--        &lt;%&ndash;        <h7>${dtoList}</h7>&ndash;%&gt;--%>
+<%--        <h7>${pageMaker}</h7>--%>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

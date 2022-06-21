@@ -23,20 +23,20 @@
 
                 <div class="customFlexRowAround">
 
-                    <div class="card col-md-3 m-4">
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h5>시공 이미지</h5>
-                        </div>
-                        <div class="card-body customFlexColumn">
-                            <c:if test="${dto.conImg !=null}">
-                                <img src='${dto.conImg}' alt="zxcv"/>
-                            </c:if>
-                        </div>
+<%--                    <div class="card col-md-3 m-4">--%>
+<%--                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">--%>
+<%--                            <h5>시공 이미지</h5>--%>
+<%--                        </div>--%>
+<%--                        <div class="card-body customFlexColumn">--%>
+<%--                            <c:if test="${dto.conImg !=null}">--%>
+<%--                                <img src='${dto.conImg}' alt="zxcv"/>--%>
+<%--                            </c:if>--%>
+<%--                        </div>--%>
 
-                        <div class="card-footer customFlexRowAround">
-                            <button class="moreBtn btn btn-secondary">시공 이미지 더보기</button>
-                        </div>
-                    </div>
+<%--                        <div class="card-footer customFlexRowAround">--%>
+<%--                            <button class="moreBtn btn btn-secondary">시공 이미지 더보기</button>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
                     <div class="card col-md-5 m-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
