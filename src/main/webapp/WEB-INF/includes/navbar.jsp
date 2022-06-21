@@ -61,15 +61,15 @@
                     <%--                    </a>--%>
                     <a class="nav-link border-bottom" href="/contract/add/list">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        <span class="">생성 계약</span>
+                        <span class="">생성 목록</span>
                     </a>
                     <a class="nav-link border-bottom" href="/contract/nego/list">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        <span class="">계약 협상</span>
+                        <span class="">협상 목록</span>
                     </a>
                     <a class="nav-link border-bottom" href="/contract/progress/list">
                         <div class="sb-nav-link-icon"><i class="fas "></i></div>
-                        <span class="">계약 현황</span>
+                        <span class="">현황 목록</span>
                     </a>
                 </div>
             </div>

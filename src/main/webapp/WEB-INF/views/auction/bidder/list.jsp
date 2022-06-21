@@ -60,7 +60,8 @@
                                             <p class="card-text">${company.comIntro}</p>
                                             <p class="card-text">${company.comPhone}</p>
                                             <p class="card-text">${company.comEmail}</p>
-                                            <p data-conNo="${company.conNo}" class="card-text">${company.conNo}</p>
+
+                                        <%--                                            <p data-conNo="${company.conNo}" class="card-text">${company.conNo}</p>--%>
                                         </div>
 
                                     </div>

@@ -40,7 +40,7 @@
                                  style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                                 <!-- Product image-->
                                 <c:if test="${contract.conImg !=null}">
-                                    <img src='${contract.conImg}' style="max-width: 150px; max-height: 150px;"
+                                    <img class="auctionImg" src='${contract.conImg}' style="max-width: 150px; max-height: 150px;"
                                          alt="..."/>
                                 </c:if>
                                 <!-- Product details-->

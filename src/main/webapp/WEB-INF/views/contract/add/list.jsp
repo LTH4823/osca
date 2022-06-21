@@ -14,7 +14,7 @@
 <div id="layoutSidenav_content">
     <div class="container-fluid px-4">
 
-        <h1 class="mt-4">생성 계약</h1>
+        <h1 class="mt-4">생성 목록</h1>
 <%--        <ol class="breadcrumb mb-4">--%>
 <%--            <li class="breadcrumb-item">계약</li>--%>
 <%--            <li class="breadcrumb-item active">생성</li>--%>
@@ -37,7 +37,7 @@
                     <path fill="currentColor"
                           d="M448 32C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H448zM224 256V160H64V256H224zM64 320V416H224V320H64zM288 416H448V320H288V416zM448 256V160H288V256H448z"></path>
                 </svg><!-- <i class="fas fa-table me-1"></i> Font Awesome fontawesome.com -->
-                생성 계약목록
+                생성한 계약목록
             </div>
             <div class="card-body">
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">

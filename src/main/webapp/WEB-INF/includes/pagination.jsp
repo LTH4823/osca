@@ -7,21 +7,26 @@
     <div class="col-sm-12 col-md-7">
         <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
             <ul class="pagination">
+
+                <c:if test="${pageMaker.end>10}">
                 <li class="page-item" id="dataTable_previous">
                     <a class="page-link" href="${pageMaker.start-1}" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
+                </c:if>
 
                 <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="num">
                     <li class="page-item"><a class="page-link" href="${num}">${num}</a></li>
                 </c:forEach>
 
+                <c:if test="${pageMaker.start>10}">
                 <li class="page-item" id="dataTable_next">
                     <a class="page-link" href="${pageMaker.end+1}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
+                </c:if>
             </ul>
         </div>
     </div>
