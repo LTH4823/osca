@@ -23,7 +23,7 @@
                 <div class="contractInfo card-body customFlexColumn">
 
                     <div class="pdfArea">
-                        <canvas id="the-canvas"></canvas>
+                        <canvas id="the-canvas" class="h-100"></canvas>
                         <div>
                             <p>Page: <span id="page_num"></span> / <span id="page_count"></span></p>
                             <button id="prev" class="carousel-control-prev" type="button"
