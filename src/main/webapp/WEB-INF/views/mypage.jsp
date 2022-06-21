@@ -25,7 +25,15 @@
 
                 <div class="cover-bg p-3 p-lg-4 text-white">
                     <div class="row">
-                        <div class="col-lg-12 mb-4 order-0">
+                        <div class="col-lg-4">
+<%--                            <div class="card">--%>
+<%--                                <h5 class="card-header text-black">권한</h5>--%>
+<%--                                <div class="card-body">--%>
+<%--                                    <img class="authImage" src="../../resources/assets/img/auth/company.png">--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+                        </div>
+                        <div class="col-lg-8 mb-4 order-0">
                             <div class="card">
                                 <h5 class="card-header text-black">
                                     회사정보
@@ -85,9 +93,9 @@
                                 <div class="row row-bordered g-0">
                                     <div class="card col-md-8">
                                         <h6 class="card-header text-black">회사주소</h6>
-                                        <p class="text-black m-2"><span>${company.comAddress} </span></p>
-                                        <div class="w-100 customFlexColumn">
-                                            <div id="map" class="customFlexColumn"></div>
+                                        <p class="text-black m-3"><span>${company.comAddress} </span></p>
+                                        <div class="customFlexColumn">
+                                            <div id="map" class="w-75 m-md-3"></div>
                                         </div>
                                     </div>
                                     <div class="card col-md-4">
