@@ -23,26 +23,33 @@
 
                 <div class="customFlexRowAround">
 
-<%--                    <div class="card col-md-3 m-4">--%>
-<%--                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">--%>
-<%--                            <h5>시공 이미지</h5>--%>
-<%--                        </div>--%>
-<%--                        <div class="card-body customFlexColumn">--%>
-<%--                            <c:if test="${dto.conImg !=null}">--%>
-<%--                                <img src='${dto.conImg}' alt="zxcv"/>--%>
-<%--                            </c:if>--%>
-<%--                        </div>--%>
+                    <%--                    <div class="card col-md-3 m-4">--%>
+                    <%--                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">--%>
+                    <%--                            <h5>시공 이미지</h5>--%>
+                    <%--                        </div>--%>
+                    <%--                        <div class="card-body customFlexColumn">--%>
+                    <%--                            <c:if test="${dto.conImg !=null}">--%>
+                    <%--                                <img src='${dto.conImg}' alt="zxcv"/>--%>
+                    <%--                            </c:if>--%>
+                    <%--                        </div>--%>
 
-<%--                        <div class="card-footer customFlexRowAround">--%>
-<%--                            <button class="moreBtn btn btn-secondary">시공 이미지 더보기</button>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+                    <%--                        <div class="card-footer customFlexRowAround">--%>
+                    <%--                            <button class="moreBtn btn btn-secondary">시공 이미지 더보기</button>--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
 
                     <div class="card col-md-5 m-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h5>계약정보</h5>
                         </div>
+                        <div class="customFlexRowAround">
                         <div class="card-body customFlexColumn">
+                            <c:if test="${dto.conImg !=null}">
+                                <img src='${dto.conImg}' alt="zxcv"/>
+                            </c:if>
+                        </div>
+
+                        <div class="card-body customFlexColumnStart">
                             <h4>계약명: ${dto.conName}</h4>
                             <p>의뢰주: ${dto.requester}</p>
                             <p>분야: ${dto.conCategory}</p>
@@ -52,28 +59,29 @@
                             <p>위치: ${dto.conName}</p>
                             <div class="map"></div>
                         </div>
+                        </div>
                         <div class="card-footer w-100 customFlexRowAround">
-<%--                            <sec:authorize access="isAuthenticated()"/>--%>
-<%--                            <c:if test="${pinfo.username ne dto.requester}">--%>
-                                <div class="bidBtns w-100 customFlexRowAround">
-                                    <button type="button" class="comInfo btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">
-                                        의뢰자 정보
-                                    </button>
-                                    <button type="button" class="comBid btn btn-success" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal2">
-                                        입찰하기
-                                    </button>
-                                </div>
-<%--                            </c:if>--%>
+                            <%--                            <sec:authorize access="isAuthenticated()"/>--%>
+                            <%--                            <c:if test="${pinfo.username ne dto.requester}">--%>
+                            <div class="bidBtns w-100 customFlexRowAround">
+                                <button type="button" class="comInfo btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
+                                    의뢰자 정보
+                                </button>
+                                <button type="button" class="comBid btn btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal2">
+                                    입찰하기
+                                </button>
+                            </div>
+                            <%--                            </c:if>--%>
 
-<%--                            <sec:authorize access="isAuthenticated()"/>--%>
-<%--                            <c:if test="${pinfo.username eq dto.requester}">--%>
-<%--                                <div class="controlBtns w-100 customFlexRowAround">--%>
-<%--                                    <button class="modBtn btn btn-secondary">수정하기</button>--%>
-<%--                                    <button class="delBtn btn btn-danger">삭제하기</button>--%>
-<%--                                </div>--%>
-<%--                            </c:if>--%>
+                            <%--                            <sec:authorize access="isAuthenticated()"/>--%>
+                            <%--                            <c:if test="${pinfo.username eq dto.requester}">--%>
+                            <%--                                <div class="controlBtns w-100 customFlexRowAround">--%>
+                            <%--                                    <button class="modBtn btn btn-secondary">수정하기</button>--%>
+                            <%--                                    <button class="delBtn btn btn-danger">삭제하기</button>--%>
+                            <%--                                </div>--%>
+                            <%--                            </c:if>--%>
                         </div>
                     </div>
                 </div>
@@ -195,7 +203,7 @@
     const delBtn = document.querySelector(".delBtn")
     // const listBtn = document.querySelector(".listBtn")
 
-    if (delBtn){
+    if (delBtn) {
 
         delBtn.addEventListener("click", (e) => {
             actionForm.setAttribute("action", `/company/auction/remove/${dto.conNo}`)
@@ -216,7 +224,7 @@
     <%--    self.location = `/auction/list${listDTO.link}`--%>
     <%--}, false)--%>
 
-    document.addEventListener('DOMContentLoaded',(e)=>{
+    document.addEventListener('DOMContentLoaded', (e) => {
         axios.get("/auction/files/${conNo}").then(
             res => {
                 const arr = res.data
@@ -227,7 +235,7 @@
                 document.querySelector(".pictures").innerHTML = str
             }
         )
-    },false)
+    }, false)
 
     <%--document.querySelector(".moreBtn").addEventListener("click", (e) => {--%>
 
