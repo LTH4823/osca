@@ -585,8 +585,6 @@ input[type = password] {
 }
 
 .authImage{
-    border: 1px solid black;
-    border-radius: 100%;
     max-width: 300px;
-    max-height: 300px;
+    max-height: 175.91px;
 }

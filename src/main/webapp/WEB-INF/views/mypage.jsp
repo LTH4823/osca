@@ -26,12 +26,21 @@
                 <div class="cover-bg p-3 p-lg-4 text-white">
                     <div class="row">
                         <div class="col-lg-4">
-<%--                            <div class="card">--%>
-<%--                                <h5 class="card-header text-black">권한</h5>--%>
-<%--                                <div class="card-body">--%>
-<%--                                    <img class="authImage" src="../../resources/assets/img/auth/company.png">--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
+                            <div class="card">
+                                <h5 class="card-header text-black">권한</h5>
+                                <div class="card-body text-center">
+                                    <c:choose>
+                                        <c:when test="${company.authority == 'COMPANY'}">
+                                            <img class="authImage" src="../../resources/assets/img/auth/company.png">
+                                            <h3 class="text-info">시공사</h3>
+                                        </c:when>
+                                        <c:when test="${company.authority == 'MEMBER'}">
+                                            <img class="authImage" src="../../resources/assets/img/auth/member.png">
+                                            <h3 class="text-info">의뢰자</h3>
+                                        </c:when>
+                                    </c:choose>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-8 mb-4 order-0">
                             <div class="card">
@@ -48,8 +57,10 @@
                                         <div class="card-body customFlexRow">
 
                                             <c:if test="${company.comProfile !=null}">
+
                                                 <img class="card" src='/view?fileName=${company.getProfile()}'
                                                      alt="...">
+
                                             </c:if>
 
                                         </div>
