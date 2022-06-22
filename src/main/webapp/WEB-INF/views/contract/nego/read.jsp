@@ -22,7 +22,7 @@
 
                 <div class="contractInfo card-body customFlexColumn">
 
-                    <div class="pdfArea">
+                    <div class="pdfArea h-100">
                         <canvas id="the-canvas" class=""></canvas>
 
                         <div class="card-body customFlexRowAround w-100">
