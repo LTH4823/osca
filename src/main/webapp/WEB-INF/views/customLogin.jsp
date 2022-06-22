@@ -51,7 +51,7 @@
                                 <div class="col-md-8 col-lg-7 col-xl-6">
                                     <%--                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"--%>
                                     <%--                         class="loginImg img-fluid" alt="Phone image">--%>
-                                    <img src="../../resources/img/323.svg"
+                                    <img src="../../resources/assets/img/login.svg"
                                          class="loginImg img-fluid" alt="Phone image">
                                 </div>
                 <div class="loginForm card col-md-7 col-lg-5 col-xl-5 offset-xl-1">
